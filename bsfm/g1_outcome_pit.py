@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from datetime import date
 from pathlib import Path
 
@@ -20,30 +21,60 @@ def _date(value):
         return None
 
 
+def _load_publication_ledger(root: Path):
+    path = root / 'data/pit/g1-outcome-publication-ledger.json'
+    try:
+        payload = json.loads(path.read_text(encoding='utf-8'))
+    except (OSError, json.JSONDecodeError):
+        return {}, ['missing_or_invalid_publication_ledger']
+    rows = payload.get('events') if isinstance(payload.get('events'), list) else []
+    by_id = {}
+    duplicates = []
+    for row in rows:
+        row = row if isinstance(row, dict) else {}
+        event_id = str(row.get('event_id') or '').strip()
+        if not event_id:
+            continue
+        if event_id in by_id:
+            duplicates.append(event_id)
+        by_id[event_id] = row
+    errors = [{'error': 'duplicate_ledger_event_id', 'event_id': event_id} for event_id in sorted(set(duplicates))]
+    return by_id, errors
+
+
 def audit_g1_outcome_pit(root, start_year=2010, end_year=2025):
     """Audit whether included historical G1 outcomes are usable at simulated cutoffs.
 
-    This does not re-adjudicate target membership. It asks only whether each
-    already-included event has an auditable public-availability date and basis.
-    Event date alone is never sufficient.
+    Target membership stays in G1 candidate files; publication timing lives in a
+    separate PIT ledger so adding temporal evidence cannot silently mutate the
+    historical census. Event date alone is never sufficient.
     """
     root = Path(root)
     rows = load_integrated_candidates(root)['rows']
+    ledger, ledger_errors = _load_publication_ledger(root)
     included = [
         row for row in rows
         if str(row.get('decision') or '').lower() == 'include'
         and start_year <= int(str(row.get('event_date') or '0000')[:4] or 0) <= end_year
     ]
+    included_ids = {str(row.get('event_id') or '').strip() for row in included}
+    extra_ledger_ids = sorted(set(ledger) - included_ids)
+    if extra_ledger_ids:
+        ledger_errors.extend({'error': 'ledger_event_not_in_included_census', 'event_id': event_id} for event_id in extra_ledger_ids)
+
     audited = []
     missing = []
     invalid = []
     for row in sorted(included, key=lambda r: (str(r.get('event_date') or ''), str(r.get('event_id') or ''))):
         event_id = str(row.get('event_id') or '').strip()
         event_date = _date(row.get('event_date'))
-        available_at = _date(row.get('available_at'))
-        basis = str(row.get('availability_basis') or '').strip()
-        evidence_ids = row.get('availability_evidence_ids') if isinstance(row.get('availability_evidence_ids'), list) else []
+        temporal = ledger.get(event_id, {})
+        available_at = _date(temporal.get('available_at'))
+        basis = str(temporal.get('availability_basis') or '').strip()
+        evidence_ids = temporal.get('availability_evidence_ids') if isinstance(temporal.get('availability_evidence_ids'), list) else []
         reasons = []
+        if event_id not in ledger:
+            reasons.append('missing_publication_ledger_row')
         if available_at is None:
             reasons.append('missing_available_at')
         if basis not in ALLOWED_BASES:
@@ -56,7 +87,7 @@ def audit_g1_outcome_pit(root, start_year=2010, end_year=2025):
         item = {
             'event_id': event_id,
             'event_date': row.get('event_date'),
-            'available_at': row.get('available_at'),
+            'available_at': temporal.get('available_at'),
             'availability_basis': basis or None,
             'availability_evidence_ids': evidence_ids,
             'pit_status': status,
@@ -69,14 +100,16 @@ def audit_g1_outcome_pit(root, start_year=2010, end_year=2025):
             invalid.append(event_id)
     verified = [row['event_id'] for row in audited if row['pit_status'] == 'verified']
     return {
-        'schema': 'bsfm.g1-outcome-pit-audit.v1',
+        'schema': 'bsfm.g1-outcome-pit-audit.v2',
         'interval': {'start_year': start_year, 'end_year': end_year},
         'included_events': len(audited),
+        'ledger_rows': len(ledger),
         'verified_events': len(verified),
         'verified_event_ids': verified,
         'unverified_event_ids': missing,
         'invalid_event_ids': invalid,
-        'complete': bool(audited) and not missing and not invalid,
+        'ledger_errors': ledger_errors,
+        'complete': bool(audited) and not missing and not invalid and not ledger_errors,
         'events': audited,
-        'rule': 'Only explicit public publication/snapshot evidence may populate available_at; event date or current retrospective knowledge is insufficient.',
+        'rule': 'Only explicit public publication/snapshot evidence in the separate PIT ledger may populate available_at; event date or current retrospective knowledge is insufficient.',
     }
