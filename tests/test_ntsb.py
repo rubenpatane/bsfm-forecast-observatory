@@ -17,7 +17,21 @@ def test_event_aircraft_join(tmp_path):
  with e.open('w',newline='') as f:
   w=csv.DictWriter(f,fieldnames=['ev_id','ev_date','inj_tot_f']); w.writeheader(); w.writerow({'ev_id':'E1','ev_date':'01/01/20 00:00:00','inj_tot_f':'1'})
  with a.open('w',newline='') as f:
-  w=csv.DictWriter(f,fieldnames=['ev_id','acft_make','acft_model','far_part','phase_flt_spec']); w.writeheader(); w.writerow({'ev_id':'E1','acft_make':'BOEING','acft_model':'737-800','far_part':'121','phase_flt_spec':'LDG'})
+  w=csv.DictWriter(f,fieldnames=['ev_id','Aircraft_Key','acft_make','acft_model','far_part','phase_flt_spec']); w.writeheader(); w.writerow({'ev_id':'E1','Aircraft_Key':'1','acft_make':'BOEING','acft_model':'737-800','far_part':'121','phase_flt_spec':'LDG'})
  r=join_events_aircraft(e,a)
  assert len(r)==1 and r[0]['boeing'] and r[0]['fatal'] and r[0]['commercial']
  assert r[0]['phase']=='LDG' and r[0]['event_date']=='2020-01-01'
+
+def test_sequence_and_findings_are_outcome_evidence_not_availability(tmp_path):
+ e=tmp_path/'events.csv'; a=tmp_path/'aircraft.csv'; s=tmp_path/'seq.csv'; fnd=tmp_path/'find.csv'
+ def write(path,fields,row):
+  with path.open('w',newline='') as f:
+   w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerow(row)
+ write(e,['ev_id','ev_date'],{'ev_id':'E1','ev_date':'01/02/20 00:00:00'})
+ write(a,['ev_id','Aircraft_Key','acft_make'],{'ev_id':'E1','Aircraft_Key':'7','acft_make':'BOEING'})
+ write(s,['ev_id','Aircraft_Key','Occurrence_No','Occurrence_Code','Occurrence_Description','phase_no','Defining_ev'],{'ev_id':'E1','Aircraft_Key':'7','Occurrence_No':'1','Occurrence_Code':'350','Occurrence_Description':'Landing gear collapse','phase_no':'550','Defining_ev':'1'})
+ write(fnd,['ev_id','Aircraft_Key','finding_no','finding_code','finding_description','Cause_Factor'],{'ev_id':'E1','Aircraft_Key':'7','finding_no':'1','finding_code':'123','finding_description':'Component failure','Cause_Factor':'C'})
+ r=join_events_aircraft(e,a,s,fnd)[0]
+ assert r['event_sequence'][0]['occurrence_description']=='Landing gear collapse'
+ assert r['findings'][0]['finding_description']=='Component failure'
+ assert r['available_at'] is None
