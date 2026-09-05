@@ -1,6 +1,9 @@
 name: BSFM historical source build
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/historical-build.yml'
 permissions:
   contents: write
 jobs:
