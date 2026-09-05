@@ -35,3 +35,17 @@ def test_sequence_and_findings_are_outcome_evidence_not_availability(tmp_path):
  assert r['event_sequence'][0]['occurrence_description']=='Landing gear collapse'
  assert r['findings'][0]['finding_description']=='Component failure'
  assert r['available_at'] is None
+
+def test_admin_approval_is_outcome_metadata_not_public_availability(tmp_path):
+ e=tmp_path/'events.csv'; a=tmp_path/'aircraft.csv'; admin=tmp_path/'admin.csv'
+ def write(path,fields,row):
+  with path.open('w',newline='') as f:
+   w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerow(row)
+ write(e,['ev_id','ev_date'],{'ev_id':'E1','ev_date':'01/02/20 00:00:00'})
+ write(a,['ev_id','Aircraft_Key','acft_make'],{'ev_id':'E1','Aircraft_Key':'1','acft_make':'BOEING'})
+ write(admin,['ev_id','rec_stat','approval_date','lchg_date'],{'ev_id':'E1','rec_stat':'F','approval_date':'06/15/21 00:00:00','lchg_date':'09/01/25 12:00:00'})
+ r=join_events_aircraft(e,a,admin_csv=admin)[0]
+ assert r['approval_date']=='2021-06-15'
+ assert r['record_status']=='F'
+ assert r['outcome_approved'] is True
+ assert r['available_at'] is None
