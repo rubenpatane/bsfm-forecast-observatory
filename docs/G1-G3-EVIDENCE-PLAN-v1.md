@@ -14,6 +14,12 @@ This plan separates three evidence problems that must not be collapsed into one 
 
 No source is promoted merely because it is convenient or currently downloadable. Missing evidence remains missing. A successful acquisition pipeline does not imply a scientific PASS.
 
+## Permanent ICAO retrieval freeze
+
+Effective 2026-09-05, **no new ICAO API retrieval is permitted in routine or research automation**. The previous trial/API access is exhausted/expired and paid ICAO API calls are not an operational dependency of this project. The already acquired AGGIORNA #21 snapshot (4,669 returned rows across the requested 2010–2025 annual queries, with observed rows through 2022) remains historical evidence/provenance subject to its licence and known coverage limitations. It must not be interpreted as a complete 2010–2025 census, and zero returned rows for 2023–2025 are not evidence of zero accidents.
+
+The acquisition script is historical/reproducibility code only. It must not be invoked by `AGGIORNA`, scheduled automation, tests, or normal development. G1/G2/G3 must be completable without any future ICAO API call.
+
 ## G1 — Global qualifying-event census
 
 ### Required object
@@ -32,16 +38,17 @@ A deduplicated, auditable event-level census for 2010–2025 of qualifying fatal
 - inclusion/exclusion decision plus machine-readable reason;
 - links between duplicate records from different authorities.
 
-### Source hierarchy
-1. **ICAO ADREP / official ICAO accident data** — preferred global authority. ICAO Annex 13 reporting feeds ADREP; ICAO reports that commercial-air-transport accident/incident data for aircraft above 5,700 kg are reviewed/validated through its occurrence-validation process. ICAO also exposes an `Official Accidents` API endpoint, but access/coverage/field semantics must be verified before use.
-2. **National/Regional investigation authorities** — authoritative event-level confirmation and adjudication where accessible (for example NTSB for US events, EASA/member-state safety-investigation material for Europe).
-3. **Boeing Statistical Summary of Commercial Jet Airplane Accidents** — strong worldwide cross-check and reconciliation source; it must not silently define BSFM target semantics unless its inclusion rules are proven compatible.
-4. Non-official aggregators may be used only for candidate discovery/reconciliation, never as the sole evidence for G1 PASS.
+### Sustainable source hierarchy
+1. **Boeing Statistical Summary of Commercial Jet Airplane Accidents** — worldwide commercial-jet accident summary and principal sustainable global reconciliation source. Its inclusion rules must be checked against the BSFM target; Boeing data must not silently redefine target semantics.
+2. **EASA Annual Safety Review and fatal-accident appendices** — independent regional/global safety-review evidence. EASA states its occurrence database includes accidents and serious incidents notified by Safety Investigation Authorities worldwide and is augmented by other sources. Use event lists and annual global summaries where scope matches.
+3. **National/regional safety investigation authorities** — authoritative event-level confirmation/adjudication, including NTSB for US events and relevant authorities for non-US events.
+4. **Frozen ICAO snapshot from AGGIORNA #21** — historical cross-check only; no further retrieval and no assumption of 2023–2025 coverage.
+5. Non-official aggregators may be used only for candidate discovery/reconciliation, never as sole evidence for G1 PASS.
 
 ### Acceptance gate
-G1 may PASS only if all years 2010–2025 are covered by a documented global or reconciled-global process, target inclusion semantics are fixed, duplicates are resolved, exclusions are auditable, and an independent coverage reconciliation finds no unexplained qualifying gaps.
+G1 may PASS only if all years 2010–2025 are covered by a documented reconciled-global process, target inclusion semantics are fixed, duplicates are resolved, exclusions are auditable, and independent coverage reconciliation finds no unexplained qualifying gaps.
 
-NTSB alone cannot satisfy G1 because its scope is not a global census.
+Neither NTSB alone nor the frozen ICAO snapshot alone can satisfy G1.
 
 ## G2 — Boeing family/year exposure
 
@@ -55,9 +62,10 @@ For each calendar year 2010–2025 and each model/family used by the forecasting
 Required fields include family, year, exposure value, unit, geographic/operational scope, source, extraction method, coverage caveats and uncertainty/revision metadata where available.
 
 ### Evidence candidates
-- Boeing worldwide statistical summaries are a primary candidate because they publish worldwide commercial-jet accident statistics and departure-based rates/context. Family-level denominator tables must be inspected rather than inferred from aggregate rates.
-- ICAO traffic/operator statistics are candidate official denominator sources where access and family granularity permit.
+- Boeing worldwide statistical summaries are the primary sustainable candidate because they publish worldwide commercial-jet accident statistics and departure-based rates/context. Family-level denominator tables must be inspected rather than inferred from aggregate rates.
 - EASA traffic figures are useful regional reconciliation evidence, not a substitute for global Boeing-family denominators.
+- National/regional official traffic statistics may be used for reconciliation when their scope and aircraft-family granularity are explicit.
+- ICAO API traffic statistics are **not** an available project dependency and must not be newly retrieved.
 
 ### Prohibited shortcuts
 Do not infer departures from fleet share, deliveries, aircraft counts, seat capacity, utilization assumptions, interpolated market share or other proxies merely to make the baseline computable. A proxy may be explored in a separately labelled sensitivity analysis but cannot open G2.
@@ -89,7 +97,7 @@ Minimum fields:
 - later corrections/revisions must not leak into earlier simulated cutoffs unless version history proves their earlier availability.
 
 ### Evidence strategy
-Prefer dated official releases, archived official files, release manifests, web publication dates, versioned datasets and trustworthy web archives. Build source-specific PIT adapters rather than applying one generic timestamp interpretation to all sources.
+Prefer dated official releases, archived official files, release manifests, web publication dates, versioned datasets and trustworthy web archives. Build source-specific PIT adapters rather than applying one generic timestamp interpretation to all sources. No future ICAO API access is assumed.
 
 ### Acceptance gate
 G3 may PASS only for a backtest universe in which every admitted predictor is supported by PIT evidence under the fixed policy. Coverage may be narrower than the modern dataset; scientific validity takes priority over sample size.
@@ -102,14 +110,15 @@ G2 exposure is likewise independent: accident counts must never be treated as ex
 
 ## Execution order
 
-1. Build G1 candidate census schema and official-source adapters.
-2. Reconcile G1 against at least one independent worldwide summary and authoritative national/regional records for discrepancies.
-3. Inventory G2 source tables at family/year granularity before implementing any denominator transformation.
-4. Build G3 source-specific publication-history manifests and strict admissibility tests.
-5. Freeze resulting evidence artifacts with hashes/provenance.
-6. Re-run the scientific gate audit.
-7. Only if G1, G2 and G3 PASS, construct G4 rolling-origin/walk-forward candidate-vs-exposure-baseline evaluation.
+1. Build the 2010–2025 G1 candidate census from sustainable public/official sources, beginning with Boeing worldwide summaries and EASA fatal-accident material.
+2. Reconcile each candidate event against authoritative national/regional investigation records where available and use the frozen ICAO #21 evidence only as an additional historical cross-check.
+3. Resolve 2023–2025 entirely without ICAO API retrieval.
+4. Inventory G2 source tables at family/year granularity before implementing any denominator transformation.
+5. Build G3 source-specific publication-history manifests and strict admissibility tests.
+6. Freeze resulting evidence artifacts with hashes/provenance.
+7. Re-run the scientific gate audit.
+8. Only if G1, G2 and G3 PASS, construct G4 rolling-origin/walk-forward candidate-vs-exposure-baseline evaluation.
 
 ## Current conclusion
 
-As of this plan's creation, **G1 = BLOCKED, G2 = BLOCKED, G3 = BLOCKED**. The research performed to identify authoritative candidate sources does not itself change those statuses.
+**G1 = BLOCKED, G2 = BLOCKED, G3 = BLOCKED.** ICAO API access is no longer an operational dependency. The project proceeds using the frozen historical ICAO evidence plus sustainable official/public sources; no gate status changes merely because alternative sources have been identified.
