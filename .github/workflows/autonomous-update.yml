@@ -58,6 +58,14 @@ jobs:
           assert stats['rows'] > 0
           assert stats['boeing_rows'] > 0
           assert stats['outcome_approval_known'] > 0
+          public_path=Path('site/data/real-data.json')
+          public=json.loads(public_path.read_text(encoding='utf-8')) if public_path.exists() else {}
+          public['ntsb_snapshot']={
+            'source':'NTSB AVALL',
+            'scope':'Current official AVALL event-aircraft snapshot used as outcome evidence, not as a global census.',
+            **stats,
+          }
+          public_path.write_text(json.dumps(public,indent=2,sort_keys=True)+'\n',encoding='utf-8')
           PY
       - name: Post-update tests, registry and scientific audits
         run: |
