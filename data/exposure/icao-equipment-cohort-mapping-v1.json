@@ -1,0 +1,30 @@
+{
+  "schema": "bsfm.g2-icao-equipment-cohort-mapping.v1",
+  "status": "ACTIVE_FAIL_CLOSED",
+  "updated": "2026-09-06",
+  "purpose": "Deterministically map specific ICAO aircraft type designators from flight-level exposure sources to BSFM cohorts without fleet-share or other proxy allocation.",
+  "provenance": [
+    "https://www.faa.gov/air_traffic/publications/atpubs/CNT/5-2-B.htm",
+    "https://www.faa.gov/documentLibrary/media/Order/2024-04-29_FAA_Order_JO_7360.1J_Aircraft_Type_Designators--post.pdf",
+    "https://www.icao.int/operational-safety/Designators-and-indicators"
+  ],
+  "mapping": {
+    "727": ["B721", "B722", "B72Q"],
+    "737-Original": ["B731", "B732"],
+    "737-Classic": ["B733", "B734", "B735"],
+    "737-NG": ["B736", "B737", "B738", "B739"],
+    "737-MAX": ["B37M", "B38M", "B39M"],
+    "747": ["B741", "B742", "B743", "B744", "B748", "B74S"],
+    "757": ["B752", "B753"],
+    "767": ["B762", "B763", "B764"],
+    "777": ["B772", "B773", "B77L", "B77W"],
+    "787": ["B788", "B789", "B78X"]
+  },
+  "rules": [
+    "Only explicitly allowlisted designators map to a canonical exposure cohort.",
+    "Unknown, generic, future or ambiguous designators remain unmapped until reviewed and versioned.",
+    "No aggregate Boeing 737 value may be split into Original/Classic/NG/MAX by fleet share, deliveries, market share, accident counts or another proxy.",
+    "A mapping update must be versioned if it changes historical cohort assignment."
+  ],
+  "known_future_gap": "Future Boeing variants/designators not listed here remain fail-closed until an authoritative designator is published and reviewed."
+}
