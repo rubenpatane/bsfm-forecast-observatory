@@ -45,3 +45,9 @@ def test_census_attestation_requires_scope_and_provenance():
  weak=att(1); weak['provenance']=[]
  audit=audit_census([base()],2024,2024,{2024:weak})
  assert not audit['complete'] and audit['weak_attestations']==[2024]
+
+def test_census_null_publishers_fail_closed_instead_of_crashing():
+ weak=att(1); weak['publishers']=None
+ audit=audit_census([base()],2024,2024,{2024:weak})
+ assert not audit['complete']
+ assert audit['weak_attestations']==[2024]
