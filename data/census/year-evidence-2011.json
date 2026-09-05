@@ -1,0 +1,67 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2011,
+  "status": "partial-reconciliation",
+  "reconciled": false,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2011-IR277", "G1-2011-HB952", "G1-2011-OZ991", "G1-2011-FA6560"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": false,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "source_title": "Safety Report 2011 / 2011 Aviation Safety Performance",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2011.pdf",
+      "scope": "global air-transport accident statistics / Western-built jet hull losses",
+      "observation": "IATA's 2011 fatal Western-built jet hull-loss list includes Iran Air 727, Hewa Bora 727, Asiana 747, First Air 737 and Georgian Airways CRJ. The first four are Boeing; Georgian Airways is non-Boeing.",
+      "use": "annual-universe reconciliation"
+    },
+    {
+      "publisher": "Boeing Commercial Airplanes",
+      "source_title": "2011 Statistical Summary",
+      "scope": "worldwide commercial jet fleet under Boeing statistical definitions",
+      "observation": "The annual accident table reports 175 onboard fatalities and zero external fatalities; the four fatal Boeing entries reconcile to Iran Air, Hewa Bora, Asiana Cargo and First Air.",
+      "use": "independent manufacturer reconciliation"
+    },
+    {
+      "publisher": "Transportation Safety Board of Canada",
+      "source_title": "A11H0002 First Air flight 6560",
+      "source_locator": "https://www.tsb.gc.ca/eng/rapports-reports/aviation/2011/a11h0002/a11h0002.html",
+      "observation": "Boeing 737-210C C-GNWN, serial 21067, charter flight 6560; 12 fatalities.",
+      "use": "competent-authority evidence"
+    },
+    {
+      "publisher": "Republic of Korea Aviation and Railway Accident Investigation Board",
+      "source_title": "Asiana Airlines flight 991 accident report",
+      "source_locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=153",
+      "observation": "B747-400F HL7604 accident on 28 July 2011; cargo operation.",
+      "use": "competent-authority evidence"
+    },
+    {
+      "publisher": "Civil Aviation Organization of Iran, Aircraft Accident Investigation Office",
+      "source_title": "Iran Air B727-286 EP-IRP final accident report (public mirror)",
+      "observation": "Official-report metadata identifies Boeing 727-286 EP-IRP, Iran Air, 78 fatalities and the national accident-investigation office as investigator.",
+      "use": "competent-authority document evidence; public hosting is non-canonical"
+    },
+    {
+      "publisher": "National Transportation Safety Board (United States)",
+      "source_title": "DCA11RA080 Hewa Bora flight 952",
+      "source_locator": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/81073/pdf",
+      "observation": "NTSB records Hewa Bora Boeing 727-100 9Q-COP as a domestic scheduled commercial flight with 77 reported fatalities and explicitly states that the Government of the DRC was conducting the investigation.",
+      "use": "strong accredited-representative evidence, but not a substitute for the competent DRC authority record"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": false,
+    "reason": "Annual scope, target membership and independent reconciliation are strong, but the public research record still lacks a sufficiently authoritative competent-state DRC investigation artifact for Hewa Bora 952.",
+    "ledger_action": "keep reconciled=false"
+  },
+  "gate_effect": "2011 annual cell remains OPEN at 5/6; overall G1 remains BLOCKED"
+}
