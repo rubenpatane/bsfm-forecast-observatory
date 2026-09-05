@@ -24,6 +24,7 @@ jobs:
         run: |
           pytest -q
           python -m bsfm.cli verify
+          python -m bsfm.cli audit-foundation
       - name: Refresh current official public sources
         run: python -m bsfm.cli ingest
       - name: Refresh FAA SDR historical manifests 2010-current
@@ -53,23 +54,25 @@ jobs:
           assert stats['boeing_rows'] > 0
           assert stats['outcome_approval_known'] > 0
           PY
-      - name: Post-update tests, registry and publication gate
+      - name: Post-update tests, registry and scientific audits
         run: |
           pytest -q
           python -m bsfm.cli verify
           python -m bsfm.cli run
+          python -m bsfm.cli audit-foundation
+          python -m bsfm.cli audit-final
       - name: Evaluate model learning and promotion gate
         run: |
           python - <<'PY'
           import json
           from bsfm.pipeline import validate_sources
+          from bsfm.foundation_report import build_foundation_report
           from bsfm.model_lifecycle import update_model
-          report_path='evaluations/backtest-report.json'
-          try:
-              with open(report_path) as f: report=json.load(f)
-          except FileNotFoundError:
-              report={}
-          state=update_model(validate_sources(),report)
+          from pathlib import Path
+          source=validate_sources()
+          availability={'point_in_time_availability_verified':source['point_in_time_availability_verified'],'leakage_free':False}
+          report=build_foundation_report(Path('.'),availability)
+          state=update_model(source,report)
           print(json.dumps(state,indent=2))
           PY
       - name: Upload normalized NTSB research dataset
