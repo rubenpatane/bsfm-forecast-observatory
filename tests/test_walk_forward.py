@@ -20,14 +20,8 @@ def test_multiclass_brier_requires_probability_simplex():
 
 
 def test_walk_forward_report_and_paired_baseline_comparison():
-    candidate=[
-        {'case_id':'a','probability':0.8,'outcome':1},
-        {'case_id':'b','probability':0.2,'outcome':0},
-    ]
-    baseline=[
-        {'case_id':'a','probability':0.5,'outcome':1},
-        {'case_id':'b','probability':0.5,'outcome':0},
-    ]
+    candidate=[{'case_id':'a','probability':0.8,'outcome':1},{'case_id':'b','probability':0.2,'outcome':0}]
+    baseline=[{'case_id':'a','probability':0.5,'outcome':1},{'case_id':'b','probability':0.5,'outcome':0}]
     report=evaluate_walk_forward(candidate)
     assert report['evaluated'] and report['n']==2 and report['brier']==pytest.approx(0.04)
     comparison=compare_candidate_to_baseline(candidate,baseline)
@@ -40,3 +34,15 @@ def test_comparison_fails_closed_on_unpaired_cases_or_outcomes():
     assert not compare_candidate_to_baseline(c,[])['comparable']
     b=[{'case_id':'a','probability':0.5,'outcome':0}]
     assert compare_candidate_to_baseline(c,b)['reason']=='outcome_mismatch'
+
+
+def test_prediction_rows_fail_closed_on_duplicate_case_ids():
+    duplicate=[{'case_id':'a','probability':0.8,'outcome':1},{'case_id':'a','probability':0.7,'outcome':1}]
+    report=evaluate_walk_forward(duplicate)
+    assert not report['evaluated'] and report['reason']=='duplicate_or_empty_case_id'
+    assert compare_candidate_to_baseline(duplicate,duplicate)['reason']=='duplicate_or_empty_case_id'
+
+
+def test_prediction_rows_fail_closed_on_invalid_probability_or_outcome():
+    assert evaluate_walk_forward([{'case_id':'a','probability':1.2,'outcome':1}])['reason']=='invalid_probability'
+    assert evaluate_walk_forward([{'case_id':'a','probability':0.2,'outcome':2}])['reason']=='invalid_outcome'
