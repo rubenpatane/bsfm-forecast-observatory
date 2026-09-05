@@ -23,7 +23,15 @@
       "source_publication_date": "2025-05-27",
       "source_retrieved_at": "2026-09-05",
       "decision": "include",
-      "decision_reason": "Official TSIB interim statement identifies a scheduled Singapore Airlines Boeing B777 flight, classed by TSIB as an accident, with one passenger death."
+      "decision_reason": "Official TSIB interim statement identifies a scheduled Singapore Airlines Boeing B777 flight, classed by TSIB as an accident, with one passenger death.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "The Boeing Company",
+          "record": "2024 Statistical Summary / 2024 Airplane Accidents / Singapore Airlines 777-300ER",
+          "locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+          "observation": "Worldwide commercial-jet event table independently lists the 21 May 2024 Singapore Airlines 777-300ER scheduled-passenger accident with one onboard fatality."
+        }
+      ]
     },
     {
       "event_id": "G1-2024-BCS18D",
@@ -44,7 +52,15 @@
       "source_publication_date": "2025-04-02",
       "source_retrieved_at": "2026-09-05",
       "decision": "include",
-      "decision_reason": "Official Lithuanian investigation update identifies the Swiftair Boeing 737-476/737-400SF accident and states that the aircraft pilot died; the investigated flight was a commercial cargo operation."
+      "decision_reason": "Official Lithuanian investigation update identifies the Swiftair Boeing 737-476/737-400SF accident and states that the aircraft pilot died; the investigated flight was a commercial cargo operation.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "The Boeing Company",
+          "record": "2024 Statistical Summary / 2024 Airplane Accidents / Swiftair 737-400",
+          "locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+          "observation": "Worldwide commercial-jet event table independently lists the 25 November 2024 Swiftair 737-400 charter-cargo accident at Vilnius with one onboard fatality."
+        }
+      ]
     },
     {
       "event_id": "G1-2024-JJA2216",
@@ -53,19 +69,33 @@
       "model": "737-800",
       "fatalities": 179,
       "commercial": true,
-      "registration": null,
+      "registration": "HL8088",
       "operator": "Jeju Air",
       "operation_type": "commercial passenger flight",
-      "location": "Muan International Airport, Muan County, South Korea",
+      "location": "Muan International Airport, South Korea",
       "accident_class": "accident",
       "duplicate_of": null,
-      "source_publisher": "U.S. National Transportation Safety Board",
-      "source_record_id": "Jeju Air flight 2216 / Muan County / 2024-12-29",
-      "source_locator": "https://www.ntsb.gov/about/reports/Documents/FY2027-Budget-Submission.pdf",
-      "source_publication_date": "2026",
+      "source_publisher": "Republic of Korea Aviation and Railway Accident Investigation Board (ARAIB)",
+      "source_record_id": "AAR2404 / HL8088 / 7C2216",
+      "source_locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=344",
+      "source_publication_date": "2025-01-27",
       "source_retrieved_at": "2026-09-05",
       "decision": "include",
-      "decision_reason": "Official NTSB report identifies Jeju Air flight 2216 as a Boeing 737-800 accident and states that all but two of 181 occupants were fatally injured. NTSB participated as the accredited representative for the state of design/manufacture; independent Korean authority reconciliation remains required before year attestation."
+      "decision_reason": "The competent Korean investigation authority identifies the 29 December 2024 Jeju Air HL8088 accident at Muan as a B737-800 occurrence; its preliminary report records 179 fatalities and two serious injuries.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "The Boeing Company",
+          "record": "2024 Statistical Summary / 2024 Airplane Accidents / Jeju Air 737-800",
+          "locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+          "observation": "Worldwide commercial-jet event table independently lists the 29 December 2024 Jeju Air 737-800 scheduled-passenger accident at Muan with 179 onboard fatalities."
+        },
+        {
+          "publisher": "Bureau d'Enquêtes et d'Analyses pour la sécurité de l'aviation civile (BEA)",
+          "record": "BEA2025-0005",
+          "locator": "https://bea.aero/en/investigation-reports/notified-events/detail/accident-to-the-boeing-737-800-registered-hl8088-operated-by-jeju-air-on-29-12-2024-at-ad-muan/",
+          "observation": "BEA identifies South Korea ARAIB as responsible entity and records Boeing 737, HL8088, commercial passenger operation and 179 deaths."
+        }
+      ]
     }
   ],
   "rules": {
