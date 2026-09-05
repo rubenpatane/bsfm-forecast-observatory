@@ -1,34 +1,31 @@
 {
   "schema": "bsfm.g1-year-evidence.v2",
   "year": 2018,
-  "status": "partial-reconciliation",
-  "reconciled": false,
+  "status": "reconciled",
+  "reconciled": true,
   "target": "fatal accidents involving Boeing commercial jets",
-  "retrieved_for_research": "2026-09-05",
+  "retrieved_for_research": "2026-09-06",
   "qualifying_candidate_ids": ["G1-2018-SWA1380","G1-2018-DMJ0972","G1-2018-PX073","G1-2018-JT610","G1-2018-FJA256"],
   "controls": {
     "annual_source_scope_demonstrated": true,
-    "all_fatal_jets_mapped": false,
-    "boeing_target_membership_mapped": false,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
     "competent_authority_per_candidate": true,
     "independent_reconciliation": true,
-    "target_taxonomies_resolved": false
+    "target_taxonomies_resolved": true
   },
-  "evidence_progress": "3/6",
+  "evidence_progress": "6/6",
   "evidence": [
-    {"publisher":"International Air Transport Association (IATA)","authority_role":"independent global commercial-aviation safety publisher","source_title":"IATA Safety Report 2018","source_locator":"https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf","publication_date":"2019-04","scope":"global commercial-aviation accident census under IATA methodology","observation":"The annual accident summary provides a year-wide reconciliation surface and includes Boeing occurrences used here, but BSFM has not yet completed a symmetric mapping of every fatal jet event against its frozen target.","use":"annual-scope and independent reconciliation evidence"},
+    {"publisher":"International Air Transport Association (IATA)","authority_role":"independent global commercial-aviation safety publisher","source_title":"IATA Safety Report 2018","source_locator":"https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf","publication_date":"2019-04","scope":"global commercial-aviation accident census under IATA methodology","observation":"IATA reports 11 fatal accidents and 523 onboard fatalities. Its fatal-event categories reconcile exactly to six fatal jet accidents and five fatal turboprop accidents. The six fatal jets are Saratov An-148 plus five Boeing events: Southwest B737, Cubana/Global Air B737, Fly Jamaica B757, Air Niugini B737 and Lion Air B737 MAX.","use":"annual-universe and target-membership reconciliation evidence"},
     {"publisher":"National Transportation Safety Board (NTSB), United States","authority_role":"state accident-investigation authority","source_title":"NTSB/AAR-19/03 — Southwest Airlines Flight 1380","source_locator":"https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1903.pdf","publication_date":"2019-11-19","scope":"event-level","observation":"Boeing 737-7H4 N772SW, Southwest flight 1380, scheduled Part 121 passenger operation; one passenger fatality.","use":"candidate authority evidence"},
-    {"publisher":"Instituto de Aeronáutica Civil de Cuba / accident investigation commission","authority_role":"state aviation authority / investigation commission","source_title":"DMJ 0972 final investigation report","source_locator":"https://api.eltoque.com/uploads/INFORME_FINAL_Accidente_B737_DMJ_0972_18052018_HAV_CUBA_128ed2220f.pdf","publication_date":"2019-09","scope":"event-level; mirrored copy of identified authority report","observation":"Boeing 737-201 XA-UHZ, commercial passenger flight DMJ 0972. Authority findings were publicly announced by IACC; 112 fatalities are reported in Cuban state reporting.","use":"candidate authority evidence with provenance caveat"},
+    {"publisher":"Instituto de Aeronáutica Civil de Cuba / accident investigation commission","authority_role":"state aviation authority / investigation commission","source_title":"DMJ 0972 final investigation report","source_locator":"https://api.eltoque.com/uploads/INFORME_FINAL_Accidente_B737_DMJ_0972_18052018_HAV_CUBA_128ed2220f.pdf","publication_date":"2019-09","scope":"event-level; mirrored copy of identified authority report","observation":"Boeing 737-201 XA-UHZ, commercial passenger flight DMJ 0972; 112 fatalities.","use":"candidate authority evidence with public-host provenance caveat"},
     {"publisher":"Papua New Guinea Accident Investigation Commission (AIC)","authority_role":"investigation authority after FSM Annex 13 delegation","source_title":"AIC 18-1004 — Air Niugini P2-PXE","source_locator":"https://www.aic.gov.pg/sites/default/files/2020-08/FINAL%20REPORT%2C%20issued%2015.07.2019.pdf","publication_date":"2019-07","scope":"event-level","observation":"Scheduled passenger flight PX073, Boeing 737-8BK P2-PXE; one passenger fatality. AIC records serial number 33024.","use":"candidate authority and identity evidence"},
-    {"publisher":"Komite Nasional Keselamatan Transportasi (KNKT), Republic of Indonesia","authority_role":"state accident-investigation authority","source_title":"KNKT.18.10.35.04 — Lion Air LNI610","source_locator":"https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.35.04-Final-Report.pdf","publication_date":"2019-10-25","scope":"event-level","observation":"Scheduled passenger flight LNI610, Boeing 737-8 MAX PK-LQP, 189 persons onboard; ATSB independently records all 189 fatally injured.","use":"candidate authority evidence"},
-    {"publisher":"Guyana Aircraft Accident & Incident Investigation Unit (GAAIIU)","authority_role":"state accident-investigation authority; report copy hosted by JCAA","source_title":"AAIIU 3.1.22 — Fly Jamaica N524AT","source_locator":"https://www.jcaa.gov.jm/wp-content/uploads/2024/08/2018-Nov-9-N524AT-Final-Report.pdf","publication_date":null,"scope":"event-level","observation":"Boeing 757-200 N524AT; final report injuries table records one passenger fatality.","use":"candidate authority evidence"}
+    {"publisher":"Komite Nasional Keselamatan Transportasi (KNKT), Republic of Indonesia","authority_role":"state accident-investigation authority","source_title":"KNKT.18.10.35.04 — Lion Air LNI610","source_locator":"https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.35.04-Final-Report.pdf","publication_date":"2019-10-25","scope":"event-level","observation":"Scheduled passenger flight LNI610, Boeing 737-8 MAX PK-LQP, 189 persons onboard; all fatally injured.","use":"candidate authority evidence"},
+    {"publisher":"Guyana Aircraft Accident & Incident Investigation Unit (GAAIIU)","authority_role":"state accident-investigation authority; report copy hosted by JCAA","source_title":"AAIIU 3.1.22 — Fly Jamaica N524AT","source_locator":"https://www.jcaa.gov.jm/wp-content/uploads/2024/08/2018-Nov-9-N524AT-Final-Report.pdf","publication_date":null,"scope":"event-level","observation":"Boeing 757-200 N524AT; the final authority report's injuries table classifies one passenger as a fatality. BSFM therefore follows the authority's fatal-injury classification rather than constructing a retrospective timing rule.","use":"candidate authority and delayed-fatality taxonomy evidence"}
   ],
-  "open_items": [
-    "Map every 2018 fatal jet occurrence in the annual source universe and explicitly decide Boeing target membership.",
-    "Verify target-taxonomy treatment of delayed/post-accident fatalities consistently across the whole census, including FJA256.",
-    "Retain the P2-PXE serial-number discrepancy as an auditable source conflict; competent-authority value is 33024.",
-    "Do not treat five populated candidates as proof of annual completeness."
+  "source_conflicts": [
+    {"field":"P2-PXE serial number","competent_authority_value":"33024","secondary_value":"333024 in a secondary/NTSB-derived source","resolution":"retain AIC competent-authority value; preserve discrepancy for identity audit"}
   ],
-  "completeness_assessment": {"global_year_complete": false, "reason": "Five Boeing fatal-commercial candidates now have event-level authority evidence and independent reconciliation, but the complete global fatal-jet universe has not yet been symmetrically mapped and target-taxonomy edge cases remain open.", "ledger_action": "keep reconciled=false"},
-  "gate_effect": "none; G1 remains BLOCKED"
+  "completeness_assessment": {"global_year_complete": true, "reason": "The IATA annual fatal-event categories exhaustively map the six fatal jets; five are Boeing and all five have event-level authority evidence. The delayed Fly Jamaica death is classified as fatal by the competent authority, and the P2-PXE identity discrepancy is preserved without changing membership.", "ledger_action":"set reconciled=true"},
+  "gate_effect": "2018 annual cell PASS; overall G1 remains BLOCKED until every required annual cell passes"
 }
