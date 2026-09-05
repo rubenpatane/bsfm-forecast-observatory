@@ -1,0 +1,57 @@
+{
+  "schema": "bsfm.g1-outcome-publication-ledger.v1",
+  "updated": "2026-09-06",
+  "status": "IN_PROGRESS_FAIL_CLOSED",
+  "purpose": "Record public-availability evidence for already-included G1 target outcomes without mutating the historical target census. A later-than-first-known competent-authority publication date is acceptable as a conservative PIT bound; event date alone is never sufficient.",
+  "policy": {
+    "allowed_bases": [
+      "competent_authority_publication",
+      "official_database_publication",
+      "archived_public_snapshot"
+    ],
+    "conservative_rule": "If the earliest public availability cannot be proven, a later dated competent-authority public artifact may be used as a conservative available_at bound. This may discard usable history but cannot introduce future information into an earlier cutoff.",
+    "prohibited": [
+      "event_date_as_available_at",
+      "current_database_presence_without_historical_evidence",
+      "approval_or_last_change_timestamp_without publication semantics",
+      "retrospective news discoverability without stable public artifact provenance"
+    ]
+  },
+  "events": [
+    {"event_id":"G1-2010-ARE8250","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2010-ET409","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2010-IX812","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2010-UPS6","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2011-FA6560","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2011-HB952","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2011-IR277","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2011-OZ991","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2012-BHO213","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2012-DHV111","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2013-AAR214","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2013-NCR102","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2013-TAK363","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2014-DN055","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2015-CEL071","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2016-AS157","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2016-EK521","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2016-FZ981","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2017-TK6491","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2018-DMJ0972","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2018-FJA256","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2018-JT610","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2018-PX073","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2018-SWA1380","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2019-ATLAS3591","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2019-ET302","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2020-IX1344","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2020-PC2193","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2021-SJY182","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2022-MU5735","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2024-BCS18D","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2024-JJA2216","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2024-SQ321","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2025-ACT747","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2025-AI171","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"}
+  ]
+}
