@@ -2,7 +2,7 @@
   "candidate_fit_attempted": false,
   "candidate_promoted": false,
   "estimator_available": true,
-  "evaluated_at": "2026-09-05T14:06:23Z",
+  "evaluated_at": "2026-09-05T14:35:56Z",
   "fit_gate": {
     "checks": {
       "baseline_present": false,
@@ -46,5 +46,5 @@
   "incumbent_retained": true,
   "reason": "model_update_blocked_scientific_gate",
   "schema": "bsfm.model-lifecycle.v3",
-  "state_hash": "sha256:23c8aeb10270d0f457597466ac57beb2802043dda08ad204ae9df98acf237a4b"
+  "state_hash": "sha256:355e134f98249100761d5f47c6b36cac7fe797c69b48129945421397235e1613"
 }
