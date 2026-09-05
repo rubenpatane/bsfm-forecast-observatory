@@ -2,6 +2,36 @@ from __future__ import annotations
 import re
 
 
+_ICAO_EQUIPMENT_COHORTS = {
+    # 727
+    'B721': '727', 'B722': '727', 'B72Q': '727',
+    # 737 Original / Classic / NG / MAX
+    'B731': '737-Original', 'B732': '737-Original',
+    'B733': '737-Classic', 'B734': '737-Classic', 'B735': '737-Classic',
+    'B736': '737-NG', 'B737': '737-NG', 'B738': '737-NG', 'B739': '737-NG',
+    'B37M': '737-MAX', 'B38M': '737-MAX', 'B39M': '737-MAX',
+    # 747
+    'B741': '747', 'B742': '747', 'B743': '747', 'B744': '747',
+    'B748': '747', 'B74S': '747',
+    # 757 / 767 / 777 / 787
+    'B752': '757', 'B753': '757',
+    'B762': '767', 'B763': '767', 'B764': '767',
+    'B772': '777', 'B773': '777', 'B77L': '777', 'B77W': '777',
+    'B788': '787', 'B789': '787', 'B78X': '787',
+}
+
+
+def cohort_from_icao_equipment(code):
+    """Map a specific ICAO aircraft type designator to a BSFM exposure cohort.
+
+    This mapping is deliberately allowlisted. Generic/ambiguous designators and
+    future designators not explicitly reviewed return None rather than being
+    inferred from fleet shares or string resemblance.
+    """
+    key = str(code or '').upper().strip()
+    return _ICAO_EQUIPMENT_COHORTS.get(key)
+
+
 def _737_series(model: str):
     """Return the 737 series bucket from canonical or customer-code variants.
 
