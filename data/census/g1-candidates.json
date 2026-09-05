@@ -1,0 +1,21 @@
+{
+  "schema": "bsfm.g1-candidate-census.v1",
+  "interval": {"start_year": 2010, "end_year": 2025},
+  "status": "construction",
+  "target": "fatal accidents involving Boeing commercial jets",
+  "records": [],
+  "rules": {
+    "candidate_is_not_attestation": true,
+    "allowed_decisions": ["include", "exclude", "unresolved"],
+    "no_inference_of_missing_target_facts": true,
+    "independent_reconciliation_required": true
+  },
+  "source_priority": [
+    "Boeing Statistical Summary of Commercial Jet Airplane Accidents",
+    "EASA Annual Safety Review fatal-accident appendices",
+    "national/regional investigation authorities",
+    "NTSB for United States scope",
+    "frozen ICAO #21 evidence as historical cross-check only"
+  ],
+  "gate_note": "This file is a candidate workspace. Its population, even if structurally complete, cannot by itself set any year reconciled=true or open G1."
+}
