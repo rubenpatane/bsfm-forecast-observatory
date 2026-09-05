@@ -36,11 +36,11 @@ def normalize_row(row):
  d['fatalities']=_int(d['fatalities']); d['fatal']=d['fatalities']>0
  d['boeing']='BOEING' in (d['make'] or '').upper()
  sched=(d['schedule'] or '').strip().upper(); far=(d['far_part'] or '').strip().upper()
- # Operator-name presence is not evidence of commercial service.
  d['scheduled_service']=sched=='SCHD'
  d['commercial']=far in {'121','125','129','135'} or sched in {'SCHD','NSCH'}
- # Current AVALL is useful for final outcome labels. Historical public availability is
- # unknown unless an explicit defensible publication timestamp is present.
+ # Current AVALL is useful for outcome labels. Only an explicit publication timestamp
+ # may populate predictor available_at; approval/finalization and last-change dates are
+ # retained separately and never substituted for public availability.
  d['available_at']=d['publication_date']
  return d
 def _read(path):
@@ -56,9 +56,20 @@ def _group_details(path,kind):
    item={'finding_no':_pick(row,('finding_no',)),'finding_code':_pick(row,('finding_code',)),'finding_description':_pick(row,('finding_description',)),'cause_factor':_pick(row,('Cause_Factor',))}
   grouped.setdefault(_key(row),[]).append(item)
  return grouped
-def join_events_aircraft(events_csv,aircraft_csv,sequence_csv=None,findings_csv=None):
+def _admin(path):
+ if not path or not Path(path).exists(): return {}
+ out={}
+ for row in _read(path):
+  eid=_pick(row,ALIASES['event_id'])
+  out[eid]={
+   'record_status':_pick(row,('rec_stat',)),
+   'approval_date':_date(_pick(row,('approval_date',))),
+   'admin_last_change':_date(_pick(row,('lchg_date',))),
+  }
+ return out
+def join_events_aircraft(events_csv,aircraft_csv,sequence_csv=None,findings_csv=None,admin_csv=None):
  events=_read(events_csv); aircraft=_read(aircraft_csv); by_event={}
- sequence=_group_details(sequence_csv,'sequence'); findings=_group_details(findings_csv,'finding')
+ sequence=_group_details(sequence_csv,'sequence'); findings=_group_details(findings_csv,'finding'); admin=_admin(admin_csv)
  for a in aircraft: by_event.setdefault(_pick(a,ALIASES['event_id']),[]).append(a)
  rows=[]
  for e in events:
@@ -67,10 +78,14 @@ def join_events_aircraft(events_csv,aircraft_csv,sequence_csv=None,findings_csv=
    merged=dict(e); merged.update({k:v for k,v in a.items() if v not in (None,'')})
    r=normalize_row(merged); key=(eid,r['aircraft_key'])
    r['event_sequence']=sequence.get(key,[]); r['findings']=findings.get(key,[])
+   r.update(admin.get(eid,{'record_status':None,'approval_date':None,'admin_last_change':None}))
+   # approval_date is final-report/probable-cause approval metadata, not asserted to be
+   # the instant the record became publicly accessible.
+   r['outcome_approved']=bool(r['approval_date'])
    rows.append(r)
  return rows
-def write_normalized(events_csv,aircraft_csv,out_jsonl,sequence_csv=None,findings_csv=None):
- rows=join_events_aircraft(events_csv,aircraft_csv,sequence_csv,findings_csv); p=Path(out_jsonl); p.parent.mkdir(parents=True,exist_ok=True)
+def write_normalized(events_csv,aircraft_csv,out_jsonl,sequence_csv=None,findings_csv=None,admin_csv=None):
+ rows=join_events_aircraft(events_csv,aircraft_csv,sequence_csv,findings_csv,admin_csv); p=Path(out_jsonl); p.parent.mkdir(parents=True,exist_ok=True)
  with p.open('w') as f:
   for r in rows: f.write(json.dumps(r,sort_keys=True)+'\n')
  return {
@@ -80,6 +95,7 @@ def write_normalized(events_csv,aircraft_csv,out_jsonl,sequence_csv=None,finding
   'commercial_boeing_rows':sum(r['boeing'] and r['commercial'] for r in rows),
   'scheduled_boeing_rows':sum(r['boeing'] and r['scheduled_service'] for r in rows),
   'availability_known':sum(bool(r['available_at']) for r in rows),
+  'outcome_approval_known':sum(bool(r['approval_date']) for r in rows),
   'rows_with_sequence':sum(bool(r['event_sequence']) for r in rows),
   'rows_with_findings':sum(bool(r['findings']) for r in rows),
  }
