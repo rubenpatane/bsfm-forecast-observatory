@@ -1,0 +1,27 @@
+{
+  "candidate_fit_attempted": false,
+  "candidate_promoted": false,
+  "evaluated_at": "2026-09-05T10:14:38Z",
+  "gate": {
+    "checks": {
+      "baseline_present": false,
+      "calibration_evaluated": false,
+      "historical_cases": false,
+      "leakage_free": false,
+      "point_in_time_availability_verified": false,
+      "source_integrity_ready": true
+    },
+    "missing": [
+      "point_in_time_availability_verified",
+      "leakage_free",
+      "baseline_present",
+      "historical_cases",
+      "calibration_evaluated"
+    ],
+    "pass": false
+  },
+  "incumbent_retained": true,
+  "reason": "model_update_blocked_scientific_gate",
+  "schema": "bsfm.model-lifecycle.v1",
+  "state_hash": "sha256:7cab07de7afa475c8215062ae83a807a9d592e2822a47830f558cf64e75c14f2"
+}
