@@ -1,0 +1,23 @@
+{
+  "schema": "bsfm.g2-cohort-aggregation-audit.v1",
+  "updated": "2026-09-06",
+  "status": "fail-closed",
+  "question": "Can public all-variant Boeing 737 exposure be used as the canonical G2 denominator while BSFM retains distinct 737 Original/Classic/NG/MAX target cohorts?",
+  "canonical_target_cohorts": ["727", "737-Original", "737-Classic", "737-NG", "737-MAX", "747", "757", "767", "777", "787"],
+  "observed_public_aggregation": "Several public IATA/WATS observations expose Boeing 737 as an all-variant model/family total rather than the BSFM 737 subcohorts.",
+  "code_contract": {
+    "exposure_probability": "bsfm.exposure.exposure_only_probabilities normalizes departures across the supplied cohort cells within each period.",
+    "universe_audit": "bsfm.exposure.audit_target_universe_exposure fails when a target cohort lacks exposure or a separately versioned exclusion.",
+    "cohort_mapping": "bsfm.cohorts.boeing_cohort intentionally distinguishes 737-Original, 737-Classic, 737-NG and 737-MAX."
+  },
+  "adjudication": {
+    "canonical_g2_compatible": false,
+    "reason": "A single 737-all-variants denominator does not identify the four BSFM 737 cohort exposures. Using it for all four would double/count the same exposure; assigning shares requires an additional allocation model. Fleet share, deliveries, accident counts or other convenience allocations are already prohibited. Collapsing the target cohorts to one 737 category would change the baseline/model comparison object and cannot be treated as the existing G2 without a separately preregistered model/baseline redesign.",
+    "allowed_use": "All-737 totals may be retained as aggregate context or an independent reconciliation check, not as canonical cohort-year cells.",
+    "required_to_unblock": "Obtain directly measured or otherwise prospectively justified exposure at the required cohort resolution, or version a new baseline/cohort specification before evaluating outcomes. Do not retroactively relabel the current G2 as satisfied."
+  },
+  "gate_effect": {
+    "g2_status": "BLOCKED",
+    "baseline_present": false
+  }
+}
