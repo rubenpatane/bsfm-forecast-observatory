@@ -5,6 +5,93 @@
   "target": "fatal accidents involving Boeing commercial jets",
   "records": [
     {
+      "event_id": "G1-2020-PC2193",
+      "event_date": "2020-02-05",
+      "manufacturer": "Boeing",
+      "model": "737-800",
+      "fatalities": 3,
+      "commercial": true,
+      "registration": "TC-IZK",
+      "operator": "Pegasus Airlines",
+      "operation_type": "scheduled commercial passenger flight",
+      "location": "Istanbul Sabiha Gokcen Airport, Turkey",
+      "accident_class": "accident",
+      "duplicate_of": null,
+      "source_publisher": "National Transportation Safety Board (NTSB), United States",
+      "source_record_id": "2022 Annual Report to Congress / PC2193",
+      "source_locator": "https://www.ntsb.gov/about/reports/Documents/2022%20Annual%20Report%20to%20Congress.pdf",
+      "source_publication_date": "2023",
+      "source_retrieved_at": "2026-09-05",
+      "decision": "include",
+      "decision_reason": "As ICAO Annex 13 accredited representative for the State of Design and Manufacture, NTSB records the Pegasus PC2193 Boeing 737-800 runway-excursion accident and three passenger fatalities, and states that the Turkish investigation was completed.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "International Air Transport Association (IATA)",
+          "record": "Accident Update 2020 Mid-Year / Pegasus 2020-02-05",
+          "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/accident_update_2020_mid-year_interactive.pdf",
+          "observation": "IATA independently lists Pegasus B737-800 on 5 February 2020 as a jet hull-loss runway-excursion accident with three onboard fatalities."
+        }
+      ]
+    },
+    {
+      "event_id": "G1-2020-IX1344",
+      "event_date": "2020-08-07",
+      "manufacturer": "Boeing",
+      "model": "737-800",
+      "fatalities": 21,
+      "commercial": true,
+      "registration": "VT-AXH",
+      "operator": "Air India Express",
+      "operation_type": "commercial passenger repatriation flight under Vande Bharat Mission",
+      "location": "Kozhikode Airport, India",
+      "accident_class": "accident",
+      "duplicate_of": null,
+      "source_publisher": "Aircraft Accident Investigation Bureau (AAIB), India",
+      "source_record_id": "Final Report VT-AXH / 2020-08-07",
+      "source_locator": "https://aaib.gov.in/Reports/2020/accident/Final%20Report%20AXH.pdf",
+      "source_publication_date": "2021",
+      "source_retrieved_at": "2026-09-05",
+      "decision": "include",
+      "decision_reason": "India AAIB identifies the Air India Express B737-800 VT-AXH occurrence at Kozhikode as a landing runway-excursion accident and records 21 fatalities.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "International Air Transport Association (IATA)",
+          "record": "IATA Safety Report 2020 / Air India Express B737-800",
+          "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2020.pdf",
+          "observation": "IATA independently lists the 7 August 2020 Air India Express B737-800 VT-AXH passenger jet as a hull-loss runway-excursion accident; its 2020 report records two fatal runway excursions totaling 24 fatalities, consistent with this event and PC2193."
+        }
+      ]
+    },
+    {
+      "event_id": "G1-2020-PS752",
+      "event_date": "2020-01-08",
+      "manufacturer": "Boeing",
+      "model": "737-800",
+      "fatalities": 176,
+      "commercial": true,
+      "registration": "UR-PSR",
+      "operator": "Ukraine International Airlines",
+      "operation_type": "scheduled commercial passenger flight",
+      "location": "near Tehran Imam Khomeini International Airport, Iran",
+      "accident_class": "target-taxonomy unresolved: Annex 13 accident / unlawful-security act in IATA statistics",
+      "duplicate_of": null,
+      "source_publisher": "Aircraft Accident Investigation Board of the Islamic Republic of Iran; copy hosted by ICAO",
+      "source_record_id": "PS752 Accident Investigation Final Report",
+      "source_locator": "https://www.icao.int/sites/default/files/safety/airnavigation/AIG/Documents/Safety-Recommendations-to-ICAO/Final-Reports/PS752Finrep.pdf",
+      "source_publication_date": "2021-03",
+      "source_retrieved_at": "2026-09-05",
+      "decision": "unresolved",
+      "decision_reason": "The Annex 13 final report describes the Boeing 737-800 commercial-flight occurrence as an accident caused by interference of military activity with civil aviation operations, while IATA explicitly excludes PS752 from accident statistics as an unlawful act. The frozen BSFM target wording does not explicitly resolve this security/unlawful-act boundary, so no favorable retrospective inclusion or exclusion is allowed.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "International Air Transport Association (IATA)",
+          "record": "IATA Safety Report 2020 / Executive Summary",
+          "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2020.pdf",
+          "observation": "IATA identifies the PS752 shoot-down and explicitly states that it is considered an unlawful act and therefore belongs to aviation-security statistics rather than the report's accident statistics."
+        }
+      ]
+    },
+    {
       "event_id": "G1-2021-SJY182",
       "event_date": "2021-01-09",
       "manufacturer": "Boeing",
