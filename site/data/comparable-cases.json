@@ -1,10 +1,41 @@
 {
-  "cases": [],
+  "cases": [
+    {
+      "carrier": "Alaska Airlines",
+      "event_date": "2023-08-21",
+      "event_id": "20230821192903",
+      "fatalities": 0,
+      "model": "737-890",
+      "phase": "\u2014",
+      "similarity_score": 8,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "gear_structural_cluster"
+      ],
+      "source": "NTSB AVALL"
+    },
+    {
+      "carrier": "Sun Country Airlines, Inc.",
+      "event_date": "2022-02-04",
+      "event_id": "20220204104596",
+      "fatalities": 0,
+      "model": "737-8K2",
+      "phase": "\u2014",
+      "similarity_score": 8,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "gear_structural_cluster"
+      ],
+      "source": "NTSB AVALL"
+    }
+  ],
   "forecast_id": "F-002",
-  "generated_at": null,
+  "generated_at": "2026-09-05T13:45:21Z",
   "interpretation_warning": "Comparable nonfatal events are context only. They do not satisfy F-002 primary target and do not change its score, validation state, or scientific gates.",
   "schema": "bsfm.public-comparables.v1",
-  "selection_rule": "Generated from the current NTSB AVALL snapshot by AGGIORNA; empty until the integrated acquisition run.",
+  "selection_rule": "Rolling five-year window from newest snapshot event; Boeing + commercial + nonfatal + 737-800/737-NG + approach/landing or gear/structural similarity; ranked by fixed descriptive similarity then recency.",
   "source": "NTSB AVALL",
   "source_scope": "Current official NTSB AVALL snapshot; descriptive nonfatal comparables only, not a global census and not forecast hits."
 }

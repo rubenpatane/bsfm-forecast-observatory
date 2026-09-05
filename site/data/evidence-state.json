@@ -23,92 +23,92 @@
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2010.json",
-      "sha256": "b7f4d19c7584ff105f8c6b694f91a133cff20b822024d76aa3afbb072d89d890"
+      "sha256": "e23a29122aaf4b31479274048d5ac733e28abaf7e41e140e94fd742a32d15c6b"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2011.json",
-      "sha256": "81b84d3a4d5003d600c230bdf57359e224992c71783e68229d982f22a7f03bb9"
+      "sha256": "db9dba63b6a0ef370df716b904c33c79e5f28848ccec41b82119af3931686609"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2012.json",
-      "sha256": "01e5602c06b717456f7d0e82b004f0fa178eb2a000fe7a05ab1fb6c6708bb25d"
+      "sha256": "ccd9a7e0ee937274924e549336cf7c20f35f53c85a15b7108539993268ffb1d9"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2013.json",
-      "sha256": "15a5ad1c09c4f39bdcc9dc90efe57834ee9632154c92bd74a85f79708cc54a4c"
+      "sha256": "da6f0e41c766b9df7fcad06b9240e02475b1f9922e229eed6f61da1acb1afc53"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2014.json",
-      "sha256": "940d6ae89e183b3de5982c277eafb00646375c566b1fe11ecf9ff2a176efe3ee"
+      "sha256": "38e59c62e69c145a91ebcc7e32cd01b146933ff0870db59b03ee9eb444af95d5"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2015.json",
-      "sha256": "49e58137479b833f62c2c075c9146db595b4553ae0e0ac6a554881ef060b33cf"
+      "sha256": "770a48a9a5c49a9b0ed1b9ad9bd6d57883cc212a9bd6739fe1def74a61ea905a"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2016.json",
-      "sha256": "1c50106313d6d82c4927c085aa525bbe137b4b50b15f496ca6a9a5e044716e61"
+      "sha256": "c6015ed9ebfc3ae51d492781063fa1c0c2fbe3043267c2e86f30d91c9b467f1a"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2017.json",
-      "sha256": "323a8a61105a38c4602f839016cb38e945ddf8cc1f93f6facddb5d136b79a3d2"
+      "sha256": "735ddca6e3d3a4c39a7029f52c0b2805953db911998daa6b00ba105ead9386cf"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2018.json",
-      "sha256": "baca416e5dddb026fbf24aa64dd975be00e06f16b0e52015cf6c36fa2f5c1d67"
+      "sha256": "65662cd87c1e00f4f6d40e2aa342a253c2c0f4805ddb1951a9c3f31d343a2b82"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2019.json",
-      "sha256": "461bc33f98cf8bb89c6082a53c698aa088b619bfd0e72568dc9e5a1092c07c2d"
+      "sha256": "2d42d863af8ec996cb8e74b4a0d1c76762fd3436ad35895a6aed9200facc113d"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2020.json",
-      "sha256": "76534179306ede12dace79499da07e935cb32e56af0cd020f3ec2995f8bf0508"
+      "sha256": "159c23a349c46b07ac7c499029d885cbc5d99eaca70cb5b2a8f50537415e9e7e"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2021.json",
-      "sha256": "29a7a4bd6207321ec9ab3f0231380a88833bdac5b19d8e591cae1e6dc96bfebd"
+      "sha256": "4d5c7841aa7654cd2f051e6e094931502cdf0529e7850e607f56b5f6a21ae712"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2022.json",
-      "sha256": "85985a887190d3eeb697bc6f4912950c45aa783de895cdfd34266ce1135a7cf8"
+      "sha256": "fb182956e7459bc262c3afa1fd0bffcea94adf8c4f7e8cbdfc4118c31a438e3d"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2023.json",
-      "sha256": "a8e450337255794b570b8bdad86d71a305682b5c0df7dfb821d56766da18defb"
+      "sha256": "3b8d1894cea15850a1e54682e39d369e5daedb3414ec2e568de50e16079e7071"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2024.json",
-      "sha256": "9d5ecd10e43192d5b7e5ae00af41b0b1cb793aef4ce394eaa48e188269812644"
+      "sha256": "2a1ec6b5e69dfc71fa5bf4ba30d669e7432f23d09d40f06750005bc2486f7394"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2025.json",
-      "sha256": "80f2d24d71fbc5d67608e9b819063f4bf061188ba33c27b3152cefc444aff3dd"
+      "sha256": "4a1ea47e86131c492dead89f12666c1ddb0df67858c893aaa9373360c2bebbfb"
     },
     {
       "bytes": 2909,
       "path": "data/manifests/faa-sdr-2026.json",
-      "sha256": "03ec0783a1a15529a7b19bb47ab8e5f03b829fdd3f7886df5a4043323f749dec"
+      "sha256": "2b168661bc422313437d5a6f4a9928e335c1b013b53e19051353b7c52271a3e9"
     },
     {
       "bytes": 541,
       "path": "data/manifests/ntsb-avall.json",
-      "sha256": "cc078ecd5fd73b16b33095254b68410ddae37a77df5633681654bebf56708f93"
+      "sha256": "c944087f1ca37aa4851e755d3173c20b84375552d76124f09a2b154989edefe5"
     },
     {
       "bytes": 223,
@@ -118,7 +118,7 @@
     {
       "bytes": 1362,
       "path": "evaluations/model-update-state.json",
-      "sha256": "42d73ea9eea7a3a49d90661474b0de61fc4ae7528dd2fb58b463dd30c7286a80"
+      "sha256": "b274458a55d7fd2a4f2263c241ccaaffdf14a58c76d4bbc4cd3f7a1cd3bd04e0"
     }
   ],
   "gaps": {
@@ -143,7 +143,7 @@
       "status": "BLOCKED"
     }
   },
-  "generated_at": "2026-09-05T13:14:07.291118+00:00",
+  "generated_at": "2026-09-05T13:45:22.102747+00:00",
   "policy": "fail-closed",
   "schema": "bsfm.evidence-automation.v1"
 }
