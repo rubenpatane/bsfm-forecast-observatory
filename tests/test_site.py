@@ -27,13 +27,24 @@ def test_all_pages_have_complete_bilingual_controls_and_mobile_menu():
   assert 'aria-expanded="false"' in text
  js=(ROOT/'site/i18n.js').read_text()
  assert 'localStorage' in js and "searchParams.set('lang'" in js
- assert "localStorage.getItem('bsfm-lang')||'it'" in js
+ assert "localStorage.getItem('bsfm-lang')" in js
+ assert "navigator.language" in js
  assert "menu.classList.toggle('open')" in js
  assert 'bsfm-language' in js
  css=(ROOT/'site/styles.css').read_text()
  assert '@media(max-width:820px)' in css
  assert '.menu-toggle{display:none' in css
  assert '.nav-menu.open{display:flex}' in css
+
+def test_global_navigation_exposes_source_and_last_update():
+ js=(ROOT/'site/i18n.js').read_text()
+ assert "https://github.com/rubenpatane/bsfm-forecast-observatory" in js
+ assert "className='navlink code-link'" in js
+ assert "data/real-data.json" in js and "data/comparable-cases.json" in js
+ assert "site-update-bar" in js and "nav-update" in js
+ assert "Europe/Rome" in js
+ assert "updated:'Ultimo aggiornamento'" in js
+ assert "updated:'Last updated'" in js
 
 def test_home_explains_observatory_and_exposes_real_acquired_data():
  index=(ROOT/'site/index.html').read_text()
