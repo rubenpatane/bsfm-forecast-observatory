@@ -4,14 +4,15 @@
   "status": "construction",
   "years": [
     {"year":2010,"reconciled":false},{"year":2011,"reconciled":false},{"year":2012,"reconciled":false},{"year":2013,"reconciled":false},
-    {"year":2014,"reconciled":false},{"year":2015,"reconciled":false},{"year":2016,"reconciled":false},{"year":2017,"reconciled":false},
+    {"year":2014,"reconciled":false},{"year":2015,"reconciled":false},{"year":2016,"reconciled":false},{"year":2017,"reconciled":true},
     {"year":2018,"reconciled":false},{"year":2019,"reconciled":false},{"year":2020,"reconciled":false},{"year":2021,"reconciled":false},
     {"year":2022,"reconciled":false},{"year":2023,"reconciled":false},{"year":2024,"reconciled":false},{"year":2025,"reconciled":false}
   ],
   "source_families": [
     {"publisher":"ICAO","role":"global scheduled-commercial annual scope","locator":"https://www.icao.int/safety"},
     {"publisher":"EASA","role":"annual review and fatal-accident appendices","locator":"https://www.easa.europa.eu/en/publication-types/annual-safety-review"},
+    {"publisher":"IATA","role":"global commercial-aviation annual census and reconciliation","locator":"https://www.iata.org/safety-report/"},
     {"publisher":"Boeing","role":"manufacturer commercial-jet triangulation","locator":"https://www.boeing.com/safety"}
   ],
-  "gate_note": "No year in this file is an attestation until reconciled=true and scope, provenance, publishers, qualifying_boeing_events and event-level evidence are populated."
+  "gate_note": "A year is an attested G1 cell only when its year-evidence record has all six annual controls true. Overall G1 remains BLOCKED until every required annual cell passes and the full census is deduplicated and scope-consistent."
 }
