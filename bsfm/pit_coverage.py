@@ -71,9 +71,20 @@ def build_operational_pit_coverage(root) -> dict:
         and ntsb_record_history_complete
     )
 
+    # These are the actual dependency surfaces of the implemented shrinkage
+    # estimator. They remain fail-closed until their own PIT/vintage evidence is
+    # materialized; research-only FAA/NTSB enrichment cannot substitute for them.
+    g1_target_history_ready = False
+    g2_exposure_history_ready = False
+
     admitted = universe.get('admitted_predictors') if isinstance(universe.get('admitted_predictors'), list) else []
     universe_frozen = universe.get('frozen') is True and universe.get('status') == 'FROZEN'
-    source_ready = {'FAA SDR': faa_strict_ready, 'NTSB AVALL': ntsb_strict_ready}
+    source_ready = {
+        'G1 target census': g1_target_history_ready,
+        'G2 exposure matrix': g2_exposure_history_ready,
+        'FAA SDR': faa_strict_ready,
+        'NTSB AVALL': ntsb_strict_ready,
+    }
     admitted_checks = []
     for row in admitted:
         row = row if isinstance(row, dict) else {}
@@ -116,6 +127,14 @@ def build_operational_pit_coverage(root) -> dict:
             'admitted_predictors': admitted_checks,
         },
         'sources': {
+            'G1 target census': {
+                'strict_pit_ready': g1_target_history_ready,
+                'reason': 'Historical outcome/publication timing is not yet complete for a frozen cutoff-by-cutoff event-history input.',
+            },
+            'G2 exposure matrix': {
+                'strict_pit_ready': g2_exposure_history_ready,
+                'reason': 'Compatible global cohort-year exposure and its vintage policy remain unavailable.',
+            },
             'FAA SDR': {
                 'years': faa,
                 'verified_years': faa_verified_years,
