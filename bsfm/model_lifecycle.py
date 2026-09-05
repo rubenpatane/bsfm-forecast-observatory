@@ -14,8 +14,11 @@ def utcnow():
 def fit_gate(source_state: dict, backtest_report: dict | None = None) -> dict:
     backtest_report=backtest_report or {}
     checks={
+        # Source-state owns transport/schema integrity only. Historical PIT and
+        # leakage eligibility are scientific properties of the explicitly frozen
+        # backtest predictor universe and therefore come from the foundation report.
         'source_integrity_ready':bool(source_state.get('source_integrity_ready')),
-        'point_in_time_availability_verified':bool(source_state.get('point_in_time_availability_verified')),
+        'point_in_time_availability_verified':bool(backtest_report.get('point_in_time_availability_verified')),
         'leakage_free':bool(backtest_report.get('leakage_free')),
         'baseline_present':bool(backtest_report.get('baseline_present')),
         'historical_cases':bool(backtest_report.get('historical_cases')),
