@@ -4,7 +4,10 @@
   "scope": "global scheduled services / ICAO definitions vary by cited publication",
   "observations": [
     {"year":2013,"departures_approx_millions":32.0,"publisher":"ICAO","source_title":"The World of Air Transport in 2013","locator":"https://www.icao.int/world-air-transport-2013","note":"ICAO reports global scheduled departures reached 32 million in 2013."},
-    {"year":2014,"departures_approx_millions":33.0,"publisher":"ICAO","source_title":"The World of Air Transport in 2014","locator":"https://www.icao.int/world-air-transport-2014","note":"ICAO reports global scheduled departures reached 33 million in 2014."}
+    {"year":2014,"departures_approx_millions":33.0,"publisher":"ICAO","source_title":"The World of Air Transport in 2014","locator":"https://www.icao.int/world-air-transport-2014","note":"ICAO reports global scheduled departures reached 33 million in 2014."},
+    {"year":2023,"departures_approx_millions":35.0,"publisher":"ICAO","source_title":"ICAO Safety Report 2024 / recovery summary","locator":"https://www.icao.int/news/aviation-safety-improved-despite-challenges-pandemic-recovery","note":"ICAO reports flight departures increased to over 35 million in 2023."},
+    {"year":2024,"departures_millions":37.09,"publisher":"ICAO","source_title":"ICAO Safety Report 2025","locator":"https://www.icao.int/sites/default/files/sp-files/safety/Documents/ICAO_SR_2025.pdf","note":"Safety overview reports 37.09 million departures for scheduled commercial operations involving aircraft over 5,700 kg MTOW."},
+    {"year":2025,"departures_approx_millions":38.0,"publisher":"ICAO","source_title":"ICAO 2026 safety analysis","locator":"https://www.icao.int/news/international-civil-aviation-organization-analysis-reveals-major-priorities-air-transport","note":"ICAO reports approximately 38 million flights in 2025; retained as context outside the preregistered 2010-2025 target interval and not a Boeing-family denominator."}
   ],
   "scientific_use": "scope/reconciliation context only; these totals MUST NOT set baseline_present and MUST NOT be allocated to Boeing cohorts by fleet share"
 }
