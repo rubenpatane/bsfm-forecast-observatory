@@ -1,0 +1,66 @@
+{
+  "schema": "bsfm.target-taxonomy.v2",
+  "status": "ADOPTED_PROSPECTIVE_ONLY",
+  "adopted_at": "2026-09-06",
+  "applies_to": {
+    "forecast_scope": "future_forecasts_created_after_adoption",
+    "first_eligible_forecast": "next_new_forecast_after_F-002",
+    "f002": false,
+    "historical_g1_v1": false
+  },
+  "primary_target": "fatal_aviation_safety_accident_involving_boeing_commercial_jet",
+  "rules": {
+    "hostile_unlawful_security": {
+      "decision": "EXCLUDE_SECURITY",
+      "criterion": "competent investigating authority or recognized aviation-security authority officially classifies deliberate hostile action, unlawful interference, terrorism, sabotage, intentional attack or intentional destruction",
+      "parallel_census": true,
+      "media_inference_allowed": false
+    },
+    "missing_aircraft": {
+      "default_decision": "PENDING_MISSING",
+      "include_when": [
+        "competent authority formally treats or classifies occurrence as an accident or equivalent fatal loss",
+        "at least one human fatality is authoritatively established or formally presumed/deemed attributable"
+      ],
+      "complete_wreckage_required": false,
+      "probable_cause_required": false,
+      "security_rule_precedence": true
+    },
+    "fatalities": {
+      "onboard_allowed": true,
+      "ground_allowed": true,
+      "other_aircraft_allowed": true,
+      "other_attributable_human_fatality_allowed": true,
+      "competent_authority_delayed_fatality_classification_controls": true,
+      "preserve_external_counts_separately": true
+    },
+    "commercial_status": {
+      "operator_name_inference_allowed": false,
+      "unknown_or_material_conflict": "PENDING_OPERATION"
+    },
+    "evidence_disagreement": {
+      "silent_override_allowed": false,
+      "material_membership_conflict": "PENDING_TAXONOMY"
+    }
+  },
+  "decision_states": [
+    "INCLUDE_ACCIDENT",
+    "EXCLUDE_SECURITY",
+    "EXCLUDE_NONCOMMERCIAL",
+    "EXCLUDE_NONBOEING",
+    "PENDING_MISSING",
+    "PENDING_OPERATION",
+    "PENDING_IDENTITY",
+    "PENDING_TAXONOMY"
+  ],
+  "primary_outcome_state": "INCLUDE_ACCIDENT",
+  "non_retroactivity": {
+    "f002_unchanged": true,
+    "historical_g1_v1_unchanged": true,
+    "mh370_reclassified": false,
+    "mh17_reclassified": false,
+    "ps752_reclassified": false,
+    "future_historical_reanalysis_requires_new_version": true
+  },
+  "change_control": "new taxonomy version and adoption date required before governing any new forecast period; never edit governed semantics in place after outcome knowledge"
+}
