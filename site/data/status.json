@@ -1,1 +1,122 @@
-{"run_at":null,"registry_integrity":"not_run","forecast_generated":false,"reason":"initialization"}
+{
+  "forecast_generated": false,
+  "integrity_errors": [],
+  "reason": "estimator_not_yet_calibrated",
+  "registry_integrity": "ok",
+  "run_at": "2026-09-05T09:51:32Z",
+  "run_hash": "sha256:b159aab83c9d7d1ebc88e8bbcae179aa3d0bd0af93b1904d9d4b0289ffde689d",
+  "sources": {
+    "checked_at": "2026-09-05T09:51:32Z",
+    "manifests": [
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2010.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2011.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2012.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2013.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2014.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2015.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2016.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2017.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2018.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2019.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2020.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2021.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2022.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2023.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2024.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2025.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "faa-sdr-2026.json",
+        "source": "FAA SDR",
+        "status": "validated"
+      },
+      {
+        "cutoff": null,
+        "manifest": "ntsb-avall.json",
+        "source": "NTSB AVALL",
+        "status": "validated"
+      }
+    ],
+    "ready_for_model": true
+  }
+}
