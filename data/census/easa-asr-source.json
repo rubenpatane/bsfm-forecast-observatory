@@ -8,11 +8,13 @@
   "verified_observations": {
     "archive": "EASA exposes an Annual Safety Review archive with editions covering the BSFM evaluation interval.",
     "fatal_accident_appendices": "Recent editions expose Appendix 1, List of Fatal Accidents.",
-    "global_context": "ASR 2025 reports worldwide fatal-airline-accident context for 2024 in addition to European commercial-air-transport analysis."
+    "asr_2025_global_context": "ASR 2025 reports 14 fatal airline accidents worldwide in 2024 with 304 fatalities, alongside European commercial-air-transport analysis.",
+    "asr_2024_appendix_1": "The directly inspected ASR 2024 Appendix 1 lists fatal accidents by EASA safety domains and contains historical rows through 2023; its commercial-air-transport complex-aeroplane section is not a demonstrated exhaustive worldwide commercial-jet census."
   },
   "limitations": [
     "EASA annual reviews are not assumed to be a Boeing-only census.",
-    "Edition structure and appendix availability may differ by year and must be verified year by year.",
+    "Edition structure, domain scope and appendix availability differ and must be verified year by year.",
+    "ASR 2024 Appendix 1 cannot support a global zero-Boeing attestation for 2023 merely because no Boeing row appears in the inspected commercial-air-transport complex-aeroplane section.",
     "Each candidate event still requires BSFM Boeing/commercial/fatal target adjudication and duplicate reconciliation.",
     "Global-context counts alone cannot attest a BSFM census year."
   ],
