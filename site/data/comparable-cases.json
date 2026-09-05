@@ -32,7 +32,7 @@
     }
   ],
   "forecast_id": "F-002",
-  "generated_at": "2026-09-05T16:17:23Z",
+  "generated_at": "2026-09-05T16:37:32Z",
   "interpretation_warning": "Comparable nonfatal events are context only. They do not satisfy F-002 primary target and do not change its score, validation state, or scientific gates.",
   "schema": "bsfm.public-comparables.v1",
   "selection_rule": "Rolling five-year window from newest snapshot event; Boeing + commercial + nonfatal + 737-800/737-NG + approach/landing or gear/structural similarity; ranked by fixed descriptive similarity then recency.",
