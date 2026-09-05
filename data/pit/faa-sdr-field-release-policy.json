@@ -1,0 +1,37 @@
+{
+  "schema": "bsfm.g3-faa-sdr-field-release-policy.v1",
+  "updated": "2026-09-06",
+  "source": "FAA Service Difficulty Reporting System",
+  "status": "fail-closed",
+  "rules": [
+    {
+      "field": "SubmissionDate",
+      "pit_status": "unknown",
+      "availability_basis": "submission_timestamp_not_publication",
+      "evidence": "FAA states that recently submitted SDRs are unavailable to the public until FAA approval and Quality Control review is complete.",
+      "locator": "https://sdrs.faa.gov/Query.aspx",
+      "rule": "Never copy SubmissionDate into available_at. A separate approval/publication artifact is required."
+    },
+    {
+      "field": "DifficultyDate",
+      "pit_status": "unknown",
+      "availability_basis": "event_timestamp_not_publication",
+      "evidence": "DifficultyDate identifies when the service difficulty occurred; FAA public availability happens only after submission and approval/QC.",
+      "locator": "https://sdrs.faa.gov/FAQ.aspx",
+      "rule": "Never copy DifficultyDate into available_at."
+    },
+    {
+      "field": "current annual CSV row and fields",
+      "pit_status": "bounded",
+      "availability_basis": "current_official_download",
+      "evidence": "FAA currently publishes yearly SDR CSV downloads, but current presence does not establish when the row or its present field values first became public.",
+      "locator": "https://www.faa.gov/av-info/download_SDR",
+      "rule": "Treat current CSV presence as current-source evidence only. Historical cutoff admission requires an archived release or record-specific publication evidence."
+    }
+  ],
+  "default_rule": {
+    "pit_status": "unknown",
+    "rule": "Without explicit approval/publication timing or an immutable archived public snapshot, historical SDR field/value availability remains unknown and is excluded from strict PIT backtests."
+  },
+  "g3_status": "BLOCKED"
+}
