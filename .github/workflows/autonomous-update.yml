@@ -43,8 +43,10 @@ jobs:
           test -s data/derived/ntsb/aircraft.csv
           python - <<'PY'
           import json
+          from pathlib import Path
           from bsfm.ntsb import write_normalized
-          stats=write_normalized('data/derived/ntsb/events.csv','data/derived/ntsb/aircraft.csv','data/derived/ntsb/events-normalized.jsonl')
+          d=Path('data/derived/ntsb')
+          stats=write_normalized(d/'events.csv',d/'aircraft.csv',d/'events-normalized.jsonl',d/'Events_Sequence.csv',d/'Findings.csv')
           print(json.dumps(stats,indent=2))
           assert stats['rows'] > 0
           assert stats['boeing_rows'] > 0
