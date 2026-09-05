@@ -46,6 +46,9 @@ This daily-check + persisted-marker design is used instead of `*/4` in the day-o
 - Every public page has responsive mobile navigation.
 - Overview explains what BSFM is, why it focuses on Boeing, how the project was motivated by the public Boeing investigations/documentary context, how forecasts are frozen, and how prospective scoring works.
 - The safety boundary remains explicit: BSFM is experimental research and does not assess the safety of a specific flight, aircraft, airline, route or person.
+- New post-#17 static UI change: every page now injects a direct `Codice GitHub / GitHub source` link in the navigation menu to `https://github.com/rubenpatane/bsfm-forecast-observatory`.
+- New post-#17 static UI change: every page displays `Ultimo aggiornamento / Last updated` both in the navigation menu and in a small status strip below the header.
+- The displayed timestamp is derived from generated observatory data (`site/data/real-data.json` and `site/data/comparable-cases.json`) and rendered in Europe/Rome time; it is not the browser load time and is therefore tied to the last successful data-generation run.
 
 ## Real acquired-data publication
 The public real-data surface is generated directly from official acquisition in AGGIORNA.
@@ -83,6 +86,6 @@ Therefore a successful AGGIORNA means the software, acquisition, audits, generat
 The acquisition/scientific layers remain separated because NTSB states that the downloadable aviation dataset will transition to its Enterprise API on 2027-04-05. The current MDB adapter can therefore be replaced without changing gate semantics.
 
 ## Current operational state
-Runtime-verified through AGGIORNA #17. Four-day automatic scheduling is now configured in the workflow but has not yet reached its first scheduled due time; its first real automatic execution will provide runtime evidence for the cadence branch itself.
+Runtime-verified through AGGIORNA #17. Four-day automatic scheduling is configured but has not yet reached its first scheduled due time. The GitHub-source-link and last-update timestamp UI changes are committed after #17 and therefore require the next Pages deployment before they are publicly visible.
 
-Exact next step: no manual action is required for routine refresh. The cadence checker will run daily and the full AGGIORNA pipeline will execute automatically every four elapsed days. Manual AGGIORNA remains available at any time without shifting the automatic cadence.
+Exact next step: no manual action is required for routine refresh. If immediate publication of the new navigation/update-timestamp UI is desired, run one manual `AGGIORNA`; otherwise the next automatic heavy refresh will deploy it when the four-day cadence becomes due. Manual AGGIORNA remains available without shifting the automatic cadence.
