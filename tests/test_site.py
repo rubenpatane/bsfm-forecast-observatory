@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 PAGES=('index.html','validation.html','methodology.html','provenance.html')
 
 def test_observatory_pages_and_shared_assets_exist():
- for name in (*PAGES,'styles.css','i18n.js'):
+ for name in (*PAGES,'styles.css','i18n.js','comparables.js'):
   assert (ROOT/'site'/name).is_file()
 
 def test_public_readiness_seed_is_fail_closed():
@@ -47,23 +47,31 @@ def test_home_explains_observatory_and_exposes_real_acquired_data():
  assert 'non è necessariamente un incidente' in index
  assert 'latestReports' in index and 'topModels' in index and 'ntsbStats' in index
 
+def test_home_loads_generated_nonfatal_comparables():
+ index=(ROOT/'site/index.html').read_text()
+ js=(ROOT/'site/comparables.js').read_text()
+ assert './comparables.js' in index
+ assert './data/comparable-cases.json' in js
+ assert 'Confronto descrittivo ≠ validazione' in js
+ assert 'non modifica il suo punteggio' in js
+ assert 'const CASES=' not in js
+
 def test_translation_dictionary_covers_all_public_page_keys():
  js=(ROOT/'site/i18n.js').read_text()
  for name in PAGES:
   text=(ROOT/'site'/name).read_text()
   import re
   for key in re.findall(r'data-i18n="([^"]+)"',text):
-   # Every rendered key must exist in both dictionaries; two textual occurrences
-   # in the source prove coverage without maintaining a second translation list.
    assert js.count(key+':')>=2, (name,key)
 
-def test_single_workflow_generates_real_data_evidence_refinements_and_deploys_site():
+def test_single_workflow_generates_real_data_evidence_refinements_comparables_and_deploys_site():
  workflows=list((ROOT/'.github/workflows').glob('*.yml'))+list((ROOT/'.github/workflows').glob('*.yaml'))
  assert len(workflows)==1
  text=workflows[0].read_text()
  assert text.startswith('name: AGGIORNA\n')
  assert 'write_evidence_state' in text
  assert 'write_public_refinements' in text
+ assert 'write_public_comparables' in text
  assert "site/data/real-data.json" in text
  assert "'ntsb_snapshot'" in text
  assert 'git add site/data data/manifests forecasts evaluations' in text
