@@ -66,12 +66,12 @@ jobs:
           python - <<'PY'
           import json
           from bsfm.pipeline import validate_sources
+          from bsfm.cli import availability_audit
           from bsfm.foundation_report import build_foundation_report
           from bsfm.model_lifecycle import update_model
           from pathlib import Path
           source=validate_sources()
-          availability={'point_in_time_availability_verified':source['point_in_time_availability_verified'],'leakage_free':False}
-          report=build_foundation_report(Path('.'),availability)
+          report=build_foundation_report(Path('.'),availability_audit(source))
           state=update_model(source,report)
           print(json.dumps(state,indent=2))
           PY
