@@ -96,7 +96,30 @@ jobs:
             git config user.email 'bsfm-observatory-bot@users.noreply.github.com'
             git add site/data data/manifests forecasts evaluations
             git commit -m 'chore(observatory): AGGIORNA auditable state'
-            git push
+
+            # workflow_dispatch re-runs are pinned to their original SHA. If main
+            # advanced while this run was executing (or a prior attempt already
+            # committed generated state), a plain `git push` is non-fast-forward.
+            # Rebase the generated-state commit onto the current remote main and
+            # retry a bounded number of times. Never force-push and never discard
+            # concurrent repository changes.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if git rebase origin/main; then
+                if git push origin HEAD:main; then
+                  break
+                fi
+              else
+                echo 'Generated-state rebase conflicted; refusing to overwrite concurrent changes.' >&2
+                git rebase --abort || true
+                exit 1
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo 'main kept advancing; generated-state push failed after 3 safe retries.' >&2
+                exit 1
+              fi
+              sleep $((attempt * 2))
+            done
           fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
