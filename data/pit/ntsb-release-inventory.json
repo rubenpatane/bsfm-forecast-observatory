@@ -1,13 +1,14 @@
 {
-  "schema": "bsfm.g3-release-inventory.v1",
+  "schema": "bsfm.g3-release-inventory.v2",
   "source": "NTSB aviation downloadable datasets and CAROL",
   "updated": "2026-09-06",
-  "status": "partial-release-history",
+  "status": "partial-release-history-with-versioned-snapshot-anchor",
   "official_public_evidence": [
     {
       "date": "2010-06-23",
       "artifact": "NTSB legacy AV data directory / eadmspub schema timestamp",
       "locator": "https://www.ntsb.gov/GILS/Pages/avdata.aspx",
+      "evidence_class": "source_level_bound",
       "establishes": "The NTSB legacy public AV-data directory lists the eADMS public schema with a 2010 timestamp, demonstrating that a documented downloadable aviation-data distribution surface predated CAROL.",
       "does_not_establish": "record-level contents or availability dates for any individual accident record"
     },
@@ -15,13 +16,15 @@
       "date": "2012-06-01",
       "artifact": "NTSB legacy AV data directory / AVALL.ZIP timestamp",
       "locator": "https://www.ntsb.gov/GILS/Pages/avdata.aspx",
+      "evidence_class": "source_level_bound",
       "establishes": "The official legacy directory lists AVALL.ZIP with a 2012-06-01 timestamp, proving that AVALL was publicly distributed by that date.",
-      "does_not_establish": "that every record or modern field currently present in AVALL was contained in the 2012 snapshot"
+      "does_not_establish": "that every record or modern field currently present in AVALL was contained in the 2012 snapshot because preserved bytes have not been acquired"
     },
     {
       "date": "2020-10-13",
       "artifact": "NTSB press release announcing CAROL public-facing database",
       "locator": "https://www.ntsb.gov/news/press-releases/Pages/NR20201013.aspx",
+      "evidence_class": "source_level_bound",
       "establishes": "CAROL was publicly launched by this date; aviation investigations since 2008 were described as available, subject to noted multi-aircraft migration caveats.",
       "does_not_establish": "field-level contents of each aviation record at this date"
     },
@@ -29,6 +32,7 @@
       "date": "2023-07-17",
       "artifact": "NTSB press release on expanded CAROL/Aviation Investigation Search",
       "locator": "https://www.ntsb.gov/news/press-releases/Pages/NR07172023.aspx",
+      "evidence_class": "source_level_bound",
       "establishes": "Expanded aviation search from 1962-present and CSV/JSON download capabilities with additional fields were publicly announced by this date.",
       "does_not_establish": "that fields added by the expansion existed in earlier public releases"
     },
@@ -36,6 +40,7 @@
       "date": "2023-10-26",
       "artifact": "NTSB MDB Release Notes 2.9",
       "locator": "https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5CMDB_Release_Notes.pdf",
+      "evidence_class": "schema_release_bound",
       "establishes": "A dated schema/data release checkpoint and documented adjustment of thousands of records.",
       "does_not_establish": "original public availability of the revised historical values"
     },
@@ -43,13 +48,24 @@
       "date": "2024-03-01",
       "artifact": "NTSB MDB Release Notes 3.0",
       "locator": "https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5CMDB_Release_Notes.pdf",
+      "evidence_class": "schema_release_bound",
       "establishes": "The findings table added cm_inPC in monthly/weekly AVALL downloads and the field was back-filled for historical records.",
       "does_not_establish": "cm_inPC as a historically public field before 2024-03-01; back-filled values must not leak into earlier cutoffs"
+    },
+    {
+      "date": "2025-04-21",
+      "artifact": "ICPSR/DataLumos Census of US Civil Aviation Accidents V1 / avall.zip",
+      "locator": "https://www.datalumos.org/datalumos/project/227322/version/V1/view",
+      "evidence_class": "versioned_snapshot_anchor",
+      "publisher_attribution": "National Transportation Safety Board; ICPSR/DataLumos distributor",
+      "establishes": "A versioned public deposit preserves avall.zip bytes with a 2025-04-21 publication/version context and file-level timestamp. Once the exact bytes/hash are acquired and inspected, record/field values present in this snapshot can support verified PIT for cutoffs on or after this anchor date.",
+      "does_not_establish": "availability of those values before 2025-04-21, or contents of earlier AVALL snapshots"
     },
     {
       "date": "2026-09-01",
       "artifact": "NTSB AV data directory listing",
       "locator": "https://data.ntsb.gov/avdata",
+      "evidence_class": "current_snapshot",
       "establishes": "The current avall.zip snapshot is dated 2026-09-01 and the directory describes AVALL as a downloadable public aviation dataset; monthly and weekly update files are also present.",
       "does_not_establish": "the content or publication date of earlier snapshots no longer present in the directory"
     }
@@ -62,11 +78,12 @@
   },
   "pit_implications": [
     "The 2010/2012 legacy-directory timestamps prove source-level public distribution before CAROL but do not make every present-day historical record PIT-admissible.",
+    "The 2025-04-21 DataLumos deposit is a strong versioned snapshot anchor; exact record/field verification still requires acquiring and hashing the preserved bytes.",
     "A release date can bound when a schema/field became publicly available but does not prove every record value existed at that release.",
     "Back-filled or corrected historical values inherit the later release evidence unless an earlier snapshot proves the value existed earlier.",
     "Current CAROL/AVALL presence must not be back-projected before the earliest evidenced release containing that field/value.",
     "For strict backtests, official report/publication artifacts or archived dataset snapshots remain preferable to administrative timestamps stored in the current database."
   ],
-  "coverage_gap": "The currently accessible official surfaces prove AVALL distribution by 2012 and later release epochs, but do not provide a complete retained archive of monthly AVALL contents for every historical cutoff from 2010-2025. Additional archived snapshots or record-specific official publication evidence are required for broad field-level PIT verification.",
+  "coverage_gap": "The accessible evidence now includes a versioned 2025 AVALL snapshot anchor plus source/schema bounds back to 2010/2012, but not a retained sequence of record-level AVALL snapshots covering historical cutoffs across 2010-2025. Additional archived snapshots or record-specific official publication evidence are required for broad field-level PIT verification.",
   "g3_status": "BLOCKED"
 }
