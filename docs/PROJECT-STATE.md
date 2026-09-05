@@ -86,8 +86,4 @@ Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remai
 AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. The research branch is software-verified through Research CI `33999727997` with 186 tests passed, and the temporary workflow has been removed.
 
 ## Exact next step / external dependencies
-1. Preserve F-002 and historical G1 v1 unchanged; use prospective taxonomy v2 only for future forecasts.
-2. Complete the seven remaining G1 outcome-publication rows only where a dated stable authority artifact can be established; otherwise retain them as explicitly unverified rather than substituting event dates or current database presence.
-3. G2: obtain a lawful representative extract/data dictionary from OAG, Cirium or IATA WATS that can be transformed into the fixed vendor-neutral flight-leg contract and audited for global cohort-year completeness.
-4. G3: either acquire genuine historical FAA SDR publication snapshots/evidence, or prospectively design and version a new model candidate that removes/replaces `faa_sdr_precursors`; do not silently change model 1.2.
-5. Keep PR #2 draft and do not run AGGIORNA from the research branch until the external data/model decision is resolved.
+Obtain a lawful representative extract and data dictionary from OAG, Cirium or IATA WATS for the fixed G2 flight-leg acceptance audit; meanwhile preserve F-002/historical G1 v1, keep the seven unsupported outcome-publication rows unverified, keep model 1.2 and G3 fail-closed unless genuine FAA SDR snapshots or an explicitly versioned new-model decision arrives, and leave PR #2 Draft without running AGGIORNA from this branch.
