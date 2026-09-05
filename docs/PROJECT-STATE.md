@@ -32,13 +32,13 @@ This taxonomy is explicitly non-retroactive:
 ## Current research branch and verification
 Draft PR #2, branch `research/privacy-safe-rebuild-20260905`, is the privacy-safe reconstruction of post-#25 research. It was created from current `main`; it does not import the commit history of closed PR #1. New Git metadata uses GitHub privacy-safe noreply identity.
 
-A temporary read-only branch Research CI was used only to verify the research head and was then removed, restoring the repository's single-workflow invariant. The latest completed verification before the prospective-v2-only additions is `33997082566` and executed:
-- full `pytest -q`: **158 passed**;
+A temporary read-only branch Research CI was used only to verify the research head and was then removed, restoring the repository's single-workflow invariant. Latest successful run `33997748744` executed:
+- full `pytest -q`: **162 passed**;
 - `python -m bsfm.cli verify`: forecast registry integrity OK;
 - `python -m bsfm.cli audit-foundation`: completed successfully;
 - `python -m bsfm.cli audit-final`: completed successfully.
 
-That run includes the strict source-specific G3 PIT gate wired into `availability_audit`: a generic PIT boolean can no longer bypass FAA/NTSB record-release evidence. The final audit correctly kept `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false.
+This run includes the prospective-v2 non-retroactivity tests and the strict source-specific G3 PIT gate. The final audit still reports historical G1 incomplete, `baseline_present=false`, `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false.
 
 The temporary CI had read-only repository permissions, did not ingest sources, deploy Pages, write generated state or push to `main`, and is no longer in the PR diff. This is a software/audit verification checkpoint, not AGGIORNA and not scientific validation.
 
@@ -88,7 +88,7 @@ Geography, MSN and flight number have independent fail-closed support gates. Ret
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. Prospective Target Taxonomy v2 is adopted for future forecasts only and does not change the current gate state.
+AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. Prospective Target Taxonomy v2 is adopted and software-verified for future forecasts only; it does not change the current gate state.
 
 ## Exact next step
 1. Keep historical G1 v1 at 14/16; do not retroapply v2 to 2014/2020 or F-002.
