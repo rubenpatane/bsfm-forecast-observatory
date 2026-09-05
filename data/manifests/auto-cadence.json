@@ -1,0 +1,9 @@
+{
+  "schema": "bsfm.auto-cadence.v1",
+  "interval_days": 4,
+  "last_completed_refresh_at": "2026-09-05T13:45:43Z",
+  "anchor_run_id": 33969684499,
+  "anchor_run_number": 17,
+  "anchor_event": "workflow_dispatch",
+  "note": "The latest successful manual AGGIORNA run anchors the first automatic four-day interval. Subsequent successful scheduled runs update last_completed_refresh_at. Manual runs remain available and do not reset the automatic cadence."
+}
