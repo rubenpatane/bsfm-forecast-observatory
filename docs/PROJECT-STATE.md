@@ -2,48 +2,46 @@
 
 Updated: 2026-09-05
 
-## Verified repository state
-- Public research repository; F-002 remains frozen and explicitly experimental/unvalidated.
-- Immutable forecast registry with SHA-256 integrity checks.
-- Exactly one operational GitHub Actions workflow is retained: `AGGIORNA`; it remains manual (`workflow_dispatch`).
-- **AGGIORNA #11 completed successfully on `e24e27e1…`; 65 tests passed before and after refresh.** Registry integrity passed and the generated auditable-state commit is `a5fb38cfb120d57bed7003f08557cc267f003dd2`.
-- Live NTSB normalization remains 31,670 event-aircraft rows, 1,894 Boeing rows and 50 fatal Boeing rows. `availability_known=0`; approval/change timestamps remain outcome/administrative metadata, not demonstrated historical public availability.
-- FAA SDR 2010-2026 refresh remains operational, but historical public availability is unverified because FAA approval/QC occurs after submission. SDR predictor eligibility therefore remains blocked.
-- Backtest protocol is preregistered for 2010-2025 at T-365/T-90/T-30/T-7. Scientific gates remain fail-closed.
+## Last workflow-verified baseline
+- F-002 remains frozen and explicitly experimental/unvalidated.
+- Exactly one operational GitHub Actions workflow exists: `AGGIORNA`, manual `workflow_dispatch`.
+- **AGGIORNA #11 passed on `e24e27e1…`; 65 tests passed before and after refresh.** Generated auditable-state commit: `a5fb38cfb120d57bed7003f08557cc267f003dd2`.
+- Everything after that generated-state commit belongs to the accumulated final implementation batch and has intentionally not received an intermediate workflow run.
 
-## Execution rule — final implementation batch
-`docs/FINAL-IMPLEMENTATION-PLAN.md` is now the persistent execution checklist. From commit `74925a7046e6f66703aa8bc855291ca1a2edafbb` onward, **no intermediate AGGIORNA is requested**. Code, data, tests, scientific audits and documentation are accumulated to maximum defensible completion first. One integrated AGGIORNA is requested only after the final pre-verification audit. A further run is justified only if that integrated run exposes a real defect.
+## Final implementation freeze
+Implementation/static-audit anchor immediately before this state-only freeze commit: `14a5747067f7737926bc91e2262cb31b32e7ad6c`.
 
-## Historical Backtest Foundation / Model Evaluation batch
-Implemented after AGGIORNA #11 and not yet workflow-verified:
-- fail-closed machine-readable census event ledger and annual reconciliation ledger;
-- fail-closed departures exposure ledger and explicit prohibition on deriving Boeing-family denominators from global traffic totals, fleet counts or accident counts;
-- integrated historical-foundation audit combining census, exposure, point-in-time availability and leakage gates;
-- walk-forward descriptors with strict **next-event-after-cutoff** semantics: a T-365/T-90 case is excluded when another qualifying target occurs between cutoff and the nominal target;
-- explicit case IDs for paired candidate/reference scoring;
-- point-in-time snapshot helper that admits only rows with `historical_public_availability=verified` and an explicit `available_at <= cutoff`;
-- binary calibration/reliability diagnostics and Brier scoring;
-- multiclass Brier primitive for mutually exclusive cohort outcomes;
-- paired candidate-versus-exposure-baseline comparison that fails closed on unpaired cases or outcome disagreement;
-- lifecycle split into a pre-fit evidence gate and a stricter post-fit promotion gate, removing the circular requirement that calibration exist before a candidate can be fitted;
-- promotion additionally requires calibration, a paired baseline comparison and measured improvement over baseline;
-- CLI `audit-foundation` command for an auditable readiness report;
-- regression tests covering construction ledgers, next-event semantics, eligibility, scoring and lifecycle gates.
+The final batch now contains:
+- strict census/year reconciliation and construction-candidate separation;
+- strict Boeing-cohort exposure audit plus context-only global traffic separation;
+- cumulative-rate exposure reconstruction with uncertainty retained;
+- verified-public-availability PIT eligibility;
+- strict next-event T-365/T-90/T-30/T-7 walk-forward descriptors;
+- stable case IDs and duplicate/malformed prediction rejection;
+- temporal and multidimensional scoring primitives;
+- binary reliability/Brier and multiclass Brier;
+- paired candidate-versus-exposure-null comparison;
+- shrinkage hazard candidate estimator for rare/small-sample cohort data;
+- explicit leakage-safe OOS case runner;
+- centralized Boeing model→cohort mapping;
+- independent fit gate and stricter post-fit promotion gate;
+- content-addressed candidate model registry and explicit promotion transition;
+- machine-readable `audit-foundation` and `audit-final` readiness surfaces;
+- one AGGIORNA workflow extended to execute the scientific audits as part of the integrated run;
+- regression tests for the new fail-closed paths;
+- final implementation plan, evidence-gap register and static audit.
 
-## Source reconciliation evidence
-- EASA Annual Safety Review archive and ICAO safety reporting provide authoritative scope/case reconciliation layers, but their scopes are not silently merged.
-- ICAO global scheduled traffic values are retained as context only. The context ledger includes 2023 (>35m departures), 2024 (37.09m scheduled-commercial departures for the >5,700 kg safety-report scope), and 2025 (~38m flights) in addition to earlier context observations.
-- These global totals are **not** Boeing-family denominators and cannot set `baseline_present`.
-- A defensible annual Boeing-family departures matrix for 2010-2025 has not yet been established from public authoritative evidence; no fleet-share allocation or invented denominator is permitted.
+## Static audit result
+`docs/FINAL-STATIC-AUDIT.md` records the pre-workflow audit. Conflicting legacy logic was corrected: generic timestamp eligibility no longer bypasses verified PIT status; legacy publication gating now requires paired-baseline/superiority evidence; duplicate case IDs cannot be silently overwritten; fit and promotion readiness are non-circular.
 
-## Scientific gate
-No new prospective forecast may be represented as validated until leakage-free historical evaluation and calibration are populated. Absolute accident probabilities remain disabled. Source integrity is ready; historical point-in-time predictor availability, provenance-complete global historical cases and Boeing-cohort exposure remain incomplete. Construction placeholders are never interpreted as zero-event or zero-exposure evidence.
+## Empirical evidence state
+`docs/FINAL-EVIDENCE-GAPS.md` is authoritative. Software implementation does not fabricate missing science:
+- G1 global target census 2010–2025: BLOCKED pending exhaustive reconciliation;
+- G2 Boeing-family annual departures matrix: BLOCKED pending defensible authoritative exposure;
+- G3 historical public availability for current FAA SDR/NTSB snapshots: BLOCKED where release timing is unverified;
+- G4 real calibration/candidate superiority: BLOCKED downstream of G1–G3.
 
-The lifecycle distinguishes two stages:
-1. **fit gate** — source integrity + verified point-in-time availability + leakage-free historical cases + complete exposure baseline;
-2. **promotion gate** — all fit evidence plus calibration + paired baseline comparison + candidate improvement.
+Accordingly `historical_cases`, `baseline_present`, `point_in_time_availability_verified`, `leakage_free`, `calibration_evaluated`, paired comparison and promotion remain fail closed unless real evidence opens them. Absolute accident probabilities and validated-prediction claims remain disabled.
 
-No estimator is currently fitted or promoted.
-
-## Exact next step
-Follow `docs/FINAL-IMPLEMENTATION-PLAN.md` from workstream A through H without intermediate workflow requests. Continue event-level 2010-2025 reconciliation, authoritative Boeing-family exposure research, point-in-time eligibility, integrated evaluation/lifecycle implementation, tests and repository audit. Preserve unresolved evidence as BLOCKED rather than estimating it. Request one AGGIORNA only after the final pre-verification HEAD has been frozen here.
+## Execution rule
+No more implementation changes should be made before the integrated verification unless static inspection finds a concrete defect. The next action is exactly one manual `Actions → AGGIORNA → Run workflow` on the current `main` HEAD. After it completes, inspect the exact SHA, pre/post test totals, registry integrity, source refresh, NTSB normalization, foundation/final audits, lifecycle state, artifact and generated-state commit. A second AGGIORNA is permitted only if this final run reveals a real defect.
