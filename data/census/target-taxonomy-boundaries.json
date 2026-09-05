@@ -1,0 +1,37 @@
+{
+  "schema": "bsfm.g1-target-taxonomy-boundaries.v1",
+  "status": "fail-closed-unresolved",
+  "recorded_at": "2026-09-06",
+  "frozen_target": "next_fatal_accident_involving_boeing_commercial_jet",
+  "purpose": "Record target-semantics ambiguities without resolving them after inspecting historical outcomes.",
+  "boundaries": [
+    {
+      "id": "HOSTILE_UNLAWFUL_ACTION",
+      "status": "UNRESOLVED",
+      "affected_events": ["G1-2014-MH17", "G1-2020-PS752"],
+      "affected_years": [2014, 2020],
+      "authority_observation": "Competent Annex 13 investigation records exist for both events and describe fatal occurrences involving Boeing commercial jets.",
+      "statistical_source_observation": "IATA and Boeing safety-statistical products exclude hostile/unlawful/security events under source-specific rules.",
+      "why_not_resolved": "F-002 and the canonical G1 plan do not prospectively state whether hostile or unlawful action is included in the word accident. Selecting either source convention after observing the historical cases would add a target rule not present in the frozen forecast object.",
+      "gate_effect": ["boeing_target_membership_mapped=false", "target_taxonomies_resolved=false"]
+    },
+    {
+      "id": "MISSING_AIRCRAFT",
+      "status": "UNRESOLVED",
+      "affected_events": ["G1-2014-MH370"],
+      "affected_years": [2014],
+      "authority_observation": "The Malaysian safety investigation establishes scheduled Boeing 777 flight MH370, 9M-MRO, 239 persons and a missing aircraft after extensive search with recovered debris attributed to MH370.",
+      "statistical_source_observation": "IATA counted MH370 as an accident in its 2014 safety report, while Boeing's 2014 statistical edition excluded it under its publication-time missing/unknown rules.",
+      "why_not_resolved": "The frozen target does not specify whether a missing aircraft without a fully established accident sequence is a qualifying fatal accident. Choosing IATA or Boeing convention now would be a post-outcome target interpretation.",
+      "gate_effect": ["boeing_target_membership_mapped=false", "target_taxonomies_resolved=false"]
+    }
+  ],
+  "current_g1_annual_state": {
+    "reconciled_years": [2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025],
+    "unresolved_years": [2014, 2020],
+    "reconciled_count": 14,
+    "required_count": 16,
+    "g1_status": "BLOCKED"
+  },
+  "non_retroactivity": "This artifact records the ambiguity only. It does not modify F-002, its preregistration, historical candidate decisions, or future target scoring. Any later taxonomy must be separately versioned and its applicability to frozen forecasts stated explicitly before use."
+}
