@@ -10,18 +10,23 @@
     "G2 exposure-source assessment"
   ],
   "verified_observations": {
+    "publication": "The inspected edition is dated April 2026 and describes worldwide operations through 2025.",
     "annual_accident_rates": "Report contains accident rates and onboard fatalities by year, 1959-2025, per one million departures.",
-    "aggregate_exposure": "Report contains worldwide departures and flight-hours over time and reports cumulative Boeing-vs-total shares.",
-    "airplane_type_rates": "Report contains hull-loss accident rates by airplane type over cumulative operating history.",
+    "aggregate_exposure": "Report contains worldwide departures and flight-hours over time for 2006-2025 and reports cumulative Boeing-vs-total shares.",
+    "aggregate_2025": "The report states 33.1 million departures and 78.3 million flight-hours for the worldwide commercial jet fleet in 2025, plus 30,660 airplanes in service, of which 14,031 are Boeing airplanes.",
+    "cumulative_boeing_share": "The report states 998 million departures since 1959, 62% on Boeing airplanes (622 million), and 1,969 million flight-hours since 1959, 63% on Boeing airplanes (1,249 million).",
+    "airplane_type_rates": "Report contains cumulative hull-loss accident rates by airplane type; types with fewer than one million departures are explicitly marked.",
     "current_year_event_table": "Report contains event-level 2025 airplane accident summaries.",
-    "source_for_exposure_series": "2005-2019 Jet Information Services Inc.; 2020-2025 Cirium."
+    "source_for_exposure_series": "2005-2019 Jet Information Services Inc.; 2020-2025 Cirium.",
+    "rate_denominator_method": "Boeing states that departures/flight cycles are the basis for accident rates and that departure data are continually updated and revised."
   },
   "g1_effect": "supporting_reconciliation_only",
   "g2_effect": "blocked_pending_family_year_denominators",
   "limitations": [
     "The verified 2025 report does not by itself provide a machine-readable event-level 2010-2025 Boeing-only census matching BSFM target semantics.",
-    "The verified report exposes aggregate annual worldwide traffic and cumulative airplane-type accident rates, but this review did not establish annual departures/cycles for every BSFM Boeing family-year cell from 2010-2025.",
-    "Cumulative airplane-type rates must not be transformed into annual family exposure without source evidence.",
+    "The annual worldwide departures/flight-hours chart is fleet aggregate, not a demonstrated Boeing-family-by-year denominator table.",
+    "The Boeing-vs-total departure and flight-hour shares are cumulative since 1959, not annual family-level exposure.",
+    "Cumulative airplane-type accident rates or cumulative Boeing shares must not be inverted, interpolated or disaggregated to manufacture annual family exposure.",
     "Boeing report inclusion/exclusion definitions must be reconciled with the BSFM target before G1 attestation."
   ],
   "scientific_gate_effect": "none_without_reconciliation"
