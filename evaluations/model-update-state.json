@@ -2,16 +2,17 @@
   "candidate_fit_attempted": false,
   "candidate_promoted": false,
   "estimator_available": true,
-  "evaluated_at": "2026-09-05T13:45:22Z",
+  "evaluated_at": "2026-09-05T14:06:23Z",
   "fit_gate": {
     "checks": {
       "baseline_present": false,
       "historical_cases": false,
       "leakage_free": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": true
+      "source_integrity_ready": false
     },
     "missing": [
+      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",
@@ -28,9 +29,10 @@
       "leakage_free": false,
       "paired_baseline_comparison": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": true
+      "source_integrity_ready": false
     },
     "missing": [
+      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",
@@ -44,5 +46,5 @@
   "incumbent_retained": true,
   "reason": "model_update_blocked_scientific_gate",
   "schema": "bsfm.model-lifecycle.v3",
-  "state_hash": "sha256:6a4bbc73aa214ead2d2ed3f77681514b657964657f523972794a791e56289b3c"
+  "state_hash": "sha256:23c8aeb10270d0f457597466ac57beb2802043dda08ad204ae9df98acf237a4b"
 }

@@ -1,13 +1,20 @@
 {
   "forecast_generated": false,
   "integrity_errors": [],
-  "reason": "historical_point_in_time_availability_unverified",
+  "reason": "validated_source_snapshots_unavailable",
   "registry_integrity": "ok",
-  "run_at": "2026-09-05T13:45:21Z",
-  "run_hash": "sha256:b81514e2158b1a7560c250a99dad4b1b40f411cbb704b0f638be36a1f4584e6f",
+  "run_at": "2026-09-05T14:06:23Z",
+  "run_hash": "sha256:dc3223888019880007a2702d17d3d2e484311eb8d1b9c2caaca7c08e431e9f1c",
   "sources": {
-    "checked_at": "2026-09-05T13:45:21Z",
+    "checked_at": "2026-09-05T14:06:23Z",
     "manifests": [
+      {
+        "cutoff": null,
+        "historical_public_availability": null,
+        "manifest": "auto-cadence.json",
+        "source": null,
+        "status": "unknown"
+      },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
@@ -137,6 +144,6 @@
     ],
     "point_in_time_availability_verified": false,
     "ready_for_model": false,
-    "source_integrity_ready": true
+    "source_integrity_ready": false
   }
 }
