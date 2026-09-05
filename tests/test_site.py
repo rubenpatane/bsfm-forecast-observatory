@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+PAGES=('index.html','validation.html','methodology.html','provenance.html')
 
 def test_observatory_pages_and_shared_assets_exist():
- for name in ('index.html','validation.html','methodology.html','provenance.html','styles.css','i18n.js'):
+ for name in (*PAGES,'styles.css','i18n.js'):
   assert (ROOT/'site'/name).is_file()
 
 def test_public_readiness_seed_is_fail_closed():
@@ -14,30 +15,63 @@ def test_public_readiness_seed_is_fail_closed():
  assert state['validated_prediction_claim_allowed'] is False
  assert not any(state['gates'].values())
 
-def test_all_pages_have_persistent_bilingual_controls():
- for name in ('index.html','validation.html','methodology.html','provenance.html'):
+def test_all_pages_have_complete_bilingual_controls_and_mobile_menu():
+ for name in PAGES:
   text=(ROOT/'site'/name).read_text()
+  assert '<html lang="it"' in text
   assert './i18n.js' in text
   assert 'data-lang="it"' in text and 'data-lang="en"' in text
   assert 'data-i18n="overview"' in text
+  assert 'class="menu-toggle"' in text
+  assert 'class="nav-menu"' in text
+  assert 'aria-expanded="false"' in text
  js=(ROOT/'site/i18n.js').read_text()
  assert 'localStorage' in js and "searchParams.set('lang'" in js
- assert 'ITA' not in js or 'it' in js
+ assert "localStorage.getItem('bsfm-lang')||'it'" in js
+ assert "menu.classList.toggle('open')" in js
+ assert 'bsfm-language' in js
+ css=(ROOT/'site/styles.css').read_text()
+ assert '@media(max-width:820px)' in css
+ assert '.menu-toggle{display:none' in css
+ assert '.nav-menu.open{display:flex}' in css
 
-def test_site_exposes_frozen_forecast_refinements_and_evidence_state():
+def test_home_explains_observatory_and_exposes_real_acquired_data():
  index=(ROOT/'site/index.html').read_text()
- assert 'Experimental research' in index and 'not an operational safety tool' in index
+ assert 'Ricerca sperimentale' in index and 'non è uno strumento operativo di sicurezza' in index
+ assert 'Che cos’è BSFM' in index and 'Come funziona' in index
  assert 'F-002' in index and 'R-F002-*' in index
  assert './data/refinements.json' in index
  assert './data/evidence-state.json' in index
- assert 'not counted in its original score' in index
+ assert './data/real-data.json' in index
+ assert 'FAA SDR' in index and 'NTSB AVALL' in index
+ assert 'non è necessariamente un incidente' in index
+ assert 'latestReports' in index and 'topModels' in index and 'ntsbStats' in index
 
-def test_single_workflow_generates_evidence_refinements_and_deploys_site():
+def test_translation_dictionary_covers_all_public_page_keys():
+ js=(ROOT/'site/i18n.js').read_text()
+ for name in PAGES:
+  text=(ROOT/'site'/name).read_text()
+  import re
+  for key in re.findall(r'data-i18n="([^"]+)"',text):
+   # Every rendered key must exist in both dictionaries; two textual occurrences
+   # in the source prove coverage without maintaining a second translation list.
+   assert js.count(key+':')>=2, (name,key)
+
+def test_single_workflow_generates_real_data_evidence_refinements_and_deploys_site():
  workflows=list((ROOT/'.github/workflows').glob('*.yml'))+list((ROOT/'.github/workflows').glob('*.yaml'))
  assert len(workflows)==1
  text=workflows[0].read_text()
  assert text.startswith('name: AGGIORNA\n')
  assert 'write_evidence_state' in text
  assert 'write_public_refinements' in text
+ assert "site/data/real-data.json" in text
+ assert "'ntsb_snapshot'" in text
  assert 'git add site/data data/manifests forecasts evaluations' in text
  assert 'actions/upload-pages-artifact@v3' in text and 'actions/deploy-pages@v4' in text
+
+def test_public_copy_does_not_claim_scientific_validation():
+ index=(ROOT/'site/index.html').read_text().lower()
+ validation=(ROOT/'site/validation.html').read_text().lower()
+ assert 'fino a quando le evidenze richieste non sono complete' in index
+ assert 'resta esplicitamente bloccato' in index
+ assert 'un’esecuzione software verde non può trasformare' in validation
