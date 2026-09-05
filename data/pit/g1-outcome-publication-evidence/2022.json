@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2022,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2022-MU5735",
+      "available_at": "2022-04-20",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.caac.gov.cn/XXGK/XXGK/TZTG/202204/t20220420_212895.html"],
+      "status": "verified",
+      "note": "CAAC's dated preliminary-investigation notice establishes the Boeing 737-800 accident and all 132 onboard fatalities."
+    }
+  ]
+}

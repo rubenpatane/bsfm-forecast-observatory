@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2021,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2021-SJY182",
+      "available_at": "2022-11-10",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://knkt.go.id/news/read/final-report-of-sjy182-accident", "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2021/KNKT.21.01.01.04-Final-Report.pdf"],
+      "status": "verified",
+      "note": "KNKT's official release page dates publication of the final report to 2022-11-10."
+    }
+  ]
+}

@@ -80,3 +80,17 @@ def test_g1_outcome_pit_rejects_extra_or_duplicate_ledger_rows(tmp_path):
     assert out['complete'] is False
     assert {'error': 'duplicate_ledger_event_id', 'event_id': 'E1'} in out['ledger_errors']
     assert {'error': 'ledger_event_not_in_included_census', 'event_id': 'NOT-IN-CENSUS'} in out['ledger_errors']
+
+
+def test_g1_outcome_pit_fails_closed_for_non_object_ledger_or_overlay(tmp_path):
+    _write(tmp_path/'data/census/g1-candidates.json', {'records': [_candidate()]})
+    _write(tmp_path/'data/pit/g1-outcome-publication-ledger.json', [_candidate()])
+    out = audit_g1_outcome_pit(tmp_path)
+    assert out['complete'] is False
+    assert out['ledger_errors'] == ['missing_or_invalid_publication_ledger']
+
+    _write(tmp_path/'data/pit/g1-outcome-publication-ledger.json', _ledger({'event_id': 'E1'}))
+    _write(tmp_path/'data/pit/g1-outcome-publication-evidence/2019.json', [])
+    out = audit_g1_outcome_pit(tmp_path)
+    assert out['complete'] is False
+    assert {'error': 'invalid_publication_overlay', 'path': '2019.json'} in out['ledger_errors']

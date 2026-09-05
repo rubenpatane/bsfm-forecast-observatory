@@ -1,0 +1,39 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2018,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2018-SWA1380",
+      "available_at": "2019-11-19",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.ntsb.gov/investigations/Pages/DCA18MA142.aspx"],
+      "status": "verified",
+      "note": "NTSB public board meeting, determination and report-release bound."
+    },
+    {
+      "event_id": "G1-2018-DMJ0972",
+      "available_at": "2019-05-17",
+      "availability_basis": "official_database_publication",
+      "availability_evidence_ids": ["https://www.granma.cu/file/pdf/2019/05/17/G_2019051709.pdf"],
+      "status": "verified",
+      "note": "Conservative Cuban state-publication bound reporting the IACC investigation commission's official findings."
+    },
+    {
+      "event_id": "G1-2018-PX073",
+      "available_at": "2019-07-15",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.aic.gov.pg/sites/default/files/2020-08/FINAL%20REPORT%2C%20issued%2015.07.2019.pdf"],
+      "status": "verified",
+      "note": "PNG AIC final report explicitly states it was issued on 2019-07-15."
+    },
+    {
+      "event_id": "G1-2018-JT610",
+      "available_at": "2019-10-25",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.35.04-Final-Report.pdf"],
+      "status": "verified",
+      "note": "KNKT final-report publication bound."
+    }
+  ]
+}

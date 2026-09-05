@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2025,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2025-ACT747",
+      "available_at": "2025-11-18",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.tlb.gov.hk/aaia/doc/PLR-2025-04_Eng.pdf"],
+      "status": "verified",
+      "note": "Hong Kong AAIA preliminary report/public notice is dated 2025-11-18 and records the Boeing 747 cargo accident and two external fatalities."
+    }
+  ]
+}

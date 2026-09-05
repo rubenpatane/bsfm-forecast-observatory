@@ -36,6 +36,8 @@ The latest successful read-only Research CI run is `33998437079`, verified at re
 
 The temporary research workflow was subsequently removed, restoring the single-workflow repository invariant. The verified final audit still reports historical G1 incomplete, `baseline_present=false`, `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false. This is software/audit verification, not scientific validation.
 
+The current uncommitted checkpoint has also completed a local full verification: **186 tests passed**, registry verification OK, `audit-foundation` successful and `audit-final` successful. This does not replace the last workflow-verified baseline above; a temporary read-only Research CI run is required after commit and will be removed immediately afterward.
+
 ## G1 — BLOCKED, 14/16 annual cells reconciled
 `data/census/year-ledger.json` is the canonical 2010-2025 annual ledger. A cell passes only if all six controls are true: annual source scope demonstrated; all fatal jets mapped; Boeing target membership mapped; competent authority per candidate; independent reconciliation; target taxonomies resolved.
 
@@ -69,6 +71,8 @@ NTSB evidence now includes a strong later snapshot anchor: ICPSR/DataLumos V1 pr
 
 FAA SDR remains the harder PIT blocker. FAA states reports must complete Quality Control before becoming publicly searchable, so `SubmissionDate` is not public `available_at`; current annual CSVs contain later submissions and are reconstructed current-state files, not historical snapshots. Public research has not located a byte-preserved official historical CSV sequence sufficient for broad record-level PIT verification.
 
+The separate G1 outcome publication ledger is now **28/35 verified**. Reviewed annual overlays add conservative competent-authority or official-government publication bounds for 2016-2019 and 2021-2025 without changing the historical G1 census. The seven fail-closed rows still lacking a sufficiently dated stable authority artifact are DN055, CEL071, AS157, FJA256, PC2193, IX1344 and AI171. Outcome publication timing remains distinct from predictor PIT: this progress does not open G3 while the model 1.2 predictor obligations remain unmet.
+
 The canonical `config/model.json` model 1.2 explicitly includes `faa_sdr_precursors`. Therefore simply dropping FAA SDR from G3 to manufacture a PASS would be a **model redesign**, not a harmless narrowing of the predictor universe. Any model that removes/replaces that component must be separately versioned prospectively before skill interpretation.
 
 ## NTSB AVALL descriptive audit
@@ -85,6 +89,7 @@ AGGIORNA #25 remains the latest successful full operational workflow. PR #2 rema
 
 ## Exact next step / external dependencies
 1. Preserve F-002 and historical G1 v1 unchanged; use prospective taxonomy v2 only for future forecasts.
-2. G2: obtain a lawful representative extract/data dictionary from OAG, Cirium or IATA WATS that can be transformed into the fixed vendor-neutral flight-leg contract and audited for global cohort-year completeness.
-3. G3: either acquire genuine historical FAA SDR publication snapshots/evidence, or prospectively design and version a new model candidate that removes/replaces `faa_sdr_precursors`; do not silently change model 1.2.
-4. Keep PR #2 draft and do not run AGGIORNA from the research branch until the external data/model decision is resolved.
+2. Complete the seven remaining G1 outcome-publication rows only where a dated stable authority artifact can be established; otherwise retain them as explicitly unverified rather than substituting event dates or current database presence.
+3. G2: obtain a lawful representative extract/data dictionary from OAG, Cirium or IATA WATS that can be transformed into the fixed vendor-neutral flight-leg contract and audited for global cohort-year completeness.
+4. G3: either acquire genuine historical FAA SDR publication snapshots/evidence, or prospectively design and version a new model candidate that removes/replaces `faa_sdr_precursors`; do not silently change model 1.2.
+5. Keep PR #2 draft and do not run AGGIORNA from the research branch until the external data/model decision is resolved.

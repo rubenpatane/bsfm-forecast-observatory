@@ -26,6 +26,8 @@ def _rows_from_json(path: Path):
         payload = json.loads(path.read_text(encoding='utf-8'))
     except (OSError, json.JSONDecodeError):
         return None
+    if not isinstance(payload, dict):
+        return None
     return payload.get('events') if isinstance(payload.get('events'), list) else []
 
 

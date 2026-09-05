@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2017,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2017-TK6491",
+      "available_at": "2020-02-17",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://mak-iac.org/en/rassledovaniya/boeing-747-412f-tc-mcl-16-01-2017/"],
+      "status": "verified",
+      "note": "IAC/MAK identifies 2020-02-17 as the investigation/report completion date and hosts the final report."
+    }
+  ]
+}
