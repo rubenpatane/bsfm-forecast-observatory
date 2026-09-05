@@ -57,12 +57,14 @@ def test_home_loads_generated_nonfatal_comparables():
  assert 'const CASES=' not in js
 
 def test_translation_dictionary_covers_all_public_page_keys():
- js=(ROOT/'site/i18n.js').read_text()
+ base=(ROOT/'site/i18n.js').read_text()
+ extension=(ROOT/'site/comparables.js').read_text()
+ dictionaries=base+'\n'+extension
  for name in PAGES:
   text=(ROOT/'site'/name).read_text()
   import re
   for key in re.findall(r'data-i18n="([^"]+)"',text):
-   assert js.count(key+':')>=2, (name,key)
+   assert dictionaries.count(key+':')>=2, (name,key)
 
 def test_single_workflow_generates_real_data_evidence_refinements_comparables_and_deploys_site():
  workflows=list((ROOT/'.github/workflows').glob('*.yml'))+list((ROOT/'.github/workflows').glob('*.yaml'))
