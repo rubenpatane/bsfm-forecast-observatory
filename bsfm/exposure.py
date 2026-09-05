@@ -1,6 +1,7 @@
 from __future__ import annotations
+from collections import defaultdict
 
-REQUIRED_META=('source','scope')
+REQUIRED_META=('source','scope','provenance')
 
 def validate_exposure(rows,require_metadata=False):
     errors=[]; seen=set(); total=0.0; scopes=set()
@@ -28,11 +29,27 @@ def audit_exposure(rows,expected_periods,expected_cohorts):
     expected={(str(p),str(c)) for p in expected_periods for c in expected_cohorts}
     missing=sorted(expected-present)
     extra=sorted(present-expected)
-    return {**base,'complete':base['valid'] and not missing and not extra and base['total_departures']>0,'missing_cells':missing,'extra_cells':extra}
+    period_totals=defaultdict(float)
+    for r in rows:
+        try: period_totals[str(r.get('period'))]+=max(float(r.get('departures')),0.0)
+        except (TypeError,ValueError): pass
+    zero_periods=sorted(str(p) for p in expected_periods if period_totals[str(p)]<=0)
+    return {**base,'complete':base['valid'] and not missing and not extra and not zero_periods,'missing_cells':missing,'extra_cells':extra,'zero_departure_periods':zero_periods,'period_totals':dict(period_totals)}
 
 def exposure_only_probabilities(rows):
+    """Return the null probability by cohort *within each period*.
+
+    A next-event forecast at a historical cutoff must not normalize a cohort's
+    exposure against departures from other years. Each period is therefore an
+    independent probability simplex.
+    """
+    rows=list(rows)
     audit=validate_exposure(rows)
-    if not audit['valid'] or audit['total_departures']<=0:
-        raise ValueError('valid positive departures exposure required')
-    total=audit['total_departures']
-    return [{**row,'baseline_probability':float(row['departures'])/total} for row in rows]
+    if not audit['valid']:
+        raise ValueError('valid non-negative departures exposure required')
+    totals=defaultdict(float)
+    for row in rows:
+        totals[str(row['period'])]+=float(row['departures'])
+    if any(v<=0 for v in totals.values()):
+        raise ValueError('each period requires positive departures exposure')
+    return [{**row,'baseline_probability':float(row['departures'])/totals[str(row['period'])]} for row in rows]
