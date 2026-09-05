@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  pages: write
+  id-token: write
 concurrency:
   group: bsfm-aggiorna
   cancel-in-progress: false
@@ -61,19 +63,22 @@ jobs:
           python -m bsfm.cli run
           python -m bsfm.cli audit-foundation
           python -m bsfm.cli audit-final
-      - name: Evaluate model learning and promotion gate
+      - name: Evaluate lifecycle and generate public readiness state
         run: |
           python - <<'PY'
           import json
+          from pathlib import Path
           from bsfm.pipeline import validate_sources
           from bsfm.cli import availability_audit
           from bsfm.foundation_report import build_foundation_report
           from bsfm.model_lifecycle import update_model
-          from pathlib import Path
+          from bsfm.readiness import final_readiness
           source=validate_sources()
           report=build_foundation_report(Path('.'),availability_audit(source))
           state=update_model(source,report)
-          print(json.dumps(state,indent=2))
+          public=final_readiness(report,state)
+          Path('site/data/final-readiness.json').write_text(json.dumps(public,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public},indent=2))
           PY
       - name: Upload normalized NTSB research dataset
         uses: actions/upload-artifact@v4
@@ -83,10 +88,19 @@ jobs:
           retention-days: 14
       - name: Commit auditable generated state when changed
         run: |
-          if ! git diff --quiet -- site/data/status.json data/manifests forecasts evaluations; then
+          if ! git diff --quiet -- site/data data/manifests forecasts evaluations; then
             git config user.name 'bsfm-observatory-bot'
             git config user.email 'bsfm-observatory-bot@users.noreply.github.com'
-            git add site/data/status.json data/manifests forecasts evaluations
+            git add site/data data/manifests forecasts evaluations
             git commit -m 'chore(observatory): AGGIORNA auditable state'
             git push
           fi
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload observatory site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy observatory site
+        id: deployment
+        uses: actions/deploy-pages@v4
