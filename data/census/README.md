@@ -8,11 +8,14 @@ A year may move from `unresolved` to `reconciled` only after the annual source s
 
 Primary source families:
 
-- ICAO annual Safety Reports — global scheduled commercial air transport; scope varies by edition and must be recorded verbatim.
+- ICAO annual Safety Reports — global scheduled commercial air transport; scope varies by edition and must be recorded verbatim. No new ICAO API retrieval is permitted; only sustainable public reports and the already frozen historical evidence may be used under the project rules.
 - EASA Annual Safety Reviews and fatal-accident appendices — annual global/European tables; scope must be recorded per edition.
 - National investigation authorities — event-level confirmation where annual tables are ambiguous.
 - Boeing Statistical Summary of Commercial Jet Airplane Accidents — manufacturer/fleet triangulation; never sole global ground truth.
+- Other independent aviation-safety publishers may be retained as reconciliation evidence when their methodology and scope are explicit; they do not replace authoritative event adjudication.
 
-Important scope warning: annual totals from ICAO, EASA and Boeing are not assumed to be interchangeable. Differences in MTOW threshold, scheduled vs broader commercial operation, aircraft category, accident definition and fatality definition must be retained.
+Important scope warning: annual totals from ICAO, EASA, Boeing and other publishers are not assumed to be interchangeable. Differences in MTOW threshold, scheduled vs broader commercial operation, aircraft category, accident definition, fatality definition and source-specific exclusions must be retained.
+
+`year-evidence-YYYY.json` files are fail-closed research artifacts. They record partial annual reconciliation, source-scope conflicts and candidate links without changing the canonical year status. `reconciled=false` inside these artifacts is deliberate. A partial evidence file must never be interpreted as a zero-event attestation.
 
 The machine-readable ledger is `year-ledger.json`. `reconciled=false` is deliberate until case-by-case evidence is complete. These placeholders MUST NOT satisfy the `historical_cases` scientific gate.
