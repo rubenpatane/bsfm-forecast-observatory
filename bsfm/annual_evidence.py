@@ -19,6 +19,6 @@ def audit_annual_completeness(year, controls):
     return {
         'year': int(year), 'controls': normalized, 'passed_controls': passed,
         'total_controls': len(ANNUAL_CONTROLS), 'evidence_progress': f'{passed}/{len(ANNUAL_CONTROLS)}',
-        'unresolved_controls': unresolved, 'reconciled': reconciled,
+        'unresolved_controls': unresolved, 'reconciled': reconciled, 'complete': reconciled,
         'status': 'RECONCILED' if reconciled else 'OPEN',
     }
