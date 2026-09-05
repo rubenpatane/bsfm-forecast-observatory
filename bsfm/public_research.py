@@ -1,7 +1,7 @@
 from __future__ import annotations
 import json
 from pathlib import Path
-from .annual_evidence import ANNUAL_CONTROLS, audit_annual_completeness
+from .annual_evidence import audit_annual_completeness
 from .research_state import build_research_state
 from .resolution import audit_resolution
 
@@ -9,6 +9,18 @@ from .resolution import audit_resolution
 def _load(path, default=None):
     try: return json.loads(Path(path).read_text(encoding='utf-8'))
     except (OSError, json.JSONDecodeError): return default
+
+
+def _load_jsonl(path):
+    out=[]
+    try:
+        for line in Path(path).read_text(encoding='utf-8').splitlines():
+            if not line.strip(): continue
+            try: out.append(json.loads(line))
+            except json.JSONDecodeError: continue
+    except OSError:
+        pass
+    return out
 
 
 def _candidate_public(row):
@@ -25,22 +37,43 @@ def _candidate_public(row):
     }
 
 
+def _all_candidates(root):
+    """Aggregate the central workspace and annual JSONL ledgers by event_id.
+
+    Annual files are appendable research surfaces. If the same event is present in
+    both places, the annual JSONL copy wins because it is the narrower evidence
+    record. This aggregation affects publication only; it never changes G1 gates.
+    """
+    root=Path(root); merged={}
+    central=_load(root/'data/census/g1-candidates.json',{}) or {}
+    for row in central.get('records') or []:
+        event_id=row.get('event_id')
+        if event_id: merged[event_id]=row
+    for path in sorted((root/'data/census').glob('candidates-*.jsonl')):
+        for row in _load_jsonl(path):
+            event_id=row.get('event_id')
+            if event_id: merged[event_id]=row
+    return list(merged.values())
+
+
 def build_public_research_state_from_root(root):
     root=Path(root)
     ledger=_load(root/'data/census/year-ledger.json',{}) or {}
-    candidates=_load(root/'data/census/g1-candidates.json',{}) or {}
     by_year={}
-    for row in candidates.get('records') or []:
+    for row in _all_candidates(root):
         try: year=int(str(row.get('event_date'))[:4])
         except (TypeError,ValueError): continue
         by_year.setdefault(year,[]).append(_candidate_public(row))
+    for rows in by_year.values():
+        rows.sort(key=lambda r:(r.get('date') or '',r.get('event_id') or ''))
     annual=[]
     for item in ledger.get('years') or []:
         year=int(item['year'])
         evidence=_load(root/f'data/census/year-evidence-{year}.json',{}) or {}
         controls=evidence.get('controls')
         audit=audit_annual_completeness(year,controls) if isinstance(controls,dict) else None
-        status='RECONCILED' if item.get('reconciled') is True else ('UNRESOLVED' if evidence.get('status')=='unresolved' else 'OPEN')
+        evidence_status=str(evidence.get('status') or '')
+        status='RECONCILED' if item.get('reconciled') is True else ('UNRESOLVED' if evidence_status.startswith('unresolved') else 'OPEN')
         annual.append({
             'year':year,'status':status,'reconciled':item.get('reconciled') is True,
             'evidence_progress':audit['evidence_progress'] if audit else None,
