@@ -1,33 +1,62 @@
-name: BSFM model update
+name: AGGIORNA
+run-name: AGGIORNA · ${{ github.event_name }}
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+      timezone: 'Europe/Rome'
 permissions:
   contents: write
 concurrency:
-  group: bsfm-model-update
+  group: bsfm-aggiorna
   cancel-in-progress: false
 jobs:
-  update:
+  aggiorna:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - run: python -m pip install -e .
-      - name: Ingest official public sources
-        run: python -m bsfm.cli ingest
-      - name: Verify immutable registry and run model gate
+      - name: Install BSFM and test dependencies
+        run: python -m pip install -e . pytest
+      - name: Install historical-source tooling
+        run: sudo apt-get update && sudo apt-get install -y mdbtools unzip
+      - name: Run unit and integrity tests before updating data
         run: |
+          pytest -q
+          python -m bsfm.cli verify
+      - name: Refresh current official public sources
+        run: python -m bsfm.cli ingest
+      - name: Refresh FAA SDR historical manifests 2010-current
+        run: python -m bsfm.cli ingest-history
+      - name: Download and normalize official NTSB AVALL snapshot
+        run: |
+          rm -rf data/cache/ntsb data/derived/ntsb
+          mkdir -p data/cache/ntsb data/derived/ntsb
+          curl --fail --location --retry 3 --output data/cache/ntsb/avall.zip 'https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5Cavall.zip'
+          unzip -o data/cache/ntsb/avall.zip -d data/cache/ntsb
+          MDB=$(find data/cache/ntsb -type f -iname '*.mdb' -print -quit)
+          test -n "$MDB"
+          bash scripts/extract_ntsb.sh "$MDB" data/derived/ntsb
+      - name: Verify refreshed state and run model publication gate
+        run: |
+          pytest -q
           python -m bsfm.cli verify
           python -m bsfm.cli run
-      - name: Commit auditable state only when changed
+      - name: Upload normalized NTSB research dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: ntsb-derived
+          path: data/derived/ntsb
+          retention-days: 14
+      - name: Commit auditable generated state when changed
         run: |
-          if ! git diff --quiet; then
+          if ! git diff --quiet -- site/data/status.json data/manifests forecasts evaluations; then
             git config user.name 'bsfm-observatory-bot'
             git config user.email 'bsfm-observatory-bot@users.noreply.github.com'
             git add site/data/status.json data/manifests forecasts evaluations
-            git commit -m 'chore(observatory): model state update'
+            git commit -m 'chore(observatory): AGGIORNA auditable state'
             git push
           fi
