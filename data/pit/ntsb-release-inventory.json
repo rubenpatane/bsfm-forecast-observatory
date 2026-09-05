@@ -1,0 +1,57 @@
+{
+  "schema": "bsfm.g3-release-inventory.v1",
+  "source": "NTSB aviation downloadable datasets and CAROL",
+  "updated": "2026-09-06",
+  "status": "partial-release-history",
+  "official_public_evidence": [
+    {
+      "date": "2020-10-13",
+      "artifact": "NTSB press release announcing CAROL public-facing database",
+      "locator": "https://www.ntsb.gov/news/press-releases/Pages/NR20201013.aspx",
+      "establishes": "CAROL was publicly launched by this date; aviation investigations since 2008 were described as available, subject to noted multi-aircraft migration caveats.",
+      "does_not_establish": "field-level contents of each aviation record at this date"
+    },
+    {
+      "date": "2023-07-17",
+      "artifact": "NTSB press release on expanded CAROL/Aviation Investigation Search",
+      "locator": "https://www.ntsb.gov/news/press-releases/Pages/NR07172023.aspx",
+      "establishes": "Expanded aviation search from 1962-present and CSV/JSON download capabilities with additional fields were publicly announced by this date.",
+      "does_not_establish": "that fields added by the expansion existed in earlier public releases"
+    },
+    {
+      "date": "2023-10-26",
+      "artifact": "NTSB MDB Release Notes 2.9",
+      "locator": "https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5CMDB_Release_Notes.pdf",
+      "establishes": "A dated schema/data release checkpoint and documented adjustment of thousands of records.",
+      "does_not_establish": "original public availability of the revised historical values"
+    },
+    {
+      "date": "2024-03-01",
+      "artifact": "NTSB MDB Release Notes 3.0",
+      "locator": "https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5CMDB_Release_Notes.pdf",
+      "establishes": "The findings table added cm_inPC in monthly/weekly AVALL downloads and the field was back-filled for historical records.",
+      "does_not_establish": "cm_inPC as a historically public field before 2024-03-01; back-filled values must not leak into earlier cutoffs"
+    },
+    {
+      "date": "2026-09-01",
+      "artifact": "NTSB AV data directory listing",
+      "locator": "https://data.ntsb.gov/avdata",
+      "establishes": "The current avall.zip snapshot is dated 2026-09-01 and the directory describes AVALL as a downloadable public aviation dataset; monthly and weekly update files are also present.",
+      "does_not_establish": "the content or publication date of earlier snapshots no longer present in the directory"
+    }
+  ],
+  "release_semantics": {
+    "avall": "aviation data from 2008-present, updated monthly according to NTSB release notes",
+    "weekly_updates": "aviation data update packages are described as updated weekly",
+    "release_notes": "document schema/data changes but may include back-fills and corrections to older records",
+    "carol_dynamic_search": "current CAROL queries reflect current database state and are not historical snapshots"
+  },
+  "pit_implications": [
+    "A release date can bound when a schema/field became publicly available but does not prove every record value existed at that release.",
+    "Back-filled or corrected historical values inherit the later release evidence unless an earlier snapshot proves the value existed earlier.",
+    "Current CAROL/AVALL presence must not be back-projected before the earliest evidenced release containing that field/value.",
+    "For strict backtests, official report/publication artifacts or archived dataset snapshots remain preferable to administrative timestamps stored in the current database."
+  ],
+  "coverage_gap": "The currently accessible official directory does not provide a complete retained archive of monthly AVALL snapshots for every historical cutoff from 2010-2025. Additional archived official copies or trustworthy web-archive captures are required for broad record-level PIT verification.",
+  "g3_status": "BLOCKED"
+}
