@@ -1,7 +1,7 @@
 {
   "candidate_fit_attempted": false,
   "candidate_promoted": false,
-  "evaluated_at": "2026-09-05T10:28:10Z",
+  "evaluated_at": "2026-09-05T10:34:45Z",
   "gate": {
     "checks": {
       "baseline_present": false,
@@ -23,5 +23,5 @@
   "incumbent_retained": true,
   "reason": "model_update_blocked_scientific_gate",
   "schema": "bsfm.model-lifecycle.v1",
-  "state_hash": "sha256:aeca14989daa78e789e965be45d6693f35548a3e64849205e39984e3bfa3999e"
+  "state_hash": "sha256:8bef20fa71c3a3fb657eef438741555b9a1a2187ec01828d902fe0a6caa377f1"
 }
