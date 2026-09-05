@@ -1,5 +1,6 @@
 from __future__ import annotations
 import csv,hashlib,io,json,urllib.request
+from collections import Counter
 from datetime import date,datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -49,6 +50,55 @@ def inspect_faa_csv(raw):
   'max_submission_date':max(submissions).isoformat() if submissions else None,
   'historical_public_availability':'unverified',
  }
+def _clean(value,limit=220):
+ value=' '.join((value or '').split())
+ return value[:limit]
+def summarize_faa_public(raw,limit=12):
+ """Build a small public, auditable view of the current FAA SDR export.
+
+ The rows are observations from the official SDR feed, not accident labels and
+ not model predictions. They are sorted by DifficultyDate and deliberately keep
+ only operationally useful public fields; free text is truncated for the site.
+ """
+ rd=csv.DictReader(io.StringIO(raw.decode('utf-8-sig',errors='replace')))
+ records=[]; models=Counter(); stages=Counter(); conditions=Counter(); total=boeing=0
+ for r in rd:
+  total+=1
+  if 'BOEING' not in (r.get('AircraftMake') or '').upper(): continue
+  boeing+=1
+  model=_clean(r.get('AircraftModel'),64) or '—'; models[model]+=1
+  stage=_clean(r.get('StageOfOperationCode'),64) or '—'; stages[stage]+=1
+  condition=_clean(r.get('NatureOfConditionA'),64) or '—'; conditions[condition]+=1
+  d=parse_sdr_date(r.get('DifficultyDate'))
+  records.append({
+   'date':d.isoformat() if d else None,
+   'model':model,
+   'jasc_code':_clean(r.get('JASCCode'),32) or '—',
+   'stage_code':stage,
+   'condition_code':condition,
+   'component':_clean(r.get('ComponentName') or r.get('PartName'),96) or '—',
+   'discrepancy':_clean(r.get('Discrepancy'),220) or '—',
+  })
+ records.sort(key=lambda x:(x['date'] or '',x['model']),reverse=True)
+ def top(counter,n=8): return [{'value':k,'count':v} for k,v in counter.most_common(n)]
+ return {
+  'schema':'bsfm.public-real-data.v1',
+  'generated_at':now(),
+  'source':'FAA Service Difficulty Reports (SDR)',
+  'source_scope':'Official current-year FAA SDR export; Boeing rows only for model-oriented summaries.',
+  'interpretation_warning':'An SDR is a service-difficulty report, not necessarily an accident, a verified causal finding, or a BSFM prediction.',
+  'rows_total':total,
+  'boeing_rows':boeing,
+  'latest_observation_date':next((r['date'] for r in records if r['date']),None),
+  'top_models':top(models),
+  'top_stage_codes':top(stages),
+  'top_condition_codes':top(conditions),
+  'latest_boeing_reports':records[:limit],
+ }
+def write_public_real_data(summary):
+ p=ROOT/'site'/'data'/'real-data.json'; p.parent.mkdir(parents=True,exist_ok=True)
+ p.write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+ return summary
 def ingest_faa_sdr(year):
  raw=fetch(FAA.format(year=year)); stats=inspect_faa_csv(raw)
  # Content validity and leakage-safe historical availability are distinct gates.
@@ -56,6 +106,7 @@ def ingest_faa_sdr(year):
  # time cannot be reconstructed. The model gate checks availability separately.
  valid=stats['rows']>0 and not stats['missing_fields'] and stats['bad_dates']==0
  submission_parse='ok' if stats['bad_submission_dates']==0 else 'diagnostic_failed'
+ if year==date.today().year: write_public_real_data(summarize_faa_public(raw))
  return manifest(f'faa-sdr-{year}.json',{
   'schema':'bsfm.source-manifest.v1','source':'FAA SDR','year':year,'official_url':FAA.format(year=year),'retrieved_at':now(),
   'sha256':sha(raw),'bytes':len(raw),**stats,'status':'validated' if valid else 'invalid',
