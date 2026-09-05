@@ -5,12 +5,36 @@
   "retrieved_for_research": "2026-09-05",
   "role": "G2 global aircraft-model exposure candidate",
   "public_sources": [
-    {"title":"IATA Safety Report 2014","locator":"https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2014.pdf","coverage_observation":"Annex 4 publishes sectors by manufacturer/model for 2010-2014."},
-    {"title":"IATA Safety Report 2016","locator":"https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2016.pdf","coverage_observation":"Annex 4 publishes sectors by manufacturer/model for 2012-2016."},
-    {"title":"IATA Safety Report 2019","locator":"https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2019.pdf","coverage_observation":"Annex 4 publishes sectors by manufacturer/model for 2015-2019 and identifies Ascend / Flightglobal Advisory Service as the sector-data source."},
-    {"title":"IATA Launches 2024 World Air Transport Statistics Report","locator":"https://www.iata.org/en/pressroom/2025-releases/2025-08-04-01/","coverage_observation":"IATA reports 10 million global Boeing 737 flights in 2024, explicitly including all variants."},
-    {"title":"IATA Releases 2025 World Air Transport Statistics","locator":"https://www.iata.org/en/pressroom/2026-releases/07-16-iata-releases-2025-world-air-transport-statistics-report/","coverage_observation":"IATA reports 10.8 million Boeing 737 flights in 2025 and 10.5 million in its 2019 comparison, explicitly including all variants."},
-    {"title":"IATA Releases 2025 Safety Report","locator":"https://www.iata.org/en/pressroom/2026-releases/2026-03-09-01/","coverage_observation":"IATA states that OAG is its main sector-data source and that historical sector figures may change when source information or accident criteria are revised."}
+    {
+      "title": "IATA Safety Report 2014",
+      "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2014.pdf",
+      "coverage_observation": "Annex 4 publishes sectors by manufacturer/model for 2010-2014."
+    },
+    {
+      "title": "IATA Safety Report 2016",
+      "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2016.pdf",
+      "coverage_observation": "Annex 4 publishes sectors by manufacturer/model for 2012-2016."
+    },
+    {
+      "title": "IATA Safety Report 2019",
+      "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2019.pdf",
+      "coverage_observation": "Annex 4 publishes sectors by manufacturer/model for 2015-2019 and identifies Ascend / Flightglobal Advisory Service as the sector-data source."
+    },
+    {
+      "title": "IATA Launches 2024 World Air Transport Statistics Report",
+      "locator": "https://www.iata.org/en/pressroom/2025-releases/2025-08-04-01/",
+      "coverage_observation": "IATA reports 10 million global Boeing 737 flights in 2024, explicitly including all variants."
+    },
+    {
+      "title": "IATA Releases 2025 World Air Transport Statistics",
+      "locator": "https://www.iata.org/en/pressroom/2026-releases/07-16-iata-releases-2025-world-air-transport-statistics-report/",
+      "coverage_observation": "IATA reports 10.8 million Boeing 737 flights in 2025 and 10.5 million in its 2019 comparison, explicitly including all variants."
+    },
+    {
+      "title": "IATA Releases 2025 Safety Report",
+      "locator": "https://www.iata.org/en/pressroom/2026-releases/2026-03-09-01/",
+      "coverage_observation": "IATA states that OAG is its main sector-data source and that historical sector figures may change when source information or accident criteria are revised."
+    }
   ],
   "verified_observations": {
     "historical_annex4": "Public IATA Safety Report editions expose global annual sector counts by manufacturer/model for overlapping five-year windows covering at least 2010-2019.",
