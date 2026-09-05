@@ -54,6 +54,20 @@ jobs:
           pytest -q
           python -m bsfm.cli verify
           python -m bsfm.cli run
+      - name: Evaluate model learning and promotion gate
+        run: |
+          python - <<'PY'
+          import json
+          from bsfm.pipeline import validate_sources
+          from bsfm.model_lifecycle import update_model
+          report_path='evaluations/backtest-report.json'
+          try:
+              with open(report_path) as f: report=json.load(f)
+          except FileNotFoundError:
+              report={}
+          state=update_model(validate_sources(),report)
+          print(json.dumps(state,indent=2))
+          PY
       - name: Upload normalized NTSB research dataset
         uses: actions/upload-artifact@v4
         with:
