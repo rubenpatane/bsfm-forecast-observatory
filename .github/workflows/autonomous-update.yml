@@ -1,13 +1,10 @@
-name: BSFM autonomous update
+name: BSFM model update
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '17 4 * * *'
-      timezone: 'Europe/Rome'
 permissions:
   contents: write
 concurrency:
-  group: bsfm-autonomous-update
+  group: bsfm-model-update
   cancel-in-progress: false
 jobs:
   update:
@@ -31,6 +28,6 @@ jobs:
             git config user.name 'bsfm-observatory-bot'
             git config user.email 'bsfm-observatory-bot@users.noreply.github.com'
             git add site/data/status.json data/manifests forecasts evaluations
-            git commit -m 'chore(observatory): autonomous state update'
+            git commit -m 'chore(observatory): model state update'
             git push
           fi
