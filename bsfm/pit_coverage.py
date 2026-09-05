@@ -19,7 +19,7 @@ def _date(value):
 
 
 def build_operational_pit_coverage(root) -> dict:
-    """Summarize strict PIT readiness for currently ingested predictor sources."""
+    """Summarize strict PIT readiness for the explicitly admitted predictor universe."""
     root = Path(root)
     manifests = root / 'data' / 'manifests'
 
@@ -53,9 +53,12 @@ def build_operational_pit_coverage(root) -> dict:
     ntsb_field = _load(root / 'data/pit/ntsb-field-release-policy.json', {}) or {}
     faa_release = _load(root / 'data/pit/faa-sdr-release-inventory.json', {}) or {}
     faa_field = _load(root / 'data/pit/faa-sdr-field-release-policy.json', {}) or {}
+    universe = _load(root / 'data/pit/predictor-universe-v1.json', {}) or {}
 
     faa_verified_years = [r['year'] for r in faa if r['strict_pit_ready']]
     faa_all_ready = bool(faa) and len(faa_verified_years) == len(faa)
+    faa_policy_ready = bool(faa_release) and bool(faa_field)
+    faa_strict_ready = faa_all_ready and faa_policy_ready
     late_tail_years = [r['year'] for r in faa if r['late_submission_tail']]
     max_lag = max((r['max_submission_lag_years'] for r in faa if r['max_submission_lag_years'] is not None), default=None)
 
@@ -67,17 +70,59 @@ def build_operational_pit_coverage(root) -> dict:
         and bool(ntsb_release) and bool(ntsb_field)
         and ntsb_record_history_complete
     )
-    strict_ready = faa_all_ready and ntsb_strict_ready
+
+    admitted = universe.get('admitted_predictors') if isinstance(universe.get('admitted_predictors'), list) else []
+    universe_frozen = universe.get('frozen') is True and universe.get('status') == 'FROZEN'
+    source_ready = {'FAA SDR': faa_strict_ready, 'NTSB AVALL': ntsb_strict_ready}
+    admitted_checks = []
+    for row in admitted:
+        row = row if isinstance(row, dict) else {}
+        source = row.get('source')
+        fields = row.get('fields') if isinstance(row.get('fields'), list) else []
+        evidence_ids = row.get('evidence_ids') if isinstance(row.get('evidence_ids'), list) else []
+        row_ready = (
+            bool(source) and bool(fields) and bool(evidence_ids)
+            and row.get('pit_status') == 'verified'
+            and row.get('field_evidence_complete') is True
+            and row.get('snapshot_evidence_complete') is True
+            and source_ready.get(source) is True
+        )
+        admitted_checks.append({
+            'source': source,
+            'fields': fields,
+            'pit_status': row.get('pit_status', 'unknown'),
+            'evidence_ids': evidence_ids,
+            'strict_pit_ready': row_ready,
+            'known_source': source in source_ready,
+        })
+
+    strict_ready = universe_frozen and bool(admitted_checks) and all(r['strict_pit_ready'] for r in admitted_checks)
+    if not universe_frozen:
+        reason = 'The predictor universe is not frozen; no strict historical backtest may pass G3.'
+    elif not admitted_checks:
+        reason = 'The frozen predictor universe contains no admitted predictors.'
+    elif not strict_ready:
+        reason = 'At least one admitted predictor lacks complete source/field/snapshot PIT evidence.'
+    else:
+        reason = None
 
     return {
-        'schema': 'bsfm.g3-operational-coverage.v2',
+        'schema': 'bsfm.g3-operational-coverage.v3',
+        'predictor_universe': {
+            'schema': universe.get('schema'),
+            'status': universe.get('status', 'MISSING'),
+            'frozen': universe_frozen,
+            'admitted_count': len(admitted_checks),
+            'admitted_predictors': admitted_checks,
+        },
         'sources': {
             'FAA SDR': {
                 'years': faa,
                 'verified_years': faa_verified_years,
                 'unverified_years': [r['year'] for r in faa if not r['strict_pit_ready']],
                 'all_years_strict_ready': faa_all_ready,
-                'release_policy_present': bool(faa_release) and bool(faa_field),
+                'release_policy_present': faa_policy_ready,
+                'strict_pit_ready': faa_strict_ready,
                 'late_submission_tail_years': late_tail_years,
                 'max_observed_submission_lag_years': max_lag,
                 'late_submission_tail_note': 'A late SubmissionDate demonstrates later entry/submission relative to occurrence year; it does not itself establish public approval/release timing.',
@@ -91,7 +136,7 @@ def build_operational_pit_coverage(root) -> dict:
         },
         'strict_operational_pit_ready': strict_ready,
         'g3_status': 'PASS' if strict_ready else 'BLOCKED',
-        'reason': None if strict_ready else 'Operational source policies exist, but FAA historical rows remain unverified and/or NTSB lacks complete record-level historical release/version evidence.'
+        'reason': reason,
     }
 
 
