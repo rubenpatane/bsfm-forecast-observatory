@@ -43,7 +43,7 @@ jobs:
           MDB=$(find data/cache/ntsb -type f -iname '*.mdb' -print -quit)
           test -n "$MDB"
           bash scripts/extract_ntsb.sh "$MDB" data/derived/ntsb
-      - name: Normalize NTSB event-aircraft records conservatively
+      - name: Normalize NTSB records and refresh public comparables
         run: |
           test -s data/derived/ntsb/events.csv
           test -s data/derived/ntsb/aircraft.csv
@@ -52,8 +52,10 @@ jobs:
           import json
           from pathlib import Path
           from bsfm.ntsb import write_normalized
+          from bsfm.comparables import write_public_comparables
           d=Path('data/derived/ntsb')
-          stats=write_normalized(d/'events.csv',d/'aircraft.csv',d/'events-normalized.jsonl',d/'Events_Sequence.csv',d/'Findings.csv',d/'NTSB_Admin.csv')
+          normalized=d/'events-normalized.jsonl'
+          stats=write_normalized(d/'events.csv',d/'aircraft.csv',normalized,d/'Events_Sequence.csv',d/'Findings.csv',d/'NTSB_Admin.csv')
           print(json.dumps(stats,indent=2))
           assert stats['rows'] > 0
           assert stats['boeing_rows'] > 0
@@ -66,6 +68,8 @@ jobs:
             **stats,
           }
           public_path.write_text(json.dumps(public,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+          comparables=write_public_comparables(normalized)
+          print(json.dumps({'public_comparables':len(comparables['cases'])},indent=2))
           PY
       - name: Post-update tests, registry and scientific audits
         run: |
