@@ -15,13 +15,18 @@ def manifest(name,data):
  p=ROOT/'data'/'manifests'/name; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n'); return data
 def parse_sdr_date(value):
  value=(value or '').strip()
- for fmt in ('%m/%d/%Y','%Y-%m-%d','%m/%d/%y'):
+ if not value: return None
+ # FAA instructions use yyyy/mm/dd for the submission date embedded in the
+ # unique control number; yearly exports have also used conventional US and
+ # ISO-like representations. Parsing is deliberately explicit, not locale based.
+ for fmt in ('%m/%d/%Y','%Y/%m/%d','%Y-%m-%d','%m/%d/%y','%Y%m%d','%Y-%m-%d %H:%M:%S','%m/%d/%Y %H:%M:%S'):
   try: return datetime.strptime(value,fmt).date()
   except ValueError: pass
- return None
+ try: return datetime.fromisoformat(value.replace('Z','+00:00')).date()
+ except ValueError: return None
 def inspect_faa_csv(raw):
  rd=csv.DictReader(io.StringIO(raw.decode('utf-8-sig',errors='replace'))); fields=set(rd.fieldnames or [])
- rows=boeing=bad_dates=bad_submission_dates=0; dates=[]; submissions=[]
+ rows=boeing=bad_dates=bad_submission_dates=0; dates=[]; submissions=[]; bad_submission_examples=[]
  for r in rd:
   rows+=1; boeing+=int('BOEING' in (r.get('AircraftMake') or '').upper())
   value=(r.get('DifficultyDate') or '').strip()
@@ -33,22 +38,30 @@ def inspect_faa_csv(raw):
   if value:
    d=parse_sdr_date(value)
    if d: submissions.append(d)
-   else: bad_submission_dates+=1
+   else:
+    bad_submission_dates+=1
+    if len(bad_submission_examples)<3: bad_submission_examples.append(value[:32])
  return {
   'rows':rows,'boeing_rows':boeing,'fields':sorted(fields),'missing_fields':sorted(REQUIRED_SDR-fields),
   'bad_dates':bad_dates,'min_date':min(dates).isoformat() if dates else None,'max_date':max(dates).isoformat() if dates else None,
-  'bad_submission_dates':bad_submission_dates,'min_submission_date':min(submissions).isoformat() if submissions else None,
+  'bad_submission_dates':bad_submission_dates,'bad_submission_examples':bad_submission_examples,
+  'min_submission_date':min(submissions).isoformat() if submissions else None,
   'max_submission_date':max(submissions).isoformat() if submissions else None,
   'historical_public_availability':'unverified',
  }
 def ingest_faa_sdr(year):
  raw=fetch(FAA.format(year=year)); stats=inspect_faa_csv(raw)
- valid=stats['rows']>0 and not stats['missing_fields'] and stats['bad_dates']==0 and stats['bad_submission_dates']==0
+ # Content validity and leakage-safe historical availability are distinct gates.
+ # A valid FAA export must not be called invalid merely because public approval
+ # time cannot be reconstructed. The model gate checks availability separately.
+ valid=stats['rows']>0 and not stats['missing_fields'] and stats['bad_dates']==0
+ submission_parse='ok' if stats['bad_submission_dates']==0 else 'diagnostic_failed'
  return manifest(f'faa-sdr-{year}.json',{
   'schema':'bsfm.source-manifest.v1','source':'FAA SDR','year':year,'official_url':FAA.format(year=year),'retrieved_at':now(),
   'sha256':sha(raw),'bytes':len(raw),**stats,'status':'validated' if valid else 'invalid',
-  'validation':['http_download_ok','csv_parse_ok','required_schema','difficulty_date_parse','submission_date_parse'],
-  'point_in_time_note':'SubmissionDate records submission timing, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.'
+  'validation':['http_download_ok','csv_parse_ok','required_schema','difficulty_date_parse'],
+  'submission_date_parse':submission_parse,
+  'point_in_time_note':'SubmissionDate is a submission-timing field, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.'
  })
 def ingest_ntsb_metadata():
  raw=fetch(NTSB); is_zip=raw[:4]==b'PK\x03\x04'
