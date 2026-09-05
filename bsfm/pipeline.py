@@ -14,10 +14,9 @@ def validate_sources():
    'historical_public_availability':d.get('historical_public_availability'),
   })
  integrity_ready=bool(checks) and all(x['status']=='validated' for x in checks)
- # Download/schema integrity is not the same thing as leakage-free model readiness.
- # FAA historical manifests explicitly remain availability-unverified and current AVALL
- # cannot reconstruct all historical predictor states.
- availability_verified=bool(checks) and all(x.get('historical_public_availability')!='unverified' for x in checks)
+ # Fail closed: download/schema integrity is not leakage-free model readiness. Every
+ # predictor manifest must explicitly say "verified"; missing/unknown values never pass.
+ availability_verified=bool(checks) and all(x.get('historical_public_availability')=='verified' for x in checks)
  return {
   'checked_at':utcnow(),'manifests':checks,
   'source_integrity_ready':integrity_ready,
