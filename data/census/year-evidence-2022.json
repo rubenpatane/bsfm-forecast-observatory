@@ -1,13 +1,20 @@
 {
-  "schema": "bsfm.g1-year-evidence.v1",
+  "schema": "bsfm.g1-year-evidence.v2",
   "year": 2022,
-  "status": "partial-reconciliation",
-  "reconciled": false,
+  "status": "reconciled",
+  "reconciled": true,
   "target": "fatal accidents involving Boeing commercial jets",
-  "retrieved_for_research": "2026-09-05",
-  "qualifying_candidate_ids": [
-    "G1-2022-MU5735"
-  ],
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2022-MU5735"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence_progress": "6/6",
   "evidence": [
     {
       "publisher": "Civil Aviation Administration of China (CAAC)",
@@ -17,33 +24,36 @@
       "publication_date": "2022-04-20",
       "scope": "event-level",
       "observation": "CAAC identifies the 21 March 2022 MU5735 occurrence as an aviation accident involving Boeing 737-800 B-1791 on the Kunming-Guangzhou passenger flight and records 123 passengers plus nine crew fatalities.",
-      "use": "primary target-eligibility evidence"
+      "use": "competent-authority target evidence"
     },
     {
       "publisher": "International Air Transport Association (IATA)",
-      "authority_role": "independent industry safety publisher",
-      "source_title": "Accident Report Update 2022 Mid-Year",
-      "source_locator": "https://www.iata.org/contentassets/ea688b007b9047be86c8fd7a8bd17877/accident_report_update-2022_mid_year_interactive.pdf",
-      "publication_date": null,
-      "scope": "IATA accident taxonomy / global commercial aviation",
-      "observation": "IATA independently lists the 21 March 2022 China Eastern Airlines B737-800 as a jet hull-loss event with 132 onboard fatalities.",
-      "use": "independent event reconciliation"
+      "source_title": "2022 safety performance / Annual Review 2023",
+      "source_locator": "https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/annual-review-2023.pdf",
+      "scope": "global commercial aviation",
+      "observation": "IATA reports five fatal accidents in 2022: one jet and four turboprop, with 158 onboard fatalities. Its accident update identifies the single fatal jet as China Eastern Airlines B737-800 MU5735 with 132 onboard fatalities.",
+      "use": "annual fatal-jet universe and membership reconciliation"
     },
     {
       "publisher": "The Boeing Company",
-      "authority_role": "manufacturer statistical publisher; copy hosted by the U.S. Federal Aviation Administration",
+      "authority_role": "manufacturer statistical publisher; public copy hosted by the U.S. Federal Aviation Administration",
       "source_title": "2022 Statistical Summary of Commercial Jet Airplane Accidents — Worldwide Operations 1959-2022",
       "source_locator": "https://www.faa.gov/sites/faa.gov/files/2023-10/statsum_summary_2022.pdf",
       "publication_date": "2023-09",
-      "scope": "Boeing statistical-summary tracked worldwide commercial-jet operations",
-      "observation": "The report's 2022 Airplane Accidents table does not list MU5735. Its published definitions explicitly exclude occurrences classified as missing, unknown or undetermined (CICTT UNK) until otherwise determined by the official ICAO Annex 13 investigation, and also exclude hostile-action events. CAAC continues to describe MU5735 as an aviation accident under Annex 13 investigation without a published cause conclusion. The omission is therefore consistent with a documented Boeing exclusion mechanism, but the exact Boeing classification of MU5735 is not inferred without event-specific evidence.",
-      "use": "source-scope/inclusion-rule evidence; not a negative attestation"
+      "scope": "worldwide commercial jet fleet under Boeing definitions",
+      "observation": "Boeing does not list MU5735 because its definitions exclude events categorized UNK pending an official Annex 13 determination. Its 2022 airplane-accident table separately reports five external fatalities, all in non-Boeing events: TAP A320neo (2), LATAM A320neo (2) and Envoy E175 (1). Thus no additional Boeing external-fatality-only target case is hidden by IATA's onboard-fatality metric.",
+      "use": "independent reconciliation, source-scope rule and external-fatality control"
     }
   ],
-  "completeness_assessment": {
-    "global_year_complete": false,
-    "reason": "One qualifying Boeing candidate has two independent publisher provenances. Boeing's published rules explain why an unresolved Annex 13 occurrence can be absent from its statistical table, so Boeing-table absence cannot establish a zero-event year. The remaining 2022 Boeing fatal-commercial-jet candidate universe still requires complete reconciliation before a year-level attestation.",
-    "ledger_action": "keep reconciled=false"
+  "scope_issue": {
+    "id": "BOEING_UNK_MU5735",
+    "status": "RESOLVED_FOR_BSFM_MEMBERSHIP",
+    "reason": "Boeing's statistical omission follows its documented UNK rule. CAAC, the competent state authority, identifies the occurrence as an aviation accident involving a commercial Boeing 737-800. BSFM target membership is therefore not defined by Boeing's publication-time statistical inclusion rule; the discrepancy is retained as source-scope metadata."
   },
-  "gate_effect": "none; G1 remains BLOCKED"
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "IATA establishes a single fatal jet accident in 2022 and identifies it as MU5735. CAAC supplies competent-authority Boeing accident evidence. Boeing's table provides an independent external-fatality check showing that all five external deaths in its 2022 universe occurred in non-Boeing aircraft, while its MU5735 omission is explained by a documented source-specific UNK rule.",
+    "ledger_action": "set reconciled=true"
+  },
+  "gate_effect": "2022 annual cell PASS; overall G1 remains BLOCKED until every required annual cell passes"
 }
