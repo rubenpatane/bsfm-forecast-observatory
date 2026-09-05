@@ -6,24 +6,28 @@ Updated: 2026-09-05
 - Public research repository; F-002 remains frozen and explicitly experimental/unvalidated.
 - Immutable forecast registry with SHA-256 integrity checks.
 - Exactly one operational GitHub Actions workflow is retained: `AGGIORNA`; it remains manual (`workflow_dispatch`).
-- AGGIORNA #9 completed successfully on `5092ea14`; **46 tests passed before and after refresh**. The generated auditable-state commit is `dafd232b14459cbb96695d85ff42a13f5477170a`.
-- Live NTSB extraction v2 confirms `NTSB_Admin.csv` has 31,124 rows; normalized NTSB has 31,670 event-aircraft rows, 1,894 Boeing rows and 50 fatal Boeing rows. `availability_known=0`; approval/change timestamps remain outcome/administrative metadata, not demonstrated historical public availability.
-- FAA SDR 2010-2026 manifests are valid. 2026 contains 39,245 reports, 20,799 Boeing rows, through DifficultyDate 2026-09-04. SubmissionDate parsing has zero failures, but historical public availability remains unverified because FAA approval/QC occurs after submission.
+- **AGGIORNA #10 completed successfully on `651bf031…`; 51 tests passed before and after refresh.** Registry integrity passed and the generated auditable-state commit is `a568780`.
+- Live NTSB normalization remains 31,670 event-aircraft rows, 1,894 Boeing rows and 50 fatal Boeing rows. `availability_known=0`; approval/change timestamps remain outcome/administrative metadata, not demonstrated historical public availability.
+- FAA SDR 2010-2026 refresh remains operational, but historical public availability is unverified because FAA approval/QC occurs after submission. SDR predictor eligibility therefore remains blocked.
 - Backtest protocol is preregistered for 2010-2025 at T-365/T-90/T-30/T-7. Model lifecycle remains fail-closed until point-in-time availability, leakage-free evaluation, baseline, historical cases and calibration gates pass.
 - F-002 and its score remain immutable; prospective refinements are separately versioned.
 - Global-census and exposure rules are preregistered at `docs/GLOBAL-CENSUS-AND-EXPOSURE.md`.
 
-## Work added after AGGIORNA #9 — awaiting next execution
-- Exposure-only probabilities are now normalized **within each historical period**, not across years. This fixes a methodological error that would otherwise let departures from other years distort a cutoff's null forecast.
-- Exposure audit now requires explicit provenance as well as source/scope, rejects zero-total periods, duplicate cells, mixed scopes and incomplete period×cohort grids.
-- Annual target-census attestations now require scope, provenance, at least two independent publishers and an explicit `qualifying_boeing_events` count. The attested count must equal the qualifying event rows for that year, including explicit zero-event years.
-- Additional regression tests cover period-conditional normalization, missing provenance, zero exposure, annual count mismatch and weak census attestations.
+## Census/exposure implementation verified by AGGIORNA #10
+- Exposure-only probabilities normalize within each historical period.
+- Exposure audit requires explicit provenance and source/scope; it rejects zero-total periods, duplicate cells, mixed scopes and incomplete period×cohort grids.
+- Annual target-census attestations require scope, provenance, at least two independent publishers and explicit `qualifying_boeing_events`; the attested count must equal qualifying event rows, including zero-event years.
+- The real runner passed all 51 tests after these changes.
 
-## Scientific evidence
-ICAO's 2025 Safety Report reports 95 accidents, 10 fatal accidents, 296 fatalities and over 37 million departures in 2024 for scheduled commercial air transport. EASA ASR 2025 reports 14 worldwide fatal airline accidents under its own scope and publishes fatal-accident detail; Boeing's Statistical Summary provides manufacturer-specific triangulation and departures-based accident statistics. These scope differences must be reconciled explicitly rather than silently merged.
+## Work after AGGIORNA #10
+- Added `data/census/` as the fail-closed construction area for the authoritative 2010-2025 target census.
+- Seeded `year-ledger.json` with every evaluation year explicitly unresolved. This is intentionally not ground truth and cannot satisfy `historical_cases`.
+- Source hierarchy remains ICAO annual Safety Reports + EASA Annual Safety Reviews/fatal-accident appendices, with national investigation authorities for event-level ambiguity and Boeing Statistical Summary only as manufacturer triangulation.
+- Confirmed a key historical source: EASA Annual Safety Review 2010 contains an Appendix 4 listing fatal accidents in 2010 for commercial air transport aeroplanes over 2,250 kg MTOM. ICAO's 2012 Safety Report reports 121 scheduled-commercial accidents in 2010 and 29.023 million scheduled-commercial flights for 2010. These demonstrate why scope metadata must be retained rather than merging annual totals.
+- Boeing's 2025 Statistical Summary supplies worldwide commercial-jet type-level cumulative hull-loss/fatal-hull-loss statistics and departure-based rates, useful for triangulation and exposure methodology but not sufficient as event-level global ground truth by itself.
 
 ## Scientific gate
 No new prospective forecast may be represented as validated until leakage-free historical evaluation and calibration are populated. Absolute accident probabilities remain disabled. Source integrity is ready; historical point-in-time predictor availability, provenance-complete global historical cases and cohort exposure remain incomplete.
 
 ## Exact next step
-Execute AGGIORNA once on the current head to independently verify the post-#9 census/exposure changes. If green, continue the authoritative 2010-2025 annual target reconciliation and build the consistent cohort-departure exposure table. Do not open `historical_cases`, `baseline_present`, candidate fitting or promotion until their respective audits pass.
+Populate the annual ledger case-by-case from 2010 forward, recording exact source scope and event-level provenance. In parallel identify a defensible annual Boeing-family departures source; do not substitute fleet counts or accident counts. Only after all 2010-2025 annual attestations and the complete period×cohort departures grid pass their audits may `historical_cases` or `baseline_present` become true. Keep candidate fitting/promotion disabled.
