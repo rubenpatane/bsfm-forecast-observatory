@@ -13,6 +13,9 @@ jobs:
   aggiorna:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -97,6 +100,8 @@ jobs:
           fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload observatory site
         uses: actions/upload-pages-artifact@v3
         with:
