@@ -1,8 +1,15 @@
 # BSFM Target Taxonomy Decision Options v1
 
-Status: DECISION ANALYSIS — NON-CANONICAL / DOES NOT CHANGE F-002 OR G1
+Status: DECISION RECORDED — OPTION B SELECTED
 Date: 2026-09-06
+Decision date: 2026-09-06
 Applies to: unresolved G1 boundaries in 2014 and 2020
+
+## Decision
+
+**Option B is selected.** BSFM adopts a new prospective target taxonomy for future forecasts only. The adopted rule is versioned separately in `docs/TARGET-TAXONOMY-v2-PROSPECTIVE.md` and `data/census/prospective-target-taxonomy-v2.json`.
+
+This decision does **not** reclassify F-002, MH370, MH17, PS752, or the current historical G1 v1 census. G1 v1 therefore remains 14/16 and BLOCKED.
 
 ## Purpose
 
@@ -13,7 +20,7 @@ G1 has 14/16 annual cells reconciled. The remaining two cells are not ordinary e
 
 The frozen F-002 target is `next_fatal_accident_involving_boeing_commercial_jet`. The frozen evaluation protocol requires an accident, a Boeing commercial jet, attributable human fatality and sufficient authoritative evidence; materially disputed qualification remains `PENDING`. The canonical model specification also says event-universe semantics must be fixed before scoring and ambiguity remains unresolved.
 
-This document therefore does **not** choose a rule. It makes the remaining decision explicit and separates prospective taxonomy design from retrospective historical adjudication.
+The decision therefore separates prospective taxonomy design from retrospective historical adjudication.
 
 ## Non-negotiable constraints
 
@@ -43,7 +50,7 @@ Scientific advantage: strongest protection against post-outcome target editing.
 
 Cost: current historical G1 can never reach 16/16 under this version unless genuinely pre-existing authoritative project semantics are discovered.
 
-## Option B — Create a new prospective taxonomy for future forecasts only
+## Option B — Create a new prospective taxonomy for future forecasts only — SELECTED
 
 Rule action: version a new target specification now, but declare it inapplicable to F-002 and to the current historical G1 attestation.
 
@@ -55,6 +62,17 @@ Consequences:
 Scientific advantage: solves the ambiguity going forward without pretending the rule was frozen earlier.
 
 Cost: does not unblock current G1.
+
+### Adopted prospective semantics
+
+For future governed forecasts:
+- the primary target is a fatal aviation **safety accident** involving a Boeing commercial jet;
+- officially classified deliberate hostile/security/unlawful-interference events are excluded from the primary target but retained in a parallel descriptive census;
+- missing aircraft remain `PENDING_MISSING` until competent authority evidence establishes accident/equivalent fatal loss plus attributable fatality;
+- external, ground and other-aircraft fatalities remain eligible when authoritatively attributable;
+- unknown commercial status, identity conflicts or material taxonomy disagreement remain fail-closed pending states.
+
+See `docs/TARGET-TAXONOMY-v2-PROSPECTIVE.md` for the full adopted specification.
 
 ## Option C — Version a new historical-census taxonomy and re-run G1 as a new analysis
 
@@ -72,37 +90,28 @@ Scientific advantage: permits a complete internally consistent dataset for futur
 
 Cost: it is a new post-hoc historical analysis, not a retroactive completion of the original target semantics.
 
-## Candidate rule dimensions if a new taxonomy is created
-
-The eventual specification should answer these questions without reference to whether an individual case helps model performance:
+## Candidate rule dimensions
 
 ### Hostile / unlawful action
-Possible rule families include:
-- exclude intentional hostile/unlawful/security acts from the safety-accident target;
-- include an occurrence when the competent Annex 13/safety authority classifies it as an accident, regardless of initiating hostile action;
-- define a dedicated security-event class outside the accident target but retain it in a parallel descriptive census.
 
-No choice is endorsed here.
+The selected prospective rule excludes officially classified deliberate hostile/unlawful/security events from the primary safety-accident target and retains them in a parallel descriptive census. The classification must come from competent official evidence, not media or model inference.
 
 ### Missing aircraft
-The rule must state when a missing commercial jet becomes a qualifying fatal accident. Possible evidence thresholds include:
-- competent authority final classification as an accident;
-- sufficient authoritative evidence of destruction/fatality even if the complete sequence/cause is unknown;
-- exclusion/pending status until a defined investigation threshold is met.
 
-No choice is endorsed here.
+The selected prospective rule keeps a missing aircraft pending until competent authority evidence establishes accident/equivalent fatal loss and attributable fatality. Complete wreckage or probable cause is not required once that threshold is met.
 
 ### Time of qualification
-The rule must also distinguish event occurrence date from later adjudication/publication date. Historical outcome membership can use later authoritative evidence, but predictor point-in-time availability remains a separate G3 question.
 
-## Current recommendation encoded by the repository
+Event occurrence date remains distinct from later adjudication/publication date. Later evidence may resolve outcome membership, while predictor point-in-time availability remains governed independently by G3.
 
-Until a decision is explicitly made, the repository remains fail-closed:
+## Current state after the decision
+
+The repository remains fail-closed for the historical G1 v1:
 - MH370 = unresolved;
 - MH17 = unresolved;
 - PS752 = unresolved;
 - 2014 = 4/6;
 - 2020 = 4/6;
-- G1 = BLOCKED.
+- G1 v1 = BLOCKED.
 
-This document is a decision aid only. Committing it does not select Option A, B or C and does not alter any forecast, candidate decision or gate.
+The prospective v2 taxonomy governs only future forecasts created after adoption. It does not alter any frozen forecast or historical candidate decision.
