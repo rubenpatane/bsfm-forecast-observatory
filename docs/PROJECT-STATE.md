@@ -8,8 +8,9 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #24 (`33978310106`) completed successfully on source SHA `bc37cbfc3802c6579cb8130f70d6ce0d9a2b2bc4`; it is the latest workflow-verified baseline and verified the ICAO-free workflow plus the first official 2024 G1 candidate population.
-- AGGIORNA #22 (`33975985882`) failed at the retired ICAO acquisition step and is retained only as historical operational evidence. No new ICAO retrieval is permitted.
+- AGGIORNA #25 (`33978802087`) completed successfully on source SHA `971cdd6a1ec0576208191e2d18fe76fce2742c86`. Pre-update tests/integrity, official-source refresh, FAA SDR history, NTSB AVALL normalization, post-update tests/scientific audits, readiness generation and Pages deployment all completed successfully. The workflow then published generated-state commit `ce33ea54b36613cf122e3201c2825a329700f656`.
+- AGGIORNA #25 batch-verifies the reconciliation/source-scope/test changes that were committed after AGGIORNA #24.
+- AGGIORNA #22 (`33975985882`) failed at the retired ICAO acquisition step and is retained only as historical operational evidence. No new ICAO API retrieval is permitted.
 - Success/failure of CI verifies only checks actually executed; it does not establish predictive validity or open a scientific gate.
 
 ## Canonical documents
@@ -19,22 +20,29 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 `forecasts/F-002.json` is frozen. Later evidence/refinements cannot rewrite it or add retroactive probabilities. The repository does not claim cryptographic proof of public publication on its declared 2026-08-19 cutoff.
 
 ## G1 — BLOCKED
-`data/census/year-ledger.json` is the canonical 2010-2025 reconciliation ledger; keep years `reconciled=false` until evidenced. AGGIORNA #21 acquired 4,669 ICAO Official Accidents rows, retained only as historical evidence/provenance; no new ICAO retrieval is permitted.
+`data/census/year-ledger.json` is the canonical 2010-2025 reconciliation ledger; every year remains `reconciled=false`. AGGIORNA #21 acquired 4,669 ICAO Official Accidents rows, retained only as historical evidence/provenance; no new ICAO retrieval is permitted.
 
 ### Sustainable G1 path
-`data/census/boeing-statistical-summary-source.json` and `data/census/easa-asr-source.json` register sustainable public reconciliation sources. Boeing's worldwide Statistical Summary contains accident summaries/rates and EASA maintains Annual Safety Review editions, with recent editions exposing fatal-accident appendices. These source capabilities are not census attestations.
+`data/census/boeing-statistical-summary-source.json` and `data/census/easa-asr-source.json` register sustainable public reconciliation sources. `data/census/year-evidence-YYYY.json` now records partial annual reconciliation and source-scope conflicts without changing the canonical ledger. Candidate rows remain fail-closed in `data/census/g1-candidates.json`; candidate population and independent corroboration never attest global completeness by themselves.
 
-The fail-closed candidate layer lives in `bsfm/g1_candidates.py`, `tests/test_g1_candidates.py` and `data/census/g1-candidates.json`. Candidate rows require event/date/model/fatality/commercial/source provenance plus an explicit `include`, `exclude` or `unresolved` decision and reason; missing facts are not inferred, duplicate internal IDs invalidate structural audit, and even a structurally valid candidate dataset always reports `global_census_complete=false` / `gate_status=BLOCKED`. The normalizer now also preserves explicit independent `reconciliation_evidence`; corroboration cannot open G1 by itself.
+The candidate workspace contains the three previously verified 2024 candidates plus China Eastern MU5735 on 21 March 2022. For MU5735, CAAC identifies Boeing 737-800 B-1791 on a scheduled passenger flight and records all 132 occupants as fatalities; IATA independently lists the B737-800 as a jet hull-loss event with 132 onboard fatalities. It is therefore retained as an `include` candidate under the fixed BSFM event semantics.
 
-The candidate workspace contains three 2024 Boeing fatal-commercial-jet candidates: Singapore Airlines SQ321 (B777-300ER, one fatality), Swiftair/BCS18D at Vilnius (B737-400SF family, one fatality), and Jeju Air 2216 at Muan (B737-800, 179 fatalities). The Boeing 2024 Statistical Summary independently lists all three in its worldwide commercial-jet 2024 accident table. Jeju is now grounded primarily in the competent Republic of Korea ARAIB record (AAR2404 / HL8088 / 7C2216), with Boeing and BEA as independent reconciliation evidence. These remain candidate inclusions, not a 2024 year attestation.
+### 2022 partial reconciliation
+`data/census/year-evidence-2022.json` records a material source-definition conflict. The FAA-hosted Boeing 2022 Statistical Summary's worldwide 2022 accident table does not list MU5735 even though CAAC and IATA establish the event. Boeing-table absence therefore cannot be interpreted as evidence of no qualifying event. The Boeing inclusion/exclusion semantics and the rest of the 2022 candidate universe require reconciliation before a year attestation.
 
-EASA ASR 2025 reports 14 fatal airline accidents worldwide in 2024, but that aggregate count is not a Boeing-only event census. Direct inspection of EASA ASR 2024 Appendix 1 shows domain-organized fatal-accident lists through 2023; its commercial-air-transport complex-aeroplane section is not demonstrated to be an exhaustive worldwide commercial-jet census. Therefore absence of a Boeing row there must not be interpreted as a global zero-Boeing year for 2023.
+### 2023 partial reconciliation
+`data/census/year-evidence-2023.json` records that the inspected Boeing 2023 Statistical Summary reports no fatalities in the airplane operations it tracks and its 2023 worldwide table has no fatal listed accident; IATA independently reports zero fatal jet accidents in 2023. EASA ASR 2024 uses a broader worldwide large-aeroplane passenger/cargo universe and reports two fatal accidents / 77 fatalities, led by the ATR 72 Pokhara accident. These scope differences are preserved. 2023 remains unreconciled until the complete wider fatal set is mapped against the fixed Boeing-commercial-jet target and source completeness is evidenced.
 
 ### ICAO retrieval freeze
-ICAO API retrieval is disabled from operational automation. AGGIORNA #22 empirically confirmed prior access is unusable for the project (HTTP 403). BSFM will not purchase paid ICAO calls under the current research plan. Event-level ICAO rows must not be reconstructed by new API calls or published contrary to licence terms.
+ICAO API retrieval is disabled from operational automation. AGGIORNA #22 empirically confirmed prior access is unusable for the project (HTTP 403). BSFM will not purchase paid ICAO calls under the current research plan. Event-level ICAO rows must not be reconstructed by new API calls or published contrary to licence terms. Public static ICAO reports/products may be assessed only within their demonstrated scope and do not reopen the retired API dependency.
 
 ## G2 — BLOCKED
-Annual Boeing-family departures/cycles or another predeclared defensible exposure denominator are incomplete for 2010-2025. Direct inspection of Boeing's 2025 Statistical Summary confirms annual worldwide fleet-level departures/flight-hours context and cumulative Boeing-vs-total shares, but not annual departures/cycles for every BSFM Boeing family-year cell. Cumulative airplane-type rates, cumulative Boeing shares or aggregate worldwide traffic must not be inverted, interpolated or disaggregated to manufacture family-year exposure.
+Annual Boeing-family departures/cycles or another predeclared defensible exposure denominator are incomplete for 2010-2025. `data/exposure/source-inventory.json` now records inspected sustainable candidates:
+- Boeing Statistical Summary: annual worldwide fleet-level traffic plus cumulative Boeing/type statistics, but no demonstrated annual Boeing-family matrix.
+- U.S. DOT/BTS T-100 Segment: aircraft-type scheduled/performed departures and aircraft hours, but coverage is U.S. domestic plus international operations with a U.S./territory service point; foreign-to-foreign flights are excluded.
+- ICAO Long Term Traffic Forecast product: public description exposes historical traffic and forecast/fleet functions, but does not establish a reproducible historical actual-departures matrix at BSFM Boeing-family-by-year granularity; forecast values cannot substitute for measured historical exposure.
+
+No aggregate/cumulative statistic, fleet share, forecast or regional partial dataset is promoted into the primary baseline. `baseline_present=false` remains the only supported state.
 
 ## G3 — BLOCKED
 Historical predictor records do not yet establish field-level public availability at simulated cutoffs. Dated official releases and archived/versioned public artifacts remain preferred evidence.
@@ -43,10 +51,10 @@ Historical predictor records do not yet establish field-level public availabilit
 Downstream of G1-G3. Genuine paired OOS candidate-vs-exposure-baseline evaluation begins only after upstream PASS.
 
 ## Public/privacy/licensing state
-Public UI keeps experimental/status boundaries. FAA SDR and NTSB AVALL remain supporting/descriptive sources with scope limitations. This public repository must contain no personal/private/sensitive user data or credential values. Public Boeing/EASA/source records contain source metadata/scientific observations only. ICAO raw/event-level API data is not to be published.
+Public UI keeps experimental/status boundaries. FAA SDR and NTSB AVALL remain supporting/descriptive sources with scope limitations. This public repository must contain no personal/private/sensitive user data or credential values. New annual/source evidence stores public scientific metadata, observations and locators rather than third-party report contents. ICAO raw/event-level API data is not to be published.
 
 ## Operational state
-AGGIORNA #24 is the latest successful full run and verifies the ICAO-free workflow plus the initial 2024 candidate population at source SHA `bc37cbfc3802c6579cb8130f70d6ce0d9a2b2bc4`. Subsequent source-scope hardening, Korean-authority reconciliation, independent evidence preservation and new tests are committed after that run and therefore are not yet workflow-verified. G1-G4 remain BLOCKED.
+AGGIORNA #25 is the latest successful full workflow. Source SHA `971cdd6a1ec0576208191e2d18fe76fce2742c86` is workflow-verified and generated-state commit `ce33ea54b36613cf122e3201c2825a329700f656` was published by that run. The subsequent 2022/2023 G1 evidence and G2 source-inventory batch is repository evidence only until independently re-run through the applicable tests/workflow. G1-G4 remain BLOCKED.
 
 ## Exact next step
-Batch-verify the post-AGGIORNA-24 reconciliation changes, then continue the G1 census backward from 2023 using worldwide Boeing Statistical Summary evidence plus competent national investigation authorities; treat EASA appendices only within their demonstrated scope and never infer global zero years from their absence. In parallel, search sustainable official/primary sources for genuine Boeing family-by-year departures/cycles; if none provide the required denominator, keep G2 BLOCKED rather than deriving it from aggregate or cumulative statistics. Keep every year in `data/census/year-ledger.json` `reconciled=false` until the full year-level completeness and independent-reconciliation criteria are evidenced.
+Continue the G1 census backward with 2021, using worldwide annual evidence to discover the candidate set and competent national investigation authorities plus an independent publisher to adjudicate each Boeing fatal-commercial-jet candidate; at the same time resolve the Boeing-2022/MU5735 inclusion-rule discrepancy and continue searching for a genuinely global historical Boeing-family/type departures-or-cycles source for G2, retaining every `year-ledger.json` row `reconciled=false` and `baseline_present=false` until the full evidence criteria are met.
