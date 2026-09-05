@@ -4,6 +4,7 @@ from datetime import date
 from pathlib import Path
 
 from .g1_outcome_pit import audit_g1_outcome_pit
+from .g2_exposure_pit import audit_g2_exposure_pit
 
 
 def _load(path: Path, default=None):
@@ -74,12 +75,12 @@ def build_operational_pit_coverage(root) -> dict:
     )
 
     # These are the actual dependency surfaces of the implemented shrinkage
-    # estimator. G1 is now measured from event-level availability evidence rather
-    # than a hard-coded gate. G2 stays closed until a real compatible exposure
-    # matrix with a frozen vintage policy is materialized.
+    # estimator. Both are measured directly; neither may be replaced by a generic
+    # source-level PIT boolean or research-only enrichment source.
     g1_outcome_pit = audit_g1_outcome_pit(root)
     g1_target_history_ready = g1_outcome_pit.get('complete') is True
-    g2_exposure_history_ready = False
+    g2_exposure_pit = audit_g2_exposure_pit(root)
+    g2_exposure_history_ready = g2_exposure_pit.get('complete') is True
 
     admitted = universe.get('admitted_predictors') if isinstance(universe.get('admitted_predictors'), list) else []
     universe_frozen = universe.get('frozen') is True and universe.get('status') == 'FROZEN'
@@ -140,7 +141,11 @@ def build_operational_pit_coverage(root) -> dict:
             },
             'G2 exposure matrix': {
                 'strict_pit_ready': g2_exposure_history_ready,
-                'reason': 'Compatible global cohort-year exposure and its frozen vintage policy remain unavailable.',
+                'rows': g2_exposure_pit.get('rows', 0),
+                'matrix_complete': (g2_exposure_pit.get('matrix') or {}).get('complete') is True,
+                'vintage_policy_ids': g2_exposure_pit.get('vintage_policy_ids', []),
+                'metadata_errors': g2_exposure_pit.get('metadata_errors', []),
+                'reason': None if g2_exposure_history_ready else 'Compatible global cohort-year exposure and its frozen vintage policy remain unavailable or incomplete.',
             },
             'FAA SDR': {
                 'years': faa,
