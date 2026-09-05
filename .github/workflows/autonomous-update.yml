@@ -41,15 +41,17 @@ jobs:
         run: |
           test -s data/derived/ntsb/events.csv
           test -s data/derived/ntsb/aircraft.csv
+          test -s data/derived/ntsb/NTSB_Admin.csv
           python - <<'PY'
           import json
           from pathlib import Path
           from bsfm.ntsb import write_normalized
           d=Path('data/derived/ntsb')
-          stats=write_normalized(d/'events.csv',d/'aircraft.csv',d/'events-normalized.jsonl',d/'Events_Sequence.csv',d/'Findings.csv')
+          stats=write_normalized(d/'events.csv',d/'aircraft.csv',d/'events-normalized.jsonl',d/'Events_Sequence.csv',d/'Findings.csv',d/'NTSB_Admin.csv')
           print(json.dumps(stats,indent=2))
           assert stats['rows'] > 0
           assert stats['boeing_rows'] > 0
+          assert stats['outcome_approval_known'] > 0
           PY
       - name: Post-update tests, registry and publication gate
         run: |
