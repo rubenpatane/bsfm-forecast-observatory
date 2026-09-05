@@ -4,28 +4,19 @@
   "status": "IN_PROGRESS_FAIL_CLOSED",
   "purpose": "Record public-availability evidence for already-included G1 target outcomes without mutating the historical target census. A later-than-first-known competent-authority publication date is acceptable as a conservative PIT bound; event date alone is never sufficient.",
   "policy": {
-    "allowed_bases": [
-      "competent_authority_publication",
-      "official_database_publication",
-      "archived_public_snapshot"
-    ],
-    "conservative_rule": "If the earliest public availability cannot be proven, a later dated competent-authority public artifact may be used as a conservative available_at bound. This may discard usable history but cannot introduce future information into an earlier cutoff.",
-    "prohibited": [
-      "event_date_as_available_at",
-      "current_database_presence_without_historical_evidence",
-      "approval_or_last_change_timestamp_without publication semantics",
-      "retrospective news discoverability without stable public artifact provenance"
-    ]
+    "allowed_bases": ["competent_authority_publication","official_database_publication","archived_public_snapshot"],
+    "conservative_rule": "If the earliest public availability cannot be proven, a later dated competent-authority or official intergovernmental public artifact may be used as a conservative available_at bound. This may discard usable history but cannot introduce future information into an earlier cutoff.",
+    "prohibited": ["event_date_as_available_at","current_database_presence_without_historical_evidence","approval_or_last_change_timestamp_without publication semantics","retrospective news discoverability without stable public artifact provenance"]
   },
   "events": [
     {"event_id":"G1-2010-ARE8250","available_at":"2011-07-15","availability_basis":"competent_authority_publication","availability_evidence_ids":["https://www.aerocivil.gov.co/info/aeronautica_civil/media/1740578218_COL-10-18-GIA%20Final%20Acc%20HK4682%20San%20Andr%C3%A9s%2016-ago-10.pdf"],"status":"verified","note":"Conservative bound using the dated Aerocivil final accident report; contemporaneous reporting also identifies release on 2011-07-15."},
     {"event_id":"G1-2010-ET409","available_at":"2012-01-17","availability_basis":"competent_authority_publication","availability_evidence_ids":["https://www.icao.int/sites/default/files/safety/airnavigation/AIG/Documents/Safety-Recommendations-to-ICAO/Final-Reports/10100060_final_report.pdf"],"status":"verified","note":"Lebanese investigation final report issued/presented 2012-01-17; earlier progress reports are intentionally not used."},
     {"event_id":"G1-2010-IX812","available_at":"2011-05-21","availability_basis":"official_database_publication","availability_evidence_ids":["https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=72237"],"status":"verified","note":"Conservative official-government bound: Ministry of Civil Aviation PIB release dated 2011-05-21 states the Court of Inquiry report had been made available in April 2011. The later date is used rather than inferring an exact April publication day."},
-    {"event_id":"G1-2010-UPS6","available_at":"2013-07-31","availability_basis":"competent_authority_publication","availability_evidence_ids":["https://www.gcaa.gov.ae/en/departments/airaccidentinvestigation/Lists/Incidents%20Investigation%20Reports/Attachments/56/2010-2010%20-%20Final%20Report%20-%20Boeing%20747-44AF%20-%20N571UP%20-%20Report%2013%202010.pdf","https://stacks.cdc.gov/view/cdc/228070/cdc_228070_DS1.pdf"],"status":"verified","note":"Conservative public-presence bound: GCAA final report was released in July 2013; a dated technical reference records retrieval from the GCAA site by 2013-07-31. This deliberately avoids claiming an earlier exact release timestamp."},
-    {"event_id":"G1-2011-FA6560","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
-    {"event_id":"G1-2011-HB952","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
-    {"event_id":"G1-2011-IR277","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
-    {"event_id":"G1-2011-OZ991","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
+    {"event_id":"G1-2010-UPS6","available_at":"2013-07-31","availability_basis":"competent_authority_publication","availability_evidence_ids":["https://www.gcaa.gov.ae/en/departments/airaccidentinvestigation/Lists/Incidents%20Investigation%20Reports/Attachments/56/2010-2010%20-%20Final%20Report%20-%20Boeing%20747-44AF%20-%20N571UP%20-%20Report%2013%202010.pdf","https://stacks.cdc.gov/view/cdc/228070/cdc_228070_DS1.pdf"],"status":"verified","note":"Conservative public-presence bound: GCAA final report was publicly retrievable by 2013-07-31."},
+    {"event_id":"G1-2011-FA6560","available_at":"2014-03-25","availability_basis":"competent_authority_publication","availability_evidence_ids":["https://tsb-bst.gc.ca/eng/enquetes-investigations/aviation/2011/a11h0002/a11h0002.html"],"status":"verified","note":"TSB states the report was officially released on 2014-03-25."},
+    {"event_id":"G1-2011-HB952","available_at":"2012-01-15","availability_basis":"official_database_publication","availability_evidence_ids":["https://www.leganet.cd/Legislation/JO/2012/JO.15.01.2012.pdf"],"status":"verified","note":"DRC Journal Officiel dated 2012-01-15 records Hewa Bora, the 2011-07-08 crash, Boeing 727-100, flight 952 and loss of life. Used as a conservative official-public bound rather than claiming investigation-report availability."},
+    {"event_id":"G1-2011-IR277","available_at":"2017-03-07","availability_basis":"official_database_publication","availability_evidence_ids":["https://www.icao.int/MID/Documents/2017/AIA%20WG2/AIA%20WG2-WP4%20-%20Review%20and%20Analysis%20of%20MID%20Accidents.pdf"],"status":"verified","note":"Conservative ICAO Secretariat bound. AIA WG/2-WP/4 dated 2017-03-07 lists the 2011 Iran occurrence as an accident involving EP-IRP, Boeing 727-200, operated by Iran Air. This later bound avoids relying on uncertain publication semantics of the mirrored Persian final report."},
+    {"event_id":"G1-2011-OZ991","available_at":"2015-07-24","availability_basis":"competent_authority_publication","availability_evidence_ids":["https://www.faa.gov/sites/faa.gov/files/2022-11/Asiana991_Final_Report.pdf"],"status":"verified","note":"ARAIB/AAR1105 cover is dated 2015-07-24 and identifies Asiana scheduled cargo B747-400F HL7604 fatal accident."},
     {"event_id":"G1-2012-BHO213","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
     {"event_id":"G1-2012-DHV111","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
     {"event_id":"G1-2013-AAR214","available_at":null,"availability_basis":null,"availability_evidence_ids":[],"status":"unverified"},
