@@ -1,5 +1,6 @@
 from __future__ import annotations
 import csv,json
+from datetime import datetime
 from pathlib import Path
 
 ALIASES={
@@ -8,9 +9,9 @@ ALIASES={
  'publication_date':('PublicationDate','publication_date','pub_date'),
  'make':('acft_make','Make','make'),
  'model':('acft_model','Model','model'),
- 'phase':('broad_phase','BroadPhaseOfFlight','phase'),
+ 'phase':('phase_flt_spec','broad_phase','BroadPhaseOfFlight','phase'),
  'fatalities':('inj_tot_f','TotalFatalInjuries','fatalities'),
- 'schedule':('sched','Schedule','schedule'),
+ 'schedule':('oper_sched','sched','Schedule','schedule'),
  'carrier':('oper_name','AirCarrier','carrier'),
  'far_part':('far_part','FARDescription'),
 }
@@ -22,14 +23,26 @@ def _pick(row,names):
 def _int(v):
  try: return int(float(v or 0))
  except (ValueError,TypeError): return 0
+def _date(v):
+ if not v: return None
+ for fmt in ('%m/%d/%y %H:%M:%S','%m/%d/%Y %H:%M:%S','%Y-%m-%d','%m/%d/%Y'):
+  try: return datetime.strptime(v.strip(),fmt).date().isoformat()
+  except ValueError: pass
+ return None
 def normalize_row(row):
  d={k:_pick(row,v) for k,v in ALIASES.items()}
+ d['event_date']=_date(d['event_date']) or d['event_date']
  d['fatalities']=_int(d['fatalities']); d['fatal']=d['fatalities']>0
  d['boeing']='BOEING' in (d['make'] or '').upper()
- sched=(d['schedule'] or '').strip().upper(); carrier=(d['carrier'] or '').strip(); far=(d['far_part'] or '').upper()
- d['commercial']=bool(carrier) or sched not in ('','NONE','N/A','UNK','UNKNOWN') or any(x in far for x in ('121','129','135'))
- # AVALL does not guarantee a historical publication timestamp for every exported row.
- # Missing availability is deliberately retained as unknown; event date is never substituted.
+ sched=(d['schedule'] or '').strip().upper(); far=(d['far_part'] or '').strip().upper()
+ # NTSB operator names also exist for private/non-commercial operations, so carrier-name
+ # presence is not evidence of commercial service. Keep broad commercial and scheduled
+ # service separate and derive them only from explicit operational fields.
+ d['scheduled_service']=sched=='SCHD'
+ d['commercial']=far in {'121','125','129','135'} or sched in {'SCHD','NSCH'}
+ # A current AVALL snapshot is suitable for final outcome labels, but it does not expose
+ # a historical public-availability timestamp in the exported events/aircraft tables.
+ # Missing availability therefore remains unknown; event/lchg dates are never substituted.
  d['available_at']=d['publication_date']
  return d
 def _read(path):
@@ -48,4 +61,11 @@ def write_normalized(events_csv,aircraft_csv,out_jsonl):
  rows=join_events_aircraft(events_csv,aircraft_csv); p=Path(out_jsonl); p.parent.mkdir(parents=True,exist_ok=True)
  with p.open('w') as f:
   for r in rows: f.write(json.dumps(r,sort_keys=True)+'\n')
- return {'rows':len(rows),'boeing_rows':sum(r['boeing'] for r in rows),'fatal_boeing_rows':sum(r['boeing'] and r['fatal'] for r in rows),'commercial_boeing_rows':sum(r['boeing'] and r['commercial'] for r in rows),'availability_known':sum(bool(r['available_at']) for r in rows)}
+ return {
+  'rows':len(rows),
+  'boeing_rows':sum(r['boeing'] for r in rows),
+  'fatal_boeing_rows':sum(r['boeing'] and r['fatal'] for r in rows),
+  'commercial_boeing_rows':sum(r['boeing'] and r['commercial'] for r in rows),
+  'scheduled_boeing_rows':sum(r['boeing'] and r['scheduled_service'] for r in rows),
+  'availability_known':sum(bool(r['available_at']) for r in rows),
+ }
