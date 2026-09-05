@@ -1,0 +1,20 @@
+{
+  "schema": "bsfm.evidence-source.v1",
+  "publisher": "European Union Aviation Safety Agency (EASA)",
+  "title": "Annual Safety Review series",
+  "source_locator": "https://www.easa.europa.eu/en/publication-types/annual-safety-review",
+  "retrieved_for_research": "2026-09-05",
+  "role": "G1 independent annual fatal-accident reconciliation",
+  "verified_observations": {
+    "archive": "EASA exposes an Annual Safety Review archive with editions covering the BSFM evaluation interval.",
+    "fatal_accident_appendices": "Recent editions expose Appendix 1, List of Fatal Accidents.",
+    "global_context": "ASR 2025 reports worldwide fatal-airline-accident context for 2024 in addition to European commercial-air-transport analysis."
+  },
+  "limitations": [
+    "EASA annual reviews are not assumed to be a Boeing-only census.",
+    "Edition structure and appendix availability may differ by year and must be verified year by year.",
+    "Each candidate event still requires BSFM Boeing/commercial/fatal target adjudication and duplicate reconciliation.",
+    "Global-context counts alone cannot attest a BSFM census year."
+  ],
+  "scientific_gate_effect": "none_without_event_level_reconciliation"
+}
