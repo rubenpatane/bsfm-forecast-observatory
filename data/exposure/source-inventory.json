@@ -1,0 +1,46 @@
+{
+  "schema": "bsfm.g2-source-inventory.v1",
+  "status": "research-inventory",
+  "updated": "2026-09-05",
+  "required_denominator": "annual Boeing family/cohort departures for 2010-2025 under a compatible global commercial-jet scope",
+  "sources": [
+    {
+      "publisher": "The Boeing Company",
+      "source_title": "2025 Statistical Summary of Commercial Jet Airplane Accidents",
+      "source_locator": "https://www.boeing.com/content/dam/boeing/v2/safety/statsum.pdf",
+      "observed_granularity": "annual worldwide all-commercial-jet departures/flight-hours plus cumulative Boeing/type statistics",
+      "useful_fields": ["annual aggregate departures", "annual aggregate flight hours", "cumulative Boeing departure share", "cumulative type accident rates"],
+      "coverage_result": "insufficient_for_G2",
+      "reason": "No complete annual Boeing-family departures/cycles matrix for the preregistered 2010-2025 cohort-year cells has been demonstrated. Aggregate or cumulative values cannot be disaggregated or inverted."
+    },
+    {
+      "publisher": "U.S. Department of Transportation / Bureau of Transportation Statistics",
+      "source_title": "TranStats T-100 Segment (All Carriers)",
+      "source_locator": "https://www.transtats.bts.gov/DatabaseInfo.asp?QO_VQ=EEE",
+      "observed_granularity": "monthly non-stop segment records by aircraft type/service class with scheduled/performed departures and aircraft hours",
+      "useful_fields": ["aircraft type", "scheduled departures", "performed departures", "aircraft hours"],
+      "coverage_result": "partial_scope_only",
+      "reason": "The database covers U.S. domestic operations and international operations with at least one U.S./territory service point; foreign-to-foreign flights are excluded. It can support sensitivity/reconciliation work but cannot serve as the global BSFM family-year denominator."
+    },
+    {
+      "publisher": "International Civil Aviation Organization",
+      "source_title": "ICAO Long Term Traffic Forecast application",
+      "source_locator": "https://trafficforecast.icao.int/",
+      "observed_granularity": "historical traffic by carrier/country-pair/route-group/region plus forecasts of departures and fleet forecasts by aircraft type",
+      "useful_fields": ["historical traffic", "forecast departures", "fleet forecast by aircraft type"],
+      "coverage_result": "not_demonstrated_for_G2",
+      "reason": "The public product description does not establish a reproducible historical actual-departures matrix at Boeing-family-by-year granularity matching the BSFM denominator. Forecasted departures/fleet are not substitutes for historical measured exposure, and no new paid ICAO API dependency is permitted."
+    }
+  ],
+  "prohibited_transformations": [
+    "allocate aggregate departures to Boeing families using fleet share",
+    "invert cumulative accident rates to reconstruct annual family departures",
+    "use fleet counts, deliveries, capacity or market share as the primary denominator",
+    "substitute forecast departures for historical measured departures"
+  ],
+  "conclusion": {
+    "g2_status": "BLOCKED",
+    "baseline_present": false,
+    "next_research_direction": "Search official or sustainably accessible operations datasets with global historical aircraft-type/family departures or cycles; otherwise retain the denominator gap."
+  }
+}
