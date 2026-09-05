@@ -6,7 +6,10 @@ mkdir -p "$OUT"
 command -v mdb-tables >/dev/null
 command -v mdb-export >/dev/null
 mdb-tables -1 "$MDB" > "$OUT/tables.txt"
-for table in events aircraft Occurrences findings; do
+# Export only research-relevant tables. dt_events and the data dictionary are included
+# to audit whether AVALL exposes historical publication/availability fields; sequence
+# tables provide phase/event context when populated.
+for table in events aircraft Occurrences Findings Events_Sequence seq_of_events dt_events eADMSPUB_DataDictionary narratives; do
   if grep -Fxiq "$table" "$OUT/tables.txt"; then
     actual=$(grep -Fxi "$table" "$OUT/tables.txt" | head -1)
     mdb-export "$MDB" "$actual" > "$OUT/${table}.csv"
