@@ -10,24 +10,27 @@ Updated: 2026-09-05
 - Live NTSB normalization remains 31,670 event-aircraft rows, 1,894 Boeing rows and 50 fatal Boeing rows. `availability_known=0`; approval/change timestamps remain outcome/administrative metadata, not demonstrated historical public availability.
 - FAA SDR 2010-2026 refresh remains operational, but historical public availability is unverified because FAA approval/QC occurs after submission. SDR predictor eligibility therefore remains blocked.
 - Backtest protocol is preregistered for 2010-2025 at T-365/T-90/T-30/T-7. Model lifecycle remains fail-closed until point-in-time availability, leakage-free evaluation, baseline, historical cases and calibration gates pass.
-- F-002 and its score remain immutable; prospective refinements are separately versioned.
-- Global-census and exposure rules are preregistered at `docs/GLOBAL-CENSUS-AND-EXPOSURE.md`.
 
-## Census/exposure implementation verified by AGGIORNA #10
-- Exposure-only probabilities normalize within each historical period.
-- Exposure audit requires explicit provenance and source/scope; it rejects zero-total periods, duplicate cells, mixed scopes and incomplete period×cohort grids.
-- Annual target-census attestations require scope, provenance, at least two independent publishers and explicit `qualifying_boeing_events`; the attested count must equal qualifying event rows, including zero-event years.
-- The real runner passed all 51 tests after these changes.
+## Historical Backtest Foundation batch
+Work is accumulated on branch `dev` before one integrated AGGIORNA verification.
 
-## Work after AGGIORNA #10
-- Added `data/census/` as the fail-closed construction area for the authoritative 2010-2025 target census.
-- Seeded `year-ledger.json` with every evaluation year explicitly unresolved. This is intentionally not ground truth and cannot satisfy `historical_cases`.
-- Source hierarchy remains ICAO annual Safety Reports + EASA Annual Safety Reviews/fatal-accident appendices, with national investigation authorities for event-level ambiguity and Boeing Statistical Summary only as manufacturer triangulation.
-- Confirmed a key historical source: EASA Annual Safety Review 2010 contains an Appendix 4 listing fatal accidents in 2010 for commercial air transport aeroplanes over 2,250 kg MTOM. ICAO's 2012 Safety Report reports 121 scheduled-commercial accidents in 2010 and 29.023 million scheduled-commercial flights for 2010. These demonstrate why scope metadata must be retained rather than merging annual totals.
-- Boeing's 2025 Statistical Summary supplies worldwide commercial-jet type-level cumulative hull-loss/fatal-hull-loss statistics and departure-based rates, useful for triangulation and exposure methodology but not sufficient as event-level global ground truth by itself.
+Implemented:
+- fail-closed machine-readable census event ledger and annual reconciliation ledger;
+- fail-closed departures exposure ledger and explicit prohibition on deriving Boeing-family denominators from global traffic totals, fleet counts or accident counts;
+- integrated historical-foundation audit combining census, exposure, point-in-time availability and leakage gates;
+- walk-forward descriptor generation at T-365/T-90/T-30/T-7 only after census completion;
+- calibration/reliability diagnostics with Brier score, while `calibration_evaluated` remains false until real leakage-free probabilistic historical predictions exist;
+- CLI `audit-foundation` command for an auditable readiness report;
+- regression tests ensuring empty/construction ledgers cannot open scientific gates.
+
+## Source reconciliation evidence
+- EASA Annual Safety Review 2012 reports fatal-accident counts for EASA and third-country CAT aeroplanes above 2,250 kg and explicitly bases scheduled-passenger fatal-accident rates on flights carried out.
+- ICAO reports global scheduled departures reached about 32 million in 2013 and 33 million in 2014. Those values are stored only as scope/context evidence and are not Boeing-family denominators.
+- ICAO's 2013 global safety analysis uses scheduled commercial air transport aircraft above 5,700 kg and reports 90 accidents, 9 fatal accidents and 173 fatalities; EASA historical reports use different scopes. Scope differences are retained rather than silently merged.
+- EASA maintains an official Annual Safety Review archive covering the historical interval.
 
 ## Scientific gate
-No new prospective forecast may be represented as validated until leakage-free historical evaluation and calibration are populated. Absolute accident probabilities remain disabled. Source integrity is ready; historical point-in-time predictor availability, provenance-complete global historical cases and cohort exposure remain incomplete.
+No new prospective forecast may be represented as validated until leakage-free historical evaluation and calibration are populated. Absolute accident probabilities remain disabled. Source integrity is ready; historical point-in-time predictor availability, provenance-complete global historical cases and Boeing-cohort exposure remain incomplete. Construction placeholders are never interpreted as zero-event or zero-exposure evidence.
 
 ## Exact next step
-Populate the annual ledger case-by-case from 2010 forward, recording exact source scope and event-level provenance. In parallel identify a defensible annual Boeing-family departures source; do not substitute fleet counts or accident counts. Only after all 2010-2025 annual attestations and the complete period×cohort departures grid pass their audits may `historical_cases` or `baseline_present` become true. Keep candidate fitting/promotion disabled.
+Continue event-level 2010-2025 reconciliation and search for defensible annual Boeing-family departures. If no authoritative family-level denominator is publicly reconstructable, document that limitation rather than estimate it. Complete all offline code/tests/docs in the batch, then merge to main and request one AGGIORNA run for integrated verification. Candidate fitting/promotion remains disabled until every independent gate passes.
