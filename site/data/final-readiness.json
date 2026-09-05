@@ -1,0 +1,24 @@
+{
+  "schema": "bsfm.final-readiness.v1",
+  "software_audit_evaluable": true,
+  "scientific_fit_ready": false,
+  "scientific_promotion_ready": false,
+  "paired_baseline_comparison": false,
+  "candidate_better_than_baseline": false,
+  "gates": {
+    "historical_cases": false,
+    "baseline_present": false,
+    "point_in_time_availability_verified": false,
+    "leakage_free": false,
+    "calibration_evaluated": false
+  },
+  "blocked_reasons": [
+    "historical_cases",
+    "baseline_present",
+    "point_in_time_availability_verified",
+    "leakage_free",
+    "calibration_evaluated"
+  ],
+  "absolute_accident_probabilities_enabled": false,
+  "validated_prediction_claim_allowed": false
+}
