@@ -1,131 +1,131 @@
 {
   "forecast_generated": false,
   "integrity_errors": [],
-  "reason": "validated_source_snapshots_unavailable",
+  "reason": "historical_point_in_time_availability_unverified",
   "registry_integrity": "ok",
-  "run_at": "2026-09-05T09:57:52Z",
-  "run_hash": "sha256:8da3193ec1552b8620bbf86b2ad8469283d52babd9651d9e5b2c80c86d1362e4",
+  "run_at": "2026-09-05T10:05:32Z",
+  "run_hash": "sha256:c865f5bc35bdf241181028d85eec32a8bb88717804b58b3d17f0bf8114c438b2",
   "sources": {
-    "checked_at": "2026-09-05T09:57:52Z",
+    "checked_at": "2026-09-05T10:05:32Z",
     "manifests": [
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2010.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2011.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2012.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2013.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2014.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2015.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2016.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2017.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2018.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2019.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2020.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2021.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2022.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2023.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2024.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2025.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
         "manifest": "faa-sdr-2026.json",
         "source": "FAA SDR",
-        "status": "invalid"
+        "status": "validated"
       },
       {
         "cutoff": null,
@@ -137,6 +137,6 @@
     ],
     "point_in_time_availability_verified": false,
     "ready_for_model": false,
-    "source_integrity_ready": false
+    "source_integrity_ready": true
   }
 }

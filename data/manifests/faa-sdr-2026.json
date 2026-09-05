@@ -1,6 +1,7 @@
 {
   "bad_dates": 0,
-  "bad_submission_dates": 39245,
+  "bad_submission_dates": 0,
+  "bad_submission_examples": [],
   "boeing_rows": 20799,
   "bytes": 18460185,
   "fields": [
@@ -83,24 +84,24 @@
   ],
   "historical_public_availability": "unverified",
   "max_date": "2026-09-04",
-  "max_submission_date": null,
+  "max_submission_date": "2026-09-04",
   "min_date": "2026-01-01",
-  "min_submission_date": null,
+  "min_submission_date": "2026-01-01",
   "missing_fields": [],
   "official_url": "https://external.apic4e.faa.gov/sdrs/retrieve/SDR-2026.csv",
-  "point_in_time_note": "SubmissionDate records submission timing, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.",
-  "retrieved_at": "2026-09-05T09:57:40Z",
+  "point_in_time_note": "SubmissionDate is a submission-timing field, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.",
+  "retrieved_at": "2026-09-05T10:05:21Z",
   "rows": 39245,
   "schema": "bsfm.source-manifest.v1",
   "sha256": "bb854a853938bca54b41d6581da3c4d53a206f97d6e9a91a867ee9b830c434bd",
   "source": "FAA SDR",
-  "status": "invalid",
+  "status": "validated",
+  "submission_date_parse": "ok",
   "validation": [
     "http_download_ok",
     "csv_parse_ok",
     "required_schema",
-    "difficulty_date_parse",
-    "submission_date_parse"
+    "difficulty_date_parse"
   ],
   "year": 2026
 }
