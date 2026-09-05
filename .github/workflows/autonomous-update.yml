@@ -65,13 +65,9 @@ jobs:
           pytest -q
           python -m bsfm.cli verify
           python -m bsfm.cli audit-foundation
-      - name: Acquire ICAO Official Accidents for G1
-        env:
-          ICAO_API_KEY: ${{ secrets.ICAO_API_KEY }}
-        run: |
-          test -n "$ICAO_API_KEY"
-          rm -rf data/derived/icao
-          python scripts/acquire_icao_g1.py --start-year 2010 --end-year 2025          
+      # ICAO API retrieval intentionally disabled. The trial allocation is exhausted/expired
+      # and paid retrieval is not an operational dependency. Previously acquired evidence
+      # remains historical provenance and may be reused subject to its licence.
       - name: Refresh current official public sources
         run: python -m bsfm.cli ingest
       - name: Refresh FAA SDR historical manifests 2010-current
@@ -104,11 +100,7 @@ jobs:
           assert stats['outcome_approval_known'] > 0
           public_path=Path('site/data/real-data.json')
           public=json.loads(public_path.read_text(encoding='utf-8')) if public_path.exists() else {}
-          public['ntsb_snapshot']={
-            'source':'NTSB AVALL',
-            'scope':'Current official AVALL event-aircraft snapshot used as outcome evidence, not as a global census.',
-            **stats,
-          }
+          public['ntsb_snapshot']={'source':'NTSB AVALL','scope':'Current official AVALL event-aircraft snapshot used as outcome evidence, not as a global census.',**stats}
           public_path.write_text(json.dumps(public,indent=2,sort_keys=True)+'\n',encoding='utf-8')
           comparables=write_public_comparables(normalized)
           print(json.dumps({'public_comparables':len(comparables['cases'])},indent=2))
