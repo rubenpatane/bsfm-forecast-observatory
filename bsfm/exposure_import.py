@@ -4,6 +4,7 @@ from collections import Counter, defaultdict
 from datetime import date
 
 from .cohorts import cohort_from_icao_equipment
+from .exposure import audit_exposure
 
 
 REQUIRED_FIELDS = ('flight_date', 'equipment_code', 'leg_id', 'operated', 'scope', 'vintage_id')
@@ -105,4 +106,43 @@ def aggregate_standardized_flight_legs(rows, start_year=2010, end_year=2025):
             and not unknown
             and bool(exposure_rows)
         ),
+    }
+
+
+def g2_acceptance_report(rows, expected_periods, expected_cohorts, *, source, provenance, vintage_policy_id):
+    """Run the canonical G2 matrix audit on standardized flight-leg observations."""
+    source = str(source or '').strip()
+    provenance = str(provenance or '').strip()
+    vintage_policy_id = str(vintage_policy_id or '').strip()
+    if not source or not provenance or not vintage_policy_id:
+        raise ValueError('source, provenance and vintage_policy_id are required')
+    periods = [int(p) for p in expected_periods]
+    if not periods:
+        raise ValueError('expected_periods required')
+    aggregated = aggregate_standardized_flight_legs(rows, min(periods), max(periods))
+    canonical = [
+        {
+            'period': str(row['year']),
+            'cohort': row['cohort'],
+            'departures': row['departures'],
+            'source': source,
+            'scope': 'global_commercial',
+            'provenance': provenance,
+            'vintage_policy_id': vintage_policy_id,
+            'source_vintage_ids': aggregated['vintage_ids'],
+        }
+        for row in aggregated['exposure_rows']
+    ]
+    matrix = audit_exposure(canonical, periods, expected_cohorts)
+    pass_candidate = aggregated['complete_for_g2'] and matrix['complete']
+    return {
+        'schema': 'bsfm.g2-acceptance-report.v1',
+        'source': source,
+        'provenance': provenance,
+        'vintage_policy_id': vintage_policy_id,
+        'import': aggregated,
+        'canonical_exposure_rows': canonical,
+        'matrix_audit': matrix,
+        'g2_pass_candidate': pass_candidate,
+        'g2_status': 'CANDIDATE_PASS' if pass_candidate else 'BLOCKED',
     }
