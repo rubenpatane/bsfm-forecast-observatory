@@ -22,7 +22,7 @@ jobs:
       - name: Download and extract official NTSB AVALL snapshot
         run: |
           mkdir -p data/cache/ntsb
-          curl --fail --location --retry 3 --output data/cache/ntsb/avall.zip https://data.ntsb.gov/avdata/avall.zip
+          curl --fail --location --retry 3 --output data/cache/ntsb/avall.zip 'https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5Cavall.zip'
           unzip -o data/cache/ntsb/avall.zip -d data/cache/ntsb
           MDB=$(find data/cache/ntsb -type f -iname '*.mdb' -print -quit)
           test -n "$MDB"
