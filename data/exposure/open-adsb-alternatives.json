@@ -1,0 +1,38 @@
+{
+  "schema": "bsfm.g2-open-adsb-alternatives.v1",
+  "updated": "2026-09-06",
+  "status": "reconciliation-only",
+  "required_denominator": "complete annual global Boeing family/cohort departures for 2010-2025",
+  "sources": [
+    {
+      "publisher": "OpenSky Network",
+      "source_title": "Historical Database / Scientific Datasets",
+      "locator": "https://opensky-network.org/data/",
+      "coverage_observation": "Historical ADS-B/Mode-S data and public scientific datasets exist; the COVID-19 flight dataset covers flights observed by the receiver network from 2019 through 2022.",
+      "limitations": [
+        "OpenSky states that it has no data before 2013 and its best coverage is Europe and the United States.",
+        "The service does not natively map observed tracks to commercial schedules, cancellations, passenger counts or equivalent schedule semantics.",
+        "Aircraft type/owner metadata are sourced from external/crowdsourced databases and are not guaranteed complete or current.",
+        "Free access to the full historical database is targeted to university-affiliated researchers, governmental organizations and aviation authorities; other access may require licensing."
+      ],
+      "g2_use": "coverage/sensitivity research only; not a complete compatible global annual denominator"
+    },
+    {
+      "publisher": "ADS-B Exchange",
+      "source_title": "Sample Data / Readsb History / Flights",
+      "locator": "https://www.adsbexchange.com/data-products/sample-data/",
+      "coverage_observation": "Global traffic samples and flight records are publicly exposed for evaluation, including historical snapshots.",
+      "limitations": [
+        "The free sample consists of complete data from the first day of each month rather than every day of the year.",
+        "Sampling one day per month cannot be scaled into a canonical annual denominator without an unvalidated extrapolation step.",
+        "Observed ADS-B coverage is not itself proof of complete global commercial-jet exposure."
+      ],
+      "g2_use": "reconciliation/sensitivity only; prohibited as primary annual exposure baseline"
+    }
+  ],
+  "conclusion": {
+    "g2_status": "BLOCKED",
+    "baseline_present": false,
+    "reason": "Open ADS-B sources can help cross-check traffic patterns and metadata but do not satisfy BSFM's complete, globally compatible, annual Boeing family/cohort exposure requirement without coverage and extrapolation assumptions."
+  }
+}
