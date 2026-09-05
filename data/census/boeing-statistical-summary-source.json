@@ -1,0 +1,28 @@
+{
+  "schema": "bsfm.evidence-source.v1",
+  "publisher": "The Boeing Company",
+  "title": "2025 Statistical Summary of Commercial Jet Airplane Accidents",
+  "coverage": "Worldwide Commercial Jet Fleet, through 2025",
+  "source_locator": "https://www.boeing.com/content/dam/boeing/v2/safety/statsum.pdf",
+  "retrieved_for_research": "2026-09-05",
+  "roles": [
+    "G1 independent worldwide accident-census reconciliation",
+    "G2 exposure-source assessment"
+  ],
+  "verified_observations": {
+    "annual_accident_rates": "Report contains accident rates and onboard fatalities by year, 1959-2025, per one million departures.",
+    "aggregate_exposure": "Report contains worldwide departures and flight-hours over time and reports cumulative Boeing-vs-total shares.",
+    "airplane_type_rates": "Report contains hull-loss accident rates by airplane type over cumulative operating history.",
+    "current_year_event_table": "Report contains event-level 2025 airplane accident summaries.",
+    "source_for_exposure_series": "2005-2019 Jet Information Services Inc.; 2020-2025 Cirium."
+  },
+  "g1_effect": "supporting_reconciliation_only",
+  "g2_effect": "blocked_pending_family_year_denominators",
+  "limitations": [
+    "The verified 2025 report does not by itself provide a machine-readable event-level 2010-2025 Boeing-only census matching BSFM target semantics.",
+    "The verified report exposes aggregate annual worldwide traffic and cumulative airplane-type accident rates, but this review did not establish annual departures/cycles for every BSFM Boeing family-year cell from 2010-2025.",
+    "Cumulative airplane-type rates must not be transformed into annual family exposure without source evidence.",
+    "Boeing report inclusion/exclusion definitions must be reconciled with the BSFM target before G1 attestation."
+  ],
+  "scientific_gate_effect": "none_without_reconciliation"
+}
