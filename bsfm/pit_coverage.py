@@ -19,15 +19,7 @@ def _date(value):
 
 
 def build_operational_pit_coverage(root) -> dict:
-    """Summarize PIT readiness for the currently ingested predictor sources.
-
-    This is deliberately stricter than source/file validity. A successfully
-    downloaded historical CSV or AVALL snapshot is not PIT-ready merely because
-    it contains old records today. FAA annual files are also checked for a
-    late-submission tail: records attributed to an occurrence year can have a
-    SubmissionDate years later, directly demonstrating why occurrence/file year
-    is not a public-availability timestamp.
-    """
+    """Summarize strict PIT readiness for currently ingested predictor sources."""
     root = Path(root)
     manifests = root / 'data' / 'manifests'
 
@@ -63,8 +55,20 @@ def build_operational_pit_coverage(root) -> dict:
     faa_field = _load(root / 'data/pit/faa-sdr-field-release-policy.json', {}) or {}
 
     faa_verified_years = [r['year'] for r in faa if r['strict_pit_ready']]
+    faa_all_ready = bool(faa) and len(faa_verified_years) == len(faa)
     late_tail_years = [r['year'] for r in faa if r['late_submission_tail']]
     max_lag = max((r['max_submission_lag_years'] for r in faa if r['max_submission_lag_years'] is not None), default=None)
+
+    # Current AVALL is a current-state snapshot. Release/schema anchors exist, but
+    # a complete record-level historical snapshot chain is not yet evidenced.
+    ntsb_record_history_complete = False
+    ntsb_strict_ready = (
+        ntsb.get('status') == 'validated'
+        and bool(ntsb_release) and bool(ntsb_field)
+        and ntsb_record_history_complete
+    )
+    strict_ready = faa_all_ready and ntsb_strict_ready
+
     return {
         'schema': 'bsfm.g3-operational-coverage.v2',
         'sources': {
@@ -72,7 +76,7 @@ def build_operational_pit_coverage(root) -> dict:
                 'years': faa,
                 'verified_years': faa_verified_years,
                 'unverified_years': [r['year'] for r in faa if not r['strict_pit_ready']],
-                'all_years_strict_ready': bool(faa) and len(faa_verified_years) == len(faa),
+                'all_years_strict_ready': faa_all_ready,
                 'release_policy_present': bool(faa_release) and bool(faa_field),
                 'late_submission_tail_years': late_tail_years,
                 'max_observed_submission_lag_years': max_lag,
@@ -81,13 +85,13 @@ def build_operational_pit_coverage(root) -> dict:
             'NTSB AVALL': {
                 'source_valid': ntsb.get('status') == 'validated',
                 'release_policy_present': bool(ntsb_release) and bool(ntsb_field),
-                'record_level_history_complete': False,
-                'strict_pit_ready': False,
+                'record_level_history_complete': ntsb_record_history_complete,
+                'strict_pit_ready': ntsb_strict_ready,
             },
         },
-        'strict_operational_pit_ready': False,
-        'g3_status': 'BLOCKED',
-        'reason': 'Operational source policies exist, but FAA historical rows remain unverified and NTSB lacks complete record-level historical release/version evidence.'
+        'strict_operational_pit_ready': strict_ready,
+        'g3_status': 'PASS' if strict_ready else 'BLOCKED',
+        'reason': None if strict_ready else 'Operational source policies exist, but FAA historical rows remain unverified and/or NTSB lacks complete record-level historical release/version evidence.'
     }
 
 
