@@ -3,6 +3,8 @@ import json
 from datetime import date
 from pathlib import Path
 
+from .g1_outcome_pit import audit_g1_outcome_pit
+
 
 def _load(path: Path, default=None):
     try:
@@ -72,9 +74,11 @@ def build_operational_pit_coverage(root) -> dict:
     )
 
     # These are the actual dependency surfaces of the implemented shrinkage
-    # estimator. They remain fail-closed until their own PIT/vintage evidence is
-    # materialized; research-only FAA/NTSB enrichment cannot substitute for them.
-    g1_target_history_ready = False
+    # estimator. G1 is now measured from event-level availability evidence rather
+    # than a hard-coded gate. G2 stays closed until a real compatible exposure
+    # matrix with a frozen vintage policy is materialized.
+    g1_outcome_pit = audit_g1_outcome_pit(root)
+    g1_target_history_ready = g1_outcome_pit.get('complete') is True
     g2_exposure_history_ready = False
 
     admitted = universe.get('admitted_predictors') if isinstance(universe.get('admitted_predictors'), list) else []
@@ -129,11 +133,14 @@ def build_operational_pit_coverage(root) -> dict:
         'sources': {
             'G1 target census': {
                 'strict_pit_ready': g1_target_history_ready,
-                'reason': 'Historical outcome/publication timing is not yet complete for a frozen cutoff-by-cutoff event-history input.',
+                'included_events': g1_outcome_pit.get('included_events', 0),
+                'verified_events': g1_outcome_pit.get('verified_events', 0),
+                'unverified_event_ids': g1_outcome_pit.get('unverified_event_ids', []),
+                'reason': None if g1_target_history_ready else 'Historical outcome/publication timing is incomplete for cutoff-by-cutoff event-history input.',
             },
             'G2 exposure matrix': {
                 'strict_pit_ready': g2_exposure_history_ready,
-                'reason': 'Compatible global cohort-year exposure and its vintage policy remain unavailable.',
+                'reason': 'Compatible global cohort-year exposure and its frozen vintage policy remain unavailable.',
             },
             'FAA SDR': {
                 'years': faa,
