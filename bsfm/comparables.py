@@ -18,7 +18,6 @@ def _is_737_800(value):
     m=_compact_model(value)
     if 'MAX' in m: return False
     if '737-800' in m or m.startswith('737800'): return True
-    # NTSB commonly stores Boeing customer variants such as 737-832/737-8H4.
     return bool(re.match(r'^737-?8[A-Z0-9]{2,}$',m))
 
 
@@ -26,13 +25,12 @@ def _is_737_ng(value):
     m=_compact_model(value)
     if boeing_cohort(value)=='737-NG': return True
     if 'MAX' in m: return False
-    # Customer-code variants: 737-7H4, 737-824, 737-924ER, etc.
     return bool(re.match(r'^737-?[6789][A-Z0-9]{2,}$',m))
 
 
 def _phase_match(value):
     p = str(value or '').upper()
-    return any(x in p for x in ('APPROACH', 'LANDING', 'FINAL', 'APPR', 'LND'))
+    return any(x in p for x in ('APPROACH', 'LANDING', 'FINAL', 'APPR', 'LND', 'LDG'))
 
 
 def _detail_text(row):
@@ -58,30 +56,40 @@ def _tags(row):
     return tags
 
 
-def build_nonfatal_comparables(rows, limit=8):
+def _year(value):
+    try: return int(str(value)[:4])
+    except (ValueError,TypeError): return None
+
+
+def build_nonfatal_comparables(rows, limit=8, recent_years=5):
     """Select recent nonfatal NTSB cases comparable to frozen F-002.
 
-    Selection is descriptive only. A row must be Boeing, nonfatal and commercial,
-    belong to the 737-NG / exact 737-800 hypothesis, and also match either the
-    approach/landing phase or the gear/structural event cluster. These cases never
-    satisfy or score the fatal target of F-002.
+    Recentness is a rolling window anchored to the newest dated row in the
+    acquired snapshot, so repeated AGGIORNA runs age cases out automatically.
     """
+    rows=list(rows)
+    years=[_year(r.get('event_date')) for r in rows]
+    years=[y for y in years if y]
+    min_year=(max(years)-recent_years) if years else None
     out=[]
     for row in rows:
         if not row.get('boeing') or row.get('fatal') or not row.get('commercial'):
+            continue
+        year=_year(row.get('event_date'))
+        if min_year is not None and (year is None or year < min_year):
             continue
         tags=_tags(row)
         if not ({'exact_model','family_737_ng'} & set(tags)):
             continue
         if not ({'approach_landing','gear_structural_cluster'} & set(tags)):
             continue
-        date=str(row.get('event_date') or '')
-        if not date:
+        event_date=str(row.get('event_date') or '')
+        if not event_date:
             continue
         score=(4 if 'exact_model' in tags else 0)+(2 if 'family_737_ng' in tags else 0)+(3 if 'approach_landing' in tags else 0)+(2 if 'gear_structural_cluster' in tags else 0)
         out.append({
             'event_id': row.get('event_id'),
-            'event_date': date,
+            'event_date': event_date,
             'model': row.get('model') or '—',
             'carrier': row.get('carrier') or '—',
             'phase': row.get('phase') or '—',
@@ -110,7 +118,7 @@ def write_public_comparables(normalized_jsonl, out_path='site/data/comparable-ca
         'forecast_id':'F-002',
         'source':'NTSB AVALL',
         'source_scope':'Current official NTSB AVALL snapshot; descriptive nonfatal comparables only, not a global census and not forecast hits.',
-        'selection_rule':'Boeing + commercial + nonfatal + 737-800/737-NG + approach/landing or gear/structural similarity; ranked by fixed descriptive similarity then recency.',
+        'selection_rule':'Rolling five-year window from newest snapshot event; Boeing + commercial + nonfatal + 737-800/737-NG + approach/landing or gear/structural similarity; ranked by fixed descriptive similarity then recency.',
         'interpretation_warning':'Comparable nonfatal events are context only. They do not satisfy F-002 primary target and do not change its score, validation state, or scientific gates.',
         'cases':cases,
     }
