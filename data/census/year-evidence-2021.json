@@ -1,13 +1,20 @@
 {
-  "schema": "bsfm.g1-year-evidence.v1",
+  "schema": "bsfm.g1-year-evidence.v2",
   "year": 2021,
-  "status": "partial-reconciliation",
-  "reconciled": false,
+  "status": "reconciled",
+  "reconciled": true,
   "target": "fatal accidents involving Boeing commercial jets",
-  "retrieved_for_research": "2026-09-05",
-  "qualifying_candidate_ids": [
-    "G1-2021-SJY182"
-  ],
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2021-SJY182"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence_progress": "6/6",
   "evidence": [
     {
       "publisher": "Komite Nasional Keselamatan Transportasi (KNKT), Republic of Indonesia",
@@ -16,34 +23,30 @@
       "source_locator": "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2021/KNKT.21.01.01.04-Final-Report.pdf",
       "publication_date": "2022-11",
       "scope": "event-level",
-      "observation": "KNKT identifies the 9 January 2021 accident as Sriwijaya Air flight SJY182, Boeing 737-500 PK-CLC, operating a scheduled passenger flight from Jakarta to Pontianak.",
-      "use": "primary target-eligibility evidence"
+      "observation": "KNKT identifies Sriwijaya Air flight SJY182 as Boeing 737-500 PK-CLC on a scheduled passenger flight; the accident was fatal.",
+      "use": "competent-authority target evidence"
     },
     {
       "publisher": "International Air Transport Association (IATA)",
-      "authority_role": "independent industry safety publisher",
-      "source_title": "Accidents Update: as of 30 June 2021",
-      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/accident_update_2021_mid-year_interactive.pdf",
-      "publication_date": "2021",
-      "scope": "IATA accident taxonomy / global commercial aviation",
-      "observation": "IATA independently lists Sriwijaya Air B737-500 on 9 January 2021 as a jet hull-loss accident with 62 onboard fatalities and loss-of-control-in-flight category.",
-      "use": "independent event reconciliation"
-    },
-    {
-      "publisher": "International Air Transport Association (IATA)",
-      "authority_role": "independent industry safety publisher",
       "source_title": "IATA Safety Report 2021",
       "source_locator": "https://www.iata.org/contentassets/bd3288d6f2394d9ca3b8fa23548cb8bf/iata_safety_report_2021.pdf",
       "publication_date": "2022-04",
-      "scope": "IATA annual accident census",
-      "observation": "The annual accident summary lists SJY182 as B737-500 PK-CLC, passenger, jet, hull loss; other listed Boeing jet occurrences in the inspected annual table are nonfatal in the visible records.",
-      "use": "annual-scope reconciliation evidence"
+      "scope": "global commercial aviation under IATA methodology",
+      "observation": "IATA reports seven fatal accidents in 2021: one involved jet aircraft and six involved turboprops. The jet fatal accident is Sriwijaya Air B737-500 with 62 onboard fatalities.",
+      "use": "annual fatal-jet universe and membership reconciliation"
+    },
+    {
+      "publisher": "The Boeing Company",
+      "source_title": "2021 Statistical Summary of Commercial Jet Airplane Accidents",
+      "scope": "worldwide commercial jet fleet under Boeing definitions",
+      "observation": "The 2021 airplane-accident table records Sriwijaya B737-500 with 62 onboard fatalities and zero external fatalities. Other listed 2021 commercial-jet accidents are nonfatal, so no additional Boeing external-fatality-only target case is hidden outside IATA's fatal-jet count.",
+      "use": "independent manufacturer and external-fatality reconciliation"
     }
   ],
   "completeness_assessment": {
-    "global_year_complete": false,
-    "reason": "SJY182 is supported by a competent investigation authority and independent IATA evidence, but the complete 2021 global fatal-jet set and all potential Boeing target cases have not yet been independently reconciled under the fixed BSFM scope.",
-    "ledger_action": "keep reconciled=false"
+    "global_year_complete": true,
+    "reason": "IATA establishes that 2021 had a single fatal jet accident, KNKT establishes that event as Sriwijaya Boeing 737-500, and Boeing independently reports 62 onboard and zero external fatalities with no additional fatal commercial-jet event in its annual table.",
+    "ledger_action": "set reconciled=true"
   },
-  "gate_effect": "none; G1 remains BLOCKED"
+  "gate_effect": "2021 annual cell PASS; overall G1 remains BLOCKED until every required annual cell passes"
 }
