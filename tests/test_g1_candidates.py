@@ -24,12 +24,26 @@ def test_candidate_normalization_does_not_infer_optional_fields():
     assert row['manufacturer'] == 'Boeing'
     assert row['registration'] is None
     assert row['operator'] is None
+    assert row['reconciliation_evidence'] == []
+
+
+def test_candidate_normalization_preserves_explicit_reconciliation_evidence():
+    evidence = [{'publisher': 'Independent authority', 'locator': 'https://example.test/report'}]
+    row = normalize_candidate(candidate(reconciliation_evidence=evidence))
+    assert row['reconciliation_evidence'] == evidence
 
 
 def test_candidate_audit_is_fail_closed_even_when_structurally_valid():
     audit = audit_candidate_census([candidate()])
     assert audit['candidate_dataset_structurally_valid'] is True
     assert audit['years'][2024]['unresolved'] == 1
+    assert audit['global_census_complete'] is False
+    assert audit['gate_status'] == 'BLOCKED'
+
+
+def test_reconciliation_evidence_does_not_open_gate():
+    audit = audit_candidate_census([candidate(reconciliation_evidence=[{'publisher': 'Boeing'}])])
+    assert audit['candidate_dataset_structurally_valid'] is True
     assert audit['global_census_complete'] is False
     assert audit['gate_status'] == 'BLOCKED'
 
