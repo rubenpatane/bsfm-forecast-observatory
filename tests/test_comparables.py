@@ -42,3 +42,10 @@ def test_rank_is_similarity_then_recency():
     b=row(event_id='B',event_date='2025-01-01',event_sequence=[{'occurrence_description':'HARD LANDING STRUCTURAL DAMAGE','defining_event':''}])
     out=build_nonfatal_comparables([a,b])
     assert [x['event_id'] for x in out]==['B','A']
+
+
+def test_old_cases_age_out_against_newest_snapshot_year():
+    old=row(event_id='OLD',event_date='2018-01-01')
+    newest=row(event_id='NEW',event_date='2026-01-01')
+    out=build_nonfatal_comparables([old,newest],recent_years=5)
+    assert [x['event_id'] for x in out]==['NEW']
