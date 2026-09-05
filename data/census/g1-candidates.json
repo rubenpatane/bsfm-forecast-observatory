@@ -5,6 +5,35 @@
   "target": "fatal accidents involving Boeing commercial jets",
   "records": [
     {
+      "event_id": "G1-2022-MU5735",
+      "event_date": "2022-03-21",
+      "manufacturer": "Boeing",
+      "model": "737-800",
+      "fatalities": 132,
+      "commercial": true,
+      "registration": "B-1791",
+      "operator": "China Eastern Airlines Yunnan",
+      "operation_type": "scheduled commercial passenger flight",
+      "location": "near Molang Village, Teng County, Wuzhou, Guangxi, China",
+      "accident_class": "accident",
+      "duplicate_of": null,
+      "source_publisher": "Civil Aviation Administration of China (CAAC)",
+      "source_record_id": "MU5735 preliminary investigation notice / 2022-04-20",
+      "source_locator": "https://www.caac.gov.cn/XXGK/XXGK/TZTG/202204/t20220420_212895.html",
+      "source_publication_date": "2022-04-20",
+      "source_retrieved_at": "2026-09-05",
+      "decision": "include",
+      "decision_reason": "The competent state aviation authority identifies the occurrence as the MU5735 aviation accident, a Boeing 737-800 scheduled passenger flight, and records that all 123 passengers and nine crew members died.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "International Air Transport Association (IATA)",
+          "record": "Accident Report Update 2022 Mid-Year / 2022-03-21 China Eastern Airlines",
+          "locator": "https://www.iata.org/contentassets/ea688b007b9047be86c8fd7a8bd17877/accident_report_update-2022_mid_year_interactive.pdf",
+          "observation": "IATA independently lists the 21 March 2022 China Eastern Airlines B737-800 as a jet hull-loss accident with 132 onboard fatalities."
+        }
+      ]
+    },
+    {
       "event_id": "G1-2024-SQ321",
       "event_date": "2024-05-21",
       "manufacturer": "Boeing",
