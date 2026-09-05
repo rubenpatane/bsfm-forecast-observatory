@@ -1,0 +1,10 @@
+{
+  "cases": [],
+  "forecast_id": "F-002",
+  "generated_at": null,
+  "interpretation_warning": "Comparable nonfatal events are context only. They do not satisfy F-002 primary target and do not change its score, validation state, or scientific gates.",
+  "schema": "bsfm.public-comparables.v1",
+  "selection_rule": "Generated from the current NTSB AVALL snapshot by AGGIORNA; empty until the integrated acquisition run.",
+  "source": "NTSB AVALL",
+  "source_scope": "Current official NTSB AVALL snapshot; descriptive nonfatal comparables only, not a global census and not forecast hits."
+}
