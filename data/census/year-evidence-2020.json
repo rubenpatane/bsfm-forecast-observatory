@@ -1,0 +1,69 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2020,
+  "status": "partial-reconciliation",
+  "reconciled": false,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-05",
+  "qualifying_candidate_ids": [
+    "G1-2020-PC2193",
+    "G1-2020-IX1344"
+  ],
+  "unresolved_candidate_ids": [
+    "G1-2020-PS752"
+  ],
+  "evidence": [
+    {
+      "publisher": "National Transportation Safety Board (NTSB), United States",
+      "authority_role": "ICAO Annex 13 accredited representative for State of Design/Manufacture",
+      "source_title": "2022 Annual Report to Congress",
+      "source_locator": "https://www.ntsb.gov/about/reports/Documents/2022%20Annual%20Report%20to%20Congress.pdf",
+      "publication_date": "2023",
+      "scope": "event-level accredited-representative evidence",
+      "observation": "NTSB records Pegasus Airlines flight PC2193, Boeing 737-800, runway excursion at Istanbul Sabiha Gokcen on 5 February 2020, with three passenger fatalities; it states the Turkish Transport Safety Investigation Center completed the final report on 28 February 2022.",
+      "use": "target-eligibility evidence where the competent-state final report is not sustainably public"
+    },
+    {
+      "publisher": "Aircraft Accident Investigation Bureau (AAIB), India",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "Final Investigation Report on Air India Express B737-800 VT-AXH accident",
+      "source_locator": "https://aaib.gov.in/Reports/2020/accident/Final%20Report%20AXH.pdf",
+      "publication_date": "2021",
+      "scope": "event-level",
+      "observation": "AAIB records Air India Express B737-800 VT-AXH on 7 August 2020 at Kozhikode as a landing runway-excursion accident with 21 fatalities, including both pilots.",
+      "use": "primary target-eligibility evidence"
+    },
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "authority_role": "independent industry safety publisher",
+      "source_title": "IATA Safety Report 2020",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2020.pdf",
+      "publication_date": "2021-04",
+      "scope": "IATA global commercial-aviation accident taxonomy, excluding unlawful acts",
+      "observation": "IATA reports two fatal runway/taxiway-excursion accidents in 2020 with 24 fatalities in aggregate and its annual accident records identify the fatal Pegasus and Air India Express Boeing 737-800 runway-excursion events. It explicitly excludes PS752 as an unlawful act from the safety-report accident statistics.",
+      "use": "independent event and annual-scope reconciliation"
+    },
+    {
+      "publisher": "Aircraft Accident Investigation Board of the Islamic Republic of Iran; copy hosted by ICAO",
+      "authority_role": "state Annex 13 accident-investigation authority / ICAO-hosted final report",
+      "source_title": "PS752 Accident Investigation — Final Report",
+      "source_locator": "https://www.icao.int/sites/default/files/safety/airnavigation/AIG/Documents/Safety-Recommendations-to-ICAO/Final-Reports/PS752Finrep.pdf",
+      "publication_date": "2021-03",
+      "scope": "event-level",
+      "observation": "The Annex 13 final report describes PS752 as an accident involving Boeing 737-800 UR-PSR and states that military activity interfering with civil aviation operations resulted in the accident. Other global safety taxonomies treat the shoot-down as an unlawful/security act rather than an accident for statistical purposes.",
+      "use": "target-semantics conflict evidence"
+    }
+  ],
+  "scope_issue": {
+    "id": "SECURITY_UNLAWFUL_ACT_BOUNDARY",
+    "status": "UNRESOLVED",
+    "reason": "The frozen F-002 target requires an accident involving a Boeing commercial jet with attributable fatality but does not explicitly state whether an Annex 13 occurrence caused by unlawful/hostile action is excluded. Authoritative PS752 investigation language and IATA statistical inclusion rules therefore point to different classifications. The historical census must not choose whichever interpretation is favorable after seeing outcomes.",
+    "required_resolution": "Prospectively document a target-taxonomy rule that is demonstrably consistent with the frozen target wording and apply it symmetrically across all historical and future cases. Until then PS752 remains unresolved and 2020 cannot be attested complete."
+  },
+  "completeness_assessment": {
+    "global_year_complete": false,
+    "reason": "Two Boeing 737-800 fatal-accident candidates are independently supported, but PS752 exposes an unresolved target-taxonomy boundary and the remaining global fatal-event universe must still be reconciled.",
+    "ledger_action": "keep reconciled=false"
+  },
+  "gate_effect": "none; G1 remains BLOCKED"
+}
