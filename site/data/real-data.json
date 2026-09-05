@@ -1,0 +1,235 @@
+{
+  "boeing_rows": 20799,
+  "generated_at": "2026-09-05T13:13:53Z",
+  "interpretation_warning": "An SDR is a service-difficulty report, not necessarily an accident, a verified causal finding, or a BSFM prediction.",
+  "latest_boeing_reports": [
+    {
+      "component": "NONE",
+      "condition_code": "X",
+      "date": "2026-09-04",
+      "discrepancy": "DURING CRUISE, THE FLIGHT CREW EXPERIENCED A SHUTDOWN OF THE LEFT ENGINE AND SUBSEQUENTLY DIVERTED THE AIRCRAFT TO PUNTA CANA (PUJ). THE AIRCRAFT LANDED SAFELY IN PUJ AT APPROXIMATELY 1256Z. PRELIMINARY INFORMATION RECEI",
+      "jasc_code": "5100",
+      "model": "7673Y0",
+      "stage_code": "CR"
+    },
+    {
+      "component": "INDICATOR",
+      "condition_code": "N",
+      "date": "2026-09-04",
+      "discrepancy": "DURING TAXI AFTER STARTING ENGINES AFT CARGO DOOR LIGHT ILLUMINATED EICAS MESSAGE,CARGO DOOR LIGHT INDICATOR WAS LOOSE NOT ILLUMINATING. A/C RETURNED TO THE GATE (BTB) AND MTX GROUNDED A/C . MTX PERFORMED DVI OF CARGO DO",
+      "jasc_code": "5270",
+      "model": "767306",
+      "stage_code": "TX"
+    },
+    {
+      "component": "PMC",
+      "condition_code": "O",
+      "date": "2026-09-04",
+      "discrepancy": "MALFUNCTION OF THE PMC ON ONE OF OUR AIRCRAFT WITH TAIL NUMBER HK-5439 AND SN 24023. THE PILOT REPORT ON THE LOGBOOK #5393 IT WAS REJECTED TAKEOFF DUE TO PMC FAULT ENGINE #2 CROSSING 70 KTS. AND THE CORRECTIVE ACTION WAS",
+      "jasc_code": "7200",
+      "model": "7373M8",
+      "stage_code": "IN"
+    },
+    {
+      "component": "PRIORITY VALVE",
+      "condition_code": "J",
+      "date": "2026-09-03",
+      "discrepancy": "LEFT ENG PRV VALVE EICAS MESSAGE ON TAKE OFF. CREW ABORTED TAKEOFF (ATO) AND RETURNED TO THE GATE (BTB). PLACED ON DI IAW MEL 36-11-8-1-1A-1 MBCB 9.13.26 PLACARD INSTALLED DEACTIVATION PROCEDURES C/W. ACFT REMAINS NO ETO",
+      "jasc_code": "3610",
+      "model": "7673P6",
+      "stage_code": "TO"
+    },
+    {
+      "component": "LAMP",
+      "condition_code": "O",
+      "date": "2026-09-03",
+      "discrepancy": "L1271 EMERGENCY CEILING LT INOPERATIVE. REPLACED THE LAMP AND LIGHT TEST OK, IAW AMM 33-51-11/201.",
+      "jasc_code": "3350",
+      "model": "76734AF",
+      "stage_code": "IN"
+    },
+    {
+      "component": "MODULE",
+      "condition_code": "J",
+      "date": "2026-09-03",
+      "discrepancy": "RUDDER RATIO EICAS MSG APPEARED AFTER BLOCK OUT. CREW RETURNED TO THE GATE (BTB). MTC PERFORMED B767 FIM 27-09 FT 803 CLEARED FAULT BALLS ON RUDDER RATIO CHANGING MODULES. RAN BOTH ENGINES IAW B767AMM 71-00-00 MESSAGE DI",
+      "jasc_code": "2720",
+      "model": "767338",
+      "stage_code": "TX"
+    },
+    {
+      "component": "WARNING MESSAGE",
+      "condition_code": "J",
+      "date": "2026-09-03",
+      "discrepancy": "AIR TURN BACK, WHILE ENROUTE, EICAS MSG GND EQUIPMENT COOLING RAN QRH AND PUT GND EQUIPMENT IN ALT. PROBE HEAT EICAS MSG. RT FWD FUEL PUMP AND L AFT FUEL PUMP EICAS MSGS. STATUS MSG EQPT COOLING FAN. AIR TURN BACK.",
+      "jasc_code": "3030",
+      "model": "75724APF",
+      "stage_code": "CR"
+    },
+    {
+      "component": "FLASHLIGHT",
+      "condition_code": "L",
+      "date": "2026-09-03",
+      "discrepancy": "AIRCRAFT WAS NOT GROUNDED: FLASHLIGHT AT FWD GALLEY TEST INDICATED RED. REPLACED WITH SERVICEABLE FLASHLIGHT ASSEMBLY AT FWD GALLEY IAW AMM 25-64-00.",
+      "jasc_code": "2560",
+      "model": "737823",
+      "stage_code": "IN"
+    },
+    {
+      "component": "FLAP",
+      "condition_code": "O",
+      "date": "2026-09-03",
+      "discrepancy": "EVIDENCE OF RUBBING ON LEADING EDGE OF LEFT INBOARD FLAP LOCATED JUST ABOVE MAIN LANDING GEAR. PAINT SHOWING BARE METAL IN THAT AREA, INSPECTED LT INBD FLAP AND FOUND NO EVIDENCE OF RUBBING OR CHAFING PER B717 AMM 27-50.",
+      "jasc_code": "5730",
+      "model": "717200",
+      "stage_code": "IN"
+    },
+    {
+      "component": "LIGHT",
+      "condition_code": "L",
+      "date": "2026-09-02",
+      "discrepancy": "4F SEAT AISLE MOUNTED FWD EMERG. PATH LIGHT BROKEN. REMOVED AND REPLACED 4F SEAT MOUNTED FWD EMERG. PATH LIGHT PROPERLY AS PER AMM 33-51-06. GOOD FOR SVC.",
+      "jasc_code": "3350",
+      "model": "7879",
+      "stage_code": "IN"
+    },
+    {
+      "component": "FSEU",
+      "condition_code": "J",
+      "date": "2026-09-02",
+      "discrepancy": "AIRCRAFT WAS NOT GROUNDED: DURING CRUISE FLAP/SLAT CONTROL ICAS MEESAGE, FOLLOWED CHECKLISTLANDED USING ALTERNATE FLAP SYSTEM. AS A PRECAUTION EMERGENCY DECLARED AND AIRCRAFT LANDED WITHOUT INCIDENT. SEE MIC 4002465 MAIN",
+      "jasc_code": "2750",
+      "model": "777223",
+      "stage_code": "DE"
+    },
+    {
+      "component": "WARNING MESSAGE",
+      "condition_code": "J",
+      "date": "2026-09-02",
+      "discrepancy": "EMERGENCY DECLARED, RIGHT HYD ENG PUMP EICAS MESSAGE ON CLIMB OUT. RT HYD SYS PRESSURE EICAS.",
+      "jasc_code": "2910",
+      "model": "75724APF",
+      "stage_code": "CL"
+    }
+  ],
+  "latest_observation_date": "2026-09-04",
+  "ntsb_snapshot": {
+    "availability_known": 0,
+    "boeing_rows": 1894,
+    "commercial_boeing_rows": 1247,
+    "fatal_boeing_rows": 50,
+    "outcome_approval_known": 28414,
+    "rows": 31670,
+    "rows_with_findings": 24724,
+    "rows_with_sequence": 30956,
+    "scheduled_boeing_rows": 996,
+    "scope": "Current official AVALL event-aircraft snapshot used as outcome evidence, not as a global census.",
+    "source": "NTSB AVALL"
+  },
+  "rows_total": 39245,
+  "schema": "bsfm.public-real-data.v1",
+  "source": "FAA Service Difficulty Reports (SDR)",
+  "source_scope": "Official current-year FAA SDR export; Boeing rows only for model-oriented summaries.",
+  "top_condition_codes": [
+    {
+      "count": 16022,
+      "value": "O"
+    },
+    {
+      "count": 1918,
+      "value": "L"
+    },
+    {
+      "count": 968,
+      "value": "J"
+    },
+    {
+      "count": 739,
+      "value": "B"
+    },
+    {
+      "count": 257,
+      "value": "N"
+    },
+    {
+      "count": 183,
+      "value": "K"
+    },
+    {
+      "count": 112,
+      "value": "W"
+    },
+    {
+      "count": 109,
+      "value": "F"
+    }
+  ],
+  "top_models": [
+    {
+      "count": 2413,
+      "value": "7378H4"
+    },
+    {
+      "count": 2378,
+      "value": "7377H4"
+    },
+    {
+      "count": 2155,
+      "value": "737823"
+    },
+    {
+      "count": 1436,
+      "value": "7378"
+    },
+    {
+      "count": 930,
+      "value": "737824"
+    },
+    {
+      "count": 856,
+      "value": "75724APF"
+    },
+    {
+      "count": 618,
+      "value": "76734AF"
+    },
+    {
+      "count": 524,
+      "value": "737924ER"
+    }
+  ],
+  "top_stage_codes": [
+    {
+      "count": 16956,
+      "value": "IN"
+    },
+    {
+      "count": 1021,
+      "value": "TX"
+    },
+    {
+      "count": 792,
+      "value": "NR"
+    },
+    {
+      "count": 727,
+      "value": "CL"
+    },
+    {
+      "count": 714,
+      "value": "CR"
+    },
+    {
+      "count": 169,
+      "value": "TO"
+    },
+    {
+      "count": 160,
+      "value": "AP"
+    },
+    {
+      "count": 140,
+      "value": "DE"
+    }
+  ]
+}
