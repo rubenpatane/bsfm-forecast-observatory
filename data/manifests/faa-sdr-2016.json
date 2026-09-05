@@ -1,5 +1,6 @@
 {
   "bad_dates": 0,
+  "bad_submission_dates": 60341,
   "boeing_rows": 25651,
   "bytes": 24640368,
   "fields": [
@@ -80,21 +81,26 @@
     "WingStationTo",
     "WingStationToSide"
   ],
+  "historical_public_availability": "unverified",
   "max_date": "2016-12-31",
+  "max_submission_date": null,
   "min_date": "2016-01-01",
+  "min_submission_date": null,
   "missing_fields": [],
   "official_url": "https://external.apic4e.faa.gov/sdrs/retrieve/SDR-2016.csv",
-  "retrieved_at": "2026-09-05T09:51:08Z",
+  "point_in_time_note": "SubmissionDate records submission timing, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.",
+  "retrieved_at": "2026-09-05T09:57:17Z",
   "rows": 60341,
   "schema": "bsfm.source-manifest.v1",
   "sha256": "abdb7110b548d2a3b3a66cb8b83059e6ed1850fe4a393745699a9c607c7ec53f",
   "source": "FAA SDR",
-  "status": "validated",
+  "status": "invalid",
   "validation": [
     "http_download_ok",
     "csv_parse_ok",
     "required_schema",
-    "difficulty_date_parse"
+    "difficulty_date_parse",
+    "submission_date_parse"
   ],
   "year": 2016
 }

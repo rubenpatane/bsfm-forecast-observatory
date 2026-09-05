@@ -1,5 +1,6 @@
 {
   "bad_dates": 0,
+  "bad_submission_dates": 62688,
   "boeing_rows": 35998,
   "bytes": 32896224,
   "fields": [
@@ -80,21 +81,26 @@
     "WingStationTo",
     "WingStationToSide"
   ],
+  "historical_public_availability": "unverified",
   "max_date": "2023-12-31",
+  "max_submission_date": null,
   "min_date": "2023-01-01",
+  "min_submission_date": null,
   "missing_fields": [],
   "official_url": "https://external.apic4e.faa.gov/sdrs/retrieve/SDR-2023.csv",
-  "retrieved_at": "2026-09-05T09:51:19Z",
+  "point_in_time_note": "SubmissionDate records submission timing, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.",
+  "retrieved_at": "2026-09-05T09:57:33Z",
   "rows": 62688,
   "schema": "bsfm.source-manifest.v1",
   "sha256": "68c1819582debe86ff0ba358d9a9ffdd4da33748d24d77baa9eeabf348ddfc20",
   "source": "FAA SDR",
-  "status": "validated",
+  "status": "invalid",
   "validation": [
     "http_download_ok",
     "csv_parse_ok",
     "required_schema",
-    "difficulty_date_parse"
+    "difficulty_date_parse",
+    "submission_date_parse"
   ],
   "year": 2023
 }
