@@ -1,0 +1,44 @@
+{
+  "schema": "bsfm.g3-release-inventory.v1",
+  "source": "FAA Service Difficulty Reporting System (SDRS)",
+  "updated": "2026-09-06",
+  "status": "partial-release-history",
+  "official_public_evidence": [
+    {
+      "artifact": "FAA SDRS public query",
+      "locator": "https://sdrs.faa.gov/Query.aspx",
+      "observed": "2026-09-06",
+      "establishes": "The public query exposes processed SDR records and explicitly states that recently submitted SDRs are not available until FAA approval.",
+      "does_not_establish": "the approval/publication timestamp of an individual historical SDR"
+    },
+    {
+      "artifact": "FAA SDRS FAQ",
+      "locator": "https://sdrs.faa.gov/FAQ.aspx",
+      "observed": "2026-09-06",
+      "establishes": "FAA states that reports must complete Quality Control review before becoming publicly available and that SDR/Malfunction-or-Defect reports are converted to a common SDR format.",
+      "does_not_establish": "the date on which a specific historical record completed quality control"
+    },
+    {
+      "artifact": "FAA Download Service Difficulty Reports by Year",
+      "locator": "https://www.faa.gov/av-info/download_SDR",
+      "page_last_updated": "2026-04-14",
+      "observed": "2026-09-06",
+      "establishes": "FAA currently publishes annual CSV downloads for SDR records by calendar year.",
+      "does_not_establish": "that the current CSV contents or later corrections were publicly present at historical simulated cutoffs"
+    }
+  ],
+  "release_semantics": {
+    "DifficultyDate": "date of the service difficulty; outcome/occurrence timing, not public-release timing",
+    "SubmissionDate": "submission timing; not public-release timing because FAA approval/QC precedes public availability",
+    "current_annual_csv": "current processed-record snapshot for the selected difficulty year; may contain submissions, approvals, corrections or supplemental information that post-date the difficulty year"
+  },
+  "pit_implications": [
+    "SubmissionDate must not populate available_at.",
+    "DifficultyDate must not populate available_at.",
+    "Current inclusion in a historical-year CSV does not prove that the record or its present field values were public at an earlier cutoff.",
+    "A record may be admitted to a strict historical backtest only when an approval/publication timestamp, archived public result, immutable dated release, or equivalent evidence establishes public availability no later than the simulated cutoff.",
+    "Supplemental/corrected values must not be back-projected to the original submission or difficulty date without version evidence."
+  ],
+  "coverage_gap": "The current FAA public surfaces establish the approval/QC-before-publication rule and current annual downloads, but the project has not demonstrated a retained version history or record-level public-release timestamp for the 2010-2025 SDR population.",
+  "g3_status": "BLOCKED"
+}
