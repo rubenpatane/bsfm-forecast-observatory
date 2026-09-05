@@ -6,7 +6,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -14,11 +14,29 @@ jobs:
       - run: python -m pip install -e .
       - name: Build FAA SDR 2010-current manifests
         run: python -m bsfm.cli ingest-history
-      - name: Verify forecast registry
-        run: python -m bsfm.cli verify
-      - name: Commit source manifests
+      - name: Prepare NTSB extraction tooling
+        run: sudo apt-get update && sudo apt-get install -y mdbtools unzip
+      - name: Download and extract official NTSB AVALL snapshot
         run: |
-          if ! git diff --quiet; then
+          mkdir -p data/cache/ntsb
+          curl --fail --location --retry 3 --output data/cache/ntsb/avall.zip https://data.ntsb.gov/avdata/avall.zip
+          unzip -o data/cache/ntsb/avall.zip -d data/cache/ntsb
+          MDB=$(find data/cache/ntsb -type f -iname '*.mdb' -print -quit)
+          test -n "$MDB"
+          bash scripts/extract_ntsb.sh "$MDB" data/derived/ntsb
+      - name: Verify forecast registry and tests
+        run: |
+          python -m bsfm.cli verify
+          pytest -q
+      - name: Upload derived NTSB dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: ntsb-derived
+          path: data/derived/ntsb
+          retention-days: 14
+      - name: Commit source manifests only
+        run: |
+          if ! git diff --quiet -- data/manifests; then
             git config user.name 'bsfm-observatory-bot'
             git config user.email 'bsfm-observatory-bot@users.noreply.github.com'
             git add data/manifests
