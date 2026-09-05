@@ -5,6 +5,35 @@
   "target": "fatal accidents involving Boeing commercial jets",
   "records": [
     {
+      "event_id": "G1-2021-SJY182",
+      "event_date": "2021-01-09",
+      "manufacturer": "Boeing",
+      "model": "737-500",
+      "fatalities": 62,
+      "commercial": true,
+      "registration": "PK-CLC",
+      "operator": "Sriwijaya Air",
+      "operation_type": "scheduled commercial passenger flight",
+      "location": "Kepulauan Seribu area, DKI Jakarta, Indonesia",
+      "accident_class": "accident",
+      "duplicate_of": null,
+      "source_publisher": "Komite Nasional Keselamatan Transportasi (KNKT), Republic of Indonesia",
+      "source_record_id": "KNKT.21.01.01.04",
+      "source_locator": "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2021/KNKT.21.01.01.04-Final-Report.pdf",
+      "source_publication_date": "2022-11",
+      "source_retrieved_at": "2026-09-05",
+      "decision": "include",
+      "decision_reason": "KNKT identifies the occurrence as the accident of Sriwijaya Air SJY182, Boeing 737-500 PK-CLC, on a scheduled passenger flight. Independent IATA accident data records 62 onboard fatalities.",
+      "reconciliation_evidence": [
+        {
+          "publisher": "International Air Transport Association (IATA)",
+          "record": "Accidents Update: as of 30 June 2021 / Sriwijaya Air",
+          "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/accident_update_2021_mid-year_interactive.pdf",
+          "observation": "IATA independently lists the 9 January 2021 Sriwijaya Air B737-500 as a jet hull-loss accident with 62 onboard fatalities and loss-of-control-in-flight category."
+        }
+      ]
+    },
+    {
       "event_id": "G1-2022-MU5735",
       "event_date": "2022-03-21",
       "manufacturer": "Boeing",
