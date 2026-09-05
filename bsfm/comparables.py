@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json
+import json,re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -15,8 +15,19 @@ def _compact_model(value):
 
 
 def _is_737_800(value):
-    m = _compact_model(value)
-    return '737-800' in m or m.startswith('7378')
+    m=_compact_model(value)
+    if 'MAX' in m: return False
+    if '737-800' in m or m.startswith('737800'): return True
+    # NTSB commonly stores Boeing customer variants such as 737-832/737-8H4.
+    return bool(re.match(r'^737-?8[A-Z0-9]{2,}$',m))
+
+
+def _is_737_ng(value):
+    m=_compact_model(value)
+    if boeing_cohort(value)=='737-NG': return True
+    if 'MAX' in m: return False
+    # Customer-code variants: 737-7H4, 737-824, 737-924ER, etc.
+    return bool(re.match(r'^737-?[6789][A-Z0-9]{2,}$',m))
 
 
 def _phase_match(value):
@@ -40,10 +51,8 @@ def _cluster_match(row):
 
 def _tags(row):
     tags=[]
-    exact=_is_737_800(row.get('model'))
-    cohort=boeing_cohort(row.get('model'))
-    if exact: tags.append('exact_model')
-    if cohort=='737-NG': tags.append('family_737_ng')
+    if _is_737_800(row.get('model')): tags.append('exact_model')
+    if _is_737_ng(row.get('model')): tags.append('family_737_ng')
     if _phase_match(row.get('phase')): tags.append('approach_landing')
     if _cluster_match(row): tags.append('gear_structural_cluster')
     return tags
@@ -101,7 +110,7 @@ def write_public_comparables(normalized_jsonl, out_path='site/data/comparable-ca
         'forecast_id':'F-002',
         'source':'NTSB AVALL',
         'source_scope':'Current official NTSB AVALL snapshot; descriptive nonfatal comparables only, not a global census and not forecast hits.',
-        'selection_rule':'Boeing + commercial + nonfatal + 737-800/737-NG + approach/landing or gear/structural similarity; ranked by preregistered descriptive similarity then recency.',
+        'selection_rule':'Boeing + commercial + nonfatal + 737-800/737-NG + approach/landing or gear/structural similarity; ranked by fixed descriptive similarity then recency.',
         'interpretation_warning':'Comparable nonfatal events are context only. They do not satisfy F-002 primary target and do not change its score, validation state, or scientific gates.',
         'cases':cases,
     }
