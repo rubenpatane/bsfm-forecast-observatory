@@ -5,36 +5,38 @@
   "frozen": false,
   "frozen_at": null,
   "applies_to": "future historical backtests after explicit freeze",
-  "purpose": "Declare the exact predictor sources and fields admitted to strict point-in-time historical backtests. This registry is fail-closed and does not itself admit any predictor while unfrozen.",
+  "purpose": "Declare the exact historical inputs admitted to strict point-in-time backtests. This registry is fail-closed and does not itself admit any predictor while unfrozen.",
   "rules": [
     "Only sources and fields explicitly listed in admitted_predictors may enter a strict backtest.",
     "Every admitted observation must be PIT-verified under the source-specific evidence contract.",
-    "Removing an inconvenient source or field after model-skill inspection requires a new registry version and new analysis.",
+    "Removing or adding an input after model-skill inspection requires a new registry version and new analysis.",
     "An unfrozen or empty registry cannot satisfy G3.",
     "F-002 and historical G1 v1 are unaffected by this registry."
   ],
   "admitted_predictors": [],
   "candidate_predictors": [
     {
-      "source": "NTSB AVALL",
-      "fields": [
-        "official occurrence/phase coding",
-        "aircraft identity/model fields",
-        "operation/commercial-status fields"
-      ],
+      "source": "G1 target census",
+      "fields": ["prior qualifying target-event cohort membership"],
       "status": "candidate_not_admitted",
-      "blocker": "record/field-level historical availability is not yet sufficiently verified"
+      "implementation_dependency": "fit_shrunk_hazard(events[].cohort)",
+      "blocker": "Historical cutoff admission requires proof that each prior target outcome/taxonomy used by the estimator was authoritatively knowable by the simulated cutoff."
     },
     {
-      "source": "FAA SDR",
-      "fields": [
-        "JASCCode",
-        "StageOfOperationCode",
-        "NatureOfConditionA"
-      ],
+      "source": "G2 exposure matrix",
+      "fields": ["historical departures by cohort", "cohort universe"],
       "status": "candidate_not_admitted",
-      "blocker": "SubmissionDate is not publication time and archived QC-complete public snapshots are incomplete"
+      "implementation_dependency": "fit_shrunk_hazard(exposure_rows, cohorts)",
+      "blocker": "The complete global cohort-year denominator and its frozen vintage policy are not yet available."
     }
   ],
+  "research_inputs_not_consumed_by_current_estimator": [
+    "FAA SDR JASC/stage/condition fields",
+    "NTSB sequence phase and causal findings",
+    "geography",
+    "MSN",
+    "flight number"
+  ],
+  "model_dependency_audit": "data/pit/candidate-estimator-dependencies-v1.json",
   "g3_effect": "BLOCKED_UNTIL_FROZEN_AND_VERIFIED"
 }
