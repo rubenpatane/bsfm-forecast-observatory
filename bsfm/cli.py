@@ -8,10 +8,17 @@ from .model_lifecycle import update_model
 from .readiness import final_readiness
 ROOT=Path(__file__).resolve().parents[1]
 
+def availability_audit(source_state):
+ path=ROOT/'evaluations'/'availability-audit.json'
+ evidence={}
+ if path.exists():
+  try: evidence=json.loads(path.read_text(encoding='utf-8'))
+  except (OSError,json.JSONDecodeError): evidence={}
+ pit=source_state.get('point_in_time_availability_verified') is True
+ return {'point_in_time_availability_verified':pit,'leakage_free':pit and evidence.get('leakage_free') is True}
+
 def foundation():
- s=validate_sources()
- availability={'point_in_time_availability_verified':s['point_in_time_availability_verified'],'leakage_free':False}
- return build_foundation_report(ROOT,availability)
+ s=validate_sources(); return build_foundation_report(ROOT,availability_audit(s))
 
 def main():
  p=argparse.ArgumentParser(); p.add_argument('command',choices=['run','verify','ingest','ingest-history','audit-foundation','audit-final']); a=p.parse_args()
