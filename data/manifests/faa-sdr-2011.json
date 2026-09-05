@@ -90,7 +90,7 @@
   "missing_fields": [],
   "official_url": "https://external.apic4e.faa.gov/sdrs/retrieve/SDR-2011.csv",
   "point_in_time_note": "SubmissionDate is a submission-timing field, but the FAA public query states recently submitted SDRs are unavailable until FAA approval. Without an approval/publication timestamp, SubmissionDate is not treated as public availability for leakage-sensitive backtests.",
-  "retrieved_at": "2026-09-05T15:25:31Z",
+  "retrieved_at": "2026-09-05T16:15:30Z",
   "rows": 76503,
   "schema": "bsfm.source-manifest.v1",
   "sha256": "40af907f01e1d9ccb9e281a187cd22f8a9893d15f66d7bf3695bcee9ec40acdb",
