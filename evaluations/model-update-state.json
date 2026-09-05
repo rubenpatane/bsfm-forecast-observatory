@@ -1,11 +1,11 @@
 {
   "candidate_fit_attempted": false,
   "candidate_promoted": false,
-  "evaluated_at": "2026-09-05T11:39:27Z",
-  "gate": {
+  "estimator_available": true,
+  "evaluated_at": "2026-09-05T12:06:00Z",
+  "fit_gate": {
     "checks": {
       "baseline_present": false,
-      "calibration_evaluated": false,
       "historical_cases": false,
       "leakage_free": false,
       "point_in_time_availability_verified": false,
@@ -15,13 +15,34 @@
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",
+      "historical_cases"
+    ],
+    "pass": false
+  },
+  "gate": {
+    "checks": {
+      "baseline_present": false,
+      "calibration_evaluated": false,
+      "candidate_better_than_baseline": false,
+      "historical_cases": false,
+      "leakage_free": false,
+      "paired_baseline_comparison": false,
+      "point_in_time_availability_verified": false,
+      "source_integrity_ready": true
+    },
+    "missing": [
+      "point_in_time_availability_verified",
+      "leakage_free",
+      "baseline_present",
       "historical_cases",
-      "calibration_evaluated"
+      "calibration_evaluated",
+      "paired_baseline_comparison",
+      "candidate_better_than_baseline"
     ],
     "pass": false
   },
   "incumbent_retained": true,
   "reason": "model_update_blocked_scientific_gate",
-  "schema": "bsfm.model-lifecycle.v1",
-  "state_hash": "sha256:d5c82ca446c1fe89a518af223064cb9bbc864f6346cac8371791f8574406bc4e"
+  "schema": "bsfm.model-lifecycle.v3",
+  "state_hash": "sha256:85f2df44706200a7a35811a35b9c732361ee67166c590f885d89df491046d5a5"
 }
