@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #21 (`33974695186`) completed successfully and is the last successful full workflow run.
-- AGGIORNA #22 (`33975985882`) failed at the now-retired ICAO acquisition step. Pre-update verification completed successfully with 115 tests passed, registry integrity OK and the scientific foundation correctly fail-closed. The ICAO step returned HTTP 403 at the 2019 request after returning rows for 2010–2018; all later workflow steps were skipped. This failed run is not a scientific regression and must not be retried against ICAO.
+- AGGIORNA #23 (`33977244308`) completed successfully on source SHA `7c3ca88c9e9943df81e12e701233f47010f25ad4`; it is the latest workflow-verified baseline and verified the ICAO-free workflow plus G1 candidate-census foundation.
+- AGGIORNA #22 (`33975985882`) failed at the retired ICAO acquisition step and is retained only as historical operational evidence. No new ICAO retrieval is permitted.
 - Success/failure of CI verifies only checks actually executed; it does not establish predictive validity or open a scientific gate.
 
 ## Canonical documents
@@ -24,7 +24,9 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ### Sustainable G1 path
 `data/census/boeing-statistical-summary-source.json` and `data/census/easa-asr-source.json` register sustainable public reconciliation sources. Boeing's worldwide Statistical Summary contains accident summaries/rates and EASA maintains Annual Safety Review editions, with recent editions exposing fatal-accident appendices. These source capabilities are not census attestations.
 
-A new fail-closed candidate layer is committed in `bsfm/g1_candidates.py`, `tests/test_g1_candidates.py` and `data/census/g1-candidates.json`. It separates candidate discovery/adjudication from the canonical year ledger. Candidate rows require event/date/model/fatality/commercial/source provenance plus an explicit `include`, `exclude` or `unresolved` decision and reason; missing facts are not inferred, duplicate internal IDs invalidate structural audit, and even a structurally valid candidate dataset always reports `global_census_complete=false` / `gate_status=BLOCKED`. No candidate has yet been inserted merely from narrative web snippets.
+The fail-closed candidate layer lives in `bsfm/g1_candidates.py`, `tests/test_g1_candidates.py` and `data/census/g1-candidates.json`. Candidate rows require event/date/model/fatality/commercial/source provenance plus an explicit `include`, `exclude` or `unresolved` decision and reason; missing facts are not inferred, duplicate internal IDs invalidate structural audit, and even a structurally valid candidate dataset always reports `global_census_complete=false` / `gate_status=BLOCKED`.
+
+The candidate workspace now contains the first three 2024 Boeing records grounded in directly inspected official investigation evidence: Singapore Airlines SQ321 (B777-300ER, one fatality), Swiftair/BCS18D at Vilnius (B737-400SF family, one fatality), and Jeju Air 2216 at Muan (B737-800, 179 fatalities). They are candidate inclusions, not a 2024 reconciliation attestation. EASA ASR 2025 independently reports 14 fatal airline accidents worldwide in 2024, so the broader 2024 universe still requires event-level reconciliation. The Jeju candidate currently uses NTSB Annex 13 accredited-representative evidence and still requires the competent Korean investigation authority before any year attestation.
 
 ### ICAO retrieval freeze
 ICAO API retrieval is disabled from operational automation. AGGIORNA #22 empirically confirmed prior access is unusable for the project (HTTP 403). BSFM will not purchase paid ICAO calls under the current research plan. Event-level ICAO rows must not be reconstructed by new API calls or published contrary to licence terms.
@@ -39,10 +41,10 @@ Historical predictor records do not yet establish field-level public availabilit
 Downstream of G1-G3. Genuine paired OOS candidate-vs-exposure-baseline evaluation begins only after upstream PASS.
 
 ## Public/privacy/licensing state
-Public UI keeps experimental/status boundaries. FAA SDR and NTSB AVALL remain supporting/descriptive sources with scope limitations. This public repository must contain no personal/private/sensitive user data or credential values. Public Boeing/EASA source records contain source metadata/scientific observations only. ICAO raw/event-level API data is not to be published.
+Public UI keeps experimental/status boundaries. FAA SDR and NTSB AVALL remain supporting/descriptive sources with scope limitations. This public repository must contain no personal/private/sensitive user data or credential values. Public Boeing/EASA/source records contain source metadata/scientific observations only. ICAO raw/event-level API data is not to be published.
 
 ## Operational state
-AGGIORNA #21 is the last successful full run. #22 is an obsolete-path ICAO failure. The current ICAO-free workflow and the new G1 candidate-census foundation are committed but not yet runtime-verified by a later AGGIORNA. Repository inspection after the candidate commit found no newer workflow run than #22.
+AGGIORNA #23 is the latest successful full run and verifies the ICAO-free workflow/candidate foundation at source SHA `7c3ca88c9e9943df81e12e701233f47010f25ad4`. The subsequent 2024 candidate population and this state update are committed after that run and therefore are not yet workflow-verified. G1-G4 remain BLOCKED.
 
 ## Exact next step
-Populate `data/census/g1-candidates.json` only from directly inspected official event-level evidence, beginning with the Boeing 2025 accident summaries and EASA 2025/2024 fatal-accident appendices for 2024/2023, then work backward through archived editions. For every Boeing candidate preserve source record/locator and leave target eligibility `unresolved` whenever commercial/fatal/model semantics are not directly evidenced. Reconcile each candidate against NTSB or the competent national investigation authority before considering year-ledger attestation. In parallel continue searching for genuine Boeing family-by-year exposure; do not infer missing denominators. Keep all gates BLOCKED until criteria are actually met.
+Complete 2024 event-level reconciliation against EASA ASR 2025 Appendix 1 and competent national investigation authorities, obtaining the Korean authority record for Jeju Air 2216 and checking whether any additional 2024 Boeing fatal-airline accidents belong to the fixed BSFM target. Then inspect EASA ASR 2024 Appendix 1 for 2023 and record explicit zero-Boeing evidence only if the complete appendix supports it; never infer a zero-event year from aggregate counts alone. Keep `data/census/year-ledger.json` unchanged until independent reconciliation criteria are met, and continue searching separately for genuine Boeing family-by-year exposure without deriving missing denominators.
