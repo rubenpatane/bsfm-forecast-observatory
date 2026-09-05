@@ -1,0 +1,10 @@
+{
+  "schema": "bsfm.exposure-context.v1",
+  "status": "context-only-not-boeing-family-denominator",
+  "scope": "global scheduled services / ICAO definitions vary by cited publication",
+  "observations": [
+    {"year":2013,"departures_approx_millions":32.0,"publisher":"ICAO","source_title":"The World of Air Transport in 2013","locator":"https://www.icao.int/world-air-transport-2013","note":"ICAO reports global scheduled departures reached 32 million in 2013."},
+    {"year":2014,"departures_approx_millions":33.0,"publisher":"ICAO","source_title":"The World of Air Transport in 2014","locator":"https://www.icao.int/world-air-transport-2014","note":"ICAO reports global scheduled departures reached 33 million in 2014."}
+  ],
+  "scientific_use": "scope/reconciliation context only; these totals MUST NOT set baseline_present and MUST NOT be allocated to Boeing cohorts by fleet share"
+}
