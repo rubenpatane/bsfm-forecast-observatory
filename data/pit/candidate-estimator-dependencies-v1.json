@@ -1,0 +1,41 @@
+{
+  "schema": "bsfm.g3-candidate-estimator-dependencies.v1",
+  "updated": "2026-09-06",
+  "status": "AUDITED_NOT_FROZEN",
+  "estimator": "bsfm.shrunk-hazard-model.v1",
+  "implementation": "bsfm/estimator.py::fit_shrunk_hazard",
+  "purpose": "Record the actual historical inputs consumed by the currently implemented candidate estimator before any predictor-universe freeze or model-skill inspection.",
+  "fit_dependencies": [
+    {
+      "name": "prior target-event cohort membership",
+      "input_surface": "events[].cohort",
+      "origin": "G1 historical target census",
+      "pit_requirement": "For a simulated cutoff, only target outcomes that were authoritatively knowable by that cutoff may contribute to prior event counts. Later taxonomy/publication evidence cannot be back-projected."
+    },
+    {
+      "name": "historical departures by cohort",
+      "input_surface": "exposure_rows[].cohort + exposure_rows[].departures",
+      "origin": "G2 exposure matrix",
+      "pit_requirement": "The selected exposure vintage/reconstruction must be frozen and reproducible for the simulated cutoff; later revisions cannot be mixed silently with contemporaneous values."
+    },
+    {
+      "name": "cohort universe",
+      "input_surface": "cohorts",
+      "origin": "BSFM Boeing cohort taxonomy",
+      "pit_requirement": "Cohort definitions and equipment mappings must be versioned before fitting and may not be altered after inspecting candidate skill."
+    }
+  ],
+  "not_consumed_by_current_estimator": [
+    "FAA SDR JASCCode",
+    "FAA SDR StageOfOperationCode",
+    "FAA SDR NatureOfConditionA",
+    "NTSB sequence phase",
+    "NTSB causal findings",
+    "geography",
+    "MSN",
+    "flight number"
+  ],
+  "interpretation": "FAA SDR and enriched NTSB fields remain useful research/resolution candidates, but the currently implemented shrinkage estimator does not consume them. They therefore must not be silently added to the strict backtest predictor universe without a new frozen model/predictor specification.",
+  "freeze_rule": "This audit does not freeze the predictor universe. Any eventual G3 freeze must explicitly choose the admitted dependencies and evidence IDs before model-skill interpretation.",
+  "g3_status": "BLOCKED"
+}
