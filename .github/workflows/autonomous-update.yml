@@ -66,7 +66,7 @@ jobs:
           python -m bsfm.cli run
           python -m bsfm.cli audit-foundation
           python -m bsfm.cli audit-final
-      - name: Evaluate lifecycle and generate public readiness state
+      - name: Generate readiness, evidence inventory and public refinements
         run: |
           python - <<'PY'
           import json
@@ -76,12 +76,18 @@ jobs:
           from bsfm.foundation_report import build_foundation_report
           from bsfm.model_lifecycle import update_model
           from bsfm.readiness import final_readiness
+          from bsfm.evidence_automation import write_evidence_state
+          from bsfm.refinements import write_public_refinements
+          root=Path('.')
           source=validate_sources()
-          report=build_foundation_report(Path('.'),availability_audit(source))
+          report=build_foundation_report(root,availability_audit(source))
           state=update_model(source,report)
           public=final_readiness(report,state)
           Path('site/data/final-readiness.json').write_text(json.dumps(public,indent=2,sort_keys=True)+'\n',encoding='utf-8')
-          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public},indent=2))
+          evidence=write_evidence_state(root,public)
+          parent=json.loads(Path('forecasts/F-002.json').read_text(encoding='utf-8'))
+          refinements=write_public_refinements(root,parent)
+          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public,'evidence_gaps':evidence['gaps'],'published_refinements':len(refinements)},indent=2))
           PY
       - name: Upload normalized NTSB research dataset
         uses: actions/upload-artifact@v4
@@ -96,39 +102,24 @@ jobs:
             git config user.email 'bsfm-observatory-bot@users.noreply.github.com'
             git add site/data data/manifests forecasts evaluations
             git commit -m 'chore(observatory): AGGIORNA auditable state'
-
-            # workflow_dispatch re-runs are pinned to their original SHA. If main
-            # advanced while this run was executing (or a prior attempt already
-            # committed generated state), a plain `git push` is non-fast-forward.
-            # Rebase the generated-state commit onto the current remote main and
-            # retry a bounded number of times. Never force-push and never discard
-            # concurrent repository changes.
             for attempt in 1 2 3; do
               git fetch origin main
               if git rebase origin/main; then
-                if git push origin HEAD:main; then
-                  break
-                fi
+                if git push origin HEAD:main; then break; fi
               else
                 echo 'Generated-state rebase conflicted; refusing to overwrite concurrent changes.' >&2
-                git rebase --abort || true
-                exit 1
+                git rebase --abort || true; exit 1
               fi
-              if [ "$attempt" -eq 3 ]; then
-                echo 'main kept advancing; generated-state push failed after 3 safe retries.' >&2
-                exit 1
-              fi
+              if [ "$attempt" -eq 3 ]; then echo 'main kept advancing; generated-state push failed after 3 safe retries.' >&2; exit 1; fi
               sleep $((attempt * 2))
             done
           fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
+        with: {enablement: true}
       - name: Upload observatory site
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
+        with: {path: site}
       - name: Deploy observatory site
         id: deployment
         uses: actions/deploy-pages@v4
