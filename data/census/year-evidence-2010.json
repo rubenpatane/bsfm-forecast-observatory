@@ -1,0 +1,65 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2010,
+  "status": "reconciled",
+  "reconciled": true,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2010-ET409", "G1-2010-IX812", "G1-2010-ARE8250", "G1-2010-UPS6"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "source_title": "2010 Aviation Safety Performance / Safety Report 2010",
+      "source_locator": "https://www.iata.org/contentassets/0fcf35b7e54f435da56010ce7d980baa/2010aviationsafetyperformance.pdf",
+      "scope": "global Western-built jet hull-loss reconciliation",
+      "observation": "Fatal Western-built jet hull losses include Ethiopian 737-800, Air India Express 737-800, Airblue A321, AeroUnion A300, Aires 737-700, Afriqiyah A330, UPS 747-400 and Henan EMB-190. The Boeing target members are Ethiopian, Air India Express, Aires and UPS.",
+      "use": "annual-universe and membership reconciliation"
+    },
+    {
+      "publisher": "Boeing Commercial Airplanes",
+      "source_title": "2010 Statistical Summary",
+      "scope": "worldwide commercial jet fleet under documented Boeing definitions",
+      "observation": "The 2010 annual table independently reconciles the commercial-jet events and explicitly preserves external fatalities. Its annual total is 555 onboard fatalities and one external fatality; no additional Boeing target event is introduced by the external-fatality check.",
+      "use": "independent annual reconciliation and external-fatality control"
+    },
+    {
+      "publisher": "Lebanese Directorate General of Civil Aviation",
+      "source_title": "Ethiopian ET409 Accident Report",
+      "source_locator": "https://www.caa.gov.lb/index.php/en/reports-en/229-articles-et409-en-002",
+      "observation": "Competent authority investigation of Ethiopian flight ET409, Boeing 737-800 ET-ANB, fatal accident after departure from Beirut.",
+      "use": "competent-authority evidence"
+    },
+    {
+      "publisher": "Directorate General of Civil Aviation, India",
+      "source_title": "Air India Express IX812 accident investigation",
+      "observation": "Air India Express flight 812, Boeing 737-800 VT-AXV, overran the runway at Mangalore; 158 fatalities. NTSB accredited-representative record identifies DGCA India as the investigating authority.",
+      "use": "competent-authority evidence"
+    },
+    {
+      "publisher": "Aeronautica Civil de Colombia",
+      "source_title": "AIRES 8250 / HK-4682 accident report",
+      "observation": "Competent authority report identifies scheduled commercial Boeing 737-700 HK-4682 accident at San Andres.",
+      "use": "competent-authority evidence"
+    },
+    {
+      "publisher": "General Civil Aviation Authority, United Arab Emirates",
+      "source_title": "Final Air Accident Investigation Report 13/2010",
+      "observation": "Competent authority investigated UPS flight 6, Boeing 747-44AF N571UP; both pilots died after an in-flight cargo fire and loss of control.",
+      "use": "competent-authority evidence"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "The fatal Western-built jet universe is explicitly enumerated, all Boeing target memberships are mapped, each Boeing candidate has competent-authority evidence, Boeing independently reconciles the annual commercial-jet table including external fatalities, and no unresolved target-taxonomy boundary affects a Boeing 2010 case.",
+    "ledger_action": "set reconciled=true"
+  },
+  "gate_effect": "2010 annual cell PASS; overall G1 remains BLOCKED until all required years pass"
+}
