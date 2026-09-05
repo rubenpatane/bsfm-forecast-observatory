@@ -1,0 +1,24 @@
+(()=>{
+const CASES=[
+ {date:'2025-09-07',aircraft:'Boeing 737-800',operator:'WestJet',place:'St. Maarten',event_it:'Collasso del carrello principale destro durante l’atterraggio; danni sostanziali. Nessun ferito per il collasso, una ferita lieve durante l’evacuazione.',event_en:'Right main landing-gear collapse during landing; substantial damage. No injuries from the collapse, one minor injury during evacuation.',match:['model','family','phase','gear'],source:'TSB Canada A25F0337',url:'https://bst-tsb.gc.ca/eng/enquetes-investigations/aviation/2025/a25f0337/a25f0337.html'},
+ {date:'2024-01-05',aircraft:'Boeing 737-800',operator:'Flybondi',place:'Mar del Plata, Argentina',event_it:'Hard landing con tail strike e danni sostanziali; nessun ferito riportato.',event_en:'Hard landing with tail strike and substantial damage; no injuries reported.',match:['model','family','phase','structural'],source:'Boeing Statistical Summary 2025',url:'https://www.boeing.com/content/dam/boeing/v2/safety/statsum.pdf'},
+ {date:'2024-01-10',aircraft:'Boeing 737-900ER',operator:'United Airlines',place:'Houston, USA',event_it:'Tail strike in atterraggio con danni sostanziali; nessun ferito riportato.',event_en:'Tail strike during landing with substantial damage; no injuries reported.',match:['family','phase','structural'],source:'NTSB DCA24LA065 / Boeing Statistical Summary',url:'https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=pdf&FileName=FDR+Factual+DCA24LA065-Rel.pdf&ID=16921429'},
+ {date:'2024-01-05',aircraft:'Boeing 737-9 MAX',operator:'Alaska Airlines',place:'Portland, USA',event_it:'Separazione in volo del pannello/door plug della fusoliera; evento non fatale. È affine al cluster strutturale SCF-NP, ma non alla fase di atterraggio né al modello primario F-002.',event_en:'In-flight fuselage door-plug separation; non-fatal event. It is related to the SCF-NP structural cluster, but not to the landing phase or F-002 primary model.',match:['structural'],source:'NTSB / official investigation context',url:'https://www.ntsb.gov/investigations/Pages/DCA24MA063.aspx'}
+];
+const COPY={
+ it:{label:'Casi recenti comparabili',title:'Somiglianze con F-002 che non furono fatali',intro:'Questi eventi sono mostrati come contesto comparativo, non come “successi” della previsione. La somiglianza è scomposta per modello/famiglia, fase di volo e tipo di evento. Poiché sono precedenti al cutoff F-002, possono aiutare a capire il profilo ipotizzato, ma non vengono conteggiati nel punteggio della previsione.',warning:'Confronto qualitativo ≠ validazione. Un caso non fatale non soddisfa il target primario di F-002, che richiede il prossimo incidente fatale qualificante.',model:'modello esatto',family:'famiglia 737 NG',phase:'atterraggio',gear:'carrello',structural:'strutturale',source:'Fonte'},
+ en:{label:'Recent comparable cases',title:'Similarities to F-002 that were non-fatal',intro:'These events are shown as comparative context, not as forecast “hits”. Similarity is decomposed by model/family, flight phase and event type. Because they predate the F-002 cutoff, they can help explain the hypothesised profile, but they are not counted in the forecast score.',warning:'Qualitative comparison ≠ validation. A non-fatal case does not satisfy F-002’s primary target, which requires the next qualifying fatal accident.',model:'exact model',family:'737 NG family',phase:'landing',gear:'landing gear',structural:'structural',source:'Source'}
+};
+function lang(){return window.BSFM_I18N?.lang?.()||document.documentElement.lang||'it'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(l=lang()){
+ const c=COPY[l]||COPY.it;
+ const html=`<section class="section" id="comparable-cases"><div class="section-title"><div class="label">${esc(c.label)}</div><h2>${esc(c.title)}</h2><p class="muted">${esc(c.intro)}</p></div><div class="grid">${CASES.map(x=>`<article class="card s6"><div class="report-head"><strong>${esc(x.aircraft)} · ${esc(x.operator)}</strong><span class="report-date">${esc(x.date)}</span></div><p class="muted">${esc(x.place)}</p><p>${esc(l==='it'?x.event_it:x.event_en)}</p><div class="report-meta">${x.match.map(m=>`<span class="tag">${esc(c[m])}</span>`).join('')}</div><p class="help"><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(c.source)}: ${esc(x.source)}</a></p></article>`).join('')}</div><div class="notice"><strong>${esc(c.warning)}</strong></div></section>`;
+ let host=document.getElementById('comparable-cases');
+ if(host){host.outerHTML=html;return}
+ const anchor=document.getElementById('real-data');
+ if(anchor)anchor.insertAdjacentHTML('beforebegin',html);
+}
+document.addEventListener('DOMContentLoaded',()=>render());
+window.addEventListener('bsfm-language',e=>render(e.detail));
+})();
