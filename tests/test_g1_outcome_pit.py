@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from bsfm.g1_outcome_pit import audit_g1_outcome_pit
 
@@ -94,3 +95,13 @@ def test_g1_outcome_pit_fails_closed_for_non_object_ledger_or_overlay(tmp_path):
     out = audit_g1_outcome_pit(tmp_path)
     assert out['complete'] is False
     assert {'error': 'invalid_publication_overlay', 'path': '2019.json'} in out['ledger_errors']
+
+
+def test_repository_g1_outcome_publication_ledger_is_complete():
+    root = Path(__file__).resolve().parents[1]
+    out = audit_g1_outcome_pit(root)
+    assert out['included_events'] == 35
+    assert out['verified_events'] == 35
+    assert out['unverified_event_ids'] == []
+    assert out['ledger_errors'] == []
+    assert out['complete'] is True

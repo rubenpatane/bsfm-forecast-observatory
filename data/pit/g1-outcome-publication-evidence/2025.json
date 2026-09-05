@@ -4,6 +4,14 @@
   "reviewed": "2026-09-06",
   "events": [
     {
+      "event_id": "G1-2025-AI171",
+      "available_at": "2025-07-12",
+      "availability_basis": "official_database_publication",
+      "availability_evidence_ids": ["https://aaib.gov.in/Reports/2025/Accident/Preliminary%20Report%20VT-ANB.pdf", "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2272247&lang=1&reg=3"],
+      "status": "verified",
+      "note": "India Ministry of Civil Aviation/PIB explicitly states that AAIB released the preliminary report on 2025-07-12."
+    },
+    {
       "event_id": "G1-2025-ACT747",
       "available_at": "2025-11-18",
       "availability_basis": "competent_authority_publication",

@@ -34,6 +34,14 @@
       "availability_evidence_ids": ["https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.35.04-Final-Report.pdf"],
       "status": "verified",
       "note": "KNKT final-report publication bound."
+    },
+    {
+      "event_id": "G1-2018-FJA256",
+      "available_at": "2024-08-31",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.jcaa.gov.jm/accident-investigations/", "https://www.jcaa.gov.jm/wp-content/uploads/2024/08/2018-Nov-9-N524AT-Final-Report.pdf"],
+      "status": "verified",
+      "note": "Conservative month-end normalization from the authority host's 2024/08 publication namespace; the final report PDF has earlier May/June 2024 document timestamps, so 2024-08-31 cannot anticipate them."
     }
   ]
 }

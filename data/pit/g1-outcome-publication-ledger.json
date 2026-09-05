@@ -6,6 +6,7 @@
   "policy": {
     "allowed_bases": ["competent_authority_publication","official_database_publication","archived_public_snapshot"],
     "conservative_rule": "If the earliest public availability cannot be proven, a later dated competent-authority or official intergovernmental public artifact may be used as a conservative available_at bound. This may discard usable history but cannot introduce future information into an earlier cutoff.",
+    "partial_date_rule": "When a reviewed artifact establishes only a publication month or year, normalize available_at to the last calendar day of that month or year. The overlay note must state the normalization and retain the supporting locator.",
     "prohibited": ["event_date_as_available_at","current_database_presence_without_historical_evidence","approval_or_last_change_timestamp_without publication semantics","retrospective news discoverability without stable public artifact provenance"]
   },
   "events": [

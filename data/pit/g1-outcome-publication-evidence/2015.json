@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2015,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2015-CEL071",
+      "available_at": "2017-08-31",
+      "availability_basis": "archived_public_snapshot",
+      "availability_evidence_ids": ["https://asn.flightsafety.org/reports/2015/20150905_B738_3C-LLY--H25B_6V-AIM.pdf"],
+      "status": "verified",
+      "note": "Conservative month-end normalization of the Senegal BEA final report's August 2017 issue date; the stable public report copy preserves the competent-authority artifact."
+    }
+  ]
+}
