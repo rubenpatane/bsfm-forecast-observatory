@@ -1,0 +1,49 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2019,
+  "status": "partial-reconciliation",
+  "reconciled": false,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-05",
+  "qualifying_candidate_ids": [
+    "G1-2019-ET302"
+  ],
+  "evidence": [
+    {
+      "publisher": "Ethiopian Aircraft Accident Investigation Bureau (EAIB); final report hosted by the French BEA",
+      "authority_role": "state accident-investigation authority / accredited-representative public host",
+      "source_title": "Aircraft Accident Investigation Report B737-MAX 8, ET-AVJ",
+      "source_locator": "https://bea.aero/fileadmin/user_upload/ET_302__B737-8MAX_ACCIDENT_FINAL_REPORT.pdf",
+      "publication_date": "2022-12-23",
+      "scope": "event-level",
+      "observation": "The EAIB final report identifies Ethiopian Airlines flight ET302 as a Boeing 737 MAX 8, registration ET-AVJ, scheduled international passenger flight from Addis Ababa to Nairobi on 10 March 2019; all 157 persons on board were fatally injured.",
+      "use": "primary target-eligibility evidence"
+    },
+    {
+      "publisher": "Bureau d'Enquêtes et d'Analyses pour la sécurité de l'aviation civile (BEA)",
+      "authority_role": "Annex 13 accredited representative and official investigation portal",
+      "source_title": "Accident to the Boeing 737 registered ET-AVJ and operated by Ethiopian Airlines on 10/03/2019 near Bishoftu",
+      "source_locator": "https://bea.aero/en/investigation-reports/notified-events/detail/accident-to-the-boeing-737-registered-et-avj-and-operated-by-ethiopian-airlines-on-10-03-2019-near-bishoftu-investigation-led-by-eaib-ethiopia/",
+      "publication_date": "2023-01-03",
+      "scope": "event-level official investigation metadata",
+      "observation": "BEA identifies Ethiopia-AIB as responsible entity and records the occurrence as an accident involving Ethiopian Airlines Boeing 737 ET-AVJ, commercial air transport passenger operation, with 157 deaths.",
+      "use": "authoritative independent investigation provenance"
+    },
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "authority_role": "independent industry safety publisher",
+      "source_title": "IATA Safety Report 2019",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2019.pdf",
+      "publication_date": "2020-04",
+      "scope": "IATA global commercial-aviation accident taxonomy",
+      "observation": "IATA reports eight fatal accidents in 2019 and explicitly identifies the Ethiopian Airlines B737 MAX crash in March as a fatal passenger-flight accident with 157 passengers and crew killed.",
+      "use": "independent annual and event reconciliation"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": false,
+    "reason": "ET302 is supported by the state investigation record and independent IATA annual evidence, but the complete 2019 global fatal-event set has not yet been mapped exhaustively against the fixed Boeing-commercial-jet target.",
+    "ledger_action": "keep reconciled=false"
+  },
+  "gate_effect": "none; G1 remains BLOCKED"
+}

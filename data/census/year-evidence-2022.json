@@ -1,0 +1,49 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2022,
+  "status": "partial-reconciliation",
+  "reconciled": false,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-05",
+  "qualifying_candidate_ids": [
+    "G1-2022-MU5735"
+  ],
+  "evidence": [
+    {
+      "publisher": "Civil Aviation Administration of China (CAAC)",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "MU5735 preliminary investigation notice",
+      "source_locator": "https://www.caac.gov.cn/XXGK/XXGK/TZTG/202204/t20220420_212895.html",
+      "publication_date": "2022-04-20",
+      "scope": "event-level",
+      "observation": "CAAC identifies the 21 March 2022 MU5735 occurrence as an aviation accident involving Boeing 737-800 B-1791 on the Kunming-Guangzhou passenger flight and records 123 passengers plus nine crew fatalities.",
+      "use": "primary target-eligibility evidence"
+    },
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "authority_role": "independent industry safety publisher",
+      "source_title": "Accident Report Update 2022 Mid-Year",
+      "source_locator": "https://www.iata.org/contentassets/ea688b007b9047be86c8fd7a8bd17877/accident_report_update-2022_mid_year_interactive.pdf",
+      "publication_date": null,
+      "scope": "IATA accident taxonomy / global commercial aviation",
+      "observation": "IATA independently lists the 21 March 2022 China Eastern Airlines B737-800 as a jet hull-loss event with 132 onboard fatalities.",
+      "use": "independent event reconciliation"
+    },
+    {
+      "publisher": "The Boeing Company",
+      "authority_role": "manufacturer statistical publisher; copy hosted by the U.S. Federal Aviation Administration",
+      "source_title": "2022 Statistical Summary of Commercial Jet Airplane Accidents — Worldwide Operations 1959-2022",
+      "source_locator": "https://www.faa.gov/sites/faa.gov/files/2023-10/statsum_summary_2022.pdf",
+      "publication_date": "2023-09",
+      "scope": "Boeing statistical-summary tracked worldwide commercial-jet operations",
+      "observation": "The report's 2022 Airplane Accidents table does not list MU5735. Its published definitions explicitly exclude occurrences classified as missing, unknown or undetermined (CICTT UNK) until otherwise determined by the official ICAO Annex 13 investigation, and also exclude hostile-action events. CAAC continues to describe MU5735 as an aviation accident under Annex 13 investigation without a published cause conclusion. The omission is therefore consistent with a documented Boeing exclusion mechanism, but the exact Boeing classification of MU5735 is not inferred without event-specific evidence.",
+      "use": "source-scope/inclusion-rule evidence; not a negative attestation"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": false,
+    "reason": "One qualifying Boeing candidate has two independent publisher provenances. Boeing's published rules explain why an unresolved Annex 13 occurrence can be absent from its statistical table, so Boeing-table absence cannot establish a zero-event year. The remaining 2022 Boeing fatal-commercial-jet candidate universe still requires complete reconciliation before a year-level attestation.",
+    "ledger_action": "keep reconciled=false"
+  },
+  "gate_effect": "none; G1 remains BLOCKED"
+}
