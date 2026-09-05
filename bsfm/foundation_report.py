@@ -18,7 +18,7 @@ def build_foundation_report(root, availability_audit=None, cohorts=DEFAULT_COHOR
     foundation=audit_historical_foundation(census,exposure_audit,availability_audit)
     cases=build_walk_forward_cases(qualifying_targets(events),start_year,end_year) if census['complete'] else []
     return {
-        'schema':'bsfm.historical-foundation-report.v1',
+        'schema':'bsfm.historical-foundation-report.v2',
         'evaluation_interval':{'start_year':start_year,'end_year':end_year},
         'cohorts':list(cohorts),
         'census':census,
@@ -26,5 +26,7 @@ def build_foundation_report(root, availability_audit=None, cohorts=DEFAULT_COHOR
         'walk_forward_cases':len(cases),
         **foundation,
         'calibration_evaluated':False,
-        'note':'Calibration remains false until real leakage-free probabilistic historical predictions exist.'
+        'paired_baseline_comparison':False,
+        'candidate_better_than_baseline':False,
+        'note':'Post-fit promotion evidence remains false until real leakage-free probabilistic historical predictions are paired against the exposure-only baseline.'
     }
