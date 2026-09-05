@@ -65,6 +65,13 @@ jobs:
           pytest -q
           python -m bsfm.cli verify
           python -m bsfm.cli audit-foundation
+      - name: Acquire ICAO Official Accidents for G1
+        env:
+          ICAO_API_KEY: ${{ secrets.ICAO_API_KEY }}
+        run: |
+          test -n "$ICAO_API_KEY"
+          rm -rf data/derived/icao
+          python scripts/acquire_icao_g1.py --start-year 2010 --end-year 2025          
       - name: Refresh current official public sources
         run: python -m bsfm.cli ingest
       - name: Refresh FAA SDR historical manifests 2010-current
