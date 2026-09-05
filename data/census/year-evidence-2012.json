@@ -1,0 +1,57 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2012,
+  "status": "reconciled",
+  "reconciled": true,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2012-BHO213", "G1-2012-DHV111"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence": [
+    {
+      "publisher": "Aircraft Accident Investigation Board, Pakistan",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "Bhoja Air B737-236A AP-BKC accident investigation",
+      "scope": "event-level",
+      "observation": "The competent authority identifies Bhoja Air flight 213 as Boeing 737-236A AP-BKC; all 127 occupants died.",
+      "use": "primary target-eligibility evidence"
+    },
+    {
+      "publisher": "Aircraft Accident and Incident Investigation and Prevention Bureau, Ghana",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "Allied Air DHV111 / Boeing 727-221 5N-BJN final report",
+      "source_locator": "https://aibghana.gov.gh/wp-content/uploads/2021/06/ALLIED-AIR-ACCIDENT-REPORT-2013.pdf",
+      "scope": "event-level",
+      "observation": "The competent authority identifies Allied Air cargo flight DHV111 as Boeing 727-221 5N-BJN and documents 10 fatalities on the ground. No onboard fatality is required by the frozen BSFM target wording when a fatality is attributable to the accident.",
+      "use": "primary target-eligibility and external-fatality evidence"
+    },
+    {
+      "publisher": "The Boeing Company / independent commercial-jet annual statistics",
+      "authority_role": "manufacturer statistical reconciliation",
+      "scope": "worldwide commercial-jet accidents",
+      "observation": "The 2012 commercial-jet reconciliation identifies five fatal accidents in the relevant annual universe: Bhoja 737 and Allied 727 as Boeing target cases; Dana MD-83, SyrianAir A320 and Air Bagan F100 as non-Boeing cases.",
+      "use": "annual-universe and membership reconciliation"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "field": "DHV111 external fatalities",
+      "competent_authority_value": 10,
+      "secondary_statistical_value": 12,
+      "resolution": "retain competent-authority value for case facts; preserve secondary discrepancy as reconciliation metadata"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "The annual fatal-commercial-jet universe is mapped, both Boeing target cases have competent-authority evidence, non-Boeing fatal jets are separated, independent reconciliation is present, and the external-fatality definition is explicitly resolved for this year.",
+    "ledger_action": "set reconciled=true"
+  },
+  "gate_effect": "2012 annual cell PASS; overall G1 remains BLOCKED until all required years pass"
+}
