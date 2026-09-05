@@ -23,6 +23,8 @@ def normalize_candidate(row: dict) -> dict:
     out['duplicate_of'] = row.get('duplicate_of')
     out['source_publication_date'] = row.get('source_publication_date')
     out['source_retrieved_at'] = row.get('source_retrieved_at')
+    # Independent corroboration is evidence, not an attestation. Preserve only explicit rows.
+    out['reconciliation_evidence'] = list(row.get('reconciliation_evidence') or [])
     return out
 
 
