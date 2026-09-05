@@ -1,0 +1,28 @@
+{
+  "schema": "bsfm.g1-source-contract.v1",
+  "source": "ICAO API Data Service",
+  "dataset": "Official Accidents",
+  "api_name": "accidents",
+  "parameters": ["api_key", "StateOfOccurrence", "format", "StateOfOperator", "StateOfRegistry", "Year"],
+  "formats": ["CSV", "JSON"],
+  "target_interval": {"start_year": 2010, "end_year": 2025},
+  "role": "candidate primary global event-level source for G1",
+  "access": {
+    "api_key_required": true,
+    "registration_required": true,
+    "free_trial_calls_advertised_by_icao": true
+  },
+  "scientific_status": "BLOCKED_PENDING_ACQUISITION_AND_RECONCILIATION",
+  "notes": [
+    "Dataset existence and API contract are documented by ICAO.",
+    "No API key is stored in this repository.",
+    "Acquisition alone does not establish exhaustive G1 completeness.",
+    "Each year must be reconciled with event-level provenance and independent source families before reconciled=true."
+  ],
+  "official_references": [
+    "https://www.icao.int/api-data-samples",
+    "https://www.icao.int/api-data-service",
+    "https://applications.icao.int/dataservices/default.aspx/1000",
+    "https://www.icao.int/safety/AIG/reporting-and-adrep-data"
+  ]
+}
