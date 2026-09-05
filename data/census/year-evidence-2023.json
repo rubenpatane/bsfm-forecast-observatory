@@ -1,0 +1,48 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2023,
+  "status": "partial-reconciliation",
+  "reconciled": false,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-05",
+  "qualifying_candidate_ids": [],
+  "evidence": [
+    {
+      "publisher": "The Boeing Company",
+      "authority_role": "manufacturer statistical publisher; archived public copy",
+      "source_title": "2023 Statistical Summary of Commercial Jet Airplane Accidents — Worldwide Operations 1959-2023",
+      "source_locator": "https://indonesia-icao.org/statsum23s.pdf",
+      "publication_date": "2024-08",
+      "scope": "Boeing statistical-summary tracked worldwide commercial-jet operations",
+      "observation": "The report states that its tracked airplane operations recorded no fatalities in 2023, and its 2023 worldwide accident table contains 11 listed accidents with no fatal entries.",
+      "use": "worldwide manufacturer reconciliation evidence",
+      "provenance_caveat": "The inspected public copy is hosted outside boeing.com. Publisher identity is visible in the document, but the mirror is not treated as a canonical Boeing-hosted archive."
+    },
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "authority_role": "independent industry safety publisher",
+      "source_title": "2023 Safest Year for Flying By Several Parameters",
+      "source_locator": "https://www.iata.org/en/pressroom/2024-releases/2024-02-28-01/",
+      "publication_date": "2024-02-28",
+      "scope": "IATA global aviation accident methodology",
+      "observation": "IATA reports zero fatal jet accidents and zero jet hull losses in 2023, with one fatal turboprop accident.",
+      "use": "independent jet-level reconciliation evidence"
+    },
+    {
+      "publisher": "European Union Aviation Safety Agency (EASA)",
+      "authority_role": "independent aviation safety authority",
+      "source_title": "Annual Safety Review 2024 / global airline fatal accidents",
+      "source_locator": "https://www.easa.europa.eu/en/document-library/general-publications/annual-safety-review-2024",
+      "publication_date": "2024-07-08",
+      "scope": "worldwide large-aeroplane passenger and cargo operations under EASA review definitions",
+      "observation": "EASA reports two fatal accidents and 77 fatalities in its wider 2023 large-aeroplane passenger/cargo universe; the most severe was the ATR 72 accident near Pokhara with 72 fatalities.",
+      "use": "scope-reconciliation evidence, not a Boeing-only census"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": false,
+    "reason": "Boeing and IATA independently support zero fatal jet events within their documented scopes, while EASA uses a broader large-aeroplane universe. The scopes and the remaining EASA fatal event must be fully reconciled against the fixed BSFM Boeing-commercial-jet target before asserting a global zero-Boeing year.",
+    "ledger_action": "keep reconciled=false"
+  },
+  "gate_effect": "none; G1 remains BLOCKED"
+}
