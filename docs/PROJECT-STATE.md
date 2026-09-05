@@ -28,15 +28,13 @@ This taxonomy is explicitly non-retroactive: it does not apply to F-002, histori
 ## Current research branch and verification
 Draft PR #2, branch `research/privacy-safe-rebuild-20260905`, is the privacy-safe reconstruction of post-#25 research. It was created from current `main`; it does not import the commit history of closed PR #1.
 
-The latest successful read-only Research CI run is `33998437079`, verified at research SHA `be7305e4ee58c8482f3e3d8c8f940ba40c46a864` before removal of the temporary workflow. It executed:
-- full `pytest -q`: **176 passed**;
+The latest successful read-only Research CI run is `33999727997`, verified at research SHA `50e484071738dd923077d7fe029052c77c63a6c5` before removal of the temporary workflow. It executed:
+- full `pytest -q`: **186 passed**;
 - `python -m bsfm.cli verify`: forecast registry integrity OK;
 - `python -m bsfm.cli audit-foundation`: completed successfully;
 - `python -m bsfm.cli audit-final`: completed successfully.
 
 The temporary research workflow was subsequently removed, restoring the single-workflow repository invariant. The verified final audit still reports historical G1 incomplete, `baseline_present=false`, `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false. This is software/audit verification, not scientific validation.
-
-The current uncommitted checkpoint has also completed a local full verification: **186 tests passed**, registry verification OK, `audit-foundation` successful and `audit-final` successful. This does not replace the last workflow-verified baseline above; a temporary read-only Research CI run is required after commit and will be removed immediately afterward.
 
 ## G1 — BLOCKED, 14/16 annual cells reconciled
 `data/census/year-ledger.json` is the canonical 2010-2025 annual ledger. A cell passes only if all six controls are true: annual source scope demonstrated; all fatal jets mapped; Boeing target membership mapped; competent authority per candidate; independent reconciliation; target taxonomies resolved.
@@ -85,7 +83,7 @@ G4 remains downstream of G1-G3. No candidate-vs-baseline model-skill claim is al
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. The research branch is software-verified through Research CI `33998437079` with 176 tests passed, and the temporary workflow has been removed.
+AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. The research branch is software-verified through Research CI `33999727997` with 186 tests passed, and the temporary workflow has been removed.
 
 ## Exact next step / external dependencies
 1. Preserve F-002 and historical G1 v1 unchanged; use prospective taxonomy v2 only for future forecasts.
