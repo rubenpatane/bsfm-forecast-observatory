@@ -34,7 +34,9 @@ def test_all_pages_have_complete_bilingual_controls_and_mobile_menu():
  css=(ROOT/'site/styles.css').read_text()
  assert '@media(max-width:820px)' in css
  assert '.menu-toggle{display:none' in css
- assert '.nav-menu.open{display:flex}' in css
+ assert '.nav-menu.open{display:flex' in css
+ assert '.nav-menu>.lang{display:flex' in css
+ assert '.nav-menu>.navlink,.nav-menu>.nav-update{display:none}' in css
 
 def test_global_navigation_exposes_source_and_last_update():
  js=(ROOT/'site/i18n.js').read_text()
