@@ -2,7 +2,7 @@
   "bytes": 96148686,
   "note": "Archive fingerprint only. MDB tables are exported in the dedicated historical source build.",
   "official_url": "https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5Cavall.zip",
-  "retrieved_at": "2026-09-05T11:08:23Z",
+  "retrieved_at": "2026-09-05T11:37:17Z",
   "schema": "bsfm.source-manifest.v1",
   "sha256": "5cf380f0061817c0331a6b2d8cc7e0ee3a79bea469a1001dc5c10e56f35f5ab3",
   "source": "NTSB AVALL",
