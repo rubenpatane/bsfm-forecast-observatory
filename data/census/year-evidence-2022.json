@@ -36,13 +36,13 @@
       "source_locator": "https://www.faa.gov/sites/faa.gov/files/2023-10/statsum_summary_2022.pdf",
       "publication_date": "2023-09",
       "scope": "Boeing statistical-summary tracked worldwide commercial-jet operations",
-      "observation": "The report's 2022 Airplane Accidents table does not list MU5735 even though the CAAC and IATA records establish a Boeing 737-800 scheduled-passenger fatal event. This demonstrates a material source-scope or inclusion-rule difference that must be reconciled before using Boeing-table absence as census evidence.",
-      "use": "scope-conflict evidence; not a negative attestation"
+      "observation": "The report's 2022 Airplane Accidents table does not list MU5735. Its published definitions explicitly exclude occurrences classified as missing, unknown or undetermined (CICTT UNK) until otherwise determined by the official ICAO Annex 13 investigation, and also exclude hostile-action events. CAAC continues to describe MU5735 as an aviation accident under Annex 13 investigation without a published cause conclusion. The omission is therefore consistent with a documented Boeing exclusion mechanism, but the exact Boeing classification of MU5735 is not inferred without event-specific evidence.",
+      "use": "source-scope/inclusion-rule evidence; not a negative attestation"
     }
   ],
   "completeness_assessment": {
     "global_year_complete": false,
-    "reason": "One qualifying Boeing candidate has two independent publisher provenances, but the manufacturer worldwide table omits it. The source-definition discrepancy must be explained and all other possible 2022 Boeing fatal-commercial-jet cases must be reconciled before a year-level attestation.",
+    "reason": "One qualifying Boeing candidate has two independent publisher provenances. Boeing's published rules explain why an unresolved Annex 13 occurrence can be absent from its statistical table, so Boeing-table absence cannot establish a zero-event year. The remaining 2022 Boeing fatal-commercial-jet candidate universe still requires complete reconciliation before a year-level attestation.",
     "ledger_action": "keep reconciled=false"
   },
   "gate_effect": "none; G1 remains BLOCKED"
