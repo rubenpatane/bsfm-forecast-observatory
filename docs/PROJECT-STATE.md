@@ -21,20 +21,22 @@ F-002 is byte-identical to `main` on the active research branch (blob `eb55a7721
 ## Current research branch and verification
 Draft PR #2, branch `research/privacy-safe-rebuild-20260905`, is the privacy-safe reconstruction of post-#25 research. It was created from current `main`; it does not import the commit history of closed PR #1. New Git metadata uses GitHub privacy-safe noreply identity.
 
-A temporary read-only branch Research CI was used only to verify the research head and was then removed, restoring the repository's single-workflow invariant. Successful run `33996825005` executed:
-- full `pytest -q`: **157 passed**;
+A temporary read-only branch Research CI was used only to verify the research head and was then removed, restoring the repository's single-workflow invariant. The latest successful verification run is `33997082566` and executed:
+- full `pytest -q`: **158 passed**;
 - `python -m bsfm.cli verify`: forecast registry integrity OK;
 - `python -m bsfm.cli audit-foundation`: completed successfully;
 - `python -m bsfm.cli audit-final`: completed successfully.
 
-The final audit correctly kept scientific readiness false. The temporary CI did not ingest sources, deploy Pages, write generated state or push to `main`; it is no longer in the PR diff. This is a software/audit verification checkpoint, not AGGIORNA and not scientific validation.
+This latest run includes the strict source-specific G3 PIT gate wired into `availability_audit`: a generic PIT boolean can no longer bypass FAA/NTSB record-release evidence. The final audit correctly kept `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false.
+
+The temporary CI had read-only repository permissions, did not ingest sources, deploy Pages, write generated state or push to `main`, and is no longer in the PR diff. This is a software/audit verification checkpoint, not AGGIORNA and not scientific validation.
 
 ## G1 — BLOCKED, 14/16 annual cells reconciled
 `data/census/year-ledger.json` is the canonical 2010-2025 annual ledger. A cell passes only if all six controls are true: annual source scope demonstrated; all fatal jets mapped; Boeing target membership mapped; competent authority per candidate; independent reconciliation; target taxonomies resolved.
 
 Reconciled 6/6 cells: 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024 and 2025.
 
-The integrated G1 census now reconciles annual evidence with event-level candidate surfaces. The verified foundation audit reports 38 candidate rows, 35 included qualifying rows, no missing candidate IDs, no extra candidate IDs, no duplicate candidate IDs and no ledger/evidence consistency errors. Event-level gaps previously found in the annual reconstruction were synchronized, including 2010, 2011, Aerosucre 157 in 2016 and 2025.
+The integrated G1 census reconciles annual evidence with event-level candidate surfaces. The verified foundation audit reports 38 candidate rows, 35 included qualifying rows, no missing candidate IDs, no extra candidate IDs, no duplicate candidate IDs and no ledger/evidence consistency errors. Event-level gaps previously found in the annual reconstruction were synchronized, including 2010, 2011, Aerosucre 157 in 2016 and 2025.
 
 The reconstruction explicitly preserves external/ground/other-aircraft fatalities and source disagreements rather than silently normalizing them. Earlier incomplete assumptions corrected by the audit include Tatarstan 363 in 2013, Aerosucre 157 in 2016 and Atlas Air 3591 in 2019.
 
@@ -50,7 +52,7 @@ The AGGIORNA #25 `ntsb-derived` artifact was recovered and audited. The reposito
 For Boeing-commercial airplane rows in 2010-2025, 1,250 of 1,358 rows recover an official sequence phase from `Events_Sequence` using the eADMS dictionary (92.05%); among rows with sequence data the result is 1,250 of 1,252. `NUSC` is explicit Non-U.S. Commercial, `NUSN` explicit Non-U.S. Noncommercial, and absent/unknown operation codes remain unknown. `inj_tot_f` and `inj_f_grnd` remain distinct so external fatalities are preserved.
 
 ## G2 — BLOCKED; denominator gap characterized
-A complete defensible global Boeing family/year exposure denominator for 2010-2025 is still missing. The foundation audit now uses the full target-cohort universe: `727`, `737-Original`, `737-Classic`, `737-NG`, `737-MAX`, `747`, `757`, `767`, `777`, `787`; the current departures dataset has no canonical cells, so the audit remains explicitly incomplete rather than accepting aggregate traffic.
+A complete defensible global Boeing family/year exposure denominator for 2010-2025 is still missing. The foundation audit uses the full target-cohort universe: `727`, `737-Original`, `737-Classic`, `737-NG`, `737-MAX`, `747`, `757`, `767`, `777`, `787`; the current departures dataset has no canonical cells, so the audit remains explicitly incomplete rather than accepting aggregate traffic.
 
 Historical IATA Safety Report Annex 4 editions publicly provide annual global sectors by manufacturer/model over overlapping windows through 2019. Later public reports inspected do not demonstrate a continuous compatible manufacturer/model table for 2020-2023. Historical IATA/OAG sector values are revision-sensitive, requiring an explicit vintage policy.
 
@@ -58,12 +60,16 @@ IATA WATS Global is proprietary. OAG Historical Flight Data is technically promi
 
 `data/exposure/cohort-aggregation-audit.json` records that all-variant Boeing 737 exposure cannot satisfy distinct Original/Classic/NG/MAX cells without an additional allocation model. Collapsing the cohorts would change the baseline/model comparison object; fleet-share, deliveries, accident counts or similar allocations remain prohibited. `baseline_present=false` is mandatory.
 
-## G3 — BLOCKED; source-specific PIT evidence layer active
-`bsfm/pit_evidence.py` and source-specific PIT inventories implement strict `verified / bounded / unknown` adjudication. Event date, approval/finalization, database last-change, retrieval date or current database presence are not publication evidence.
+## G3 — BLOCKED; strict source-specific PIT gate active
+`bsfm/pit_evidence.py`, `bsfm/pit_coverage.py` and source-specific PIT inventories implement strict `verified / bounded / unknown` adjudication. Event date, approval/finalization, database last-change, retrieval date or current database presence are not publication evidence.
 
-NTSB evidence now includes source/schema release anchors and field-release constraints. `Findings.cm_inPC`, for example, was added/back-filled in a 2024 release and cannot be leaked into earlier simulated cutoffs merely because it is present today. A historical AVALL distribution anchor exists by 2012, but source-level availability does not prove record/field-level availability.
+NTSB evidence includes source/schema release anchors and field-release constraints. `Findings.cm_inPC`, for example, was added/back-filled in a 2024 release and cannot be leaked into earlier simulated cutoffs merely because it is present today. A historical AVALL distribution anchor exists by 2012, but source-level availability does not prove record/field-level availability. NTSB `record_level_history_complete` therefore remains false and strict PIT readiness remains false.
 
-FAA SDR now has its own release/field policy inventory and tests. As with NTSB, source-level releases can bound availability but cannot automatically verify a specific record/field at an earlier cutoff. Broad G3 PASS still requires archived/versioned source snapshots or record-specific official release evidence for every predictor admitted to a strict historical backtest.
+FAA SDR has its own release/field policy and operational coverage audit. Current annual CSVs are validated as source files but remain historically unverified. The manifests themselves demonstrate why: for example the 2010 file contains a maximum `SubmissionDate` in 2015, so occurrence year/file year cannot stand in for public availability. `pit_coverage.py` now exposes late-submission tails and submission-lag diagnostics while explicitly refusing to equate submission with public approval/release.
+
+`bsfm.cli.availability_audit()` now requires both the generic source-state PIT signal and `strict_operational_pit_ready=true`; a generic `point_in_time_availability_verified=true` can no longer bypass source-specific evidence. The latest Research CI verified this path and still returned G3 BLOCKED.
+
+Broad G3 PASS requires archived/versioned source snapshots or record-specific official release evidence for every predictor admitted to a strict historical backtest.
 
 ## G4 — BLOCKED
 G4 remains downstream of G1-G3. No candidate-vs-baseline model-skill claim is allowed while any upstream gate is blocked. The verified final audit reports `scientific_fit_ready=false`, `scientific_promotion_ready=false`, absolute accident probabilities disabled and validated-prediction claims disallowed.
@@ -75,7 +81,7 @@ Geography, MSN and flight number have independent fail-closed support gates. Ret
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #25 remains the latest successful full operational workflow. PR #2 has a successful read-only research verification at run `33996825005` but is still Draft / **do not merge yet**. G1-G4 remain BLOCKED.
+AGGIORNA #25 remains the latest successful full operational workflow. PR #2 has a successful latest read-only research verification at run `33997082566` with 158 tests passed, but is still Draft / **do not merge yet**. G1-G4 remain BLOCKED.
 
 ## Exact next step
 1. Keep 2014/2020 unresolved unless a separately versioned, scientifically defensible target-taxonomy rule is chosen; do not infer one from F-002.
