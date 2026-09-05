@@ -21,24 +21,60 @@ def _date(value):
         return None
 
 
-def _load_publication_ledger(root: Path):
-    path = root / 'data/pit/g1-outcome-publication-ledger.json'
+def _rows_from_json(path: Path):
     try:
         payload = json.loads(path.read_text(encoding='utf-8'))
     except (OSError, json.JSONDecodeError):
+        return None
+    return payload.get('events') if isinstance(payload.get('events'), list) else []
+
+
+def _load_publication_ledger(root: Path):
+    base_path = root / 'data/pit/g1-outcome-publication-ledger.json'
+    base_rows = _rows_from_json(base_path)
+    if base_rows is None:
         return {}, ['missing_or_invalid_publication_ledger']
-    rows = payload.get('events') if isinstance(payload.get('events'), list) else []
+
     by_id = {}
-    duplicates = []
-    for row in rows:
+    errors = []
+    for row in base_rows:
         row = row if isinstance(row, dict) else {}
         event_id = str(row.get('event_id') or '').strip()
         if not event_id:
             continue
         if event_id in by_id:
-            duplicates.append(event_id)
+            errors.append({'error': 'duplicate_ledger_event_id', 'event_id': event_id})
         by_id[event_id] = row
-    errors = [{'error': 'duplicate_ledger_event_id', 'event_id': event_id} for event_id in sorted(set(duplicates))]
+
+    # Reviewed annual/batch evidence may override an unverified base placeholder,
+    # but may never introduce a new event id or redefine an already verified base
+    # row. This keeps the 35-event index stable while making provenance additions
+    # small and reviewable.
+    evidence_dir = root / 'data/pit/g1-outcome-publication-evidence'
+    overlay_seen = set()
+    for path in sorted(evidence_dir.glob('*.json')) if evidence_dir.exists() else []:
+        rows = _rows_from_json(path)
+        if rows is None:
+            errors.append({'error': 'invalid_publication_overlay', 'path': path.name})
+            continue
+        for raw in rows:
+            row = raw if isinstance(raw, dict) else {}
+            event_id = str(row.get('event_id') or '').strip()
+            if not event_id:
+                errors.append({'error': 'overlay_missing_event_id', 'path': path.name})
+                continue
+            if event_id in overlay_seen:
+                errors.append({'error': 'duplicate_overlay_event_id', 'event_id': event_id})
+                continue
+            overlay_seen.add(event_id)
+            if event_id not in by_id:
+                errors.append({'error': 'overlay_event_not_in_base_ledger', 'event_id': event_id})
+                continue
+            base = by_id[event_id]
+            if base.get('available_at') or base.get('availability_basis') or base.get('availability_evidence_ids'):
+                errors.append({'error': 'overlay_redefines_verified_base_row', 'event_id': event_id})
+                continue
+            by_id[event_id] = {**base, **row}
     return by_id, errors
 
 
@@ -46,8 +82,8 @@ def audit_g1_outcome_pit(root, start_year=2010, end_year=2025):
     """Audit whether included historical G1 outcomes are usable at simulated cutoffs.
 
     Target membership stays in G1 candidate files; publication timing lives in a
-    separate PIT ledger so adding temporal evidence cannot silently mutate the
-    historical census. Event date alone is never sufficient.
+    separate PIT ledger/evidence layer so temporal research cannot silently mutate
+    the historical census. Event date alone is never sufficient.
     """
     root = Path(root)
     rows = load_integrated_candidates(root)['rows']
@@ -100,7 +136,7 @@ def audit_g1_outcome_pit(root, start_year=2010, end_year=2025):
             invalid.append(event_id)
     verified = [row['event_id'] for row in audited if row['pit_status'] == 'verified']
     return {
-        'schema': 'bsfm.g1-outcome-pit-audit.v2',
+        'schema': 'bsfm.g1-outcome-pit-audit.v3',
         'interval': {'start_year': start_year, 'end_year': end_year},
         'included_events': len(audited),
         'ledger_rows': len(ledger),
@@ -111,5 +147,5 @@ def audit_g1_outcome_pit(root, start_year=2010, end_year=2025):
         'ledger_errors': ledger_errors,
         'complete': bool(audited) and not missing and not invalid and not ledger_errors,
         'events': audited,
-        'rule': 'Only explicit public publication/snapshot evidence in the separate PIT ledger may populate available_at; event date or current retrospective knowledge is insufficient.',
+        'rule': 'Only explicit public publication/snapshot evidence in the separate PIT ledger/evidence layer may populate available_at; event date or current retrospective knowledge is insufficient.',
     }
