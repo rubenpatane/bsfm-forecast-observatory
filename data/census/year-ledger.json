@@ -6,7 +6,7 @@
     {"year":2010,"reconciled":true},{"year":2011,"reconciled":false},{"year":2012,"reconciled":true},{"year":2013,"reconciled":true},
     {"year":2014,"reconciled":false},{"year":2015,"reconciled":true},{"year":2016,"reconciled":false},{"year":2017,"reconciled":true},
     {"year":2018,"reconciled":false},{"year":2019,"reconciled":false},{"year":2020,"reconciled":false},{"year":2021,"reconciled":false},
-    {"year":2022,"reconciled":false},{"year":2023,"reconciled":false},{"year":2024,"reconciled":false},{"year":2025,"reconciled":false}
+    {"year":2022,"reconciled":false},{"year":2023,"reconciled":false},{"year":2024,"reconciled":false},{"year":2025,"reconciled":true}
   ],
   "source_families": [
     {"publisher":"ICAO","role":"global scheduled-commercial annual scope","locator":"https://www.icao.int/safety"},
