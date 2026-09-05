@@ -1,7 +1,7 @@
 (()=>{
 const D={
 it:{
- overview:'Panoramica',validation:'Validazione',methodology:'Metodologia',provenance:'Provenienza',menu:'Menu',close_menu:'Chiudi menu',
+ overview:'Panoramica',validation:'Validazione',methodology:'Metodologia',provenance:'Provenienza',menu:'Menu',close_menu:'Chiudi menu',code:'Codice GitHub',updated:'Ultimo aggiornamento',update_unavailable:'data non disponibile',
  hero_eyebrow:'Osservatorio di ricerca prospettica · verificabile per costruzione',hero_title:'I dati pubblici sulla sicurezza aerea possono anticipare il rischio oltre la sola esposizione?',hero_lead:'BSFM è un esperimento di previsione prospettica: congela le previsioni prima degli esiti, conserva la provenienza dei dati, verifica ciò che era conoscibile a ogni data e misura anche gli errori.',experimental:'Ricerca sperimentale — non è uno strumento operativo di sicurezza.',safety_note:'BSFM non valuta la sicurezza di uno specifico volo, aeromobile, compagnia, rotta o persona.',
  what_label:'Che cos’è BSFM',what_title:'Un osservatorio aperto, non un sistema di allarme',what_intro:'L’obiettivo è verificare scientificamente se segnali pubblici e riproducibili possano migliorare una previsione rispetto a una semplice baseline di esposizione. Fino a quando le evidenze richieste non sono complete, il sistema resta esplicitamente bloccato.',what_1_title:'Previsione prima dell’evento',what_1:'Una previsione viene registrata con data di cutoff e non può essere riscritta dopo che l’esito è noto.',what_2_title:'Evidenze verificabili',what_2:'Ogni dato deve avere fonte, hash, data e ruolo dichiarato. “Disponibile oggi” non significa automaticamente “disponibile allora”.',what_3_title:'Fallimento visibile',what_3:'Gate mancanti, backtest negativi e risultati non conclusivi restano nel record: non vengono trasformati in successi.',
  how_label:'Come funziona',how_title:'Dal dato pubblico al test scientifico',step1:'1 · acquisisce fonti ufficiali',step2:'2 · verifica integrità e provenienza',step3:'3 · applica il cutoff temporale',step4:'4 · congela la previsione',step5:'5 · osserva l’esito futuro',step6:'6 · confronta score e baseline',step_note:'Il modello può essere promosso solo se superano insieme i gate su censimento storico, esposizione, disponibilità point-in-time, calibrazione e confronto con baseline.',
@@ -15,7 +15,7 @@ it:{
  gate_historical_cases:'casi storici',gate_baseline_present:'baseline di esposizione',gate_point_in_time_availability_verified:'disponibilità point-in-time',gate_leakage_free:'assenza di leakage',gate_calibration_evaluated:'calibrazione valutata',gate_paired_baseline_comparison:'confronto appaiato con baseline',gate_candidate_better_than_baseline:'candidato migliore della baseline'
 },
 en:{
- overview:'Overview',validation:'Validation',methodology:'Methodology',provenance:'Provenance',menu:'Menu',close_menu:'Close menu',
+ overview:'Overview',validation:'Validation',methodology:'Methodology',provenance:'Provenance',menu:'Menu',close_menu:'Close menu',code:'GitHub source',updated:'Last updated',update_unavailable:'date unavailable',
  hero_eyebrow:'Open prospective research · auditable by design',hero_title:'Can public aviation-safety data forecast risk beyond exposure alone?',hero_lead:'BSFM is a prospective forecasting experiment: it freezes forecasts before outcomes, preserves data provenance, checks what was knowable at each date, and scores failures as well as successes.',experimental:'Experimental research — not an operational safety tool.',safety_note:'BSFM does not assess the safety of a specific flight, aircraft, airline, route or person.',
  what_label:'What BSFM is',what_title:'An open observatory, not an alert system',what_intro:'The goal is to test scientifically whether public, reproducible signals improve forecasting beyond a simple exposure baseline. Until the required evidence is complete, the system remains explicitly blocked.',what_1_title:'Forecast before outcome',what_1:'A forecast is registered with a cutoff date and cannot be rewritten after the outcome becomes known.',what_2_title:'Auditable evidence',what_2:'Every datum needs a source, hash, date and declared role. “Available today” does not automatically mean “available then”.',what_3_title:'Visible failure',what_3:'Missing gates, negative backtests and inconclusive results remain in the record; they are not converted into successes.',
  how_label:'How it works',how_title:'From public data to scientific test',step1:'1 · acquire official sources',step2:'2 · verify integrity and provenance',step3:'3 · enforce temporal cutoff',step4:'4 · freeze the forecast',step5:'5 · observe the future outcome',step6:'6 · compare score and baseline',step_note:'The model can be promoted only when historical census, exposure, point-in-time availability, calibration and baseline-comparison gates all pass together.',
@@ -28,15 +28,29 @@ en:{
  provenance_eyebrow:'Data lineage & evidence quality',provenance_title:'Every predictor needs a time, a source and a reason to exist.',provenance_lead:'Current authenticity does not prove historical availability.',live_source:'Live source state',source_integrity_ready:'Source integrity ready',source_integrity_blocked:'Source integrity blocked',generated_unavailable:'Generated source state unavailable',manifests:'Manifests',historical_verified:'Historical availability verified',automated_hashed:'Automated, hashed, fail-closed',pit_rule:'Point-in-time rule',pit_rule_title:'Verified public availability ≤ cutoff',pit_rule_desc:'Occurrence, submission, approval and last-change dates are not silently substituted for publication time. Explicit publication evidence may be retained but must pass the scientific availability audit before admission.',provenance_footer:'Unknown ≠ zero · current authenticity ≠ historical availability · context ≠ denominator.',
  gate_historical_cases:'historical cases',gate_baseline_present:'exposure baseline',gate_point_in_time_availability_verified:'point-in-time availability',gate_leakage_free:'leakage-free',gate_calibration_evaluated:'calibration evaluated',gate_paired_baseline_comparison:'paired baseline comparison',gate_candidate_better_than_baseline:'candidate better than baseline'
 }};
-function lang(){const q=new URLSearchParams(location.search).get('lang');return q==='it'||q==='en'?q:(localStorage.getItem('bsfm-lang')||'it')}
+const REPO='https://github.com/rubenpatane/bsfm-forecast-observatory';
+let LAST_UPDATE=null;
+function lang(){const q=new URLSearchParams(location.search).get('lang');if(q==='it'||q==='en')return q;const stored=localStorage.getItem('bsfm-lang');if(stored==='it'||stored==='en')return stored;return (navigator.language||'').toLowerCase().startsWith('it')?'it':'en'}
 function t(key,l=lang()){return D[l]?.[key]||D.it[key]||key}
+function formatUpdate(l){if(!LAST_UPDATE)return t('update_unavailable',l);const d=new Date(LAST_UPDATE);if(Number.isNaN(d.getTime()))return t('update_unavailable',l);return new Intl.DateTimeFormat(l==='it'?'it-IT':'en-GB',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Rome'}).format(d)}
+function renderMeta(l){
+ const nav=document.querySelector('.nav-menu');if(nav&&!nav.querySelector('.code-link')){
+  const a=document.createElement('a');a.className='navlink code-link';a.href=REPO;a.target='_blank';a.rel='noopener noreferrer';a.dataset.i18n='code';a.textContent=t('code',l);nav.insertBefore(a,nav.querySelector('.lang'));
+  const s=document.createElement('span');s.className='nav-update';s.id='nav-update';s.setAttribute('role','status');s.style.cssText='font-size:.72rem;opacity:.72;white-space:nowrap';nav.insertBefore(s,nav.querySelector('.lang'));
+ }
+ const stamp=document.getElementById('nav-update');if(stamp)stamp.textContent=t('updated',l)+': '+formatUpdate(l);
+ let bar=document.getElementById('site-update-bar');if(!bar){
+  const header=document.querySelector('header.top');if(header){bar=document.createElement('div');bar.id='site-update-bar';bar.style.cssText='font-size:.76rem;opacity:.72;text-align:right;padding:.35rem max(1rem,calc((100vw - 1120px)/2));border-bottom:1px solid rgba(127,127,127,.18)';header.insertAdjacentElement('afterend',bar)}
+ }
+ if(bar)bar.textContent=t('updated',l)+': '+formatUpdate(l);
+}
 function apply(l){
  localStorage.setItem('bsfm-lang',l);document.documentElement.lang=l;
  document.querySelectorAll('[data-i18n]').forEach(e=>{const v=t(e.dataset.i18n,l);if(v)e.textContent=v});
  document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('active',e.dataset.lang===l));
  document.querySelectorAll('a[href]').forEach(a=>{if(a.origin!==location.origin)return;const href=a.getAttribute('href')||'';if(href.startsWith('#'))return;const u=new URL(a.href);u.searchParams.set('lang',l);a.href=u});
  const menu=document.querySelector('.menu-toggle');if(menu)menu.setAttribute('aria-label',t('menu',l));
- window.dispatchEvent(new CustomEvent('bsfm-language',{detail:l}));
+ renderMeta(l);window.dispatchEvent(new CustomEvent('bsfm-language',{detail:l}));
 }
 function setupMenu(){
  const button=document.querySelector('.menu-toggle'),menu=document.querySelector('.nav-menu');if(!button||!menu)return;
@@ -45,6 +59,10 @@ function setupMenu(){
  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
 }
+function loadUpdate(){
+ Promise.allSettled(['./data/real-data.json','./data/comparable-cases.json'].map(u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject())))
+  .then(results=>{const dates=results.filter(x=>x.status==='fulfilled').map(x=>x.value?.generated_at).filter(Boolean).sort();LAST_UPDATE=dates.at(-1)||null;renderMeta(lang())});
+}
 window.BSFM_I18N={dict:D,lang,t,apply};
-document.addEventListener('DOMContentLoaded',()=>{setupMenu();document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>apply(b.dataset.lang));apply(lang())});
+document.addEventListener('DOMContentLoaded',()=>{renderMeta(lang());setupMenu();document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>apply(b.dataset.lang));apply(lang());loadUpdate()});
 })();
