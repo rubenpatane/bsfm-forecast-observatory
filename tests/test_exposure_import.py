@@ -1,4 +1,4 @@
-from bsfm.exposure_import import aggregate_standardized_flight_legs
+from bsfm.exposure_import import aggregate_standardized_flight_legs, g2_acceptance_report
 
 
 def _row(day, leg, equipment, *, operated=True, scope='global_commercial', vintage='v1'):
@@ -75,3 +75,35 @@ def test_standardized_import_requires_vendor_vintage_and_boolean_operated():
     ])
     assert out['diagnostics']['invalid_rows'] == 2
     assert out['complete_for_g2'] is False
+
+
+def test_g2_acceptance_report_passes_only_complete_expected_matrix():
+    rows = [
+        _row('2019-01-01', 'A', 'B738'),
+        _row('2019-01-02', 'B', 'B38M'),
+        _row('2020-01-01', 'C', 'B738', vintage='v2'),
+        _row('2020-01-02', 'D', 'B38M', vintage='v2'),
+    ]
+    out = g2_acceptance_report(
+        rows, [2019, 2020], ['737-NG', '737-MAX'],
+        source='licensed-test-source', provenance='query-spec-v1', vintage_policy_id='vp-1',
+    )
+    assert out['matrix_audit']['complete'] is True
+    assert out['g2_pass_candidate'] is True
+    assert out['g2_status'] == 'CANDIDATE_PASS'
+    assert all(r['source'] == 'licensed-test-source' for r in out['canonical_exposure_rows'])
+
+
+def test_g2_acceptance_report_fails_on_missing_cell_or_unknown_equipment():
+    rows = [
+        _row('2019-01-01', 'A', 'B738'),
+        _row('2020-01-01', 'B', '737', vintage='v2'),
+    ]
+    out = g2_acceptance_report(
+        rows, [2019, 2020], ['737-NG'],
+        source='licensed-test-source', provenance='query-spec-v1', vintage_policy_id='vp-1',
+    )
+    assert out['matrix_audit']['complete'] is False
+    assert out['import']['unknown_equipment'] == [{'equipment_code': '737', 'rows': 1}]
+    assert out['g2_pass_candidate'] is False
+    assert out['g2_status'] == 'BLOCKED'
