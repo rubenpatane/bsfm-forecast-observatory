@@ -3,10 +3,10 @@
   "integrity_errors": [],
   "reason": "validated_source_snapshots_unavailable",
   "registry_integrity": "ok",
-  "run_at": "2026-09-05T14:35:55Z",
-  "run_hash": "sha256:b52092856cf9aca632894cde7bf78e2ea775c779f11e65d9200cc17fc51b304e",
+  "run_at": "2026-09-05T15:27:27Z",
+  "run_hash": "sha256:d19af8baf1c4e1c20c120d84a2b257f8da429ac6008c4ba2df01bb46efae9caf",
   "sources": {
-    "checked_at": "2026-09-05T14:35:55Z",
+    "checked_at": "2026-09-05T15:27:27Z",
     "manifests": [
       {
         "cutoff": null,
