@@ -129,6 +129,7 @@ jobs:
           from bsfm.refinements import write_public_refinements
           from bsfm.public_research import write_public_research_state
           from bsfm.public_forecast import write_public_forecast
+          from bsfm.public_data_forecast import execute_public_data_forecast, evaluate_public_data_forecasts
           from bsfm.research_cycle import execute_repository_cycle
           root=Path('.')
           source=validate_sources()
@@ -142,7 +143,9 @@ jobs:
           research=write_public_research_state(root)
           forecast=write_public_forecast(root)
           cycle=execute_repository_cycle(root,source,report)
-          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public,'evidence_gaps':evidence['gaps'],'published_refinements':len(refinements),'public_research_years':len(research['gates']['G1']['years']),'public_forecast':forecast['forecast_id'],'research_cycle':cycle},indent=2))
+          public_data_forecast=execute_public_data_forecast(root)
+          public_data_evaluation=evaluate_public_data_forecasts(root)
+          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public,'evidence_gaps':evidence['gaps'],'published_refinements':len(refinements),'public_research_years':len(research['gates']['G1']['years']),'public_forecast':forecast['forecast_id'],'research_cycle':cycle,'public_data_forecast':public_data_forecast,'public_data_evaluation':public_data_evaluation},indent=2))
           PY
       - name: Record successful scheduled refresh cadence
         if: github.event_name == 'schedule'

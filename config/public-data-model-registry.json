@@ -1,0 +1,21 @@
+{
+  "schema": "bsfm.public-data-model-registry.v1",
+  "active_prospective_model": "BSFM-PD 1.4",
+  "models": [
+    {
+      "model_id": "BSFM-PD",
+      "model_version": "1.3",
+      "spec_path": "config/model-public-data-v1.3.json",
+      "spec_hash": "sha256:c5db2d74c7c66d244277db2e301436bc38eb65cce21093620b9325f9b33671c6",
+      "status": "FROZEN_NEGATIVE_UNDERPOWERED_RESULT"
+    },
+    {
+      "model_id": "BSFM-PD",
+      "model_version": "1.4",
+      "spec_path": "config/model-public-data-v1.4.json",
+      "spec_hash": "sha256:35868ea7b54ea60d6341a0cdcf0de70831ef113a6d0edf43e28de78dd9d0e2a5",
+      "status": "PREREGISTERED_PROSPECTIVE_UNVALIDATED"
+    }
+  ],
+  "change_rule": "Any change to target, scope, cohorts, estimator, exposure, cadence, horizon, baseline, scoring or claims requires a new registered model version before outcomes are inspected."
+}

@@ -114,6 +114,51 @@ AGGIORNA #31 is the latest successful full operational workflow. It refreshed FA
 
 The automatic-cycle implementation and its correction are workflow-verified. AGGIORNA #31 reports cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
 
+## BSFM-PD 1.4 public-online prospective cycle — local checkpoint
+
+Branch `research/public-online-prospective-20260906` adds a separately
+registered operational path using only public online evidence. It does not
+modify F-002, BSFM 1.2, historical G1 v1 or the negative/underpowered BSFM-PD
+1.3 result. Contract hash
+`sha256:35868ea7b54ea60d6341a0cdcf0de70831ef113a6d0edf43e28de78dd9d0e2a5`
+freezes target, scope, nine cohorts, minimal estimator, T-100 exposure rule,
+90-day non-overlapping cadence, baseline, scoring, uncertainty and claim limits.
+
+The executable cycle now:
+
+- admits only verified authority outcomes public by the cutoff and conservatively
+  lag-eligible T-100 exposure;
+- refits the minimal candidate and pooled exposure baseline automatically;
+- produces a complete frozen time-to-first-event distribution, modal date,
+  conditional 80% time interval, conditional family distribution and parameter
+  uncertainty;
+- retains at most one active non-overlapping forecast and writes immutable,
+  content-addressed `PD14-*` records;
+- scores expired records candidate-vs-baseline only when competent-authority
+  coverage is demonstrated through the observed first event or horizon end;
+- requires ten event-bearing prospective forecasts, candidate superiority and a
+  positive lower 90% paired-bootstrap improvement bound before the frozen
+  evidence threshold can pass; crossing it still requires an explicit promotion
+  decision and never silently enables absolute probability claims.
+
+The first forecast is intentionally absent from this commit. The seed public
+state is `PREREGISTERED_NO_FORECAST_YET`; only a later AGGIORNA run from the
+committed contract may issue it. The bilingual site exposes this separate
+experimental forecast and its cumulative prospective evaluation without an
+absolute accident probability.
+
+Local verification completed with **241 tests**, forecast-registry integrity,
+foundation audit and final audit passing. These checks verify implementation,
+not predictive skill. Global G1 remains 14/16 BLOCKED; global G2/G3/G4 remain
+BLOCKED; BSFM-PD 1.3 remains negative/underpowered. Online authority monitoring
+can fail closed and requires positive coverage evidence: automation cannot infer
+“no event” from zero rows.
+
+Additional global exposure and historical PIT precursor data are registered as
+a value-of-information hypothesis. They would make richer components and a
+paired comparison testable, but no improvement is claimed before the frozen
+future score and uncertainty support it.
+
 ## Workflow-verified public-data result
 
 PR #3, branch `research/public-data-t100-20260906`, was squash-merged into
@@ -179,4 +224,9 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Obtain external evidence: a lawful OAG/Cirium/IATA WATS global exposure extract for G2 and FAA processing/public-release timestamps or retained historical SDR exports for G3. Without those, keep BSFM 1.2 blocked; do not redesign BSFM-PD 1.3 after its negative/underpowered result, and accumulate genuinely new prospective outcomes under the frozen version.
+Verify `research/public-online-prospective-20260906` in temporary read-only
+research CI, remove that workflow, merge the reviewed branch into `main`, then
+run AGGIORNA once from `main` to issue the first BSFM-PD 1.4 record and publish
+its fail-closed prospective-evaluation state. Afterward, accumulate genuinely
+new authority-covered outcomes; keep global BSFM 1.2 blocked pending lawful
+OAG/Cirium/IATA WATS exposure and FAA PIT-release evidence.

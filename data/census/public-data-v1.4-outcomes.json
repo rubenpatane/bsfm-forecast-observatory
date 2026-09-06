@@ -1,0 +1,36 @@
+{
+  "schema": "bsfm.public-data-prospective-outcomes.v1",
+  "model_id": "BSFM-PD",
+  "model_version": "1.4",
+  "scope": "us_linked_commercial",
+  "status": "OPEN_APPEND_ONLY_VERIFIED_INPUT",
+  "historical_seed_path": "data/census/public-data-v1.3-outcomes.json",
+  "historical_seed_hash": "sha256:52e2b90b6fb89cf78b5ad02eef58653efbf6016212fc93b95514a96ca4848428",
+  "admission_rule": "Append only a prospective-v2 qualifying outcome with verified route, cohort, competent-authority evidence and conservative public available_at. Discovery alone cannot admit an event.",
+  "events": [
+    {
+      "event_id": "G1-2013-AAR214",
+      "event_date": "2013-07-06",
+      "available_at": "2014-06-24",
+      "cohort": "777",
+      "route_evidence_status": "VERIFIED_AUTHORITY",
+      "pit_status": "verified"
+    },
+    {
+      "event_id": "G1-2018-SWA1380",
+      "event_date": "2018-04-17",
+      "available_at": "2019-11-19",
+      "cohort": "737-Classic+NG",
+      "route_evidence_status": "VERIFIED_AUTHORITY",
+      "pit_status": "verified"
+    },
+    {
+      "event_id": "G1-2019-ATLAS3591",
+      "event_date": "2019-02-23",
+      "available_at": "2020-07-14",
+      "cohort": "767",
+      "route_evidence_status": "VERIFIED_AUTHORITY",
+      "pit_status": "verified"
+    }
+  ]
+}

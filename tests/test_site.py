@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 PAGES=('index.html','forecast.html','validation.html','methodology.html','provenance.html')
 
 def test_observatory_pages_and_shared_assets_exist():
- for name in (*PAGES,'styles.css','i18n.js','page-copy.js','comparables.js','forecast.js','validation-results.js'):
+ for name in (*PAGES,'styles.css','i18n.js','page-copy.js','comparables.js','forecast.js','public-data-forecast.js','validation-results.js','prospective-evaluation.js'):
   assert (ROOT/'site'/name).is_file()
  assert (ROOT/'site/data/research-state.json').is_file()
 
@@ -106,6 +106,8 @@ def test_single_workflow_generates_real_data_evidence_refinements_comparables_an
  assert 'write_public_comparables' in text
  assert 'write_public_research_state' in text
  assert 'write_public_forecast' in text
+ assert 'execute_public_data_forecast' in text
+ assert 'evaluate_public_data_forecasts' in text
  assert "site/data/real-data.json" in text
  assert "'ntsb_snapshot'" in text
  assert 'git add site/data data/manifests forecasts evaluations' in text
@@ -133,6 +135,12 @@ def test_forecast_page_exposes_frozen_record_and_descriptive_boundaries():
  assert 'F-002 è immutabile' in text
  assert '7c34f318d7df9d942698e01783e86794a46509ca33c8fae9b156a50f8def4f48' in text
  assert './comparables.js' in text
+ assert './public-data-forecast.js' in text
+ assert 'public-data-prospective' in text
+ js=(ROOT/'site/public-data-forecast.js').read_text()
+ assert './data/public-data-forecast.json' in js
+ assert 'No absolute accident probability is published here' in js
+ assert 'il miglioramento non è assunto' in js
 
 def test_validation_page_renders_machine_readable_negative_result():
  text=(ROOT/'site/validation.html').read_text()
@@ -141,14 +149,28 @@ def test_validation_page_renders_machine_readable_negative_result():
  assert 'Il candidato non supera la baseline' in text
  assert 'candidateScore' in text and 'baselineScore' in text
  assert 'Campione insufficiente: 3 su 10' in text
+ assert './prospective-evaluation.js' in text
+ assert './data/public-data-prospective-evaluation.json' in (ROOT/'site/prospective-evaluation.js').read_text()
+ assert 'zero rows do not mean zero events' in (ROOT/'site/prospective-evaluation.js').read_text()
 
 def test_complete_pages_explain_model_lineage_and_machine_readable_artifacts():
  method=(ROOT/'site/methodology.html').read_text()
  provenance=(ROOT/'site/provenance.html').read_text()
- assert 'BSFM 1.2' in method and 'minimal_shrunk_hazard_v1' in method and 'BSFM-PD 1.3' in method
+ assert 'BSFM 1.2' in method and 'minimal_shrunk_hazard_v1' in method and 'BSFM-PD 1.3' in method and 'BSFM-PD 1.4' in method
  assert 'Le regole non cambiano da sole' in method
- for artifact in ('forecast.json','research-state.json','public-data-validation.json','research-cycle.json','final-readiness.json','evidence-state.json'):
+ for artifact in ('forecast.json','public-data-forecast.json','research-state.json','public-data-validation.json','research-cycle.json','final-readiness.json','evidence-state.json'):
   assert artifact in provenance
+
+def test_public_data_forecast_seed_is_preregistered_and_fail_closed():
+ state=json.loads((ROOT/'site/data/public-data-forecast.json').read_text())
+ assert state['model_version']=='1.4'
+ assert state['status']=='PREREGISTERED_NO_FORECAST_YET'
+ assert state['validated_claim_allowed'] is False
+ assert state['absolute_probability_claim_allowed'] is False
+ assert 'prediction' not in state
+ evaluation=json.loads((ROOT/'site/data/public-data-prospective-evaluation.json').read_text())
+ assert evaluation['scientific_validation']=='BLOCKED'
+ assert evaluation['scored_forecasts']==0
 
 def test_pages_have_accessible_landmarks_and_reduced_motion_support():
  for name in PAGES:
