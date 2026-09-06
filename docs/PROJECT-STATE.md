@@ -270,9 +270,10 @@ preregistered model version plus genuinely future evidence. Full method and
 claim limits are recorded in
 `docs/PUBLIC-DATA-EXTENDED-TRAINING-FEASIBILITY.md`.
 
-PR #5 on branch `research/public-data-extended-training-20260906` preserves this
-audit. Temporary read-only Research CI run #26 (`34042331486`) completed
-successfully at research SHA
+PR #5 from branch `research/public-data-extended-training-20260906` was merged
+into `main`; the final integration commit is
+`f66655b373f05594524b2b6a1a1f4585851fd610`. Temporary read-only Research CI
+run #26 (`34042331486`) completed successfully at research SHA
 `5052843751a7f74b2c7735049da0f48b5852f676`: 246 tests passed, forecast-registry
 integrity passed, and both foundation and final audits completed while retaining
 the scientific blockers. The temporary workflow was then removed to restore the
