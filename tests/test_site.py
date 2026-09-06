@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 PAGES=('index.html','forecast.html','validation.html','methodology.html','provenance.html')
 
 def test_observatory_pages_and_shared_assets_exist():
- for name in (*PAGES,'styles.css','i18n.js','page-copy.js','comparables.js','forecast.js','public-data-forecast.js','validation-results.js','prospective-evaluation.js'):
+ for name in (*PAGES,'styles.css','i18n.js','page-copy.js','comparables.js','forecast.js','public-data-forecast.js','editorial-board.js','validation-results.js','prospective-evaluation.js'):
   assert (ROOT/'site'/name).is_file()
  assert (ROOT/'site/data/research-state.json').is_file()
 
@@ -141,6 +141,26 @@ def test_forecast_page_exposes_frozen_record_and_descriptive_boundaries():
  assert './data/public-data-forecast.json' in js
  assert 'No absolute accident probability is published here' in js
  assert 'il miglioramento non è assunto' in js
+
+def test_manual_editorial_board_is_prominent_bilingual_and_non_scoring():
+ state=json.loads((ROOT/'site/data/editorial-board.json').read_text())
+ assert state['schema']=='bsfm.manual-editorial-board.v1'
+ assert state['manual_update'] is True
+ assert state['status']=='PENDING_OFFICIAL_ADJUDICATION'
+ assert state['scientific_effect']=='NONE'
+ assert state['forecast_id']=='PD14-20260907-7fa7c48bc555'
+ assert state['entry']['verdict']['code']=='DESCRIPTIVE_NEAR_MISS_OUTSIDE_HORIZON'
+ assert any(item['value']=='19,3%' for item in state['entry']['signals'])
+ assert all(source['url'].startswith('https://') for source in state['entry']['sources'])
+ for name in ('index.html','forecast.html'):
+  text=(ROOT/'site'/name).read_text()
+  assert './editorial-board.js' in text
+  assert 'data-editorial-board' in text
+ js=(ROOT/'site/editorial-board.js').read_text()
+ assert './data/editorial-board.json' in js
+ assert 'non un hit' in json.dumps(state,ensure_ascii=False)
+ assert 'does not enter PD14 scoring' in json.dumps(state)
+ assert "not modified by AGGIORNA" in js
 
 def test_validation_page_renders_machine_readable_negative_result():
  text=(ROOT/'site/validation.html').read_text()

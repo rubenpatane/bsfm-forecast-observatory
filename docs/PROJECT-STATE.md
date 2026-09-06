@@ -1,6 +1,6 @@
 # BSFM Project State
 
-Updated: 2026-09-06
+Updated: 2026-09-07
 
 ## Continuity
 This is the live public checkpoint, not a full specification. Start with `AGENTS.md` and `docs/NEW-CHAT.md`. No personal/private/sensitive information or secret values may be recorded here.
@@ -279,12 +279,33 @@ integrity passed, and both foundation and final audits completed while retaining
 the scientific blockers. The temporary workflow was then removed to restore the
 single-workflow repository invariant before integration.
 
+## Manual editorial board — local, not yet workflow-verified
+
+Branch `site/manual-editorial-board-20260907` adds a bilingual, manually
+maintained featured board to the overview and forecast pages. Its first entry
+records the reported 6 September 2026 Miami 21 Air/Prime Air 7598 Boeing 767-300
+cargo occurrence as a provisional descriptive comparison with
+`PD14-20260907-7fa7c48bc555`. It displays the close timing, U.S.-linked scope and
+the frozen 19.3% conditional 767 family share with equal prominence to the hard
+limits: the event precedes the 7 September horizon, the 767 was not the modal
+family, PD14 does not forecast phase/class/operator/MSN, and official target
+adjudication is pending. The board is explicitly non-scoring, is not an outcome
+ledger, does not modify any frozen forecast and is not written by AGGIORNA.
+
+Local verification completed with **247 tests**, forecast-registry integrity,
+foundation audit and final audit passing. The change is committed on its
+dedicated branch but has not been merged, run by AGGIORNA or deployed.
+Scientific gates and the latest workflow-verified baseline remain unchanged.
+
 ## Exact next step / external dependencies
-Keep the active `PD14-20260907-7fa7c48bc555` record immutable and accumulate
-genuinely new competent-authority outcome coverage. AGGIORNA must retain this
-forecast until its horizon ends; score it only when coverage is verified through
-the first target event or 2026-12-05, then issue the next non-overlapping record.
-Do not run repeated updates as a substitute for new evidence. Keep global BSFM
-1.2 blocked pending lawful OAG/Cirium/IATA WATS exposure and FAA PIT-release
-evidence. The post-#33 seed-state correction and extended-training audit must be
-repeated by the next AGGIORNA verification run after integration.
+Review and merge the manual editorial-board branch while keeping its Miami entry
+`PENDING_OFFICIAL_ADJUDICATION` until sufficient competent-authority evidence is
+public. Keep the active `PD14-20260907-7fa7c48bc555` record immutable and
+accumulate genuinely new competent-authority outcome coverage. AGGIORNA must
+retain this forecast until its horizon ends; score it only when coverage is
+verified through the first target event or 2026-12-05, then issue the next
+non-overlapping record. Do not run repeated updates as a substitute for new
+evidence. Keep global BSFM 1.2 blocked pending lawful OAG/Cirium/IATA WATS
+exposure and FAA PIT-release evidence. The post-#33 seed-state correction and
+extended-training audit must be repeated by the next AGGIORNA verification run
+after integration.
