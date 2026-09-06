@@ -99,6 +99,8 @@ def test_public_view_withholds_absolute_probability_claims():
     assert "baseline_distribution" not in public["prediction"]
     assert "event_probability" not in public["prediction"]
     assert public["claim_level"] == "experimental_unvalidated"
+    assert public["validated_claim_allowed"] is False
+    assert public["absolute_probability_claim_allowed"] is False
     assert public["validation_reference"]["result"].startswith("BLOCKED_")
 
 

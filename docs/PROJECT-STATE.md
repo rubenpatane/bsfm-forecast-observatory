@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #31 (`34031399051`) completed successfully on source SHA `ce855665744c4d0219a45cfed408728c6d7fd430`; it is the latest full operational/workflow-verified baseline.
-- The generated-state commit on `main` is `29518545c62d087843c2e6b6b097ab121f36001b` and uses privacy-safe Git metadata.
+- AGGIORNA #33 (`34037238514`) completed successfully on source SHA `49e03e42c4f2ce1e331329a87681f04d15ac344e`; it is the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `bba9f32db03fd6d7b660bc535d0c9b6e00213af9` and uses privacy-safe Git metadata.
 - No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
 - Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
@@ -28,8 +28,8 @@ This taxonomy is explicitly non-retroactive: it does not apply to F-002, histori
 ## Current research branch and verification
 PR #2, branch `research/privacy-safe-rebuild-20260905`, was the privacy-safe reconstruction of post-#25 research. It was squash-merged into `main` as `80333b03658cc89cec80b35d4abb629f824487aa`; the integration does not import the commit history of closed PR #1.
 
-The latest successful read-only Research CI run is `34000757503`, verified at research SHA `c5cc3e63a1a21605ee416f971fbe1d1cf8493bdd` before removal of the temporary workflow. It executed:
-- full `pytest -q`: **188 passed**;
+The latest successful read-only Research CI run is #24 (`34033044616`), verified at research SHA `3edd6fcc522848ba73f6e4902e113eb164a88a55` before removal of the temporary workflow. It executed:
+- full `pytest -q`: **241 passed**;
 - `python -m bsfm.cli verify`: forecast registry integrity OK;
 - `python -m bsfm.cli audit-foundation`: completed successfully;
 - `python -m bsfm.cli audit-final`: completed successfully.
@@ -110,9 +110,9 @@ negative/underpowered, and absolute probabilities remain disabled. F-002 stayed
 byte-identical.
 
 ## Operational state
-AGGIORNA #31 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 and the BSFM-PD 1.3 route/backtest audits in fail-closed mode, committed auditable state and deployed the complete GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; the separate BSFM-PD 1.3 validation is blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
+AGGIORNA #33 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1, repeated the BSFM-PD 1.3 negative/underpowered backtest, issued the first BSFM-PD 1.4 forecast, committed auditable state and deployed the complete GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; BSFM-PD 1.3 remains blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
 
-The automatic-cycle implementation and its correction are workflow-verified. AGGIORNA #31 reports cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
+The global automatic-cycle 1.1 remains fail-closed with `scientific_fit_gate_closed`. The separate BSFM-PD 1.4 path is permitted to issue explicitly unvalidated prospective records from its public-data contract; that issuance does not open global G2/G3/G4.
 
 ## BSFM-PD 1.4 public-online prospective cycle — CI-verified checkpoint
 
@@ -143,11 +143,19 @@ The executable cycle now:
   evidence threshold can pass; crossing it still requires an explicit promotion
   decision and never silently enables absolute probability claims.
 
-The first forecast is intentionally absent from this commit. The seed public
-state is `PREREGISTERED_NO_FORECAST_YET`; only a later AGGIORNA run from the
-committed contract may issue it. The bilingual site exposes this separate
-experimental forecast and its cumulative prospective evaluation without an
-absolute accident probability.
+AGGIORNA #33 issued the first post-contract record,
+`PD14-20260907-7fa7c48bc555`, at `2026-09-06T13:51:19Z`. Its cutoff is
+2026-09-06 and its non-overlapping 90-day horizon is 2026-09-07 through
+2026-12-05. The modal date is 2026-09-07 and the conditional 80% interval is
+2026-09-15 through 2026-11-26. It uses three PIT-eligible outcomes, 135
+lag-eligible annual exposure cells through 2024 and source months 2024-09
+through 2024-12. Its immutable record integrity is
+`sha256:bd4f05c5b90f21001274a6a6fc67da34ff2773b076f1de477237519f9e8063cc`.
+
+The public summary exposes conditional timing/family output but no absolute
+event probability. Prospective evaluation remains `BLOCKED`, with one frozen
+forecast, zero scored forecasts and no authority-verified outcome coverage yet.
+This is the preregistered initial state, not a software failure.
 
 Local verification completed with **241 tests**, forecast-registry integrity,
 foundation audit and final audit passing. These checks verify implementation,
@@ -231,7 +239,10 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Run AGGIORNA once from `main` to issue the first BSFM-PD 1.4 record and publish
-its fail-closed prospective-evaluation state. Afterward, accumulate genuinely
-new authority-covered outcomes; keep global BSFM 1.2 blocked pending lawful
-OAG/Cirium/IATA WATS exposure and FAA PIT-release evidence.
+Keep the active `PD14-20260907-7fa7c48bc555` record immutable and accumulate
+genuinely new competent-authority outcome coverage. AGGIORNA must retain this
+forecast until its horizon ends; score it only when coverage is verified through
+the first target event or 2026-12-05, then issue the next non-overlapping record.
+Keep global BSFM 1.2 blocked pending lawful OAG/Cirium/IATA WATS exposure and FAA
+PIT-release evidence. The post-#33 seed-state test correction is locally verified
+and must be repeated by the next AGGIORNA run.

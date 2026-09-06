@@ -286,6 +286,8 @@ def _public_view(record: dict, generated_new: bool, reason: str) -> dict:
         "cutoff": record["cutoff"],
         "status": record["status"],
         "claim_level": record["claim_level"],
+        "validated_claim_allowed": False,
+        "absolute_probability_claim_allowed": False,
         "target": record["target"],
         "scope": record["scope"],
         "prediction": {

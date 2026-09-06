@@ -164,10 +164,14 @@ def test_complete_pages_explain_model_lineage_and_machine_readable_artifacts():
 def test_public_data_forecast_seed_is_preregistered_and_fail_closed():
  state=json.loads((ROOT/'site/data/public-data-forecast.json').read_text())
  assert state['model_version']=='1.4'
- assert state['status']=='PREREGISTERED_NO_FORECAST_YET'
+ assert state['status'] in {'PREREGISTERED_NO_FORECAST_YET','frozen_candidate_unvalidated'}
  assert state['validated_claim_allowed'] is False
  assert state['absolute_probability_claim_allowed'] is False
- assert 'prediction' not in state
+ if state['status']=='PREREGISTERED_NO_FORECAST_YET':
+  assert 'prediction' not in state
+ else:
+  assert 'event_probability' not in state['prediction']
+  assert 'candidate_distribution' not in state['prediction']
  evaluation=json.loads((ROOT/'site/data/public-data-prospective-evaluation.json').read_text())
  assert evaluation['scientific_validation']=='BLOCKED'
  assert evaluation['scored_forecasts']==0
