@@ -1,0 +1,19 @@
+{
+  "schema": "bsfm.public-exposure-source.v1",
+  "status": "2010_2025_ACQUIRED_HASHED_AND_AUDITED",
+  "publisher": "U.S. Department of Transportation / Bureau of Transportation Statistics",
+  "dataset": "TranStats T-100 Segment (All Carriers)",
+  "download_page": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+  "table_profile": "https://www.transtats.bts.gov/TableInfo.asp?QO_fu146_anzr=Nv4+Pn44vr45&V0s1_b0yB=D&gnoyr_VQ=FMG",
+  "first_year": 1990,
+  "frequency": "monthly",
+  "required_fields": ["YEAR", "MONTH", "AIRCRAFT_TYPE", "CLASS", "DEPARTURES_PERFORMED"],
+  "scope": "us_linked_commercial",
+  "scope_limit": "Flights with both origin and destination in a foreign country are excluded.",
+  "global_g2_eligible": false,
+  "raw_storage_policy": "Do not commit bulk raw T-100 archives. Preserve retrieval timestamp, table/query identity, release/vintage information and SHA-256; publish only redistributable derived aggregates and audit reports.",
+  "mapping_path": "data/exposure/bts-t100-cohort-mapping-v1.json",
+  "mapping_status": "REVIEWED_CANDIDATE_WITH_FAIL_CLOSED_AMBIGUOUS_CODE_615",
+  "method_status": "ADOPTED_FOR_BSFM_PD_1_3_CONSTRUCTION_GATES_BLOCKED",
+  "model_version_effect": "This regional denominator belongs only to separately preregistered BSFM-PD 1.3; it does not modify BSFM 1.2 or F-002."
+}

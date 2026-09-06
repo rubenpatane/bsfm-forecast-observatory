@@ -91,5 +91,42 @@ AGGIORNA #29 is the latest successful full operational workflow. It refreshed FA
 
 The automatic-cycle implementation and its correction are now workflow-verified. AGGIORNA #29 reports `source_integrity_ready=true`, cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
 
+## Unverified public-data work after AGGIORNA #29
+
+A separate T-100 aggregated-data adapter and draft public-data model decision
+have been added locally. They preserve performed-departure counts, require
+explicit DOT aircraft/service-class allowlists, label coverage as
+`us_linked_commercial`, and make global G2 promotion impossible. This work does
+not adopt a new model, change F-002, open G2/G3/G4 or alter the last
+workflow-verified baseline. Local verification completed with 216 tests,
+forecast-registry verification, foundation audit and final audit passing. The
+scientific gates remain correctly closed. Official T-100 data/support-table
+acquisition and workflow verification remain outstanding before adoption. The
+official current DOT aircraft/service-class lookups and the NTL-preserved 2021
+support-table archive were downloaded and hashed. The reviewed candidate mapping
+keeps mixed code 615 unmapped because it crosses 737-Classic/737-NG; code 612 is
+time-bounded to NG for the closed 2010-2025 interval and must be reviewed again
+for later intervals.
+
+The complete official 2010-2025 T-100 extract set has now been acquired into
+temporary non-repository storage and reduced to a redistributable hash/provenance
+audit. It contains 56,637,727 deterministically mapped Boeing performed
+departures and only 14 mixed-code-615 departures. The original separate
+Classic/NG design therefore stays fail-closed. A lossless nine-cohort regional
+candidate merging `737-Classic+NG` passes the structural regional matrix audit,
+and has now been adopted only for the separately versioned BSFM-PD 1.3
+construction. Neither result opens global G2.
+
+A final public-source review considered Eurostat flight-stage data, OpenSky
+historical/scientific datasets, EUROCONTROL material and national UK/Australia/
+Japan statistics. Each is valuable for regional reconciliation, but none supplies
+a compatible free global 2010-2025 Boeing cohort performed-flight denominator;
+a mosaic would introduce unresolved overlap, scope and coverage gaps. The user
+therefore authorized proceeding with the available public data. BSFM-PD 1.3 is
+now separately preregistered for prospective construction with U.S.-linked scope,
+nine cohorts including `737-Classic+NG`, the minimal shrunk-hazard estimator and
+an exposure-only pooled baseline. It explicitly excludes the unfulfilled BSFM
+1.2 components rather than relabelling the minimal estimator as model 1.2.
+
 ## Exact next step / external dependencies
-Obtain and acceptance-audit a lawful OAG/Cirium/IATA WATS global Boeing cohort×year operated-flight extract for G2; without it the real automatic fit, temporal backtest and forecast remain correctly blocked even though their execution path is implemented.
+Construct and authority-reconcile the BSFM-PD 1.3 historical outcome census under the exact U.S.-linked operated-segment rule, including origin/destination evidence for every candidate; global BSFM 1.2 remains separately blocked pending a lawful OAG/Cirium/IATA WATS extract.

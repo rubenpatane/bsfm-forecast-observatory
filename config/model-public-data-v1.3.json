@@ -1,0 +1,66 @@
+{
+  "schema": "bsfm.model-contract.v1",
+  "model_id": "BSFM-PD",
+  "model_version": "1.3",
+  "name": "Public-Data U.S.-Linked Shrunk Hazard",
+  "status": "PREREGISTERED_PENDING_EVIDENCE_GATES",
+  "adopted": "2026-09-06",
+  "non_retroactive": true,
+  "does_not_modify": ["BSFM 1.2", "F-002", "historical G1 v1"],
+  "target": "next_fatal_safety_accident_involving_boeing_commercial_jet_on_operated_segment_with_us_endpoint",
+  "target_taxonomy": "prospective-v2",
+  "scope": "us_linked_commercial",
+  "scope_rule": "The qualifying operated flight segment has at least one origin or destination in the United States or its territories and is represented by the compatible T-100 reporting scope.",
+  "cohorts": [
+    "727",
+    "737-Original",
+    "737-Classic+NG",
+    "737-MAX",
+    "747",
+    "757",
+    "767",
+    "777",
+    "787"
+  ],
+  "exposure": {
+    "source": "BTS T-100 Segment (All Carriers)",
+    "measure": "DEPARTURES_PERFORMED",
+    "vintage_policy": "fixed_versioned_modern_reconstruction",
+    "raw_query_and_hash_required": true,
+    "no_proxy_splitting": true
+  },
+  "candidate_estimator": "minimal_shrunk_hazard_v1",
+  "candidate_components": [
+    "performed_departure_exposure",
+    "lagged_qualifying_outcomes",
+    "cohort_hazard",
+    "hierarchical_shrinkage",
+    "survival_time_to_event"
+  ],
+  "excluded_model_1_2_contractual_components": [
+    "faa_sdr_precursors",
+    "ad_mitigation",
+    "failure_hazard",
+    "escalation",
+    "phase_of_flight",
+    "geography"
+  ],
+  "exclusion_reason": "BSFM-PD 1.3 is a separately versioned minimal public-data estimator, not a relabelling of the full BSFM 1.2 contractual model.",
+  "forecast_horizon_days": 90,
+  "baseline": "pooled_exposure_only_hazard_on_identical_future_exposure_path",
+  "primary_score": "log_score_full_horizon_with_right_censoring",
+  "validation": "rolling_origin_refit_at_every_cutoff",
+  "uncertainty": {
+    "method": "deterministic_gamma_posterior_monte_carlo",
+    "samples": 1000,
+    "seed": 1301,
+    "interval": 0.8
+  },
+  "publication": {
+    "append_only_forecasts": true,
+    "content_addressed_inputs": true,
+    "blocked_runs_published": true,
+    "validated_claim_requires_candidate_baseline_superiority": true
+  },
+  "current_gate_status": "BLOCKED_PENDING_US_LINKED_OUTCOME_CENSUS_AND_PIT_AUDIT"
+}

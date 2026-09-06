@@ -1,5 +1,5 @@
 {
-  "schema": "bsfm.g2-source-inventory.v3",
+  "schema": "bsfm.g2-source-inventory.v4",
   "status": "research-inventory",
   "updated": "2026-09-06",
   "required_denominator": "annual Boeing family/cohort departures or sectors for 2010-2025 under a compatible global commercial-jet scope, with source-vintage/revision semantics sufficient for reproducible historical baseline construction",
@@ -57,6 +57,33 @@
       "useful_fields": ["historical traffic", "forecast departures", "fleet forecast by aircraft type"],
       "coverage_result": "not_demonstrated_for_G2",
       "reason": "The public product description does not establish a reproducible historical actual-departures matrix at Boeing-family-by-year granularity matching the BSFM denominator. Forecasted departures/fleet are not substitutes for historical measured exposure, and no new ICAO API retrieval is permitted."
+    },
+    {
+      "publisher": "Eurostat",
+      "source_title": "Air transport flight-stage statistics",
+      "source_locator": "https://ec.europa.eu/eurostat/web/transport/information-data/air-transport",
+      "observed_granularity": "monthly commercial flight stages with airline and aircraft type for EU/EFTA/candidate-country reporting airports",
+      "useful_fields": ["commercial flights", "aircraft type", "airline", "airport pair"],
+      "coverage_result": "regional_reconciliation_only",
+      "reason": "Technically useful for European cross-checks but geographically incomplete for the global denominator and not directly combinable with T-100 without overlap and scope harmonization. Eurostat exposes the latest database version rather than a complete public vintage history."
+    },
+    {
+      "publisher": "OpenSky Network",
+      "source_title": "Historical and scientific flight datasets",
+      "source_locator": "https://opensky-network.org/data/",
+      "observed_granularity": "crowdsourced ADS-B observations and derived flights, with strongest curated flight series from 2019",
+      "useful_fields": ["observed flight", "icao24", "time", "origin/destination when derived", "aircraft metadata join"],
+      "coverage_result": "sensitivity_only_not_denominator",
+      "reason": "No data before 2013, materially changing receiver coverage, strongest coverage in Europe/US, and aircraft metadata compiled partly from crowdsourced sources prevent a complete compatible 2010-2025 global performed-flight denominator."
+    },
+    {
+      "publisher": "UK CAA / Australia BITRE / Japan MLIT and other national authorities",
+      "source_title": "National airport, traffic and aircraft activity statistics",
+      "source_locator": "docs/PUBLIC-DATA-VARIANT-DECISION-v1.md",
+      "observed_granularity": "national or reporting-airport movements, sometimes with aircraft type or airline",
+      "useful_fields": ["flights/movements", "aircraft type where available", "operator", "airport"],
+      "coverage_result": "regional_reconciliation_only",
+      "reason": "These are useful independent checks but have heterogeneous scopes, thresholds and units and leave large uncovered regions. A national-source mosaic would introduce overlap and missingness rather than a defensible global denominator."
     }
   ],
   "vintage_policy_requirement": {
@@ -77,6 +104,8 @@
     "public_bridge_2020_2023": false,
     "commercial_longitudinal_candidate_exists": true,
     "high_priority_candidates": ["OAG Historical Flight Data", "Cirium Historical Flight Status/Schedules", "IATA WATS Global"],
-    "next_research_direction": "The remaining G2 problem is now primarily lawful data access plus product-scope validation, not public-source discovery. Obtain a representative licensed extract/data dictionary from OAG, Cirium or WATS and run the fixed acceptance contract. If no such access is available, retain G2 BLOCKED or prospectively version a different cohort/baseline design; do not proxy-split the current cohorts."
+    "public_global_search_exhausted": true,
+    "public_variant_adopted": "BSFM-PD 1.3",
+    "next_research_direction": "Keep global BSFM 1.2 G2 BLOCKED pending lawful commercial access. Continue the separately preregistered BSFM-PD 1.3 U.S.-linked construction using T-100, without proxy splitting or importing its regional result into the global gate."
   }
 }

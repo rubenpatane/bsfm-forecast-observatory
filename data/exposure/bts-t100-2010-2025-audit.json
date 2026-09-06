@@ -1,0 +1,2274 @@
+{
+  "acceptance": {
+    "extra_cells": [],
+    "global_g2_pass_candidate": false,
+    "global_g2_status": "BLOCKED",
+    "missing_cells": [],
+    "reason": "T-100 excludes operations with both endpoints outside the United States.",
+    "regional_matrix_complete": false,
+    "schema": "bsfm.bts-t100-public-scope-acceptance.v1",
+    "scope": "us_linked_commercial"
+  },
+  "artifacts": [
+    {
+      "bytes": 209316,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2010.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2010
+      },
+      "retrieved_at": "2026-09-06T09:41:58Z",
+      "sha256": "b2344f8aa0d439065b258947e6e297a67660de4b9e11db4c76eb6dc0bf1322c6",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2010
+    },
+    {
+      "bytes": 209013,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2011.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2011
+      },
+      "retrieved_at": "2026-09-06T09:42:10Z",
+      "sha256": "98cd8525be093dd96d6616454f8dbca3d3695741f4e1fa8e35504e4e09cdd995",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2011
+    },
+    {
+      "bytes": 204634,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2012.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2012
+      },
+      "retrieved_at": "2026-09-06T09:42:22Z",
+      "sha256": "8f4e71e87792b9aefb88fe5ed24626023ea2721cd15cf967ea995df0158b31ec",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2012
+    },
+    {
+      "bytes": 200079,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2013.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2013
+      },
+      "retrieved_at": "2026-09-06T09:42:44Z",
+      "sha256": "44ebbd9c41d40e8fa6c0a8f9c0b807df6573165a17e36ded561d70d0980b1121",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2013
+    },
+    {
+      "bytes": 202356,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2014.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2014
+      },
+      "retrieved_at": "2026-09-06T09:42:57Z",
+      "sha256": "ab930a6af21c74279ef10729273b35fc35674d2f60796714529b997280d37026",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2014
+    },
+    {
+      "bytes": 204208,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2015.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2015
+      },
+      "retrieved_at": "2026-09-06T09:43:11Z",
+      "sha256": "b10197cc2ae2a67dde89932468ae343a1c9fa311d1c9abbfde377276f61a738b",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2015
+    },
+    {
+      "bytes": 206485,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2016.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2016
+      },
+      "retrieved_at": "2026-09-06T09:43:33Z",
+      "sha256": "0df2a132db5776fb99f2fb678eaefdb4daa054e6716747d5eca3e88b1c71542b",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2016
+    },
+    {
+      "bytes": 202440,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2017.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2017
+      },
+      "retrieved_at": "2026-09-06T09:43:46Z",
+      "sha256": "fa728ed1f0bb2e195861241f96fcec99e7ec2b51e9d33a1ee4de71fb3107f188",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2017
+    },
+    {
+      "bytes": 200798,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2018.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2018
+      },
+      "retrieved_at": "2026-09-06T09:43:58Z",
+      "sha256": "9197330d7dccadf58b6187bf19d3122c2be0736ac65789bc59ecdd8155667a78",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2018
+    },
+    {
+      "bytes": 200302,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2019.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2019
+      },
+      "retrieved_at": "2026-09-06T09:44:13Z",
+      "sha256": "001ffcc3a85474538bfec1c7dea3e0c550372367fedb4c325a5e6510642ae681",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2019
+    },
+    {
+      "bytes": 163146,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2020.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2020
+      },
+      "retrieved_at": "2026-09-06T09:44:26Z",
+      "sha256": "fffdb8c5468c4a1f866e8e734d80c23871c70f914be39a278c744acc585c0029",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2020
+    },
+    {
+      "bytes": 188042,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2021.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2021
+      },
+      "retrieved_at": "2026-09-06T09:44:40Z",
+      "sha256": "a89756ac114762ddf52220d9ad67d3fcfc9b963a2ed6c24ec270df19c7d2b197",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2021
+    },
+    {
+      "bytes": 198771,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2022.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2022
+      },
+      "retrieved_at": "2026-09-06T09:44:52Z",
+      "sha256": "893b4bd506dd3ee5587745486fd25a84f66b421532e36703bbc44d6dd82435de",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2022
+    },
+    {
+      "bytes": 201801,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2023.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2023
+      },
+      "retrieved_at": "2026-09-06T09:45:07Z",
+      "sha256": "ad1e2322d000cfe26b64feb31b86225540cb7df851d2f9c4f7d27bc7fcbd5dff",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2023
+    },
+    {
+      "bytes": 204326,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2024.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2024
+      },
+      "retrieved_at": "2026-09-06T09:45:20Z",
+      "sha256": "1e7d968fe0eb25853d157efc1efe633439a8f6afb7dbdc5c0f375b0cd59dcbf2",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2024
+    },
+    {
+      "bytes": 205020,
+      "csv_member": "T_T100_SEGMENT_ALL_CARRIER.csv",
+      "filename": "bts-t100-segment-all-carriers-2025.zip",
+      "query": {
+        "fields": [
+          "DEPARTURES_PERFORMED",
+          "AIRCRAFT_TYPE",
+          "YEAR",
+          "MONTH",
+          "CLASS"
+        ],
+        "geography": "All",
+        "period": "All",
+        "year": 2025
+      },
+      "retrieved_at": "2026-09-06T09:45:46Z",
+      "sha256": "c08e2f67fd9085fbfbb8d5f4d41cc3904f34a94a6df88a498ce8d45ea9cfdfa6",
+      "source_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?QO_fu146_anzr=Nv4Pn&gnoyr_VQ=FMG",
+      "year": 2025
+    }
+  ],
+  "diagnostics": {
+    "counted_departures": 56637727,
+    "counted_rows": 2675374,
+    "excluded_service_class_rows": 0,
+    "input_rows": 7453517,
+    "invalid_rows": 0,
+    "out_of_range_rows": 0,
+    "outside_target_universe_departures": 106486649,
+    "outside_target_universe_rows": 4778129,
+    "zero_departure_rows": 12733
+  },
+  "exposure_rows": [
+    {
+      "cohort": "727",
+      "departures": 46850.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 615183.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 1427412.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 23692.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 138178.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 556736.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 239613.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 126351.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 0.0,
+      "period": "2010",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 36240.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 588710.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 1549922.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 22827.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 130123.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 555424.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 238318.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 139005.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 0.0,
+      "period": "2011",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 22825.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 507538.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 1611286.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 21852.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 121618.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 530452.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 238409.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 146977.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 1072.0,
+      "period": "2012",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 7685.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 385383.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 1746267.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 20610.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 118342.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 498617.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 232839.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 157570.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 6223.0,
+      "period": "2013",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 5781.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 339319.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 1888701.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 20598.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 118469.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 440537.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 219028.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 171011.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 19421.0,
+      "period": "2014",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 4856.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 316848.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2103973.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 17353.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 115648.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 379006.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 224736.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 184858.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 32958.0,
+      "period": "2015",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 4252.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 257573.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 0.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2292386.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 15674.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 116545.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 340090.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 231700.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 200539.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 55225.0,
+      "period": "2016",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 4310.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 146037.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 1050.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2531531.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 12761.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 114285.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 315703.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 242182.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 215739.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 72798.0,
+      "period": "2017",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 3665.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 29830.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 35222.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2732707.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 12397.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 113686.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 312989.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 256365.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 223284.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 91724.0,
+      "period": "2018",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 2528.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 28298.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 19244.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2789772.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 5760.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 107389.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 320910.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 268794.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 231826.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 112235.0,
+      "period": "2019",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 3466.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 31449.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 6.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 1702899.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 6616.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 93599.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 199452.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 228507.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 128267.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 67766.0,
+      "period": "2020",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 3445.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 37235.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 152133.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2084300.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 3458.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 100834.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 234156.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 280203.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 158836.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 98466.0,
+      "period": "2021",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 3070.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 38548.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 294129.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2461309.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 208.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 97584.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 249648.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 298200.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 194690.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 120409.0,
+      "period": "2022",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 2500.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 34635.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 624911.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2565670.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 48.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 92545.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 260902.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 308754.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 212459.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 138801.0,
+      "period": "2023",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 1014.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 25937.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 803031.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2517783.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 61.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 93287.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 249688.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 314146.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 223949.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 143497.0,
+      "period": "2024",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "727",
+      "departures": 823.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Classic",
+      "departures": 24683.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-MAX",
+      "departures": 976493.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-NG",
+      "departures": 2376343.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "737-Original",
+      "departures": 130.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "747",
+      "departures": 90179.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "757",
+      "departures": 230280.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "767",
+      "departures": 297242.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "777",
+      "departures": 222201.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    },
+    {
+      "cohort": "787",
+      "departures": 150592.0,
+      "period": "2025",
+      "scope": "us_linked_commercial"
+    }
+  ],
+  "mapping_path": "data/exposure/bts-t100-cohort-mapping-v1.json",
+  "period": {
+    "end_year": 2025,
+    "start_year": 2010
+  },
+  "prospective_merged_cohort_candidate": {
+    "acceptance": {
+      "extra_cells": [],
+      "global_g2_pass_candidate": false,
+      "global_g2_status": "BLOCKED",
+      "missing_cells": [],
+      "reason": "T-100 excludes operations with both endpoints outside the United States.",
+      "regional_matrix_complete": true,
+      "schema": "bsfm.bts-t100-public-scope-acceptance.v1",
+      "scope": "us_linked_commercial"
+    },
+    "cohort_change": "Replace 737-Classic and 737-NG with 737-Classic+NG.",
+    "exposure_rows": [
+      {
+        "cohort": "727",
+        "departures": 46850.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 23692.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 138178.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 556736.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 239613.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 126351.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 0.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2042595.0,
+        "period": "2010",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 36240.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 22827.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 130123.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 555424.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 238318.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 139005.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 0.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2138632.0,
+        "period": "2011",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 22825.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 21852.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 121618.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 530452.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 238409.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 146977.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 1072.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2118824.0,
+        "period": "2012",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 7685.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 20610.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 118342.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 498617.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 232839.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 157570.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 6223.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2131650.0,
+        "period": "2013",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 5781.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 20598.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 118469.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 440537.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 219028.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 171011.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 19421.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2228020.0,
+        "period": "2014",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 4856.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 17353.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 115648.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 379006.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 224736.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 184858.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 32958.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2420821.0,
+        "period": "2015",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 4252.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 15674.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 0.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 116545.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 340090.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 231700.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 200539.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 55225.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2549959.0,
+        "period": "2016",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 4310.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 12761.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 1050.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 114285.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 315703.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 242182.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 215739.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 72798.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2677568.0,
+        "period": "2017",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 3665.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 12397.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 35222.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 113686.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 312989.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 256365.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 223284.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 91724.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2762537.0,
+        "period": "2018",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 2528.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 5760.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 19244.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 107389.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 320910.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 268794.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 231826.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 112235.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2818070.0,
+        "period": "2019",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 3466.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 6616.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 6.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 93599.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 199452.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 228507.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 128267.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 67766.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 1734348.0,
+        "period": "2020",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 3445.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 3458.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 152133.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 100834.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 234156.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 280203.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 158836.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 98466.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2121535.0,
+        "period": "2021",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 3070.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 208.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 294129.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 97584.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 249648.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 298200.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 194690.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 120409.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2499857.0,
+        "period": "2022",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 2500.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 48.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 624911.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 92545.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 260902.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 308754.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 212459.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 138801.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2600306.0,
+        "period": "2023",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 1014.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 61.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 803031.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 93287.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 249688.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 314146.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 223949.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 143497.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2543727.0,
+        "period": "2024",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "727",
+        "departures": 823.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Original",
+        "departures": 130.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-MAX",
+        "departures": 976493.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "747",
+        "departures": 90179.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "757",
+        "departures": 230280.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "767",
+        "departures": 297242.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "777",
+        "departures": 222201.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "787",
+        "departures": 150592.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      },
+      {
+        "cohort": "737-Classic+NG",
+        "departures": 2401032.0,
+        "period": "2025",
+        "scope": "us_linked_commercial"
+      }
+    ],
+    "reason": "This retains every code-615 departure without proxy splitting.",
+    "status": "METHOD_CHANGE_REQUIRES_NEW_MODEL_VERSION"
+  },
+  "schema": "bsfm.bts-t100-series-audit.v1",
+  "scientific_interpretation": "This is a public regional exposure sensitivity dataset. It does not open global G2 or validate BSFM 1.2.",
+  "scope": "us_linked_commercial",
+  "status": "RESEARCH_ONLY_NOT_MODEL_ADOPTION",
+  "unmapped_target_aircraft_types": [
+    {
+      "aircraft_type": "615",
+      "departures": 14
+    }
+  ],
+  "unmapped_target_aircraft_types_by_year": [
+    {
+      "aircraft_type": "615",
+      "departures": 1,
+      "year": 2023
+    },
+    {
+      "aircraft_type": "615",
+      "departures": 7,
+      "year": 2024
+    },
+    {
+      "aircraft_type": "615",
+      "departures": 6,
+      "year": 2025
+    }
+  ],
+  "zero_filled_cells": [
+    [
+      "2010",
+      "737-MAX"
+    ],
+    [
+      "2010",
+      "787"
+    ],
+    [
+      "2011",
+      "737-MAX"
+    ],
+    [
+      "2011",
+      "787"
+    ],
+    [
+      "2012",
+      "737-MAX"
+    ],
+    [
+      "2013",
+      "737-MAX"
+    ],
+    [
+      "2014",
+      "737-MAX"
+    ],
+    [
+      "2015",
+      "737-MAX"
+    ],
+    [
+      "2016",
+      "737-MAX"
+    ]
+  ]
+}
