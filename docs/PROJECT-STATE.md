@@ -110,7 +110,17 @@ negative/underpowered, and absolute probabilities remain disabled. F-002 stayed
 byte-identical.
 
 ## Operational state
-AGGIORNA #33 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1, repeated the BSFM-PD 1.3 negative/underpowered backtest, issued the first BSFM-PD 1.4 forecast, committed auditable state and deployed the complete GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; BSFM-PD 1.3 remains blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
+AGGIORNA #34 is the latest successful full operational workflow. It ran from
+`fcc1b8e35129ab9ba7f8b0b13b1934d4d9ba0b3c`, refreshed FAA SDR and NTSB AVALL
+state, executed the registered cycle, committed auditable state as `548bfe6` and
+deployed the complete GitHub Pages observatory including the manual editorial
+board. It retained `PD14-20260907-7fa7c48bc555` byte-identical with SHA-256
+`cbb038f12bf99446c1a02a4f95f7a468249337a53055b9421408d69e19982a8b`; no new
+forecast was generated. Every workflow step succeeded. The public cycle remains
+blocked on the global BSFM 1.2 scientific gates; BSFM-PD 1.3 remains blocked for
+insufficient event-bearing folds and lack of candidate superiority. F-002
+remains byte-identical to the PR #2 integration blob. The temporary research
+workflow remains absent.
 
 The global automatic-cycle 1.1 remains fail-closed with `scientific_fit_gate_closed`. The separate BSFM-PD 1.4 path is permitted to issue explicitly unvalidated prospective records from its public-data contract; that issuance does not open global G2/G3/G4.
 
@@ -279,7 +289,7 @@ integrity passed, and both foundation and final audits completed while retaining
 the scientific blockers. The temporary workflow was then removed to restore the
 single-workflow repository invariant before integration.
 
-## Manual editorial board — integrated, not yet workflow-verified
+## Manual editorial board — workflow-verified and deployed
 
 Branch `site/manual-editorial-board-20260907` adds a bilingual, manually
 maintained featured board to the overview and forecast pages. Its first entry
@@ -293,9 +303,11 @@ adjudication is pending. The board is explicitly non-scoring, is not an outcome
 ledger, does not modify any frozen forecast and is not written by AGGIORNA.
 
 Local verification completed with **247 tests**, forecast-registry integrity,
-foundation audit and final audit passing. The change is integrated on `main`
-but has not been run by AGGIORNA or deployed. Scientific gates and the latest
-workflow-verified baseline remain unchanged.
+foundation audit and final audit passing. AGGIORNA #34 then completed
+successfully and deployed the board. Direct checks of the public homepage and
+published board JSON returned HTTP 200 with status
+`PENDING_OFFICIAL_ADJUDICATION` and `scientific_effect: NONE`. Scientific gates
+remain unchanged.
 
 ## Exact next step / external dependencies
 Keep the manual Miami entry `PENDING_OFFICIAL_ADJUDICATION` until sufficient
@@ -306,6 +318,4 @@ retain this forecast until its horizon ends; score it only when coverage is
 verified through the first target event or 2026-12-05, then issue the next
 non-overlapping record. Do not run repeated updates as a substitute for new
 evidence. Keep global BSFM 1.2 blocked pending lawful OAG/Cirium/IATA WATS
-exposure and FAA PIT-release evidence. The post-#33 seed-state correction and
-extended-training audit must be repeated by the next AGGIORNA verification run
-after integration.
+exposure and FAA PIT-release evidence.
