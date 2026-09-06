@@ -114,7 +114,7 @@ AGGIORNA #31 is the latest successful full operational workflow. It refreshed FA
 
 The automatic-cycle implementation and its correction are workflow-verified. AGGIORNA #31 reports cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
 
-## BSFM-PD 1.4 public-online prospective cycle — local checkpoint
+## BSFM-PD 1.4 public-online prospective cycle — CI-verified checkpoint
 
 Branch `research/public-online-prospective-20260906` adds a separately
 registered operational path using only public online evidence. It does not
@@ -153,6 +153,11 @@ not predictive skill. Global G1 remains 14/16 BLOCKED; global G2/G3/G4 remain
 BLOCKED; BSFM-PD 1.3 remains negative/underpowered. Online authority monitoring
 can fail closed and requires positive coverage evidence: automation cannot infer
 “no event” from zero rows.
+
+Temporary read-only Research CI run #24 (`34033044616`) completed successfully
+on SHA `3edd6fcc522848ba73f6e4902e113eb164a88a55`. It repeated the full test suite,
+forecast-registry verification, foundation audit and final audit. The temporary
+workflow was then removed, restoring the single-workflow invariant before merge.
 
 Additional global exposure and historical PIT precursor data are registered as
 a value-of-information hypothesis. They would make richer components and a
@@ -224,8 +229,7 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Verify `research/public-online-prospective-20260906` in temporary read-only
-research CI, remove that workflow, merge the reviewed branch into `main`, then
+Merge PR #4 from `research/public-online-prospective-20260906` into `main`, then
 run AGGIORNA once from `main` to issue the first BSFM-PD 1.4 record and publish
 its fail-closed prospective-evaluation state. Afterward, accumulate genuinely
 new authority-covered outcomes; keep global BSFM 1.2 blocked pending lawful
