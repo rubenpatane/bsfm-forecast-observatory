@@ -3,17 +3,16 @@
   "candidate_estimator": "minimal_shrunk_hazard_v1",
   "cycle_spec_hash": "sha256:f3fbd4a281e7035194dba7c3a6f72d449b671a2c45992350040f8b189e91a199",
   "cycle_version": "1.1",
-  "evaluated_at": "2026-09-06T08:54:41Z",
+  "evaluated_at": "2026-09-06T08:57:54Z",
   "fit_gate": {
     "checks": {
       "baseline_present": false,
       "historical_cases": false,
       "leakage_free": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": false
+      "source_integrity_ready": true
     },
     "missing": [
-      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",
@@ -26,7 +25,7 @@
   "model_contract_version": "1.2",
   "promoted": false,
   "reason": "scientific_fit_gate_closed",
-  "result_hash": "sha256:8470485c01a356d24f26209e15150fbeb70163530e1abca23ce7f388c2c1142a",
+  "result_hash": "sha256:a16b2e988b55763fcc8d258409552fdb1cba2cf2dcfbf23f9044ad952b0e780d",
   "schema": "bsfm.research-cycle-result.v1",
   "training_snapshot_hash": "sha256:6439dd040baf5dcb688e935e4c566268fdf158e598e76aadbce70c6098de8105"
 }

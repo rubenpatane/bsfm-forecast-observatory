@@ -9,10 +9,9 @@
       "historical_cases": false,
       "leakage_free": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": false
+      "source_integrity_ready": true
     },
     "missing": [
-      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",
@@ -29,10 +28,9 @@
       "leakage_free": false,
       "paired_baseline_comparison": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": false
+      "source_integrity_ready": true
     },
     "missing": [
-      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",

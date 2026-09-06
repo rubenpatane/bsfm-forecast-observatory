@@ -9,6 +9,9 @@ def validate_sources():
  ms=sorted((ROOT/'data'/'manifests').glob('*.json')); checks=[]
  for p in ms:
   d=json.loads(p.read_text())
+  # The directory also contains operational state such as auto-cadence.json.
+  # Only actual source manifests belong to the source-integrity gate.
+  if not d.get('source'): continue
   checks.append({
    'manifest':p.name,'source':d.get('source'),'cutoff':d.get('cutoff'),'status':d.get('status','unknown'),
    'historical_public_availability':d.get('historical_public_availability'),

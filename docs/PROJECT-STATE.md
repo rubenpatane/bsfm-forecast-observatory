@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #27 (`34001974951`) completed successfully on source SHA `843dd6abc1a30f8e318fcee9d34d4ec9bff3e43a`; it is the latest full operational/workflow-verified baseline.
-- The generated-state commit on `main` is `a6c3602` and uses privacy-safe Git metadata.
+- AGGIORNA #28 (`34023071340`) completed successfully on source SHA `645f99f89587a8691c5ff6dc413766085490c534`; it is the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `d67e5cb` and uses privacy-safe Git metadata.
 - No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
 - Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
@@ -87,9 +87,9 @@ The committed automatic-cycle 1.0 implementation added the first frozen machine-
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #27 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, generated eight post-cutoff FAA SDR similarity signals, committed auditable state and deployed the GitHub Pages observatory. The live page was verified to render all eight signals without browser errors. PR #2 is merged into `main`; the temporary research workflow remains absent.
+AGGIORNA #28 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 in fail-closed mode, committed auditable state and deployed the GitHub Pages observatory. Review found that the source-integrity check incorrectly included the operational `auto-cadence.json` file; the current corrective batch excludes non-source manifests while preserving the real G2/G3/G4 blockers. PR #2 is merged into `main`; the temporary research workflow remains absent.
 
-The current local batch extends AGGIORNA with the versioned automatic research-cycle state and extends the methodology page with its live status, Gamma–Poisson estimator boundary, first-event equation, rolling-origin refit, posterior uncertainty and all-gates promotion rule. `docs/AUTOMATED-RESEARCH-CYCLE-v1.md` is the detailed publication contract. Local verification passed with 204 tests, registry verification and both audits; workflow verification is still required before this batch can become the new operational baseline.
+The current corrective batch makes source integrity evaluate only actual source manifests. Local verification passed with 205 tests, registry verification and both audits; the corrected cycle now reports `source_integrity_ready=true` while remaining blocked on historical cases, G2 baseline, G3 PIT and leakage evidence. One final AGGIORNA will be required after this correction is published.
 
 ## Exact next step / external dependencies
 Obtain and acceptance-audit a lawful OAG/Cirium/IATA WATS global Boeing cohort×year operated-flight extract for G2; without it the real automatic fit, temporal backtest and forecast remain correctly blocked even though their execution path is implemented.
