@@ -60,12 +60,15 @@ def test_home_explains_observatory_and_exposes_real_acquired_data():
  assert 'FAA SDR' in index and 'NTSB AVALL' in index
  assert 'non è necessariamente un incidente' in index
  assert 'latestReports' in index and 'topModels' in index and 'ntsbStats' in index
+ assert 'Geografia descrittiva' in index and 'Operatore' in index and 'MSN' in index
 
 def test_home_loads_generated_nonfatal_comparables():
  index=(ROOT/'site/index.html').read_text()
  js=(ROOT/'site/comparables.js').read_text()
  assert './comparables.js' in index
  assert './data/comparable-cases.json' in js
+ assert './data/real-data.json' in js
+ assert 'similar_boeing_reports' in js
  assert 'Confronto descrittivo ≠ validazione' in js
  assert 'non modifica il suo punteggio' in js
  assert 'const CASES=' not in js

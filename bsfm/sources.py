@@ -7,6 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 FAA='https://external.apic4e.faa.gov/sdrs/retrieve/SDR-{year}.csv'
 NTSB='https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5Cavall.zip'
 REQUIRED_SDR={'DifficultyDate','SubmissionDate','AircraftMake','AircraftModel','JASCCode'}
+F002_CUTOFF=date(2026,8,19)
 def now(): return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
 def sha(b): return hashlib.sha256(b).hexdigest()
 def fetch(url,timeout=120):
@@ -53,6 +54,21 @@ def inspect_faa_csv(raw):
 def _clean(value,limit=220):
  value=' '.join((value or '').split())
  return value[:limit]
+def _sdr_similarity(model,stage,component,discrepancy):
+ text=' '.join((component,discrepancy)).upper(); compact=model.upper().replace('BOEING','').replace(' ','').replace('-','')
+ exact=compact.startswith('7378') and 'MAX' not in compact
+ family=compact.startswith(('7376','7377','7378','7379')) and 'MAX' not in compact
+ approach_landing=stage.upper() in {'APP','AP','LND','LDG','LA'} or any(x in text for x in ('APPROACH','LANDING','TOUCHDOWN'))
+ gear_structural=any(x in text for x in ('LANDING GEAR','GEAR','TIRE','TYRE','BRAKE','STRUCTUR','FUSELAGE','TAIL STRIKE','HARD LANDING','HYDRAULIC'))
+ propulsion=any(x in text for x in ('ENGINE','PROPULSION','THRUST','FAN BLADE'))
+ tags=[]
+ if exact: tags.append('exact_model')
+ if family: tags.append('family_737_ng')
+ if approach_landing: tags.append('approach_landing')
+ if gear_structural: tags.append('gear_structural_cluster')
+ if propulsion: tags.append('alternative_propulsion')
+ score=(4 if exact else 0)+(2 if family else 0)+(3 if approach_landing else 0)+(2 if gear_structural else 0)+(1 if propulsion else 0)
+ return tags,score
 def summarize_faa_public(raw,limit=12):
  """Build a small public, auditable view of the current FAA SDR export.
 
@@ -61,7 +77,7 @@ def summarize_faa_public(raw,limit=12):
  only operationally useful public fields; free text is truncated for the site.
  """
  rd=csv.DictReader(io.StringIO(raw.decode('utf-8-sig',errors='replace')))
- records=[]; models=Counter(); stages=Counter(); conditions=Counter(); total=boeing=0
+ records=[]; similar=[]; models=Counter(); stages=Counter(); conditions=Counter(); total=boeing=0
  for r in rd:
   total+=1
   if 'BOEING' not in (r.get('AircraftMake') or '').upper(): continue
@@ -70,7 +86,7 @@ def summarize_faa_public(raw,limit=12):
   stage=_clean(r.get('StageOfOperationCode'),64) or '—'; stages[stage]+=1
   condition=_clean(r.get('NatureOfConditionA'),64) or '—'; conditions[condition]+=1
   d=parse_sdr_date(r.get('DifficultyDate'))
-  records.append({
+  public_row={
    'date':d.isoformat() if d else None,
    'model':model,
    'jasc_code':_clean(r.get('JASCCode'),32) or '—',
@@ -78,8 +94,13 @@ def summarize_faa_public(raw,limit=12):
    'condition_code':condition,
    'component':_clean(r.get('ComponentName') or r.get('PartName'),96) or '—',
    'discrepancy':_clean(r.get('Discrepancy'),220) or '—',
-  })
+  }
+  records.append(public_row)
+  tags,score=_sdr_similarity(model,stage,public_row['component'],public_row['discrepancy'])
+  if d and d>=F002_CUTOFF and ({'exact_model','family_737_ng'} & set(tags)) and ({'approach_landing','gear_structural_cluster','alternative_propulsion'} & set(tags)):
+   similar.append({**public_row,'similarity_tags':tags,'similarity_score':score,'source':'FAA SDR','record_type':'service_difficulty_report'})
  records.sort(key=lambda x:(x['date'] or '',x['model']),reverse=True)
+ similar.sort(key=lambda x:(x['similarity_score'],x['date'] or ''),reverse=True)
  def top(counter,n=8): return [{'value':k,'count':v} for k,v in counter.most_common(n)]
  return {
   'schema':'bsfm.public-real-data.v1',
@@ -94,6 +115,8 @@ def summarize_faa_public(raw,limit=12):
   'top_stage_codes':top(stages),
   'top_condition_codes':top(conditions),
   'latest_boeing_reports':records[:limit],
+  'similarity_rule':'After F-002 cutoff; 737-800/737-NG plus approach/landing, gear/structural/operational or alternative propulsion text/code; fixed weighted score. SDRs are reports, not accident classifications or forecast hits.',
+  'similar_boeing_reports':similar[:8],
  }
 def write_public_real_data(summary):
  p=ROOT/'site'/'data'/'real-data.json'; p.parent.mkdir(parents=True,exist_ok=True)

@@ -46,3 +46,17 @@ def test_public_faa_summary_is_boeing_only_sorted_and_descriptive():
  assert x['top_models'][0]=={'value':'737-800','count':2}
  assert 'not necessarily an accident' in x['interpretation_warning']
  assert all('AIRBUS' not in str(r) for r in x['latest_boeing_reports'])
+
+def test_public_faa_summary_scores_post_cutoff_similarity_without_calling_it_an_accident():
+ raw=(
+  'DifficultyDate,SubmissionDate,AircraftMake,AircraftModel,JASCCode,StageOfOperationCode,NatureOfConditionA,ComponentName,Discrepancy\n'
+  '08/26/2026,2026/08/27,BOEING,737-800,3210,LDG,FAIL,BRAKE,Four tires failed during landing\n'
+  '08/18/2026,2026/08/19,BOEING,737-800,3210,LDG,FAIL,GEAR,Before cutoff\n'
+  '09/03/2026,2026/09/04,BOEING,777-300,7200,CRZ,FAIL,ENGINE,Engine shutdown\n'
+ ).encode()
+ x=summarize_faa_public(raw)
+ assert len(x['similar_boeing_reports'])==1
+ signal=x['similar_boeing_reports'][0]
+ assert signal['date']=='2026-08-26' and signal['similarity_score']==11
+ assert signal['record_type']=='service_difficulty_report'
+ assert 'not accident classifications' in x['similarity_rule']
