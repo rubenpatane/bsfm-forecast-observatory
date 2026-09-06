@@ -1,0 +1,12 @@
+{
+  "candidate_better": null,
+  "claim_level": "experimental_unvalidated",
+  "event_bearing_forecasts": 0,
+  "forecast_count": 0,
+  "minimum_event_bearing_forecasts": 10,
+  "reason": "no_frozen_forecasts",
+  "schema": "bsfm.public-data-prospective-evaluation.v1",
+  "scientific_validation": "BLOCKED",
+  "scored_forecasts": 0,
+  "status": "NO_SCORABLE_PROSPECTIVE_FORECASTS"
+}

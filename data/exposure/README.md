@@ -17,4 +17,6 @@ the official aggregated T-100 table. It deliberately emits
 `scope=us_linked_commercial` and `global_g2_eligible=false`. A complete regional
 matrix therefore cannot change the global BSFM 1.2 G2 status. Any forecast use
 requires the separately versioned prospective decision described in
-`docs/PUBLIC-DATA-VARIANT-DECISION-v1.md`.
+`docs/PUBLIC-DATA-VARIANT-DECISION-v1.md`. BSFM-PD 1.4 reuses the accepted
+nine-cohort regional matrix under the frozen online-only prospective protocol
+in `docs/PUBLIC-DATA-PROSPECTIVE-v1.4.md`; it does not promote global G2.

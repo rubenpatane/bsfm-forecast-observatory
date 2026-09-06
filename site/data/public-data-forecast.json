@@ -1,0 +1,12 @@
+{
+  "absolute_probability_claim_allowed": false,
+  "claim_level": "experimental_unvalidated",
+  "generated_new": false,
+  "model_id": "BSFM-PD",
+  "model_version": "1.4",
+  "notice": "BSFM-PD 1.4 is preregistered. No forecast exists yet; the first record may be issued only by a later AGGIORNA run from the committed contract.",
+  "reason": "awaiting_first_post_commit_aggiorna",
+  "schema": "bsfm.public-data-forecast-state.v1",
+  "status": "PREREGISTERED_NO_FORECAST_YET",
+  "validated_claim_allowed": false
+}

@@ -14,6 +14,6 @@
   "raw_storage_policy": "Do not commit bulk raw T-100 archives. Preserve retrieval timestamp, table/query identity, release/vintage information and SHA-256; publish only redistributable derived aggregates and audit reports.",
   "mapping_path": "data/exposure/bts-t100-cohort-mapping-v1.json",
   "mapping_status": "REVIEWED_CANDIDATE_WITH_FAIL_CLOSED_AMBIGUOUS_CODE_615",
-  "method_status": "ADOPTED_FOR_BSFM_PD_1_3_CONSTRUCTION_GATES_BLOCKED",
-  "model_version_effect": "This regional denominator belongs only to separately preregistered BSFM-PD 1.3; it does not modify BSFM 1.2 or F-002."
+  "method_status": "ADOPTED_FOR_BSFM_PD_1_3_BACKTEST_AND_1_4_PROSPECTIVE_USE",
+  "model_version_effect": "This regional denominator belongs only to separately versioned BSFM-PD 1.3/1.4; it does not modify BSFM 1.2, global G2 or F-002."
 }
