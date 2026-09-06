@@ -11,7 +11,7 @@
   "cutoff": "2026-09-06",
   "forecast_id": "PD14-20260907-7fa7c48bc555",
   "forecast_key": "sha256:7fa7c48bc55566dfc9d05354c2b5bc2f02395acb9631b7be7a8ae1d2b051b019",
-  "generated_new": true,
+  "generated_new": false,
   "input_state": {
     "annual_exposure_hash": "sha256:f0c7287282152b1892b67d7cf16107550b1d665d6fcca7aa1c1c7eaff901c797",
     "cutoff": "2026-09-06",
@@ -48,7 +48,7 @@
     "modal_date": "2026-09-07",
     "start_date": "2026-09-07"
   },
-  "reason": "new_prospective_forecast_issued",
+  "reason": "active_non_overlapping_forecast_exists",
   "record_path": "forecasts/public-data/PD14-20260907-7fa7c48bc555.json",
   "schema": "bsfm.public-data-forecast-state.v1",
   "scope": "us_linked_commercial",
