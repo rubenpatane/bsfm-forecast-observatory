@@ -279,7 +279,7 @@ integrity passed, and both foundation and final audits completed while retaining
 the scientific blockers. The temporary workflow was then removed to restore the
 single-workflow repository invariant before integration.
 
-## Manual editorial board — local, not yet workflow-verified
+## Manual editorial board — integrated, not yet workflow-verified
 
 Branch `site/manual-editorial-board-20260907` adds a bilingual, manually
 maintained featured board to the overview and forecast pages. Its first entry
@@ -293,14 +293,14 @@ adjudication is pending. The board is explicitly non-scoring, is not an outcome
 ledger, does not modify any frozen forecast and is not written by AGGIORNA.
 
 Local verification completed with **247 tests**, forecast-registry integrity,
-foundation audit and final audit passing. The change is committed on its
-dedicated branch but has not been merged, run by AGGIORNA or deployed.
-Scientific gates and the latest workflow-verified baseline remain unchanged.
+foundation audit and final audit passing. The change is integrated on `main`
+but has not been run by AGGIORNA or deployed. Scientific gates and the latest
+workflow-verified baseline remain unchanged.
 
 ## Exact next step / external dependencies
-Review and merge the manual editorial-board branch while keeping its Miami entry
-`PENDING_OFFICIAL_ADJUDICATION` until sufficient competent-authority evidence is
-public. Keep the active `PD14-20260907-7fa7c48bc555` record immutable and
+Keep the manual Miami entry `PENDING_OFFICIAL_ADJUDICATION` until sufficient
+competent-authority evidence is public. Keep the active
+`PD14-20260907-7fa7c48bc555` record immutable and
 accumulate genuinely new competent-authority outcome coverage. AGGIORNA must
 retain this forecast until its horizon ends; score it only when coverage is
 verified through the first target event or 2026-12-05, then issue the next
