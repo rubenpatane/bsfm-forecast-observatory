@@ -28,8 +28,8 @@ This taxonomy is explicitly non-retroactive: it does not apply to F-002, histori
 ## Current research branch and verification
 Draft PR #2, branch `research/privacy-safe-rebuild-20260905`, is the privacy-safe reconstruction of post-#25 research. It was created from current `main`; it does not import the commit history of closed PR #1.
 
-The latest successful read-only Research CI run is `34000038429`, verified at research SHA `12ccc747e76eb4568a65030bfe87ec01e91a830e` before removal of the temporary workflow. It executed:
-- full `pytest -q`: **187 passed**;
+The latest successful read-only Research CI run is `34000757503`, verified at research SHA `c5cc3e63a1a21605ee416f971fbe1d1cf8493bdd` before removal of the temporary workflow. It executed:
+- full `pytest -q`: **188 passed**;
 - `python -m bsfm.cli verify`: forecast registry integrity OK;
 - `python -m bsfm.cli audit-foundation`: completed successfully;
 - `python -m bsfm.cli audit-final`: completed successfully.
@@ -85,7 +85,7 @@ G4 remains downstream of G1-G3. No candidate-vs-baseline model-skill claim is al
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. The research branch is software-verified through Research CI `34000038429` with 187 tests passed, and the temporary workflow has been removed.
+AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. The research branch is software-verified through Research CI `34000757503` with 188 tests passed, and the temporary workflow has been removed.
 
 ## Exact next step / external dependencies
 Obtain a lawful representative extract and data dictionary from OAG, Cirium or IATA WATS for the fixed G2 flight-leg acceptance audit; meanwhile preserve F-002/historical G1 v1, keep model 1.2 and G3 fail-closed unless genuine FAA SDR snapshots or an explicitly versioned new-model decision arrives, and leave PR #2 Draft without running AGGIORNA from this branch.
