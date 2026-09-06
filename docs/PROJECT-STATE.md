@@ -116,8 +116,10 @@ The automatic-cycle implementation and its correction are workflow-verified. AGG
 
 ## BSFM-PD 1.4 public-online prospective cycle — CI-verified checkpoint
 
-Branch `research/public-online-prospective-20260906` adds a separately
-registered operational path using only public online evidence. It does not
+PR #4 from branch `research/public-online-prospective-20260906` was
+squash-merged into `main` as
+`eaa1e4cd367790b02fa10a96cba8c77b1d2f7d04`. It adds a separately registered
+operational path using only public online evidence. It does not
 modify F-002, BSFM 1.2, historical G1 v1 or the negative/underpowered BSFM-PD
 1.3 result. Contract hash
 `sha256:35868ea7b54ea60d6341a0cdcf0de70831ef113a6d0edf43e28de78dd9d0e2a5`
@@ -229,8 +231,7 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Merge PR #4 from `research/public-online-prospective-20260906` into `main`, then
-run AGGIORNA once from `main` to issue the first BSFM-PD 1.4 record and publish
+Run AGGIORNA once from `main` to issue the first BSFM-PD 1.4 record and publish
 its fail-closed prospective-evaluation state. Afterward, accumulate genuinely
 new authority-covered outcomes; keep global BSFM 1.2 blocked pending lawful
 OAG/Cirium/IATA WATS exposure and FAA PIT-release evidence.
