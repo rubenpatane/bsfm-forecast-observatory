@@ -91,7 +91,12 @@ AGGIORNA #29 is the latest successful full operational workflow. It refreshed FA
 
 The automatic-cycle implementation and its correction are now workflow-verified. AGGIORNA #29 reports `source_integrity_ready=true`, cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
 
-## Unverified public-data work after AGGIORNA #29
+## Integrated public-data work pending AGGIORNA
+
+PR #3, branch `research/public-data-t100-20260906`, was squash-merged into
+`main` as `f36da9fa82f21f85debfc5a686a7fbf32301caec`. It is locally verified but
+has not yet passed a full AGGIORNA workflow run; #29 remains the latest
+workflow-verified baseline.
 
 A separate T-100 aggregated-data adapter and draft public-data model decision
 have been added locally. They preserve performed-departure counts, require
@@ -151,4 +156,4 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Commit and integrate the fully verified BSFM-PD 1.3 checkpoint, then run AGGIORNA; further predictive-validation work requires either genuinely new prospective outcomes or a separately preregistered model/version decision, while global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
+Run AGGIORNA on merged `main` and record its run ID/source SHA; further predictive-validation work requires either genuinely new prospective outcomes or a separately preregistered model/version decision, while global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
