@@ -270,6 +270,14 @@ preregistered model version plus genuinely future evidence. Full method and
 claim limits are recorded in
 `docs/PUBLIC-DATA-EXTENDED-TRAINING-FEASIBILITY.md`.
 
+PR #5 on branch `research/public-data-extended-training-20260906` preserves this
+audit. Temporary read-only Research CI run #26 (`34042331486`) completed
+successfully at research SHA
+`5052843751a7f74b2c7735049da0f48b5852f676`: 246 tests passed, forecast-registry
+integrity passed, and both foundation and final audits completed while retaining
+the scientific blockers. The temporary workflow was then removed to restore the
+single-workflow repository invariant before integration.
+
 ## Exact next step / external dependencies
 Keep the active `PD14-20260907-7fa7c48bc555` record immutable and accumulate
 genuinely new competent-authority outcome coverage. AGGIORNA must retain this
