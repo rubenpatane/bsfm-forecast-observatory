@@ -1,6 +1,6 @@
 {
   "boeing_rows": 20799,
-  "generated_at": "2026-09-06T00:23:31Z",
+  "generated_at": "2026-09-06T00:44:02Z",
   "interpretation_warning": "An SDR is a service-difficulty report, not necessarily an accident, a verified causal finding, or a BSFM prediction.",
   "latest_boeing_reports": [
     {
@@ -130,6 +130,151 @@
   },
   "rows_total": 39245,
   "schema": "bsfm.public-real-data.v1",
+  "similar_boeing_reports": [
+    {
+      "component": "TIRE",
+      "condition_code": "O",
+      "date": "2026-09-02",
+      "discrepancy": "AIRCRAFT WAS GROUNDED: #2 LEFT MAIN TIRE RUPTURED DURING LANDING. ARFF REQUESTED AS A PRECAUTION. MAINTENANCE .REMOVED AND REPLACED #1 AND #2 MAIN TIRE WITH NEW IAW AMM 32-45-11",
+      "jasc_code": "3244",
+      "model": "737823",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "LD"
+    },
+    {
+      "component": "WHEEL ASSY",
+      "condition_code": "J",
+      "date": "2026-08-27",
+      "discrepancy": "ALL 4 MAIN TIRES BLEW ON LANDING. WHEELS GROUND DOWN TO BRAKES ON BOTH SIDES OF AIRCRAFT. AIRCRAFT STOPPED ON RUNWAY, NO LONGER ABLE TO TAXI. LEFT BRAKE & WHEEL CAUGHT ON FIRE, CAPTAIN SIDE. RECOVERY OF AIRCRAFT AND REPA",
+      "jasc_code": "3246",
+      "model": "737883",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "CL"
+    },
+    {
+      "component": "STIFFENER",
+      "condition_code": "O",
+      "date": "2026-08-26",
+      "discrepancy": "LEFT MAIN LANDING GEAR MIDDLE DOOR HAS A CRACK IN THE LOWER FWD STIFFENER REMOVED AND REPLACED CENTER DOOR UP TO REF AMM 32-13-11 STEP 3H(4). REQUIRES MAIN LANDING GEAR SHOCK STRUTS DOOR ADJUSTMENT ADJUSTED LH MLG INNER ",
+      "jasc_code": "5280",
+      "model": "7378H4",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "IN"
+    },
+    {
+      "component": "TRANSMITTER",
+      "condition_code": "F",
+      "date": "2026-08-24",
+      "discrepancy": "AIRCRAFT WAS GROUNDED: FLAP WOULD NOT LOWER PAST FLAPS 2 POSITION. HAD TO MANUALLY LOWER THE FLAPS TO 15 FOR LANDING. HYDRAULIC QUANTITY NORMAL, NO CAUTIONS OR WARNINGS. T/S FLAP SYSTEM FOUND FAULT ON FSEU RT FLAP SENSOR",
+      "jasc_code": "2751",
+      "model": "737823",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "DE"
+    },
+    {
+      "component": "VALVE",
+      "condition_code": "J",
+      "date": "2026-08-24",
+      "discrepancy": "AFTER LANDING APPLIED BRAKES & FELT LIKE PLAYING WASNT SLOWING LIKE NORMAL. THEN FELT LIKE BRAKE WAS GRABBING THEN FELT IT AGAIN AND A THIRD TIME AGGRESSIVE GRABBING AT A SLOW SPEED. WE WERE ABLE TO TAXI WITHOUT FURTHER ",
+      "jasc_code": "3240",
+      "model": "737890",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "TX"
+    },
+    {
+      "component": "SEAT",
+      "condition_code": "O",
+      "date": "2026-08-22",
+      "discrepancy": "CAPT SEAT BROKE FREE TWICE ONCE SETTING BRAKES ONCE ON LANDING WHEN FO APPLIED BRAKES SEAT SLAMMED FORWARD_ R/R CAPT SEAT IAW AMM 25-11-01",
+      "jasc_code": "2510",
+      "model": "7378H4",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "NR"
+    },
+    {
+      "component": "TORQUE TUBE",
+      "condition_code": "J",
+      "date": "2026-08-29",
+      "discrepancy": "ON LANDING, FWD ENTRY DOOR LIGHT ILLUMINATED. FIGHT ATTENDANTS REPORTED NO ABNORMAL SOUNDS OR INDICATIONS. LIGHT EXTINGUISHED WHEN THEY PUSHED DOWN ON THE HANDLE. FOUND L1 DOOR TOO LOW WHEN TRYING TO CLOSE. ADJUSTED VERT",
+      "jasc_code": "5210",
+      "model": "737832",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 9,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "LD"
+    },
+    {
+      "component": "UNKNOWN",
+      "condition_code": "B",
+      "date": "2026-08-29",
+      "discrepancy": "HEAVY SMOKE SMELL ON LANDING IN AFT CABIN, NOT ELECTRICAL SMELL. HEAVY SMOKE SMELL ON LANDING IN AFT CABIN NOT ELECTRICAL SMELL. PERFORMED IFIM TASK 21-00-00-810-830 WITH NO SMELLS OR EXHAUST OR FUMES. NO SMOKE NOTED. A/",
+      "jasc_code": "2120",
+      "model": "7378",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 9,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "TX"
+    }
+  ],
+  "similarity_rule": "After F-002 cutoff; 737-800/737-NG plus approach/landing, gear/structural/operational or alternative propulsion text/code; fixed weighted score. SDRs are reports, not accident classifications or forecast hits.",
   "source": "FAA Service Difficulty Reports (SDR)",
   "source_scope": "Official current-year FAA SDR export; Boeing rows only for model-oriented summaries.",
   "top_condition_codes": [
