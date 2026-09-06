@@ -1118,7 +1118,7 @@
     },
     "G2": {
       "baseline_present": false,
-      "coverage": "The remaining G2 problem is now primarily lawful data access plus product-scope validation, not public-source discovery. Obtain a representative licensed extract/data dictionary from OAG, Cirium or WATS and run the fixed acceptance contract. If no such access is available, retain G2 BLOCKED or prospectively version a different cohort/baseline design; do not proxy-split the current cohorts.",
+      "coverage": "Keep global BSFM 1.2 G2 BLOCKED pending lawful commercial access. Continue the separately preregistered BSFM-PD 1.3 U.S.-linked construction using T-100, without proxy splitting or importing its regional result into the global gate.",
       "status": "BLOCKED"
     },
     "G3": {

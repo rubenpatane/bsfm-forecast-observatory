@@ -1,7 +1,7 @@
 {
-  "baseline_mean_log_score": 0.49681740630292964,
+  "baseline_mean_log_score": 0.4968174063029297,
   "candidate_better_descriptive": false,
-  "candidate_mean_log_score": 0.4991095350351523,
+  "candidate_mean_log_score": 0.49910953503515254,
   "claim_limit": "Descriptive execution does not establish predictive validity when the frozen minimum event-fold rule is unmet.",
   "event_bearing_fold_count": 3,
   "fold_count": 52,
@@ -205,7 +205,7 @@
       "observed_event_id": "G1-2018-SWA1380"
     },
     {
-      "baseline_log_score": 0.056570071994111897,
+      "baseline_log_score": 0.056570071994112014,
       "candidate_log_score": 0.09562121138822433,
       "case_id": "PD13-2018-06-04",
       "cutoff": "2018-06-03",
@@ -214,7 +214,7 @@
       "observed_event_id": null
     },
     {
-      "baseline_log_score": 0.0538043615906441,
+      "baseline_log_score": 0.05380436159064738,
       "candidate_log_score": 0.09067603165628654,
       "case_id": "PD13-2018-09-02",
       "cutoff": "2018-09-01",
@@ -269,7 +269,7 @@
     },
     {
       "baseline_log_score": 0.07465874647287511,
-      "candidate_log_score": 0.1139182528552749,
+      "candidate_log_score": 0.11391825285527489,
       "case_id": "PD13-2020-02-24",
       "cutoff": "2020-02-23",
       "horizon_end": "2020-05-23",
@@ -475,7 +475,7 @@
       "observed_event_id": null
     }
   ],
-  "mean_log_score_improvement": -0.0022921287322226758,
+  "mean_log_score_improvement": -0.0022921287322228423,
   "minimum_event_bearing_folds": 10,
   "schema": "bsfm.public-data-exploratory-backtest.v1",
   "scientific_validation": "BLOCKED_INSUFFICIENT_EVENT_FOLDS",
