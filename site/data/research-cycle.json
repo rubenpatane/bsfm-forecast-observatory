@@ -1,9 +1,9 @@
 {
   "backtest_evaluated": false,
   "candidate_estimator": "minimal_shrunk_hazard_v1",
-  "cycle_spec_hash": "sha256:a858859dbba137b1f5aaf8211c7c389df511e36e76a4c2db5dbfac585b21d808",
-  "cycle_version": "1.0",
-  "evaluated_at": "2026-09-06T08:18:32Z",
+  "cycle_spec_hash": "sha256:f3fbd4a281e7035194dba7c3a6f72d449b671a2c45992350040f8b189e91a199",
+  "cycle_version": "1.1",
+  "evaluated_at": "2026-09-06T08:34:39Z",
   "fit_gate": {
     "checks": {
       "baseline_present": false,
@@ -26,7 +26,7 @@
   "model_contract_version": "1.2",
   "promoted": false,
   "reason": "scientific_fit_gate_closed",
-  "result_hash": "sha256:ab023926b19e312c22e048977a1c6b76bdb0db6054d363d6da1fd1ef2c674513",
+  "result_hash": "sha256:cdcb1a2a3a125d3ff4f2283c948c7f0dd3347fdd6279c333f3b0691dc91a2d70",
   "schema": "bsfm.research-cycle-result.v1",
-  "training_snapshot_hash": "sha256:dcdb8109f867c9e4a388ee2c00ca5fbdbb1899dc0a0fe0f1ac9c84ae2a9e724c"
+  "training_snapshot_hash": "sha256:6439dd040baf5dcb688e935e4c566268fdf158e598e76aadbce70c6098de8105"
 }

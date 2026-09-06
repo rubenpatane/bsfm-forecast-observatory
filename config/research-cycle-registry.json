@@ -6,6 +6,12 @@
       "path": "config/research-cycle-v1.json",
       "spec_hash": "sha256:a858859dbba137b1f5aaf8211c7c389df511e36e76a4c2db5dbfac585b21d808",
       "status": "frozen"
+    },
+    {
+      "cycle_version": "1.1",
+      "path": "config/research-cycle-v1.1.json",
+      "spec_hash": "sha256:f3fbd4a281e7035194dba7c3a6f72d449b671a2c45992350040f8b189e91a199",
+      "status": "active"
     }
   ]
 }

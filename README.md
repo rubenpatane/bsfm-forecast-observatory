@@ -71,7 +71,7 @@ F-002 is not retrospectively edited. Repository publication occurred later than 
 
 The repository implements the fail-closed execution path from new evidence to a future time-to-event distribution. `config/research-cycle-v1.json` freezes the candidate estimator, target taxonomy, 90-day horizon, scoring rule, cohort universe and versioning policy. Every run binds its inputs and specification with content hashes.
 
-When the scientific input gates pass, the cycle can refit parameters, construct paired candidate and exposure-only baseline distributions, evaluate historical cutoffs and publish a modal date, daily probabilities, probability of no event within the horizon and a conditional uncertainty interval. When a gate or declared input is missing, it publishes the reason and does not fabricate a forecast.
+When the scientific input gates pass, active cycle 1.1 can refit candidate and baseline independently at every historical cutoff, construct paired time distributions and publish a modal date, daily probabilities, probability of no event within the horizon, a conditional temporal interval and reproducible posterior parameter-uncertainty bands. A successful gated run freezes a content-addressed candidate forecast without modifying earlier records. When a gate or declared input is missing, it publishes the reason and does not fabricate a forecast.
 
 The implemented minimal shrinkage estimator is a candidate implementation, **not** a silent replacement for the complete BSFM 1.2 contract. Full details and equations are in [`docs/AUTOMATED-RESEARCH-CYCLE-v1.md`](docs/AUTOMATED-RESEARCH-CYCLE-v1.md).
 

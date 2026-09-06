@@ -3,6 +3,8 @@
 Status: FROZEN IMPLEMENTATION CONTRACT — SCIENTIFIC GATES FAIL CLOSED  
 Adopted: 2026-09-06
 
+Cycle 1.0 remains frozen. Cycle 1.1 is the active prospective implementation: it adds mandatory refitting inside every historical walk-forward fold and deterministic Gamma-posterior Monte Carlo bands. The 1.0 specification is preserved unchanged in the registry.
+
 ## Purpose
 
 This contract defines the automatic path:
@@ -35,13 +37,17 @@ For each future civil day and aircraft cohort, the input contains predeclared pr
 
 The published distribution contains every day in the 90-day horizon, probability of no event within the horizon, modal date and an 80% central interval conditional on an event occurring within the horizon. The exposure-only baseline uses a pooled shrunken event rate and the identical future exposure path.
 
+Cycle 1.1 additionally publishes parameter-uncertainty bands for cumulative event probability. It draws from each cohort's Gamma posterior using the frozen sample count and random seed, making the Monte Carlo result exactly reproducible. These bands quantify uncertainty in fitted rates; they do not compensate for missing exposure or PIT evidence.
+
 This is a reproducible statistical distribution, not certainty about a flight, operator, aircraft or location. Operator/MSN specificity remains unsupported unless a later separately versioned model and evidence contract genuinely support it.
 
 ## Backtest and promotion
 
-Each historical forecast must use only rows proven public at its simulated cutoff. Candidate and exposure-only baseline use the same cutoff, outcome universe, horizon and exposure path. The primary temporal score is the full-horizon logarithmic score, including right-censored periods with no event. All folds—including blocked and failed ones—remain visible.
+Each historical forecast must use only rows proven public at its simulated cutoff. Cycle 1.1 refits the candidate and pooled baseline separately at every cutoff; it never evaluates a model fitted using later folds. Candidate and exposure-only baseline use the same cutoff, outcome universe, horizon and exposure path. The primary temporal score is the full-horizon logarithmic score, including right-censored periods with no event. All folds—including blocked and failed ones—remain visible.
 
 A fitted candidate is not promoted merely because it produces a forecast. Promotion additionally requires paired out-of-sample evaluation, calibration evidence and candidate superiority under the frozen rule. A negative or inconclusive comparison retains the incumbent and is a valid research result.
+
+After a successful gated fit, AGGIORNA writes an immutable candidate forecast under `forecasts/candidates/`. Its identifier is derived from the cycle specification, training snapshot, fitted model and paired candidate/baseline distributions. Repeating the same scientific inputs reuses the same record; changed inputs create a new record. Candidate status remains `frozen_candidate_unvalidated` unless the independent promotion gate passes, and no automatic record modifies F-002.
 
 ## Current limitation
 

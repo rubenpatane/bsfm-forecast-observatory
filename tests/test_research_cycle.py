@@ -1,13 +1,16 @@
 import json
 from pathlib import Path
 
-from bsfm.research_cycle import build_training_snapshot, execute_repository_cycle, run_cycle, validate_registered_spec
+from bsfm.research_cycle import build_candidate_forecast_record, build_training_snapshot, execute_repository_cycle, run_cycle, validate_registered_spec, write_candidate_forecast
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 def spec():
     return json.loads((ROOT/'config/research-cycle-v1.json').read_text())
+
+def active_spec():
+    return json.loads((ROOT/'config/research-cycle-v1.1.json').read_text())
 
 
 def full_report():
@@ -45,6 +48,7 @@ def test_cycle_fits_and_forecasts_only_when_prefit_gate_is_open():
 def test_repository_cycle_always_publishes_auditable_blocked_state(tmp_path):
     (tmp_path/'config').mkdir(); (tmp_path/'site/data').mkdir(parents=True)
     (tmp_path/'config/research-cycle-v1.json').write_text(json.dumps(spec()))
+    (tmp_path/'config/research-cycle-v1.1.json').write_text(json.dumps(active_spec()))
     registry=json.loads((ROOT/'config/research-cycle-registry.json').read_text())
     (tmp_path/'config/research-cycle-registry.json').write_text(json.dumps(registry))
     result=execute_repository_cycle(tmp_path,{'source_integrity_ready':True},{},evaluated_at='2026-09-06T00:00:00Z')
@@ -62,3 +66,18 @@ def test_registered_cycle_spec_cannot_change_silently():
         assert 'not registered' in str(exc)
     else:
         raise AssertionError('unregistered method change accepted')
+
+
+def test_cycle_1_1_is_registered_as_the_single_active_contract():
+    registry=json.loads((ROOT/'config/research-cycle-registry.json').read_text())
+    assert validate_registered_spec(active_spec(),registry)
+    assert [x['cycle_version'] for x in registry['specifications'] if x['status']=='active']==['1.1']
+
+
+def test_generated_candidate_forecast_is_append_only_and_deduplicated(tmp_path):
+    events,exposure,future=rows()
+    result=run_cycle(active_spec(),{'source_integrity_ready':True},full_report(),events,exposure,future,['737-NG','777'],evaluated_at='2026-09-06T00:00:00Z')
+    record=build_candidate_forecast_record(result)
+    path=write_candidate_forecast(tmp_path,record)
+    assert path.exists() and write_candidate_forecast(tmp_path,record)==path
+    assert record['status']=='frozen_candidate_unvalidated' and record['forecast_id'].startswith('AF-')

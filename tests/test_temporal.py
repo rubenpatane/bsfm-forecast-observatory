@@ -1,6 +1,6 @@
 import pytest
 
-from bsfm.temporal import exposure_only_baseline, paired_temporal_evaluation, temporal_log_score, time_to_event_distribution
+from bsfm.temporal import exposure_only_baseline, paired_temporal_evaluation, parameter_uncertainty, temporal_log_score, time_to_event_distribution
 
 
 def model():
@@ -40,3 +40,11 @@ def test_paired_temporal_evaluation_requires_verified_future_outcomes():
     assert report['evaluated'] and report['n']==1 and not report['candidate_better']
     case['historical_public_availability']='unknown'
     assert paired_temporal_evaluation([case])['reason']=='unverified_case_availability'
+
+
+def test_parameter_uncertainty_is_reproducible_and_ordered():
+    fitted={'cohorts':['737-NG','777'],'event_counts':{'737-NG':2},'departures':{'737-NG':100000,'777':200000},'alpha':0.5,'prior_departures':1000000}
+    a=parameter_uncertainty(fitted,path(),'2026-10-01',samples=100,seed=7)
+    b=parameter_uncertainty(fitted,path(),'2026-10-01',samples=100,seed=7)
+    assert a==b
+    q=a['horizon_event_probability']; assert q['p10']<=q['p50']<=q['p90']

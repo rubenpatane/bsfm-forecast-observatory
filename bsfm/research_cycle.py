@@ -8,7 +8,8 @@ from pathlib import Path
 from .integrity import digest, write_json_atomic
 from .model_lifecycle import fit_gate, promotion_gate
 from .estimator import fit_shrunk_hazard
-from .temporal import exposure_only_baseline, paired_temporal_evaluation, time_to_event_distribution
+from .temporal import exposure_only_baseline, parameter_uncertainty, time_to_event_distribution
+from .temporal_oos import run_temporal_walk_forward
 
 
 def _utcnow():
@@ -63,8 +64,9 @@ def run_cycle(spec, source_state, foundation_report, events, exposure, future_ex
     forecast=time_to_event_distribution(model,future_exposure,start,int(spec['forecast_horizon_days']))
     baseline_model=exposure_only_baseline(len(list(events)),sum(float(x['departures']) for x in exposure),cohorts)
     baseline=time_to_event_distribution(baseline_model,future_exposure,start,int(spec['forecast_horizon_days']))
-    evaluation=paired_temporal_evaluation(backtest_cases)
-    state.update({'fitted':True,'model':model,'baseline_model':baseline_model,'forecast':forecast,'baseline_forecast':baseline,'backtest_evaluated':evaluation['evaluated'],'paired_backtest':evaluation})
+    uncertainty=parameter_uncertainty(model,future_exposure,start,spec['uncertainty']['samples'],spec['uncertainty']['seed']) if 'uncertainty' in spec else None
+    evaluation=run_temporal_walk_forward(backtest_cases,cohorts)
+    state.update({'fitted':True,'model':model,'baseline_model':baseline_model,'forecast':forecast,'baseline_forecast':baseline,'parameter_uncertainty':uncertainty,'backtest_evaluated':evaluation['evaluated'],'paired_backtest':evaluation})
     post=promotion_gate(source_state,foundation_report)
     better=evaluation.get('candidate_better') is True
     state['promoted']=post['pass'] and better
@@ -76,8 +78,11 @@ def run_cycle(spec, source_state, foundation_report, events, exposure, future_ex
 
 def execute_repository_cycle(root, source_state, foundation_report, evaluated_at=None):
     """Execute the repository contract from declared paths, always publishing state."""
-    root=Path(root); spec=json.loads((root/'config/research-cycle-v1.json').read_text(encoding='utf-8'))
-    registry=json.loads((root/'config/research-cycle-registry.json').read_text(encoding='utf-8'))
+    root=Path(root); registry=json.loads((root/'config/research-cycle-registry.json').read_text(encoding='utf-8'))
+    active=[x for x in registry.get('specifications',[]) if x.get('status')=='active']
+    if len(active)!=1:
+        raise ValueError('exactly one active research cycle specification required')
+    spec=json.loads((root/active[0]['path']).read_text(encoding='utf-8'))
     validate_registered_spec(spec,registry)
     gate=fit_gate(source_state,foundation_report)
     if not gate['pass']:
@@ -96,5 +101,31 @@ def execute_repository_cycle(root, source_state, foundation_report, evaluated_at
         else:
             load=lambda p:json.loads(p.read_text(encoding='utf-8'))
             result=run_cycle(spec,source_state,foundation_report,load(paths['events']),load(paths['exposure']),load(paths['future']),spec['cohorts'],load(paths['backtest']),evaluated_at=evaluated_at)
+    if result.get('forecast_generated'):
+        record=build_candidate_forecast_record(result)
+        result['candidate_forecast_path']=str(write_candidate_forecast(root,record).relative_to(root))
+        result['result_hash']=digest({k:v for k,v in result.items() if k!='result_hash'})
     write_json_atomic(root/'site/data/research-cycle.json',result)
     return result
+
+
+def build_candidate_forecast_record(result):
+    """Build an immutable prospective record from one successful cycle result."""
+    if result.get('forecast_generated') is not True:
+        raise ValueError('no generated forecast to freeze')
+    forecast=result['forecast']
+    key={'cycle_spec_hash':result['cycle_spec_hash'],'training_snapshot_hash':result['training_snapshot_hash'],'model_hash':result['model']['model_hash'],'forecast':forecast,'baseline_forecast':result['baseline_forecast']}
+    forecast_key=digest(key)
+    record={'schema':'bsfm.automatic-candidate-forecast.v1','forecast_id':f"AF-{forecast['start_date'].replace('-','')}-{forecast_key.split(':')[1][:12]}",'issued_at':result['evaluated_at'],'status':'frozen_candidate_unvalidated','claim_level':'experimental_unvalidated','model_contract_version':result['model_contract_version'],'candidate_estimator':result['candidate_estimator'],'cycle_version':result['cycle_version'],'cycle_spec_hash':result['cycle_spec_hash'],'training_snapshot_hash':result['training_snapshot_hash'],'model_hash':result['model']['model_hash'],'forecast_key':forecast_key,'prediction':forecast,'baseline_prediction':result['baseline_forecast'],'parameter_uncertainty':result.get('parameter_uncertainty'),'notice':'Candidate forecast generated under the frozen cycle contract; it is not validated or promoted and does not modify F-002.'}
+    record['integrity']=digest(record)
+    return record
+
+
+def write_candidate_forecast(root,record):
+    root=Path(root); path=root/'forecasts/candidates'/f"{record['forecast_id']}.json"
+    if path.exists():
+        existing=json.loads(path.read_text(encoding='utf-8'))
+        if existing.get('forecast_key')!=record.get('forecast_key'):
+            raise RuntimeError('immutable candidate forecast id collision')
+        return path
+    write_json_atomic(path,record); return path

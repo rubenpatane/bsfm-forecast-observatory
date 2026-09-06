@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 from math import exp, log
+import random
 
 
 def _daily_hazard(model, exposure):
@@ -111,3 +112,32 @@ def paired_temporal_evaluation(cases):
     candidate_mean=sum(x['candidate_log_score'] for x in paired)/len(paired)
     baseline_mean=sum(x['baseline_log_score'] for x in paired)/len(paired)
     return {'evaluated':True,'n':len(paired),'cases':paired,'candidate_mean_log_score':candidate_mean,'baseline_mean_log_score':baseline_mean,'mean_log_score_improvement':baseline_mean-candidate_mean,'candidate_better':candidate_mean<baseline_mean}
+
+
+def parameter_uncertainty(model, daily_exposure, start_date, samples=1000, seed=1201):
+    """Deterministic Monte Carlo bands from the estimator's Gamma posteriors."""
+    samples=int(samples); seed=int(seed)
+    if samples < 100:
+        raise ValueError('at least 100 uncertainty samples required')
+    required={'event_counts','departures','alpha','prior_departures','cohorts'}
+    if required-set(model):
+        raise ValueError('model lacks posterior parameters')
+    rows=list(daily_exposure); rng=random.Random(seed); cumulative=[]; horizon=[]
+    for _ in range(samples):
+        rates={}
+        for cohort in model['cohorts']:
+            shape=float(model['event_counts'].get(cohort,0))+float(model['alpha'])
+            rate=float(model['departures'].get(cohort,0))+float(model['prior_departures'])
+            rates[cohort]=rng.gammavariate(shape,1.0/rate)
+        draw=time_to_event_distribution({'cohorts':model['cohorts'],'rates_per_departure':rates},rows,start_date,len(rows))
+        running=0.0; path=[]
+        for item in draw['daily']:
+            running+=item['probability']; path.append(running)
+        cumulative.append(path); horizon.append(draw['event_probability'])
+    def quantile(values,q):
+        ordered=sorted(values); return ordered[min(len(ordered)-1,max(0,int(q*(len(ordered)-1))))]
+    bands=[]
+    for i,row in enumerate(rows):
+        values=[path[i] for path in cumulative]
+        bands.append({'date':row['date'],'cumulative_event_probability_p10':quantile(values,0.1),'p50':quantile(values,0.5),'p90':quantile(values,0.9)})
+    return {'schema':'bsfm.parameter-uncertainty.v1','samples':samples,'seed':seed,'horizon_event_probability':{'p10':quantile(horizon,0.1),'p50':quantile(horizon,0.5),'p90':quantile(horizon,0.9)},'cumulative_bands':bands}
