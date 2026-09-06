@@ -7,8 +7,7 @@
     "leakage_free",
     "calibration_evaluated",
     "paired_baseline_comparison",
-    "candidate_better_than_baseline",
-    "source_integrity_ready"
+    "candidate_better_than_baseline"
   ],
   "gates": {
     "baseline_present": false,

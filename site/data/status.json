@@ -1,20 +1,13 @@
 {
   "forecast_generated": false,
   "integrity_errors": [],
-  "reason": "validated_source_snapshots_unavailable",
+  "reason": "historical_point_in_time_availability_unverified",
   "registry_integrity": "ok",
-  "run_at": "2026-09-06T08:54:41Z",
-  "run_hash": "sha256:54475f54794a4293bba029be5647c860ebff1af1b0ce18286b2f6114f39de884",
+  "run_at": "2026-09-06T09:05:22Z",
+  "run_hash": "sha256:bbe339a0b699068851bd419278b9e0e0db266ccf0e5daec5ca23da395646afba",
   "sources": {
-    "checked_at": "2026-09-06T08:54:41Z",
+    "checked_at": "2026-09-06T09:05:22Z",
     "manifests": [
-      {
-        "cutoff": null,
-        "historical_public_availability": null,
-        "manifest": "auto-cadence.json",
-        "source": null,
-        "status": "unknown"
-      },
       {
         "cutoff": null,
         "historical_public_availability": "unverified",
@@ -144,6 +137,6 @@
     ],
     "point_in_time_availability_verified": false,
     "ready_for_model": false,
-    "source_integrity_ready": false
+    "source_integrity_ready": true
   }
 }
