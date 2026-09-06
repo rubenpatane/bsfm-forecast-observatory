@@ -112,6 +112,9 @@ jobs:
           python -m bsfm.cli run
           python -m bsfm.cli audit-foundation
           python -m bsfm.cli audit-final
+          python scripts/audit_public_data_outcomes.py
+          python scripts/audit_public_data_backtest.py --output evaluations/public-data-v1.3-exploratory-backtest.json
+          python scripts/audit_public_data_backtest.py --output site/data/public-data-validation.json
       - name: Generate readiness, evidence inventory and public refinements
         run: |
           python - <<'PY'

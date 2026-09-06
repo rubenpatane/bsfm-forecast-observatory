@@ -1,5 +1,11 @@
 # Historical target census working area
 
+`public-data-v1.3-route-ledger.json` is the fail-closed geographic ledger for
+the separately versioned BSFM-PD 1.3 model. It does not alter historical G1 v1
+or F-002. A route receives a geographic decision only from authority evidence
+for the operated segment's origin and destination; accident location, operator
+and registration are deliberately insufficient.
+
 This directory is intentionally **not** a completed ground-truth dataset yet.
 
 Evaluation interval: 2010–2025 inclusive.

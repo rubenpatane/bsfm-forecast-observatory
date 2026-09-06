@@ -58,6 +58,30 @@ until its separate outcome/PIT/backtest inputs pass.
 Until all five gates pass, BSFM-PD 1.3 is preregistered construction work and no
 new forecast or predictive-validity claim is authorized.
 
+## Completed foundation and exploratory result
+
+The authority-backed geographic census is complete for the frozen 2010–2025
+candidate universe: 38/38 routes are decided, with three qualifying outcomes
+(Asiana 214, Southwest 1380 and Atlas 3591) and 35 routes excluded because the
+operated segment had no United States endpoint. All three admitted outcomes
+have conservative competent-authority publication bounds. This result is for
+BSFM-PD 1.3 only; historical global G1 v1 remains 14/16 BLOCKED.
+
+The T-100 artifacts retain all 192 source months and the nine-cohort monthly
+matrix. The frozen temporal rule uses the latest same-calendar-month cell that
+is eligible under a conservative 365-day lag and divides that monthly total
+uniformly over its civil days. The daily values are therefore model inputs, not
+claims that BTS observed individual-day traffic.
+
+The frozen exploratory run contains 52 non-overlapping 90-day folds and
+only three event-bearing folds. The required minimum is ten. The minimal
+shrunk-hazard candidate also has a slightly worse mean full-horizon log score
+than the pooled exposure-only baseline (improvement −0.0022921287; lower loss
+is better). Consequently predictive validation remains BLOCKED and no promotion
+or publicity claim of skill is permitted. Changing the interval, target,
+predictors, cohorts, cadence, estimator or scoring after this result requires a
+new explicit version; it cannot be used to rewrite 1.3.
+
 ## 2010-2025 acquisition result
 
 All 16 year-scoped archives were downloaded successfully from the official

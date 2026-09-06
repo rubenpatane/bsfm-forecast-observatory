@@ -8,7 +8,7 @@ from collections import Counter
 import json
 from pathlib import Path
 
-from bsfm.bts_t100 import aggregate_t100_archive, public_scope_acceptance
+from bsfm.bts_t100 import aggregate_t100_archive, aggregate_t100_monthly_archive, public_scope_acceptance
 
 
 COHORTS = (
@@ -27,6 +27,12 @@ def build_report(archive_dir, mapping_path, start_year=2010, end_year=2025):
     ambiguous_by_year = []
     artifacts = []
     diagnostics = {}
+    merged_monthly_rows = []
+    merged_map = {
+        code: ('737-Classic+NG' if cohort in {'737-Classic', '737-NG'} else cohort)
+        for code, cohort in mapping['aircraft_type_to_cohort'].items()
+    }
+    merged_map['615'] = '737-Classic+NG'
     for year in years:
         path = archive_dir / f'bts-t100-segment-all-carriers-{year}.zip'
         if not path.exists():
@@ -39,6 +45,14 @@ def build_report(archive_dir, mapping_path, start_year=2010, end_year=2025):
             start_year=year,
             end_year=year,
         )
+        monthly = aggregate_t100_monthly_archive(
+            path, merged_map, mapping['admitted_service_classes'],
+            target_aircraft_types=mapping['reviewed_target_aircraft_types'],
+            start_year=year, end_year=year,
+        )
+        if monthly['artifact_sha256'] != result['artifact']['sha256']:
+            raise ValueError(f'monthly artifact hash mismatch: {path.name}')
+        merged_monthly_rows.extend(monthly['monthly_exposure_rows'])
         manifest_path = path.with_suffix('.manifest.json')
         if not manifest_path.exists():
             raise FileNotFoundError(manifest_path)
@@ -98,6 +112,16 @@ def build_report(archive_dir, mapping_path, start_year=2010, end_year=2025):
             'scope': 'us_linked_commercial',
         })
     merged_cohorts = tuple(c for c in COHORTS if c not in {'737-Classic', '737-NG'}) + ('737-Classic+NG',)
+    monthly_present = {(row['period'], row['cohort']) for row in merged_monthly_rows}
+    for year in years:
+        for month in range(1, 13):
+            period = f'{year:04d}-{month:02d}'
+            for cohort in merged_cohorts:
+                if (period, cohort) not in monthly_present:
+                    merged_monthly_rows.append({
+                        'period': period, 'cohort': cohort, 'departures': 0.0,
+                        'scope': 'us_linked_commercial',
+                    })
     merged_acceptance = public_scope_acceptance(
         {'scope': 'us_linked_commercial', 'regional_matrix_candidate': True, 'exposure_rows': merged_rows},
         years, merged_cohorts,
@@ -123,6 +147,7 @@ def build_report(archive_dir, mapping_path, start_year=2010, end_year=2025):
             'cohort_change': 'Replace 737-Classic and 737-NG with 737-Classic+NG.',
             'reason': 'This retains every code-615 departure without proxy splitting.',
             'exposure_rows': merged_rows,
+            'monthly_exposure_rows': sorted(merged_monthly_rows, key=lambda row: (row['period'], row['cohort'])),
             'acceptance': merged_acceptance,
         },
         'scientific_interpretation': (

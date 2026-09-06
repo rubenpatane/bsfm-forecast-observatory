@@ -126,6 +126,82 @@ def aggregate_t100_segments(
     }
 
 
+def aggregate_t100_monthly_segments(
+    rows, aircraft_type_map, admitted_service_classes, *, target_aircraft_types=None,
+    start_year=2010, end_year=2025,
+):
+    """Aggregate the same reviewed T-100 rows by calendar month and cohort.
+
+    This deliberately preserves the source's monthly resolution. It does not
+    invent daily observations; any later daily conversion requires a separate
+    frozen allocation rule.
+    """
+    mapping = {str(k).strip(): str(v).strip() for k, v in aircraft_type_map.items()}
+    target_types = ({str(v).strip() for v in target_aircraft_types}
+                    if target_aircraft_types is not None else set(mapping))
+    classes = {str(v).strip() for v in admitted_service_classes}
+    if not classes or not set(mapping).issubset(target_types):
+        raise ValueError('invalid reviewed mapping or service classes')
+    counts = defaultdict(int)
+    invalid_rows = 0
+    unknown_types = Counter()
+    for raw in rows:
+        row = raw if isinstance(raw, dict) else {}
+        if any(field not in row for field in REQUIRED_FIELDS + ('MONTH',)):
+            invalid_rows += 1; continue
+        year = _whole_nonnegative(row.get('YEAR'))
+        month = _whole_nonnegative(row.get('MONTH'))
+        departures = _whole_nonnegative(row.get('DEPARTURES_PERFORMED'))
+        aircraft_type = str(row.get('AIRCRAFT_TYPE') or '').strip()
+        service_class = str(row.get('CLASS') or '').strip()
+        if (year is None or month is None or not 1 <= month <= 12 or departures is None
+                or not aircraft_type or not service_class):
+            invalid_rows += 1; continue
+        if year < int(start_year) or year > int(end_year) or service_class not in classes:
+            continue
+        if aircraft_type not in target_types:
+            continue
+        cohort = mapping.get(aircraft_type)
+        if not cohort:
+            unknown_types[aircraft_type] += departures; continue
+        counts[(year, month, cohort)] += departures
+    return {
+        'schema': 'bsfm.bts-t100-regional-monthly-exposure.v1',
+        'scope': PUBLIC_SCOPE,
+        'monthly_exposure_rows': [
+            {'period': f'{year:04d}-{month:02d}', 'cohort': cohort,
+             'departures': float(value), 'scope': PUBLIC_SCOPE}
+            for (year, month, cohort), value in sorted(counts.items())
+        ],
+        'invalid_rows': invalid_rows,
+        'unmapped_aircraft_types': [
+            {'aircraft_type': code, 'departures': value}
+            for code, value in sorted(unknown_types.items())
+        ],
+    }
+
+
+def aggregate_t100_monthly_archive(
+    archive_path, aircraft_type_map, admitted_service_classes, *,
+    target_aircraft_types=None, start_year=2010, end_year=2025,
+):
+    """Read a single official archive into the monthly aggregation."""
+    path = Path(archive_path)
+    with zipfile.ZipFile(path) as bundle:
+        members = [name for name in bundle.namelist() if name.lower().endswith('.csv')]
+        if len(members) != 1:
+            raise ValueError('T-100 ZIP must contain exactly one CSV member')
+        with bundle.open(members[0]) as raw:
+            rows = csv.DictReader((line.decode('utf-8-sig') for line in raw))
+            result = aggregate_t100_monthly_segments(
+                rows, aircraft_type_map, admitted_service_classes,
+                target_aircraft_types=target_aircraft_types,
+                start_year=start_year, end_year=end_year,
+            )
+    result['artifact_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return result
+
+
 def public_scope_acceptance(aggregation, expected_periods, expected_cohorts):
     """Audit public T-100 coverage without ever promoting global G2."""
     present = {

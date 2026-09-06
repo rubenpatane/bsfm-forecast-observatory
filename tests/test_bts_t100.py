@@ -6,6 +6,7 @@ import zipfile
 
 from bsfm.bts_t100 import (
     aggregate_t100_archive,
+    aggregate_t100_monthly_segments,
     aggregate_t100_segments,
     public_scope_acceptance,
 )
@@ -22,6 +23,24 @@ def _row(year, aircraft, departures, service_class='F'):
         'DEPARTURES_PERFORMED': departures,
         'CLASS': service_class,
     }
+
+
+def test_t100_monthly_aggregation_preserves_source_resolution_and_totals():
+    rows = [
+        {**_row('2019', '614', '12'), 'MONTH': '1'},
+        {**_row('2019', '614', '8'), 'MONTH': '2'},
+        {**_row('2019', '838', '3'), 'MONTH': '2'},
+    ]
+    out = aggregate_t100_monthly_segments(rows, MAPPING, ['F'])
+    got = {(r['period'], r['cohort']): r['departures'] for r in out['monthly_exposure_rows']}
+    assert got == {('2019-01', '737-NG'): 12.0, ('2019-02', '737-NG'): 8.0, ('2019-02', '737-MAX'): 3.0}
+    assert sum(r['departures'] for r in out['monthly_exposure_rows']) == 23.0
+
+
+def test_t100_monthly_rejects_invalid_month_without_inference():
+    out = aggregate_t100_monthly_segments([{**_row('2019', '614', '12'), 'MONTH': '13'}], MAPPING, ['F'])
+    assert out['monthly_exposure_rows'] == []
+    assert out['invalid_rows'] == 1
 
 
 def test_t100_aggregates_official_performed_departures_without_leg_expansion():

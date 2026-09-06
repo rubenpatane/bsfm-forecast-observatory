@@ -98,7 +98,7 @@ have been added locally. They preserve performed-departure counts, require
 explicit DOT aircraft/service-class allowlists, label coverage as
 `us_linked_commercial`, and make global G2 promotion impossible. This work does
 not adopt a new model, change F-002, open G2/G3/G4 or alter the last
-workflow-verified baseline. Local verification completed with 216 tests,
+workflow-verified baseline. Local verification completed with 225 tests,
 forecast-registry verification, foundation audit and final audit passing. The
 scientific gates remain correctly closed. Official T-100 data/support-table
 acquisition and workflow verification remain outstanding before adoption. The
@@ -128,5 +128,27 @@ nine cohorts including `737-Classic+NG`, the minimal shrunk-hazard estimator and
 an exposure-only pooled baseline. It explicitly excludes the unfulfilled BSFM
 1.2 components rather than relabelling the minimal estimator as model 1.2.
 
+The BSFM-PD 1.3 geographic foundation is now complete locally. The route ledger
+authority-reconciles all 38 historical candidates: three operated segments have
+a United States endpoint (Asiana 214, Southwest 1380 and Atlas 3591), while 35
+do not. The three admitted outcomes have verified conservative PIT publication
+bounds. This does not modify or retroactively resolve historical global G1 v1.
+
+The T-100 audit now preserves the complete 2010–2025 monthly nine-cohort matrix
+(1,728 cells; zero-filled where the source has no qualifying departures) as well
+as the annual matrix. BSFM-PD 1.3 freezes a same-calendar-month seasonal-naive
+future exposure rule with a conservative 365-day admissibility lag and uniform
+within-month allocation. These daily inputs are deterministic assumptions, not
+observed daily traffic.
+
+The local exploratory temporal backtest executed 52 non-overlapping 90-day
+folds. Only three folds contain an observed target event, below the frozen
+minimum of ten, so predictive validation is BLOCKED. The candidate mean log
+score is 0.4991095350 versus 0.4968174063 for the pooled exposure-only baseline,
+an improvement of −0.0022921287: the candidate is not descriptively better.
+No methodology may be changed post hoc to reverse this result. This is a
+scientific negative/underpowered result, not a software failure and not evidence
+about BSFM 1.2.
+
 ## Exact next step / external dependencies
-Construct and authority-reconcile the BSFM-PD 1.3 historical outcome census under the exact U.S.-linked operated-segment rule, including origin/destination evidence for every candidate; global BSFM 1.2 remains separately blocked pending a lawful OAG/Cirium/IATA WATS extract.
+Commit and integrate the fully verified BSFM-PD 1.3 checkpoint, then run AGGIORNA; further predictive-validation work requires either genuinely new prospective outcomes or a separately preregistered model/version decision, while global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
