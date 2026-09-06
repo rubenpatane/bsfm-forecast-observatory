@@ -49,7 +49,7 @@ def audit_census(rows,start_year=2010,end_year=2025,year_attestations=None):
         try: year=int(y)
         except (TypeError,ValueError): continue
         meta=meta or {}
-        pubs={str(x).strip().lower() for x in meta.get('publishers',[]) if str(x).strip()}
+        pubs={str(x).strip().lower() for x in (meta.get('publishers') or []) if str(x).strip()}
         try: target_count=int(meta.get('qualifying_boeing_events'))
         except (TypeError,ValueError): target_count=None
         scope_ok=bool(str(meta.get('scope','')).strip())

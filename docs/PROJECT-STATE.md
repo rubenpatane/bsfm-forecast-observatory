@@ -1,6 +1,6 @@
 # BSFM Project State
 
-Updated: 2026-09-05
+Updated: 2026-09-06
 
 ## Continuity
 This is the live public checkpoint, not a full specification. Start with `AGENTS.md` and `docs/NEW-CHAT.md`. No personal/private/sensitive information or secret values may be recorded here.
@@ -8,45 +8,84 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #24 (`33978310106`) completed successfully on source SHA `bc37cbfc3802c6579cb8130f70d6ce0d9a2b2bc4`; it is the latest workflow-verified baseline and verified the ICAO-free workflow plus the first official 2024 G1 candidate population.
-- AGGIORNA #22 (`33975985882`) failed at the retired ICAO acquisition step and is retained only as historical operational evidence. No new ICAO retrieval is permitted.
-- Success/failure of CI verifies only checks actually executed; it does not establish predictive validity or open a scientific gate.
-
-## Canonical documents
-`AGENTS.md` is the constitution/privacy/bootstrap; `docs/MODEL-SPEC.md` the model contract; `docs/LABORATORY-PROTOCOL.md` the scientific protocol; `docs/NEW-CHAT.md` the fresh-session bootstrap; `docs/F-002-PREREGISTRATION-v1.md` the frozen F-002 evaluation; `docs/G1-G3-EVIDENCE-PLAN-v1.md` the detailed evidence plan.
+- AGGIORNA #25 (`33978802087`) completed successfully on source SHA `971cdd6a1ec0576208191e2d18fe76fce2742c86`; it remains the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `ce33ea54b36613cf122e3201c2825a329700f656` and uses privacy-safe Git metadata.
+- No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
+- Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
 ## F-002
-`forecasts/F-002.json` is frozen. Later evidence/refinements cannot rewrite it or add retroactive probabilities. The repository does not claim cryptographic proof of public publication on its declared 2026-08-19 cutoff.
+`forecasts/F-002.json` is frozen. Its target string is `next_fatal_accident_involving_boeing_commercial_jet`; the forecast object contains no explicit hostile/unlawful-action or missing-aircraft inclusion/exclusion clause. Later research must not silently add one.
 
-## G1 — BLOCKED
-`data/census/year-ledger.json` is the canonical 2010-2025 reconciliation ledger; keep years `reconciled=false` until evidenced. AGGIORNA #21 acquired 4,669 ICAO Official Accidents rows, retained only as historical evidence/provenance; no new ICAO retrieval is permitted.
+F-002 remains byte-identical to `main` on the active research branch (blob `eb55a77210d2fd254483ff74c3d02fcd60c1f0ad`) and is not part of PR #2's diff.
 
-### Sustainable G1 path
-`data/census/boeing-statistical-summary-source.json` and `data/census/easa-asr-source.json` register sustainable public reconciliation sources. Boeing's worldwide Statistical Summary contains accident summaries/rates and EASA maintains Annual Safety Review editions, with recent editions exposing fatal-accident appendices. These source capabilities are not census attestations.
+## Prospective Target Taxonomy v2 — ADOPTED
+Option B was selected on 2026-09-06. `docs/TARGET-TAXONOMY-v2-PROSPECTIVE.md` and `data/census/prospective-target-taxonomy-v2.json` define target semantics for future forecasts created after adoption.
 
-The fail-closed candidate layer lives in `bsfm/g1_candidates.py`, `tests/test_g1_candidates.py` and `data/census/g1-candidates.json`. Candidate rows require event/date/model/fatality/commercial/source provenance plus an explicit `include`, `exclude` or `unresolved` decision and reason; missing facts are not inferred, duplicate internal IDs invalidate structural audit, and even a structurally valid candidate dataset always reports `global_census_complete=false` / `gate_status=BLOCKED`. The normalizer now also preserves explicit independent `reconciliation_evidence`; corroboration cannot open G1 by itself.
+The v2 primary target is a fatal aviation **safety accident** involving a Boeing commercial jet. Officially classified deliberate hostile/security/unlawful-interference events are excluded from the primary target and retained in a parallel descriptive census. Missing aircraft remain `PENDING_MISSING` until competent-authority evidence establishes accident/equivalent fatal loss plus attributable fatality. External/ground/other-aircraft fatalities remain eligible when authoritatively attributable.
 
-The candidate workspace contains three 2024 Boeing fatal-commercial-jet candidates: Singapore Airlines SQ321 (B777-300ER, one fatality), Swiftair/BCS18D at Vilnius (B737-400SF family, one fatality), and Jeju Air 2216 at Muan (B737-800, 179 fatalities). The Boeing 2024 Statistical Summary independently lists all three in its worldwide commercial-jet 2024 accident table. Jeju is now grounded primarily in the competent Republic of Korea ARAIB record (AAR2404 / HL8088 / 7C2216), with Boeing and BEA as independent reconciliation evidence. These remain candidate inclusions, not a 2024 year attestation.
+This taxonomy is explicitly non-retroactive: it does not apply to F-002, historical G1 v1, MH370, MH17 or PS752. Any future historical study using v2 must be separately versioned and re-adjudicate the full interval symmetrically.
 
-EASA ASR 2025 reports 14 fatal airline accidents worldwide in 2024, but that aggregate count is not a Boeing-only event census. Direct inspection of EASA ASR 2024 Appendix 1 shows domain-organized fatal-accident lists through 2023; its commercial-air-transport complex-aeroplane section is not demonstrated to be an exhaustive worldwide commercial-jet census. Therefore absence of a Boeing row there must not be interpreted as a global zero-Boeing year for 2023.
+## Current research branch and verification
+Draft PR #2, branch `research/privacy-safe-rebuild-20260905`, is the privacy-safe reconstruction of post-#25 research. It was created from current `main`; it does not import the commit history of closed PR #1.
 
-### ICAO retrieval freeze
-ICAO API retrieval is disabled from operational automation. AGGIORNA #22 empirically confirmed prior access is unusable for the project (HTTP 403). BSFM will not purchase paid ICAO calls under the current research plan. Event-level ICAO rows must not be reconstructed by new API calls or published contrary to licence terms.
+The latest successful read-only Research CI run is `34000757503`, verified at research SHA `c5cc3e63a1a21605ee416f971fbe1d1cf8493bdd` before removal of the temporary workflow. It executed:
+- full `pytest -q`: **188 passed**;
+- `python -m bsfm.cli verify`: forecast registry integrity OK;
+- `python -m bsfm.cli audit-foundation`: completed successfully;
+- `python -m bsfm.cli audit-final`: completed successfully.
 
-## G2 — BLOCKED
-Annual Boeing-family departures/cycles or another predeclared defensible exposure denominator are incomplete for 2010-2025. Direct inspection of Boeing's 2025 Statistical Summary confirms annual worldwide fleet-level departures/flight-hours context and cumulative Boeing-vs-total shares, but not annual departures/cycles for every BSFM Boeing family-year cell. Cumulative airplane-type rates, cumulative Boeing shares or aggregate worldwide traffic must not be inverted, interpolated or disaggregated to manufacture family-year exposure.
+The temporary research workflow was subsequently removed, restoring the single-workflow repository invariant. The verified final audit still reports historical G1 incomplete, `baseline_present=false`, `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false. This is software/audit verification, not scientific validation.
 
-## G3 — BLOCKED
-Historical predictor records do not yet establish field-level public availability at simulated cutoffs. Dated official releases and archived/versioned public artifacts remain preferred evidence.
+The public validation surface has now been completed on the research branch. `site/data/research-state.json` exposes the fail-closed annual G1 state, and AGGIORNA is wired to regenerate it before publication. The bilingual validation page displays 14/16 historical G1 reconciliation, the separate 35/35 outcome-publication ledger, the fixed G2 no-proxy rule, the model 1.2 `faa_sdr_precursors` obligation and the distinction from the minimal shrinkage estimator. Desktop/mobile browser checks passed, including language switching, generated-data loading, responsive navigation and absence of horizontal overflow. The full local suite passed with 188 tests plus registry verification and both scientific audits; this page batch has not been run through AGGIORNA and does not change any scientific gate.
+
+## G1 — BLOCKED, 14/16 annual cells reconciled
+`data/census/year-ledger.json` is the canonical 2010-2025 annual ledger. A cell passes only if all six controls are true: annual source scope demonstrated; all fatal jets mapped; Boeing target membership mapped; competent authority per candidate; independent reconciliation; target taxonomies resolved.
+
+Reconciled 6/6 cells: 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024 and 2025.
+
+The integrated G1 census reports 38 candidate rows, 35 included qualifying rows, no missing candidate IDs, no extra candidate IDs, no duplicate candidate IDs and no ledger/evidence consistency errors.
+
+Unresolved historical v1 cells remain:
+- 2014 = 4/6: MH370 missing-aircraft boundary and MH17 hostile/unlawful-action boundary;
+- 2020 = 4/6: PS752 hostile/unlawful-action boundary.
+
+Prospective taxonomy v2 does not resolve these retroactively. Historical G1 v1 remains BLOCKED at 14/16.
+
+## G2 — BLOCKED; acquisition path is now executable
+A complete defensible global Boeing family/year exposure denominator for 2010-2025 is still missing. The required cohort universe remains `727`, `737-Original`, `737-Classic`, `737-NG`, `737-MAX`, `747`, `757`, `767`, `777`, `787`.
+
+Public discovery has not produced a complete compatible source. Historical IATA Safety Report Annex 4 data provide model-level sectors through 2019, but no compatible public bridge for the full later interval has been demonstrated. Aggregate Boeing or all-737 traffic cannot be disaggregated by proxy.
+
+The highest-priority lawful commercial candidates are now OAG Historical Flight Data, Cirium Historical Flight Status/Schedules and IATA WATS Global. `data/exposure/source-inventory.json` records their current status; OAG and Cirium appear technically capable of exposing historical flight/equipment information, but no licensed BSFM extract has yet been inspected and their exact operated-flight scope, cargo/charter coverage, equipment resolution, vintage semantics and licence constraints must be audited.
+
+`bsfm/exposure_import.py` now provides a vendor-neutral ingestion/acceptance surface for a future lawful extract. It requires one standardized row per flight leg with `flight_date`, `equipment_code`, `leg_id`, `operated`, `scope` and `vintage_id`; counts only explicitly operated `global_commercial` rows; maps only deterministic allowlisted equipment; rejects invalid/conflicting duplicates and unknown equipment; and runs the canonical full cohort-year matrix audit. No convenience allocation or fleet-share split is permitted.
+
+Therefore the remaining G2 blocker is primarily **lawful source access plus product-scope validation**, not missing importer code. `baseline_present=false` remains mandatory until a full accepted matrix exists.
+
+## G3 — BLOCKED; predictor-universe gate is explicit
+`data/pit/predictor-universe-v1.json` now defines the G3 predictor-universe registry. It is intentionally `DRAFT_UNFROZEN`, `frozen=false`, with no admitted predictors. Candidate NTSB/FAA fields are not automatically admissible.
+
+`bsfm/pit_coverage.py` now evaluates strict PIT readiness only for an explicitly frozen, non-empty admitted predictor universe. Every admitted predictor must identify source/fields/evidence, be `pit_status=verified`, have complete field/snapshot evidence and depend on a source that is itself strict-PIT ready. This prevents both failure modes: unrelated manifests cannot accidentally define the scientific universe, and problematic predictors cannot be silently ignored.
+
+NTSB evidence now includes a strong later snapshot anchor: ICPSR/DataLumos V1 preserves an `avall.zip` in a versioned public deposit dated 2025-04-21. Exact bytes/hash and record/field inspection are still required before individual values can be promoted to `verified`; it does not establish availability before 2025-04-21. The older official NTSB directory proves AVALL public distribution by 2012, but the historical file URL now returns 404 and preserved 2012 bytes have not been acquired, so that remains a source-level bound only.
+
+FAA SDR remains the harder PIT blocker. FAA states reports must complete Quality Control before becoming publicly searchable, so `SubmissionDate` is not public `available_at`; current annual CSVs contain later submissions and are reconstructed current-state files, not historical snapshots. Public research has not located a byte-preserved official historical CSV sequence sufficient for broad record-level PIT verification.
+
+The separate G1 outcome publication ledger is now **35/35 verified and complete**. Reviewed annual overlays provide conservative competent-authority, official-government or stable public-snapshot bounds for every included outcome. When an artifact establishes only a month or year, `available_at` is normalized to the last calendar day of that period; later stable bounds are preferred over unproven earliest dates. This does not change the historical G1 census or resolve its 2014/2020 target-taxonomy boundaries. Outcome publication timing also remains distinct from predictor PIT: ledger completion does not open G3 while the model 1.2 predictor obligations remain unmet.
+
+The canonical `config/model.json` model 1.2 explicitly includes `faa_sdr_precursors`. Therefore simply dropping FAA SDR from G3 to manufacture a PASS would be a **model redesign**, not a harmless narrowing of the predictor universe. Any model that removes/replaces that component must be separately versioned prospectively before skill interpretation.
+
+## NTSB AVALL descriptive audit
+The AGGIORNA #25 `ntsb-derived` artifact was recovered and audited. For Boeing-commercial airplane rows in 2010-2025, 1,250 of 1,358 rows recover an official sequence phase from `Events_Sequence` (92.05%); among rows with sequence data the result is 1,250 of 1,252. These descriptive results do not make historical predictor values PIT-admissible.
 
 ## G4 — BLOCKED
-Downstream of G1-G3. Genuine paired OOS candidate-vs-exposure-baseline evaluation begins only after upstream PASS.
+G4 remains downstream of G1-G3. No candidate-vs-baseline model-skill claim is allowed while upstream gates are blocked. The latest verified final audit keeps `scientific_fit_ready=false`, `scientific_promotion_ready=false`, absolute accident probabilities disabled and validated-prediction claims disallowed.
 
 ## Public/privacy/licensing state
-Public UI keeps experimental/status boundaries. FAA SDR and NTSB AVALL remain supporting/descriptive sources with scope limitations. This public repository must contain no personal/private/sensitive user data or credential values. Public Boeing/EASA/source records contain source metadata/scientific observations only. ICAO raw/event-level API data is not to be published.
+Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #24 is the latest successful full run and verifies the ICAO-free workflow plus the initial 2024 candidate population at source SHA `bc37cbfc3802c6579cb8130f70d6ce0d9a2b2bc4`. Subsequent source-scope hardening, Korean-authority reconciliation, independent evidence preservation and new tests are committed after that run and therefore are not yet workflow-verified. G1-G4 remain BLOCKED.
+AGGIORNA #25 remains the latest successful full operational workflow. PR #2 remains Draft / **do not merge yet**. G1-G4 remain BLOCKED. The research branch is software-verified through Research CI `34000757503` with 188 tests passed, and the temporary workflow has been removed.
 
-## Exact next step
-Batch-verify the post-AGGIORNA-24 reconciliation changes, then continue the G1 census backward from 2023 using worldwide Boeing Statistical Summary evidence plus competent national investigation authorities; treat EASA appendices only within their demonstrated scope and never infer global zero years from their absence. In parallel, search sustainable official/primary sources for genuine Boeing family-by-year departures/cycles; if none provide the required denominator, keep G2 BLOCKED rather than deriving it from aggregate or cumulative statistics. Keep every year in `data/census/year-ledger.json` `reconciled=false` until the full year-level completeness and independent-reconciliation criteria are evidenced.
+## Exact next step / external dependencies
+Obtain a lawful representative extract and data dictionary from OAG, Cirium or IATA WATS for the fixed G2 flight-leg acceptance audit; meanwhile preserve F-002/historical G1 v1, keep model 1.2 and G3 fail-closed unless genuine FAA SDR snapshots or an explicitly versioned new-model decision arrives, and leave PR #2 Draft without running AGGIORNA from this branch.

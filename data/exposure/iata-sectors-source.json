@@ -1,0 +1,52 @@
+{
+  "schema": "bsfm.exposure-source.v1",
+  "publisher": "International Air Transport Association (IATA)",
+  "title": "Annual Safety Report Annex 4 sector tables and World Air Transport Statistics aircraft-use releases",
+  "retrieved_for_research": "2026-09-05",
+  "role": "G2 global aircraft-model exposure candidate",
+  "public_sources": [
+    {
+      "title": "IATA Safety Report 2014",
+      "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2014.pdf",
+      "coverage_observation": "Annex 4 publishes sectors by manufacturer/model for 2010-2014."
+    },
+    {
+      "title": "IATA Safety Report 2016",
+      "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2016.pdf",
+      "coverage_observation": "Annex 4 publishes sectors by manufacturer/model for 2012-2016."
+    },
+    {
+      "title": "IATA Safety Report 2019",
+      "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2019.pdf",
+      "coverage_observation": "Annex 4 publishes sectors by manufacturer/model for 2015-2019 and identifies Ascend / Flightglobal Advisory Service as the sector-data source."
+    },
+    {
+      "title": "IATA Launches 2024 World Air Transport Statistics Report",
+      "locator": "https://www.iata.org/en/pressroom/2025-releases/2025-08-04-01/",
+      "coverage_observation": "IATA reports 10 million global Boeing 737 flights in 2024, explicitly including all variants."
+    },
+    {
+      "title": "IATA Releases 2025 World Air Transport Statistics",
+      "locator": "https://www.iata.org/en/pressroom/2026-releases/07-16-iata-releases-2025-world-air-transport-statistics-report/",
+      "coverage_observation": "IATA reports 10.8 million Boeing 737 flights in 2025 and 10.5 million in its 2019 comparison, explicitly including all variants."
+    },
+    {
+      "title": "IATA Releases 2025 Safety Report",
+      "locator": "https://www.iata.org/en/pressroom/2026-releases/2026-03-09-01/",
+      "coverage_observation": "IATA states that OAG is its main sector-data source and that historical sector figures may change when source information or accident criteria are revised."
+    }
+  ],
+  "verified_observations": {
+    "historical_annex4": "Public IATA Safety Report editions expose global annual sector counts by manufacturer/model for overlapping five-year windows covering at least 2010-2019.",
+    "boeing_granularity": "The public Annex 4 tables separate Boeing 717/727/737/747/757/767/777/787, but the 737 row aggregates variants rather than separating 737 Classic, NG, 737-800 or MAX.",
+    "recent_wats": "Public WATS releases expose recent global flight-frequency observations for Boeing 737 all variants, including 2024 and 2025.",
+    "revision_risk": "Overlapping report vintages do not guarantee identical historical values; IATA explicitly warns that sector figures can change as source information is updated."
+  },
+  "limitations": [
+    "No continuous public 2020-2023 manufacturer/model sector table has yet been demonstrated in this audit.",
+    "Boeing 737 all-variant aggregation is not sufficient to manufacture separate 737 NG/737-800 versus MAX 8 exposure.",
+    "Historical values require a declared vintage rule because IATA/OAG sector data can be revised.",
+    "The project must not copy full copyrighted tables into the public repository; retain source metadata and derived audit observations only unless redistribution rights are clear."
+  ],
+  "scientific_gate_effect": "promising G2 evidence only; baseline_present remains false until complete compatible cohort-year coverage is demonstrated"
+}

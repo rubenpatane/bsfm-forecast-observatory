@@ -1,0 +1,31 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2016,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2016-AS157",
+      "available_at": "2018-07-11",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.aerocivil.gov.co/info/aeronautica_civil/media/1740581430_COL-16-40-GIA%20Final%20Acc%20HK4544%20Puerto%20Carre%C3%B1o%2020-dic-16.pdf"],
+      "status": "verified",
+      "note": "Conservative official-artifact bound: Aerocivil's final report is internally dated 2017-08-16 and the authority-hosted PDF preserves a 2018-07-11 creation timestamp; the later timestamp is used."
+    },
+    {
+      "event_id": "G1-2016-FZ981",
+      "available_at": "2019-11-25",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://mak-iac.org/en/rassledovaniya/boeing-737-800-a6-fdn-19-03-2016/"],
+      "status": "verified",
+      "note": "IAC/MAK identifies 2019-11-25 as the investigation/report completion date and hosts the final report."
+    },
+    {
+      "event_id": "G1-2016-EK521",
+      "available_at": "2020-01-20",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.icao.int/sites/default/files/sp-files/safety/airnavigation/AIG/Documents/Safety%20Recommendations%20to%20ICAO/Final%20Reports/UAE_B777_A6-EMW_3Aug2016.pdf"],
+      "status": "verified",
+      "note": "Conservative bound using the dated UAE AAIS final report preserved by ICAO."
+    }
+  ]
+}

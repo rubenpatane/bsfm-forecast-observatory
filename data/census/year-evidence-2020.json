@@ -1,0 +1,70 @@
+{
+  "schema": "bsfm.g1-year-evidence.v2",
+  "year": 2020,
+  "status": "unresolved-taxonomy",
+  "reconciled": false,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2020-PC2193", "G1-2020-IX1344"],
+  "unresolved_candidate_ids": ["G1-2020-PS752"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": false,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": false
+  },
+  "evidence_progress": "4/6",
+  "evidence": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "source_title": "IATA Safety Report 2020",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2020.pdf",
+      "publication_date": "2021-04",
+      "scope": "global commercial aviation excluding unlawful acts",
+      "observation": "IATA reports five fatal accidents in 2020: three jet and two turboprop. The three fatal jets account for 121 onboard fatalities: Pakistan International Airlines A320 (97), Pegasus B737-800 (3), and Air India Express B737-800 (21). IATA separately reports one fatality not onboard an aircraft and explicitly excludes unlawful acts from its 132-fatality accident total.",
+      "use": "annual fatal-jet universe, Boeing/non-Boeing membership mapping for non-boundary cases, and source-scope evidence"
+    },
+    {
+      "publisher": "National Transportation Safety Board (NTSB), United States",
+      "authority_role": "ICAO Annex 13 accredited representative for State of Design/Manufacture",
+      "source_title": "2022 Annual Report to Congress / PC2193",
+      "source_locator": "https://www.ntsb.gov/about/reports/Documents/2022%20Annual%20Report%20to%20Congress.pdf",
+      "publication_date": "2023",
+      "observation": "NTSB records Pegasus Airlines flight PC2193, Boeing 737-800, runway excursion at Istanbul Sabiha Gokcen with three passenger fatalities and identifies the Turkish investigation.",
+      "use": "target-eligibility evidence"
+    },
+    {
+      "publisher": "Aircraft Accident Investigation Bureau (AAIB), India",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "Final Investigation Report on Air India Express B737-800 VT-AXH accident",
+      "source_locator": "https://aaib.gov.in/Reports/2020/accident/Final%20Report%20AXH.pdf",
+      "publication_date": "2021",
+      "observation": "AAIB records Air India Express B737-800 VT-AXH at Kozhikode as a landing runway-excursion accident with 21 fatalities.",
+      "use": "competent-authority target evidence"
+    },
+    {
+      "publisher": "Aircraft Accident Investigation Board of the Islamic Republic of Iran; copy hosted by ICAO",
+      "authority_role": "state Annex 13 accident-investigation authority / ICAO-hosted final report",
+      "source_title": "PS752 Accident Investigation — Final Report",
+      "source_locator": "https://www.icao.int/sites/default/files/safety/airnavigation/AIG/Documents/Safety-Recommendations-to-ICAO/Final-Reports/PS752Finrep.pdf",
+      "publication_date": "2021-03",
+      "observation": "The Annex 13 final report describes PS752 as an accident involving Boeing 737-800 UR-PSR and states that military activity interfering with civil aviation operations resulted in the accident.",
+      "use": "competent-authority event evidence and target-semantics conflict"
+    }
+  ],
+  "scope_issue": {
+    "id": "SECURITY_UNLAWFUL_ACT_BOUNDARY",
+    "status": "UNRESOLVED",
+    "reason": "The frozen target requires an accident involving a Boeing commercial jet with attributable fatality but does not prospectively specify whether an Annex 13 occurrence caused by unlawful/hostile action is included. The competent investigation calls PS752 an accident while IATA excludes it as an unlawful/security act. Choosing either convention now would be outcome-informed target redefinition.",
+    "linked_historical_case": "G1-2014-MH17",
+    "required_resolution": "A later target-taxonomy version may prospectively define the hostile/unlawful-action boundary for future forecasts, but it cannot retroactively open the 2014/2020 G1 cells for this historical validation without an independently pre-existing rule."
+  },
+  "completeness_assessment": {
+    "global_year_complete": false,
+    "reason": "The 2020 fatal-jet universe, non-boundary Boeing memberships and competent-authority evidence are complete. Only the hostile/unlawful-action target boundary for PS752 remains unresolved, so membership and taxonomy controls fail closed.",
+    "ledger_action": "keep reconciled=false"
+  },
+  "gate_effect": "2020 annual cell remains OPEN at 4/6; overall G1 remains BLOCKED"
+}

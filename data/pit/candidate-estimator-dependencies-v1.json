@@ -1,0 +1,51 @@
+{
+  "schema": "bsfm.g3-candidate-estimator-dependencies.v1",
+  "updated": "2026-09-06",
+  "status": "AUDITED_NOT_FROZEN",
+  "estimator": "bsfm.shrunk-hazard-model.v1",
+  "implementation": "bsfm/estimator.py::fit_shrunk_hazard",
+  "canonical_model_contract": "config/model.json / BSFM model 1.2",
+  "purpose": "Record the actual historical inputs consumed by the implemented shrinkage candidate without confusing that implementation subset with the broader contractual component set of BSFM model 1.2.",
+  "fit_dependencies": [
+    {
+      "name": "prior target-event cohort membership",
+      "input_surface": "events[].cohort",
+      "origin": "G1 historical target census",
+      "pit_requirement": "For a simulated cutoff, only target outcomes that were authoritatively knowable by that cutoff may contribute to prior event counts. Later taxonomy/publication evidence cannot be back-projected."
+    },
+    {
+      "name": "historical departures by cohort",
+      "input_surface": "exposure_rows[].cohort + exposure_rows[].departures",
+      "origin": "G2 exposure matrix",
+      "pit_requirement": "The selected exposure vintage/reconstruction must be frozen and reproducible for the simulated cutoff; later revisions cannot be mixed silently with contemporaneous values."
+    },
+    {
+      "name": "cohort universe",
+      "input_surface": "cohorts",
+      "origin": "BSFM Boeing cohort taxonomy",
+      "pit_requirement": "Cohort definitions and equipment mappings must be versioned before fitting and may not be altered after inspecting candidate skill."
+    }
+  ],
+  "not_consumed_by_shrinkage_implementation": [
+    "FAA SDR JASCCode",
+    "FAA SDR StageOfOperationCode",
+    "FAA SDR NatureOfConditionA",
+    "NTSB sequence phase",
+    "NTSB causal findings",
+    "geography",
+    "MSN",
+    "flight number"
+  ],
+  "canonical_model_1_2_components_not_implemented_as_inputs_here": [
+    "faa_sdr_precursors",
+    "ad_mitigation",
+    "failure_hazard",
+    "escalation",
+    "phase_of_flight",
+    "geography",
+    "survival_time_to_event"
+  ],
+  "interpretation": "The implemented shrinkage estimator is a candidate fitting primitive/subset, not evidence that BSFM model 1.2 has dropped its other contractual components. A historical backtest using only this subset requires an explicitly versioned candidate/model specification before skill inspection. Until then, G3 for model 1.2 continues to include PIT obligations for its contractual components, including faa_sdr_precursors.",
+  "freeze_rule": "This audit does not freeze or redefine the canonical predictor universe. Any reduced-universe candidate must receive a distinct versioned identity and frozen predictor specification before evaluation.",
+  "g3_status": "BLOCKED"
+}

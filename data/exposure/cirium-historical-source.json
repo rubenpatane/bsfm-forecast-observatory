@@ -1,0 +1,49 @@
+{
+  "schema": "bsfm.exposure-source.v1",
+  "publisher": "Cirium",
+  "title": "Historical Flight Status / Schedules / Fleet and Values",
+  "retrieved_for_research": "2026-09-06",
+  "role": "secondary high-priority G2 global flight-level exposure candidate",
+  "source_locators": [
+    "https://www.cirium.com/data/aviation-data/",
+    "https://developer.cirium.com/apis/cirium-sky-api/historical-flight-status"
+  ],
+  "documented_capabilities": {
+    "historical_range": "historical flight status from 2006-present; historical schedules also advertised",
+    "geographic_scope": "global aviation data products",
+    "flight_fields": [
+      "scheduled/estimated/actual departure and arrival times",
+      "equipment type",
+      "aircraft type changes",
+      "tail/registration number in flight products",
+      "historical flight schedules"
+    ],
+    "fleet_fields": ["aircraft cycle and utilization", "aircraft ownership/age", "aircraft type"],
+    "potential_exposure_unit": "performed flight legs/cycles if the licensed product exposes complete global operated-flight coverage"
+  },
+  "scientific_fit": {
+    "global_model_year_matrix": "potentially feasible, subject to licensed product scope and completeness audit",
+    "737_variant_resolution": "potentially feasible if specific equipment/type designators are present and map deterministically to the BSFM allowlist",
+    "historical_vintage": "not yet demonstrated to the same explicit 'as published then' standard documented by OAG; must be audited before use in a leakage-sensitive historical baseline",
+    "actual_vs_scheduled": "Historical Flight Status advertises actual operational fields, but complete global coverage and cancellation semantics must be demonstrated before counting departures."
+  },
+  "access_and_reproducibility": {
+    "public_download": false,
+    "commercial_access_required": true,
+    "current_repo_access": false,
+    "redistribution_rights": "unknown until license terms for the acquired product are reviewed",
+    "reproducibility_requirement": "Freeze API/file product, query parameters, extraction date/vintage, equipment mapping, scope filters, hashes and permitted aggregate derivatives."
+  },
+  "gate_effect": {
+    "g2_status": "BLOCKED",
+    "baseline_present": false,
+    "reason": "Cirium is technically plausible but no licensed sample is connected and vintage/completeness semantics have not been demonstrated."
+  },
+  "next_validation": [
+    "obtain lawful representative sample or data dictionary",
+    "confirm specific equipment codes for all BSFM cohorts",
+    "confirm global performed-flight completeness including passenger and cargo operations",
+    "document historical revision/vintage behavior",
+    "run standardized exposure importer and cohort-year coverage audit"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "bsfm.g3-faa-sdr-field-release-policy.v1",
+  "updated": "2026-09-06",
+  "source": "FAA Service Difficulty Reporting System",
+  "status": "fail-closed",
+  "rules": [
+    {
+      "field": "SubmissionDate",
+      "pit_status": "unknown",
+      "availability_basis": "submission_timestamp_not_publication",
+      "evidence": "FAA's SDRS FAQ states that records must complete the Quality Control review process before becoming available in the public processed-report search. Submission therefore precedes or equals an unknown later public-availability point and is not itself publication evidence.",
+      "locator": "https://sdrs.faa.gov/FAQ.aspx",
+      "rule": "Never copy SubmissionDate into available_at. A dated artifact proving completed QC/public availability is required."
+    },
+    {
+      "field": "DifficultyDate",
+      "pit_status": "unknown",
+      "availability_basis": "event_timestamp_not_publication",
+      "evidence": "DifficultyDate identifies when the service difficulty occurred; FAA public availability happens only after submission and completion of the Quality Control review process.",
+      "locator": "https://sdrs.faa.gov/FAQ.aspx",
+      "rule": "Never copy DifficultyDate into available_at."
+    },
+    {
+      "field": "ApprovalDate or other approval-like administrative timestamp",
+      "pit_status": "unknown",
+      "availability_basis": "administrative_timestamp_semantics_not_established",
+      "evidence": "The public research performed to date has not established an FAA field definition proving that an approval-like timestamp in any export is exactly the moment the record completed public-facing Quality Control and became searchable.",
+      "locator": "https://sdrs.faa.gov/FAQ.aspx",
+      "rule": "Do not infer public release semantics from a field name. Promote only if an FAA schema/manual or archived public artifact establishes the meaning for the relevant period."
+    },
+    {
+      "field": "current annual CSV row and fields",
+      "pit_status": "bounded",
+      "availability_basis": "current_official_download",
+      "evidence": "FAA currently publishes yearly SDR CSV downloads, but current presence does not establish when the row or its present field values first completed QC and became public.",
+      "locator": "https://www.faa.gov/av-info/download_SDR",
+      "rule": "Treat current CSV presence as current-source evidence only. Historical cutoff admission requires an archived release or record-specific publication evidence."
+    }
+  ],
+  "default_rule": {
+    "pit_status": "unknown",
+    "rule": "Without explicit public-release timing or an immutable archived public snapshot containing the record/field value, historical SDR availability remains unknown and is excluded from strict PIT backtests."
+  },
+  "g3_status": "BLOCKED"
+}

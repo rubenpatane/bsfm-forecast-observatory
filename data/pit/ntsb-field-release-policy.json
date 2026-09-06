@@ -1,0 +1,40 @@
+{
+  "schema": "bsfm.g3-ntsb-field-release-policy.v1",
+  "updated": "2026-09-06",
+  "source": "NTSB AVALL/CAROL official release evidence",
+  "status": "fail-closed",
+  "rules": [
+    {
+      "field": "Findings.cm_inPC",
+      "earliest_verified_schema_publication": "2024-03-01T00:00:00Z",
+      "pit_status": "bounded",
+      "availability_basis": "official_schema_release",
+      "evidence": "NTSB MDB Release Notes 3.0 states that cm_inPC was added to AVALL monthly/weekly downloads on 2024-03-01 and back-filled for historical records.",
+      "locator": "https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5CMDB_Release_Notes.pdf",
+      "rule": "Never admit cm_inPC at a simulated cutoff before 2024-03-01 merely because the current AVALL snapshot contains a back-filled value. Record-level availability at or after that date still requires evidence appropriate to the backtest use."
+    },
+    {
+      "field": "CAROL aviation expanded download fields",
+      "earliest_verified_schema_publication": "2023-07-17T00:00:00Z",
+      "pit_status": "bounded",
+      "availability_basis": "official_product_release",
+      "evidence": "NTSB announced expanded aviation data and CSV/JSON downloads with additional fields on 2023-07-17.",
+      "locator": "https://www.ntsb.gov/news/press-releases/Pages/NR07172023.aspx",
+      "rule": "The product-level release bounds these added search/download capabilities; it does not prove that any particular field/value was publicly present before the release or on a specific historical record at the same date."
+    },
+    {
+      "field": "CAROL investigation records",
+      "earliest_verified_schema_publication": "2020-10-13T00:00:00Z",
+      "pit_status": "bounded",
+      "availability_basis": "official_product_release",
+      "evidence": "NTSB announced the public launch of CAROL on 2020-10-13 and described aviation investigations since 2008 as available subject to migration caveats.",
+      "locator": "https://www.ntsb.gov/news/press-releases/Pages/NR20201013.aspx",
+      "rule": "CAROL launch is a datasource-level lower bound only. It must not be converted into an exact record or field publication timestamp."
+    }
+  ],
+  "default_rule": {
+    "pit_status": "unknown",
+    "rule": "If no dated official release, archived snapshot, report publication, or equivalent immutable evidence proves historical public availability, the field/value remains unknown and is excluded from strict PIT backtests."
+  },
+  "g3_status": "BLOCKED"
+}

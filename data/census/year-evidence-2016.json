@@ -1,0 +1,81 @@
+{
+  "schema": "bsfm.g1-year-evidence.v2",
+  "year": 2016,
+  "status": "reconciled",
+  "reconciled": true,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2016-FZ981", "G1-2016-EK521", "G1-2016-AS157"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence_progress": "6/6",
+  "evidence": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "authority_role": "independent global commercial-aviation safety publisher",
+      "source_title": "IATA Safety Report 2016",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2016.pdf",
+      "publication_date": "2017-04",
+      "scope": "global commercial aviation under IATA methodology",
+      "observation": "IATA reports ten fatal accidents in 2016: five jet and five turboprop. The five fatal jet accidents are West Air Sweden CRJ200, FlyDubai B737-800, EgyptAir A320, LaMia RJ85 and Aerosucre B727. IATA's then-current fatal-accident metric counted onboard fatalities only, so Emirates EK521 is not captured by that five-event fatal-jet count.",
+      "use": "annual-universe and target-membership reconciliation with explicit onboard-only limitation"
+    },
+    {
+      "publisher": "Flight Safety Foundation summarizing IATA Safety Report 2016",
+      "source_title": "IATA Measures Improvement in Commercial Aviation Safety",
+      "source_locator": "https://flightsafety.org/iata-measures-improvement-commercial-aviation-safety/",
+      "publication_date": "2017-04-25",
+      "scope": "independent report-level reconciliation",
+      "observation": "FSF confirms 268 onboard fatalities and that IATA's report excluded people killed on the ground from the fatality count; EgyptAir 804 and LaMia 2933 are explicitly included in the 2016 accident statistics.",
+      "use": "independent reconciliation and external-fatality limitation"
+    },
+    {
+      "publisher": "Interstate Aviation Committee (IAC/MAK)",
+      "authority_role": "accident-investigation authority",
+      "source_title": "Boeing 737-800 A6-FDN 19.03.2016",
+      "source_locator": "https://mak-iac.org/en/rassledovaniya/boeing-737-800-a6-fdn-19-03-2016/",
+      "publication_date": "2019-11-25",
+      "scope": "event-level",
+      "observation": "Investigation finished; commercial air transport; FlyDubai Boeing 737-800 A6-FDN, serial 40241; 62 fatalities.",
+      "use": "competent-authority target evidence"
+    },
+    {
+      "publisher": "UAE GCAA Air Accident Investigation Sector",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "Final Report AIFN/0008/2016",
+      "source_locator": "https://www.icao.int/sites/default/files/sp-files/safety/airnavigation/AIG/Documents/Safety%20Recommendations%20to%20ICAO/Final%20Reports/UAE_B777_A6-EMW_3Aug2016.pdf",
+      "publication_date": "2020-01-20",
+      "scope": "event-level",
+      "observation": "Emirates scheduled passenger flight UAE521, Boeing 777-31H A6-EMW, serial 32700; all occupants survived but one firefighter was fatally injured; occurrence classified as an Annex 13 accident.",
+      "use": "competent-authority target and external-fatality evidence"
+    },
+    {
+      "publisher": "Aeronautica Civil de Colombia / GRIAA",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "COL-16-40-GIA / HK4544",
+      "source_locator": "https://www.aerocivil.gov.co/info/aeronautica_civil/media/1740581430_COL-16-40-GIA%20Final%20Acc%20HK4544%20Puerto%20Carre%C3%B1o%2020-dic-16.pdf",
+      "scope": "event-level",
+      "observation": "Boeing 727-2JO HK4544, serial 21105, Aerosucre, non-scheduled cargo air transport; five fatalities among six occupants.",
+      "use": "competent-authority target evidence"
+    },
+    {
+      "publisher": "The Boeing Company / 2016 commercial-jet statistical reconciliation",
+      "authority_role": "manufacturer statistical publisher",
+      "scope": "worldwide commercial-jet accidents under Boeing definitions",
+      "observation": "The annual Boeing reconciliation is consistent with FlyDubai, LaMia and Aerosucre contributing 138 onboard fatalities and Emirates contributing one external fatality; non-Boeing fatal jet cases remain outside the target.",
+      "use": "independent manufacturer reconciliation and external-fatality control"
+    }
+  ],
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "The five fatal jet accidents under IATA are exhaustively mapped to Boeing/non-Boeing membership, the external-fatality-only Emirates EK521 case is added through an independent external-fatality control, all three Boeing target candidates have competent-authority evidence, and no unresolved target-taxonomy issue remains for a 2016 Boeing candidate.",
+    "ledger_action": "set reconciled=true"
+  },
+  "gate_effect": "2016 annual cell PASS; overall G1 remains BLOCKED until every required annual cell passes"
+}

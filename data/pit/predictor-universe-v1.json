@@ -1,0 +1,53 @@
+{
+  "schema": "bsfm.g3-predictor-universe.v1",
+  "status": "DRAFT_UNFROZEN",
+  "updated": "2026-09-06",
+  "frozen": false,
+  "frozen_at": null,
+  "applies_to": "future historical backtests after explicit model/predictor freeze",
+  "canonical_model_contract": "config/model.json / BSFM model 1.2",
+  "purpose": "Declare the exact historical inputs admitted to strict point-in-time backtests without silently redefining the broader component contract of BSFM model 1.2.",
+  "rules": [
+    "Only sources and fields explicitly listed in admitted_predictors may enter a strict backtest.",
+    "Every admitted observation must be PIT-verified under the source-specific evidence contract.",
+    "Removing or adding an input after model-skill inspection requires a new registry/model version and new analysis.",
+    "An unfrozen or empty registry cannot satisfy G3.",
+    "A reduced predictor universe cannot be labelled model 1.2 unless it preserves the model 1.2 contractual components or a separately versioned redesign explicitly supersedes them.",
+    "F-002 and historical G1 v1 are unaffected by this registry."
+  ],
+  "admitted_predictors": [],
+  "candidate_inputs_for_shrinkage_implementation": [
+    {
+      "source": "G1 target census",
+      "fields": ["prior qualifying target-event cohort membership"],
+      "status": "candidate_not_admitted",
+      "implementation_dependency": "fit_shrunk_hazard(events[].cohort)",
+      "blocker": "Historical cutoff admission requires proof that each prior target outcome/taxonomy used by the estimator was authoritatively knowable by the simulated cutoff."
+    },
+    {
+      "source": "G2 exposure matrix",
+      "fields": ["historical departures by cohort", "cohort universe"],
+      "status": "candidate_not_admitted",
+      "implementation_dependency": "fit_shrunk_hazard(exposure_rows, cohorts)",
+      "blocker": "The complete global cohort-year denominator and its frozen vintage policy are not yet available."
+    }
+  ],
+  "model_1_2_contractual_components_requiring_separate_pit_or_redesign": [
+    "faa_sdr_precursors",
+    "ad_mitigation",
+    "failure_hazard",
+    "escalation",
+    "phase_of_flight",
+    "geography",
+    "survival_time_to_event"
+  ],
+  "research_inputs_not_consumed_by_shrinkage_implementation": [
+    "FAA SDR JASC/stage/condition fields",
+    "NTSB sequence phase and causal findings",
+    "geography",
+    "MSN",
+    "flight number"
+  ],
+  "model_dependency_audit": "data/pit/candidate-estimator-dependencies-v1.json",
+  "g3_effect": "BLOCKED_UNTIL_MODEL_AND_PREDICTOR_UNIVERSE_ARE_FROZEN_AND_VERIFIED"
+}

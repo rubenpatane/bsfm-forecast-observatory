@@ -1,0 +1,60 @@
+{
+  "schema": "bsfm.g1-year-evidence.v1",
+  "year": 2025,
+  "status": "reconciled",
+  "reconciled": true,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2025-AI171", "G1-2025-ACT747"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "source_title": "Annual Safety Report 2025",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2025-fy_final.pdf",
+      "scope": "global commercial aviation under IATA 2025 accident criteria",
+      "observation": "IATA records 51 accidents, eight fatal accidents (four jet, four turboprop), and explicitly includes fatalities on the ground or on other aircraft in a separate Other Fatalities category. Its 2025 accident list includes Air India B787-8, ACT Airlines B747-400 freighter, PSA CRJ700 and UPS MD-11 among the relevant jet fatal events.",
+      "use": "annual-universe and external-fatality reconciliation"
+    },
+    {
+      "publisher": "The Boeing Company",
+      "source_title": "2025 Statistical Summary of Commercial Jet Airplane Accidents",
+      "source_locator": "https://www.boeing.com/content/dam/boeing/v2/safety/statsum.pdf",
+      "scope": "worldwide commercial jet fleet under Boeing definitions",
+      "observation": "Boeing's 2025 table independently records ACT Airlines B747-400 with 0 onboard and 2 external fatalities, PSA CRJ700 with 64 onboard and 3 external fatalities, and UPS MD-11 with 3 onboard and 11 external fatalities. It explicitly notes that Air India 171 was excluded because it was categorized UNK at publication time.",
+      "use": "independent reconciliation and documented source-scope conflict"
+    },
+    {
+      "publisher": "Aircraft Accident Investigation Bureau, India",
+      "source_title": "Preliminary Report VT-ANB",
+      "source_locator": "https://aaib.gov.in/Reports/2025/Accident/Preliminary%20Report%20VT-ANB.pdf",
+      "observation": "AAIB identifies the 12 June 2025 occurrence as an accident involving Air India Boeing 787-8 VT-ANB, scheduled passenger operation AI171 from Ahmedabad to London Gatwick.",
+      "use": "competent-authority target-eligibility evidence"
+    },
+    {
+      "publisher": "Hong Kong Air Accident Investigation Authority",
+      "source_title": "PLR-2025-04",
+      "source_locator": "https://www.tlb.gov.hk/aaia/doc/PLR-2025-04_Eng.pdf",
+      "observation": "AAIA classifies the 20 October 2025 runway excursion as an accident involving Boeing 747-481 BDSF TC-ACF, serial 25645, ACT Airlines cargo operation; four crew survived and two other persons were fatally injured.",
+      "use": "competent-authority target-eligibility and external-fatality evidence"
+    }
+  ],
+  "scope_issue": {
+    "id": "BOEING_UNK_AI171",
+    "status": "RESOLVED_FOR_BSFM_MEMBERSHIP",
+    "reason": "Boeing's statistical exclusion is explicitly tied to its UNK publication rule. The competent Annex 13 authority AAIB classifies the occurrence as an accident, while the frozen BSFM target is not defined by Boeing's statistical-table inclusion rule. The source discrepancy is retained but does not negate target membership."
+  },
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "The IATA annual universe and Boeing reconciliation identify the fatal jet set and external-fatality cases; the two Boeing target members are grounded in competent-authority records and source-specific classification differences are explicitly resolved without retroactive convenience exclusions.",
+    "ledger_action": "set reconciled=true"
+  },
+  "gate_effect": "2025 annual cell PASS; overall G1 remains BLOCKED until all required years pass"
+}

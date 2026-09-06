@@ -1,0 +1,82 @@
+{
+  "schema": "bsfm.g2-source-inventory.v3",
+  "status": "research-inventory",
+  "updated": "2026-09-06",
+  "required_denominator": "annual Boeing family/cohort departures or sectors for 2010-2025 under a compatible global commercial-jet scope, with source-vintage/revision semantics sufficient for reproducible historical baseline construction",
+  "sources": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "source_title": "Annual Safety Report sector data + World Air Transport Statistics (WATS)",
+      "source_locator": "data/exposure/iata-sectors-source.json",
+      "observed_granularity": "public model-level global annual sectors in historical Annex 4 editions through 2019; later public Safety Reports expose aggregate jet/turboprop and regional sectors; current WATS product advertises longitudinal aircraft/model utilization",
+      "useful_fields": ["manufacturer", "model", "year", "sectors/flights", "source vintage", "revision policy"],
+      "coverage_result": "model_level_public_series_discontinuous_after_2019",
+      "reason": "The 2019 Safety Report Annex 4 publicly provides annual sectors by manufacturer/model for 2015-2019, continuing overlapping public Annex 4 windows back to at least 2010. In later inspected public reports the former manufacturer/model matrix is not continuously available. WATS Global is proprietary and remains an access candidate rather than a demonstrated baseline. Historical Safety Report sector figures are revision-sensitive."
+    },
+    {
+      "publisher": "OAG",
+      "source_title": "Historical Flight Data / historical schedules",
+      "source_locator": "data/exposure/oag-historical-source.json",
+      "observed_granularity": "licensed global historical schedule/flight records with aircraft/equipment information and historical schedule-version semantics",
+      "useful_fields": ["flight date", "aircraft/equipment", "scheduled/operated status depending product", "historical schedule version", "operator", "origin/destination"],
+      "coverage_result": "high_priority_candidate_access_required",
+      "reason": "Technically promising for a reproducible global model-year matrix, but no licensed BSFM access or representative product extract is connected. Exact fields, performed-flight semantics, 737 variant mapping, cargo/charter scope and licence constraints must be audited before use."
+    },
+    {
+      "publisher": "Cirium",
+      "source_title": "Historical Flight Status / Schedules / Fleet and Values",
+      "source_locator": "data/exposure/cirium-historical-source.json",
+      "observed_granularity": "historical flight-status data documented from 2006-02-07 with equipment type and scheduled/actual timing; more than 20 years of historical schedules; aircraft utilization/cycle products also available",
+      "useful_fields": ["flight date", "equipment type", "actual departure/arrival", "registration/tail in relevant products", "historical schedules", "cycles/utilization in relevant products"],
+      "coverage_result": "high_priority_candidate_access_required",
+      "reason": "Cirium documents global commercial flight/schedule products with history extending before 2010 and aircraft/equipment information. It is nevertheless proprietary. The exact licensed product, global performed-flight completeness, passenger/cargo/charter scope, deterministic BSFM cohort mapping, cancellation semantics and historical-vintage behavior must be demonstrated before any G2 use."
+    },
+    {
+      "publisher": "The Boeing Company",
+      "source_title": "Statistical Summary of Commercial Jet Airplane Accidents",
+      "source_locator": "https://www.boeing.com/content/dam/boeing/v2/safety/statsum.pdf",
+      "observed_granularity": "annual worldwide all-commercial-jet departures/flight-hours plus cumulative Boeing/type statistics",
+      "useful_fields": ["annual aggregate departures", "annual aggregate flight hours", "cumulative Boeing departure share", "cumulative type accident rates"],
+      "coverage_result": "insufficient_for_G2",
+      "reason": "No complete annual Boeing-family departures/cycles matrix for the required 2010-2025 cohort-year cells has been demonstrated. Aggregate fleet totals and cumulative type rates cannot be inverted or disaggregated into family-year exposure. Boeing's current summary cites Jet Information Services for 2005-2019 aggregate fleet activity and Cirium for 2020-2025 aggregate fleet activity, reinforcing that authoritative global operational exposure is sourced from specialized data providers rather than recoverable from the public aggregate chart."
+    },
+    {
+      "publisher": "U.S. Department of Transportation / Bureau of Transportation Statistics",
+      "source_title": "TranStats T-100 Segment (All Carriers)",
+      "source_locator": "https://www.transtats.bts.gov/DatabaseInfo.asp?QO_VQ=EEE",
+      "observed_granularity": "monthly non-stop segment records by aircraft type/service class with scheduled/performed departures and aircraft hours",
+      "useful_fields": ["aircraft type", "scheduled departures", "performed departures", "aircraft hours"],
+      "coverage_result": "partial_scope_only",
+      "reason": "The database covers U.S. domestic operations and international operations with at least one U.S./territory service point; foreign-to-foreign flights are excluded. It can support sensitivity/reconciliation work but cannot serve as the global BSFM family-year denominator."
+    },
+    {
+      "publisher": "International Civil Aviation Organization",
+      "source_title": "ICAO Long Term Traffic Forecast application",
+      "source_locator": "https://trafficforecast.icao.int/",
+      "observed_granularity": "historical traffic by carrier/country-pair/route-group/region plus forecasts of departures and fleet forecasts by aircraft type",
+      "useful_fields": ["historical traffic", "forecast departures", "fleet forecast by aircraft type"],
+      "coverage_result": "not_demonstrated_for_G2",
+      "reason": "The public product description does not establish a reproducible historical actual-departures matrix at Boeing-family-by-year granularity matching the BSFM denominator. Forecasted departures/fleet are not substitutes for historical measured exposure, and no new ICAO API retrieval is permitted."
+    }
+  ],
+  "vintage_policy_requirement": {
+    "status": "REQUIRED_BEFORE_G2_PASS",
+    "reason": "Historical exposure may be revised. Any baseline must declare whether it uses contemporaneous published vintages or a fixed versioned modern reconstruction and must not mix those objects silently."
+  },
+  "prohibited_transformations": [
+    "allocate aggregate departures to Boeing families using fleet share",
+    "split Boeing 737 all-variant sectors into Original/Classic/NG/MAX using fleet share, deliveries, market share or accident counts",
+    "invert cumulative accident rates to reconstruct annual family departures",
+    "use fleet counts, deliveries, capacity or market share as the primary denominator",
+    "substitute forecast departures for historical measured departures",
+    "mix revised modern historical sector values with contemporaneous-vintage values without a declared version policy"
+  ],
+  "conclusion": {
+    "g2_status": "BLOCKED",
+    "baseline_present": false,
+    "public_bridge_2020_2023": false,
+    "commercial_longitudinal_candidate_exists": true,
+    "high_priority_candidates": ["OAG Historical Flight Data", "Cirium Historical Flight Status/Schedules", "IATA WATS Global"],
+    "next_research_direction": "The remaining G2 problem is now primarily lawful data access plus product-scope validation, not public-source discovery. Obtain a representative licensed extract/data dictionary from OAG, Cirium or WATS and run the fixed acceptance contract. If no such access is available, retain G2 BLOCKED or prospectively version a different cohort/baseline design; do not proxy-split the current cohorts."
+  }
+}

@@ -6,6 +6,7 @@ from .sources import ingest_current,ingest_history
 from .foundation_report import build_foundation_report
 from .model_lifecycle import update_model
 from .readiness import final_readiness
+from .pit_coverage import build_operational_pit_coverage
 ROOT=Path(__file__).resolve().parents[1]
 
 def availability_audit(source_state):
@@ -14,8 +15,18 @@ def availability_audit(source_state):
  if path.exists():
   try: evidence=json.loads(path.read_text(encoding='utf-8'))
   except (OSError,json.JSONDecodeError): evidence={}
- pit=source_state.get('point_in_time_availability_verified') is True
- return {'point_in_time_availability_verified':pit,'leakage_free':pit and evidence.get('leakage_free') is True}
+ operational=build_operational_pit_coverage(ROOT)
+ # Source download/schema integrity and point-in-time eligibility are separate.
+ # PIT is decided by the frozen predictor universe plus source/field/snapshot
+ # evidence in build_operational_pit_coverage, not by requiring every manifest
+ # in the repository to be historically verified whether used or not.
+ integrity=source_state.get('source_integrity_ready') is True
+ pit=integrity and operational.get('strict_operational_pit_ready') is True
+ return {
+  'point_in_time_availability_verified':pit,
+  'leakage_free':pit and evidence.get('leakage_free') is True,
+  'operational_pit_status':operational.get('g3_status','BLOCKED'),
+ }
 
 def foundation():
  s=validate_sources(); return build_foundation_report(ROOT,availability_audit(s))

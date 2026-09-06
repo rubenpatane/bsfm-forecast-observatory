@@ -1,0 +1,33 @@
+{
+  "schema": "bsfm.ntsb-snapshot-provenance.v1",
+  "source": "NTSB aviation downloadable accident data (AVALL)",
+  "source_page": "https://www.ntsb.gov/safety/data/Pages/Data_Stats.aspx",
+  "download_directory": "https://data.ntsb.gov/avdata",
+  "workflow_run": 33978802087,
+  "workflow_run_number": 25,
+  "workflow_source_sha": "971cdd6a1ec0576208191e2d18fe76fce2742c86",
+  "github_artifact_id": 9973159900,
+  "github_artifact_name": "ntsb-derived",
+  "artifact_zip_bytes": 51556264,
+  "artifact_zip_sha256": "75d80a51a061ab73431271ecfe8808d265f238ca735f88de3f18381ffc7e053e",
+  "critical_files": {
+    "Events_Sequence.csv": {"bytes": 7291225, "rows": 66353, "sha256": "f1276e86b2d7df5f813545e828dd175a9a074d6e01d3024fdb5e038919bb54d4"},
+    "eADMSPUB_DataDictionary.csv": {"bytes": 2360213, "rows": 4574, "sha256": "a385ff21a322d0ff3b98ad50173e581cac8a8ff11df0db1256234d478237e2b2"},
+    "aircraft.csv": {"bytes": 13408120, "rows": 31670, "sha256": "9bd00e8b6d2916e83a7baaf316e6ab97f0d62e9289089e0e22bf1b9410e56eb0"},
+    "events.csv": {"bytes": 10753816, "rows": 31124, "sha256": "5b41332f2d230aa1b5951b1279b81b9d670635d1463cfe2b1f030c766471ca63"}
+  },
+  "research_audit": {
+    "period": [2010, 2025],
+    "boeing_commercial_airplane_rows": 1358,
+    "rows_with_event_sequence": 1252,
+    "rows_with_recovered_phase": 1250,
+    "phase_recovery_fraction": 0.9204712812960235,
+    "phase_recovery_given_sequence_fraction": 0.9984025559105432
+  },
+  "raw_storage_policy": "Do not commit the ~51 MB derived ZIP to ordinary Git history; retain provenance/hash and reacquire from the official NTSB public dataset/workflow artifact when needed.",
+  "scope_limits": [
+    "NTSB is not global ground truth; foreign records may be supporting records and may diverge from competent-state final reports.",
+    "Current presence in AVALL does not establish historical point-in-time public availability for G3.",
+    "Research metrics do not open G1-G4."
+  ]
+}

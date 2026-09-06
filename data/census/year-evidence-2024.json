@@ -1,0 +1,72 @@
+{
+  "schema": "bsfm.g1-year-evidence.v2",
+  "year": 2024,
+  "status": "reconciled",
+  "reconciled": true,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-06",
+  "qualifying_candidate_ids": ["G1-2024-SQ321", "G1-2024-BCS18D", "G1-2024-JJA2216"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence_progress": "6/6",
+  "evidence": [
+    {
+      "publisher": "International Air Transport Association (IATA)",
+      "source_title": "IATA Safety Report 2024",
+      "source_locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2024-fy_final.pdf",
+      "publication_date": "2025",
+      "scope": "global commercial aviation under revised IATA accident criteria including Other Fatalities",
+      "observation": "IATA lists seven fatal accidents in 2024. The five fatal jet accidents are Jeju Air B737-800 (179 onboard), SWISS A220-300 (1 onboard), Swiftair B737-400 (1 onboard), Singapore Airlines B777-300ER (1 onboard), and Japan Airlines A350-900 with five Other Fatalities on the other aircraft. The two fatal turboprop accidents are Voepass ATR72 and Safarilink DHC-8. Thus the Boeing target members are exactly Jeju, Swiftair and Singapore Airlines.",
+      "use": "annual-universe, target-membership and external/other-aircraft fatality reconciliation"
+    },
+    {
+      "publisher": "Singapore Ministry of Transport / Transport Safety Investigation Bureau",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "B773ER 9V-SWM turbulence encounter interim statement",
+      "source_locator": "https://www.mot.gov.sg/docs/default-source/about-mot/b773er-%289v-swm%29-turbulence-encounter-20-may-2024-interim-statement.pdf?sfvrsn=c701d0dc_1",
+      "observation": "Official investigation material identifies Singapore Airlines Boeing 777-300ER 9V-SWM on a scheduled passenger flight and records one passenger death; the occurrence is treated as an accident by the investigating authority.",
+      "use": "competent-authority target evidence"
+    },
+    {
+      "publisher": "Ministry of Justice of the Republic of Lithuania, Transport Accident and Incident Investigation Division",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "BCS18D / EC-MFE investigation update",
+      "source_locator": "https://tm.lrv.lt/lt/naujienos-2/teisingumo-ministras-rimantas-mockus-tiriant-dhl-lektuvo-katastrofa-galimo-terorizmo-ar-neteiseto-isikisimo-pozymiu-nenustatyta/",
+      "observation": "Official Lithuanian investigation material identifies the Swiftair Boeing 737-476/737-400SF commercial cargo accident near Vilnius and the death of the aircraft pilot.",
+      "use": "competent-authority target evidence"
+    },
+    {
+      "publisher": "Republic of Korea Aviation and Railway Accident Investigation Board (ARAIB)",
+      "authority_role": "state accident-investigation authority",
+      "source_title": "AAR2404 / HL8088 / 7C2216",
+      "source_locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=344",
+      "observation": "ARAIB identifies the Jeju Air Boeing 737-800 HL8088 accident at Muan and records 179 fatalities and two serious injuries.",
+      "use": "competent-authority target evidence"
+    },
+    {
+      "publisher": "The Boeing Company",
+      "source_title": "2024 Statistical Summary of Commercial Jet Airplane Accidents",
+      "source_locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+      "scope": "worldwide commercial jet fleet under Boeing definitions",
+      "observation": "Boeing independently lists the Singapore Airlines 777-300ER, Swiftair 737-400 and Jeju Air 737-800 fatal accidents in its 2024 commercial-jet table, consistent with the three Boeing target memberships.",
+      "use": "independent manufacturer reconciliation"
+    }
+  ],
+  "scope_issue": {
+    "id": "AZERBAIJAN_CONFLICT_ZONE_2024",
+    "status": "NON_TARGET_FOR_BOEING_MEMBERSHIP",
+    "reason": "IATA excludes the Azerbaijan Airlines Embraer 190 event as a security/conflict-zone event. Because the aircraft is non-Boeing, that source-taxonomy dispute does not change the 2024 Boeing target membership; it is retained as a scope note rather than used to define the historical Boeing outcome."
+  },
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "The IATA accident list exhaustively identifies all seven fatal accidents and five fatal jets under a definition that includes Other Fatalities. Exactly three fatal jets are Boeing and all three have competent-authority evidence plus independent Boeing reconciliation. The conflict-zone exclusion affecting a non-Boeing Embraer does not alter the Boeing target set.",
+    "ledger_action": "set reconciled=true"
+  },
+  "gate_effect": "2024 annual cell PASS; overall G1 remains BLOCKED until every required annual cell passes"
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "bsfm.exposure-source.v1",
+  "publisher": "OAG",
+  "title": "Historical Flight Data / Schedules Data",
+  "retrieved_for_research": "2026-09-06",
+  "role": "high-priority G2 global flight-level exposure candidate",
+  "source_locators": [
+    "https://www.oag.com/historical-flight-data",
+    "https://www.oag.com/airline-schedules-data",
+    "https://knowledge.oag.com/v1/docs/parameters"
+  ],
+  "documented_capabilities": {
+    "historical_range": "2004-present for historical flight records; 20+ years for schedules",
+    "geographic_scope": "global",
+    "flight_fields": ["flight date", "carrier", "flight number", "origin/destination", "aircraft type", "scheduled times", "actual times/status where available", "tail number in historical product"],
+    "delivery": ["API", "files", "Snowflake/analytics depending product"],
+    "vintage_capability": "OAG documentation states a historical-report parameter can look back in time to schedule data exactly as it was published. This is materially stronger for historical-vintage control than silently using a modern revised aggregate.",
+    "potential_exposure_unit": "count of operated/actual flight legs or, if only schedules are licensed, count of scheduled flight legs with explicit cancellation/performance policy"
+  },
+  "scientific_fit": {
+    "global_model_year_matrix": "potentially feasible from flight-level aircraft/equipment records",
+    "737_variant_resolution": "potentially feasible only if equipment codes distinguish the required Original/Classic/NG/MAX cohorts consistently across vintages; must be demonstrated before use",
+    "legacy_727_coverage": "historical range is long enough in principle, but actual field/code coverage must be demonstrated",
+    "cargo_and_passenger_scope": "product documentation describes global airline flight records; precise commercial/cargo inclusion semantics require licensed field documentation and extraction audit",
+    "actual_vs_scheduled": "historical product advertises scheduled and actual flight records. G2 should prefer performed/actual departures; scheduled-only counts cannot silently substitute without a preregistered denominator definition."
+  },
+  "access_and_reproducibility": {
+    "public_download": false,
+    "commercial_access_required": true,
+    "current_repo_access": false,
+    "redistribution_rights": "unknown until license terms for the acquired product are reviewed",
+    "reproducibility_requirement": "If acquired, freeze query/extraction specification, code mappings, coverage diagnostics, vintage mode, hashes/aggregate derivatives permitted by license, and enough provenance for independent audit without publishing restricted raw records."
+  },
+  "gate_effect": {
+    "g2_status": "BLOCKED",
+    "baseline_present": false,
+    "reason": "OAG is a technically promising global/vintage-aware source, but the project currently has no licensed dataset or demonstrated cohort-year extraction. Source capability is not evidence coverage."
+  },
+  "next_validation": [
+    "obtain lawful access or a sufficiently representative licensed sample/data dictionary",
+    "demonstrate equipment-code mapping for every BSFM Boeing cohort including 727 and 737 Original/Classic/NG/MAX",
+    "demonstrate global passenger/cargo commercial scope and performed-flight semantics for 2010-2025",
+    "quantify missing/unknown aircraft-type cells by year",
+    "freeze a historical-vintage policy before computing baseline probabilities"
+  ]
+}

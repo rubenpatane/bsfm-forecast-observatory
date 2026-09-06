@@ -1,0 +1,31 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2024,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2024-SQ321",
+      "available_at": "2024-05-21",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://www.mot.gov.sg/news-resources/newsroom/singapore-airlines-flight-sq321-incident/"],
+      "status": "verified",
+      "note": "Singapore Ministry of Transport/TSIB's dated notice establishes the investigated SQ321 occurrence; the linked official investigation record preserves the Boeing type and fatal outcome."
+    },
+    {
+      "event_id": "G1-2024-BCS18D",
+      "available_at": "2024-11-26",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://tm.lrv.lt/lt/naujienos-2/del-lektuvo-boeing-737-476-skrydzio-avarijos-imtasi-savirasiu-duomenu-nuskaitymo-proceso-organizavimo-veiksmu/"],
+      "status": "verified",
+      "note": "Lithuanian Ministry of Justice transport-safety investigation notice published the day after the Swiftair Boeing 737-476 accident."
+    },
+    {
+      "event_id": "G1-2024-JJA2216",
+      "available_at": "2025-01-27",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=344"],
+      "status": "verified",
+      "note": "South Korea ARAIB explicitly records 2025-01-27 as the publication date of the Jeju Air HL8088 preliminary accident report."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "bsfm.g1-year-evidence.v2",
+  "year": 2017,
+  "status": "reconciled",
+  "reconciled": true,
+  "target": "fatal accidents involving Boeing commercial jets",
+  "retrieved_for_research": "2026-09-05",
+  "qualifying_candidate_ids": ["G1-2017-TK6491"],
+  "controls": {
+    "annual_source_scope_demonstrated": true,
+    "all_fatal_jets_mapped": true,
+    "boeing_target_membership_mapped": true,
+    "competent_authority_per_candidate": true,
+    "independent_reconciliation": true,
+    "target_taxonomies_resolved": true
+  },
+  "evidence_progress": "6/6",
+  "evidence": [
+    {"publisher":"International Air Transport Association (IATA)","authority_role":"independent global commercial-aviation safety publisher","source_title":"IATA Safety Report 2017","source_locator":"https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2017.pdf","publication_date":"2018-04","scope":"global commercial-aviation accident census under IATA methodology","observation":"IATA reports six fatal accidents worldwide in 2017. Five were turboprop accidents and the remaining fatal jet accident was a cargo operation; there were no passenger fatalities on jet transport aircraft. Its annual accident table identifies Boeing 747-400 TC-MCL at Bishkek as a cargo jet hull loss.","use":"annual universe and fatal-jet exhaustion evidence"},
+    {"publisher":"Interstate Aviation Committee (IAC/MAK), Air Accident Investigation Commission","authority_role":"accident-investigation authority","source_title":"Boeing 747-412F TC-MCL 16.01.2017 investigation page and final report","source_locator":"https://mak-iac.org/en/rassledovaniya/boeing-747-412f-tc-mcl-16-01-2017/","publication_date":"2020-02-17","scope":"event-level","observation":"IAC identifies Boeing 747-412F TC-MCL, serial 32897, ACT Airlines, investigation complete, aircraft destroyed and 39 fatalities; its investigation notes crew and ground fatalities.","use":"competent investigation and identity evidence"},
+    {"publisher":"Boeing Commercial Airplanes, summarized by Flight Safety Foundation","authority_role":"independent manufacturer statistical reconciliation","source_title":"2017 worldwide commercial-jet accident statistics / ACT Airlines 747-400","source_locator":"https://flightsafety.org/asw-article/loc-i-accidents-led-other-categories-data-show/","publication_date":"2018","scope":"worldwide commercial jet airplane fleet","observation":"Boeing data report 40 commercial-jet accidents in 2017 and identify ACT Airlines 747-400 as the accident with onboard fatalities: four onboard and 35 external fatalities.","use":"independent target reconciliation and external-fatality check"}
+  ],
+  "completeness_assessment": {
+    "global_year_complete": true,
+    "reason": "IATA's global commercial-aviation census explicitly exhausts the 2017 fatal-jet universe to one cargo-jet accident; that accident is Boeing 747-412F TC-MCL, is confirmed by the investigating authority, and is independently reconciled against Boeing worldwide commercial-jet statistics. No unresolved target-taxonomy boundary remains for this event.",
+    "ledger_action": "set 2017 reconciled=true"
+  },
+  "gate_effect": "2017 annual G1 cell PASS only; overall G1 remains BLOCKED until every required year passes"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2020,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2020-PC2193",
+      "available_at": "2023-12-31",
+      "availability_basis": "official_database_publication",
+      "availability_evidence_ids": ["https://www.ntsb.gov/about/reports/Documents/2022%20Annual%20Report%20to%20Congress.pdf"],
+      "status": "verified",
+      "note": "Conservative year-end normalization of the NTSB 2023 publication bound; the Annex 13 accredited representative's annual report identifies PC2193, the Boeing 737-800 and three fatalities."
+    },
+    {
+      "event_id": "G1-2020-IX1344",
+      "available_at": "2021-08-17",
+      "availability_basis": "competent_authority_publication",
+      "availability_evidence_ids": ["https://aaib.gov.in/Reports/2020/accident/Final%20Report%20AXH.pdf"],
+      "status": "verified",
+      "note": "Conservative bound from the creation timestamp preserved in the AAIB authority-hosted final-report PDF."
+    }
+  ]
+}

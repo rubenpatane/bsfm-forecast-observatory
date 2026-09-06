@@ -1,0 +1,32 @@
+{
+  "schema": "bsfm.g3-secondary-snapshot-anchors.v1",
+  "updated": "2026-09-06",
+  "source": "NTSB historical public database derivatives preserved by third parties",
+  "status": "supporting_only",
+  "anchors": [
+    {
+      "anchor_date": "2016-09-04",
+      "publisher": "AirSafe.com",
+      "artifact": "complete NTSB online AviationData download used by AirSafe analysis",
+      "analysis_locator": "https://github.com/airsafe/analyses/blob/master/ntsb.database.Rmd",
+      "raw_text_locator": "https://www.airsafe.com/analyze/AviationData.txt",
+      "raw_xml_locator": "https://www.airsafe.com/analyze/AviationData.xml",
+      "processed_csv_locator": "https://www.airsafe.com/analyze/ntsb_data.csv",
+      "evidence_class": "secondary_preserved_historical_download",
+      "documented_properties": [
+        "AirSafe states the complete NTSB database was downloaded on 2016-09-04 and contained just under 79,000 records.",
+        "The transformation preserves NTSB Event.Date separately from Publication.Date.",
+        "The linked original text/XML downloads and transformed outputs were made publicly available with the dated analysis."
+      ],
+      "pit_use": "Potential record-level anchor for fields demonstrably preserved in the 2016 download, subject to byte acquisition/hash and record-by-record comparison. Publication.Date is a candidate record publication field and must be validated against NTSB semantics before admission.",
+      "limitations": [
+        "AirSafe is a secondary distributor, not the competent NTSB archive.",
+        "No byte hash has yet been recorded in BSFM.",
+        "This anchor cannot establish values or fields added after the 2016 download.",
+        "Publication.Date must not be promoted to available_at until its semantics are independently confirmed and the relevant record exists in the preserved snapshot."
+      ],
+      "pit_status": "bounded"
+    }
+  ],
+  "g3_effect": "No PASS by itself. Secondary anchors may corroborate exact historical field/value presence but cannot silently replace source-specific verification rules."
+}

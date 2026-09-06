@@ -1,0 +1,33 @@
+{
+  "schema": "bsfm.g3-source-pit-policy.v1",
+  "source": "NTSB AVALL/eADMS public aviation data",
+  "status": "source-policy-defined_record-coverage-incomplete",
+  "updated": "2026-09-06",
+  "purpose": "Define which timestamps may establish historical public availability for predictor use. This policy does not make current AVALL rows historically admissible by itself.",
+  "strict_statuses": ["verified", "bounded", "unknown"],
+  "rules": {
+    "verified": "Requires an explicit dated public release/publication artifact or archived official snapshot establishing the record/field was public no later than available_at.",
+    "bounded": "Use when evidence only establishes an interval in which public availability began. Bounded rows are excluded from strict backtests unless a separately preregistered conservative interval rule makes the entire interval admissible for the cutoff.",
+    "unknown": "Default when historical public release timing cannot be established. Unknown rows are excluded from strict PIT backtests."
+  },
+  "timestamps_not_accepted_as_publication_evidence": [
+    "event/occurrence date",
+    "NTSB administrative approval/finalization date",
+    "database last-change timestamp",
+    "current retrieval timestamp",
+    "a field being present in today's AVALL database"
+  ],
+  "current_adapter_behavior": {
+    "event_date": "outcome chronology only",
+    "approval_date": "outcome/admin metadata only; never copied to available_at",
+    "last_change": "revision/admin metadata only; never copied to available_at",
+    "explicit_publication_timestamp": "may populate available_at only when source semantics establish that it is a public-release timestamp",
+    "missing_publication_evidence": "available_at remains null and PIT status remains unknown"
+  },
+  "field_level_warning": "A source-level release date does not prove every modern field was present in that historical release. Where the backtest uses a specific field, archived/versioned evidence must establish that field's historical presence or the field remains PIT-unknown.",
+  "current_g3_effect": {
+    "g3_status": "BLOCKED",
+    "reason": "The source policy is now explicit, but record-level and field-level historical availability coverage has not yet been established for the predictor universe."
+  },
+  "next_step": "Build versioned NTSB release/snapshot records with immutable official or archived locators, release dates, covered tables/fields, and derived record-level PIT statuses; exclude unknown/bounded rows from the strict backtest until admissibility is proven."
+}

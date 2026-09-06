@@ -1,0 +1,15 @@
+{
+  "schema": "bsfm.g1-outcome-publication-overlay.v1",
+  "year": 2014,
+  "reviewed": "2026-09-06",
+  "events": [
+    {
+      "event_id": "G1-2014-DN055",
+      "available_at": "2015-08-01",
+      "availability_basis": "archived_public_snapshot",
+      "availability_evidence_ids": ["https://skybrary.aero/bookshelf/statistical-summary-commercial-jet-airplane-accidents-1959-2014", "https://skybrary.aero/sites/default/files/bookshelf/3198.pdf"],
+      "status": "verified",
+      "note": "Stable public snapshot records publication on 2015-08-01 of Boeing's worldwide official statistical summary, which lists the Eastern SkyJets 737-300 Libreville event and its external fatality."
+    }
+  ]
+}
