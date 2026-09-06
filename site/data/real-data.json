@@ -1,6 +1,6 @@
 {
   "boeing_rows": 20799,
-  "generated_at": "2026-09-05T16:47:12Z",
+  "generated_at": "2026-09-06T00:23:31Z",
   "interpretation_warning": "An SDR is a service-difficulty report, not necessarily an accident, a verified causal finding, or a BSFM prediction.",
   "latest_boeing_reports": [
     {
@@ -116,11 +116,13 @@
   "ntsb_snapshot": {
     "availability_known": 0,
     "boeing_rows": 1894,
-    "commercial_boeing_rows": 1247,
-    "fatal_boeing_rows": 50,
+    "commercial_boeing_rows": 1561,
+    "fatal_boeing_rows": 53,
+    "fatal_rows_with_external_fatality": 97,
     "outcome_approval_known": 28414,
     "rows": 31670,
     "rows_with_findings": 24724,
+    "rows_with_recovered_phase": 0,
     "rows_with_sequence": 30956,
     "scheduled_boeing_rows": 996,
     "scope": "Current official AVALL event-aircraft snapshot used as outcome evidence, not as a global census.",
