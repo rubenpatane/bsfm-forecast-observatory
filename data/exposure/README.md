@@ -9,3 +9,12 @@ The primary scientific baseline is departures-only and normalized within period.
 Do not estimate family departures from fleet counts or accident counts. If authoritative Boeing-family departures cannot be reconstructed for a period, retain the gap and keep `baseline_present=false`.
 
 `source-inventory.json` records official/sustainable source candidates and why they do or do not satisfy G2. A source with aircraft-type departures but only regional or U.S.-linked coverage remains partial-scope evidence; forecast traffic or fleet values are not historical measured exposure.
+
+## Public T-100 research path
+
+`bts-t100-public-source.json` and `bsfm.bts_t100` define a separate adapter for
+the official aggregated T-100 table. It deliberately emits
+`scope=us_linked_commercial` and `global_g2_eligible=false`. A complete regional
+matrix therefore cannot change the global BSFM 1.2 G2 status. Any forecast use
+requires the separately versioned prospective decision described in
+`docs/PUBLIC-DATA-VARIANT-DECISION-v1.md`.

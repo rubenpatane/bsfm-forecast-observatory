@@ -1,0 +1,483 @@
+{
+  "baseline_mean_log_score": 0.49681740630292964,
+  "candidate_better_descriptive": false,
+  "candidate_mean_log_score": 0.4991095350351523,
+  "claim_limit": "Descriptive execution does not establish predictive validity when the frozen minimum event-fold rule is unmet.",
+  "event_bearing_fold_count": 3,
+  "fold_count": 52,
+  "folds": [
+    {
+      "baseline_log_score": 0.053227255216968236,
+      "candidate_log_score": 0.1345843864140391,
+      "case_id": "PD13-2013-01-01",
+      "cutoff": "2012-12-31",
+      "horizon_end": "2013-03-31",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.05541922049707314,
+      "candidate_log_score": 0.13933498091814267,
+      "case_id": "PD13-2013-04-01",
+      "cutoff": "2013-03-31",
+      "horizon_end": "2013-06-29",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 7.37171264353923,
+      "candidate_log_score": 6.455275401953316,
+      "case_id": "PD13-2013-06-30",
+      "cutoff": "2013-06-29",
+      "horizon_end": "2013-09-27",
+      "observed_date": "2013-07-06",
+      "observed_event_id": "G1-2013-AAR214"
+    },
+    {
+      "baseline_log_score": 0.05263854470647431,
+      "candidate_log_score": 0.13206241344216332,
+      "case_id": "PD13-2013-09-28",
+      "cutoff": "2013-09-27",
+      "horizon_end": "2013-12-26",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.05214958503701139,
+      "candidate_log_score": 0.13044246856952554,
+      "case_id": "PD13-2013-12-27",
+      "cutoff": "2013-12-26",
+      "horizon_end": "2014-03-26",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.0380546411082718,
+      "candidate_log_score": 0.10890642519667072,
+      "case_id": "PD13-2014-03-27",
+      "cutoff": "2014-03-26",
+      "horizon_end": "2014-06-24",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.11369266701721897,
+      "candidate_log_score": 0.13514431080349967,
+      "case_id": "PD13-2014-06-25",
+      "cutoff": "2014-06-24",
+      "horizon_end": "2014-09-22",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.10739690259696184,
+      "candidate_log_score": 0.12830207967960136,
+      "case_id": "PD13-2014-09-23",
+      "cutoff": "2014-09-22",
+      "horizon_end": "2014-12-21",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.10720942325919806,
+      "candidate_log_score": 0.1264711651461213,
+      "case_id": "PD13-2014-12-22",
+      "cutoff": "2014-12-21",
+      "horizon_end": "2015-03-21",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.08706901095101428,
+      "candidate_log_score": 0.11425134690884785,
+      "case_id": "PD13-2015-03-22",
+      "cutoff": "2015-03-21",
+      "horizon_end": "2015-06-19",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.08717262210567196,
+      "candidate_log_score": 0.11711867747225667,
+      "case_id": "PD13-2015-06-20",
+      "cutoff": "2015-06-19",
+      "horizon_end": "2015-09-17",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.08304896065696034,
+      "candidate_log_score": 0.11176052746846003,
+      "case_id": "PD13-2015-09-18",
+      "cutoff": "2015-09-17",
+      "horizon_end": "2015-12-16",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.0822901803230136,
+      "candidate_log_score": 0.11017714367056722,
+      "case_id": "PD13-2015-12-17",
+      "cutoff": "2015-12-16",
+      "horizon_end": "2016-03-15",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07139737040534279,
+      "candidate_log_score": 0.10224664332026887,
+      "case_id": "PD13-2016-03-16",
+      "cutoff": "2016-03-15",
+      "horizon_end": "2016-06-13",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07260752266157909,
+      "candidate_log_score": 0.10640391194985674,
+      "case_id": "PD13-2016-06-14",
+      "cutoff": "2016-06-13",
+      "horizon_end": "2016-09-11",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.06868270708227818,
+      "candidate_log_score": 0.10055696205384586,
+      "case_id": "PD13-2016-09-12",
+      "cutoff": "2016-09-11",
+      "horizon_end": "2016-12-10",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.06914689415091256,
+      "candidate_log_score": 0.09972116981855683,
+      "case_id": "PD13-2016-12-11",
+      "cutoff": "2016-12-10",
+      "horizon_end": "2017-03-10",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.062038045023730296,
+      "candidate_log_score": 0.09414234331541631,
+      "case_id": "PD13-2017-03-11",
+      "cutoff": "2017-03-10",
+      "horizon_end": "2017-06-08",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.06410651905012717,
+      "candidate_log_score": 0.09944497727325338,
+      "case_id": "PD13-2017-06-09",
+      "cutoff": "2017-06-08",
+      "horizon_end": "2017-09-06",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.06042575809592437,
+      "candidate_log_score": 0.09448898482939053,
+      "case_id": "PD13-2017-09-07",
+      "cutoff": "2017-09-06",
+      "horizon_end": "2017-12-05",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.060177179054468684,
+      "candidate_log_score": 0.09285886527795388,
+      "case_id": "PD13-2017-12-06",
+      "cutoff": "2017-12-05",
+      "horizon_end": "2018-03-05",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 7.438509367400679,
+      "candidate_log_score": 6.958722835587279,
+      "case_id": "PD13-2018-03-06",
+      "cutoff": "2018-03-05",
+      "horizon_end": "2018-06-03",
+      "observed_date": "2018-04-17",
+      "observed_event_id": "G1-2018-SWA1380"
+    },
+    {
+      "baseline_log_score": 0.056570071994111897,
+      "candidate_log_score": 0.09562121138822433,
+      "case_id": "PD13-2018-06-04",
+      "cutoff": "2018-06-03",
+      "horizon_end": "2018-09-01",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.0538043615906441,
+      "candidate_log_score": 0.09067603165628654,
+      "case_id": "PD13-2018-09-02",
+      "cutoff": "2018-09-01",
+      "horizon_end": "2018-11-30",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 7.491574904644792,
+      "candidate_log_score": 7.024196922536487,
+      "case_id": "PD13-2018-12-01",
+      "cutoff": "2018-11-30",
+      "horizon_end": "2019-02-28",
+      "observed_date": "2019-02-23",
+      "observed_event_id": "G1-2019-ATLAS3591"
+    },
+    {
+      "baseline_log_score": 0.049082889894970755,
+      "candidate_log_score": 0.08573537491998894,
+      "case_id": "PD13-2019-03-01",
+      "cutoff": "2019-02-28",
+      "horizon_end": "2019-05-29",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.05160072793525542,
+      "candidate_log_score": 0.09140031041673019,
+      "case_id": "PD13-2019-05-30",
+      "cutoff": "2019-05-29",
+      "horizon_end": "2019-08-27",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.04837056756886798,
+      "candidate_log_score": 0.08693505260561547,
+      "case_id": "PD13-2019-08-28",
+      "cutoff": "2019-08-27",
+      "horizon_end": "2019-11-25",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.08077558030752914,
+      "candidate_log_score": 0.12000822265919725,
+      "case_id": "PD13-2019-11-26",
+      "cutoff": "2019-11-25",
+      "horizon_end": "2020-02-23",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07465874647287511,
+      "candidate_log_score": 0.1139182528552749,
+      "case_id": "PD13-2020-02-24",
+      "cutoff": "2020-02-23",
+      "horizon_end": "2020-05-23",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07795747121832353,
+      "candidate_log_score": 0.12270396728792178,
+      "case_id": "PD13-2020-05-24",
+      "cutoff": "2020-05-23",
+      "horizon_end": "2020-08-21",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.1045909452220868,
+      "candidate_log_score": 0.14209023103854646,
+      "case_id": "PD13-2020-08-22",
+      "cutoff": "2020-08-21",
+      "horizon_end": "2020-11-19",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.10272653175539626,
+      "candidate_log_score": 0.14131476602367282,
+      "case_id": "PD13-2020-11-20",
+      "cutoff": "2020-11-19",
+      "horizon_end": "2021-02-17",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.09483615189433821,
+      "candidate_log_score": 0.12761513370981795,
+      "case_id": "PD13-2021-02-18",
+      "cutoff": "2021-02-17",
+      "horizon_end": "2021-05-18",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.09803950291542797,
+      "candidate_log_score": 0.13075890373328122,
+      "case_id": "PD13-2021-05-19",
+      "cutoff": "2021-05-18",
+      "horizon_end": "2021-08-16",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.09493857101942448,
+      "candidate_log_score": 0.12763820206947127,
+      "case_id": "PD13-2021-08-17",
+      "cutoff": "2021-08-16",
+      "horizon_end": "2021-11-14",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.09372856327110848,
+      "candidate_log_score": 0.12520683407328018,
+      "case_id": "PD13-2021-11-15",
+      "cutoff": "2021-11-14",
+      "horizon_end": "2022-02-12",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.05689675768539416,
+      "candidate_log_score": 0.07931778606983299,
+      "case_id": "PD13-2022-02-13",
+      "cutoff": "2022-02-12",
+      "horizon_end": "2022-05-13",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.04537612072669057,
+      "candidate_log_score": 0.06474786348517797,
+      "case_id": "PD13-2022-05-14",
+      "cutoff": "2022-05-13",
+      "horizon_end": "2022-08-11",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.05190268486743295,
+      "candidate_log_score": 0.07524973593572801,
+      "case_id": "PD13-2022-08-12",
+      "cutoff": "2022-08-11",
+      "horizon_end": "2022-11-09",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.054401828335214585,
+      "candidate_log_score": 0.08272919292899908,
+      "case_id": "PD13-2022-11-10",
+      "cutoff": "2022-11-09",
+      "horizon_end": "2023-02-07",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.056535057662403354,
+      "candidate_log_score": 0.0878139948175901,
+      "case_id": "PD13-2023-02-08",
+      "cutoff": "2023-02-07",
+      "horizon_end": "2023-05-08",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.0709179634100529,
+      "candidate_log_score": 0.11375849079369031,
+      "case_id": "PD13-2023-05-09",
+      "cutoff": "2023-05-08",
+      "horizon_end": "2023-08-06",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07392130887187208,
+      "candidate_log_score": 0.12077106391101994,
+      "case_id": "PD13-2023-08-07",
+      "cutoff": "2023-08-06",
+      "horizon_end": "2023-11-04",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.0737317661771117,
+      "candidate_log_score": 0.12350886714946716,
+      "case_id": "PD13-2023-11-05",
+      "cutoff": "2023-11-04",
+      "horizon_end": "2024-02-02",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.0694842595932796,
+      "candidate_log_score": 0.11287541278373751,
+      "case_id": "PD13-2024-02-03",
+      "cutoff": "2024-02-02",
+      "horizon_end": "2024-05-02",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07449353485695963,
+      "candidate_log_score": 0.12163646009908967,
+      "case_id": "PD13-2024-05-03",
+      "cutoff": "2024-05-02",
+      "horizon_end": "2024-07-31",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07547177604185261,
+      "candidate_log_score": 0.12737824025919678,
+      "case_id": "PD13-2024-08-01",
+      "cutoff": "2024-07-31",
+      "horizon_end": "2024-10-29",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07474191862998174,
+      "candidate_log_score": 0.1320302445878535,
+      "case_id": "PD13-2024-10-30",
+      "cutoff": "2024-10-29",
+      "horizon_end": "2025-01-27",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07182657231400648,
+      "candidate_log_score": 0.12315385737721465,
+      "case_id": "PD13-2025-01-28",
+      "cutoff": "2025-01-27",
+      "horizon_end": "2025-04-27",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07638159013666096,
+      "candidate_log_score": 0.1329532414805279,
+      "case_id": "PD13-2025-04-28",
+      "cutoff": "2025-04-27",
+      "horizon_end": "2025-07-26",
+      "observed_date": null,
+      "observed_event_id": null
+    },
+    {
+      "baseline_log_score": 0.07699338079816595,
+      "candidate_log_score": 0.13753393210597573,
+      "case_id": "PD13-2025-07-27",
+      "cutoff": "2025-07-26",
+      "horizon_end": "2025-10-24",
+      "observed_date": null,
+      "observed_event_id": null
+    }
+  ],
+  "mean_log_score_improvement": -0.0022921287322226758,
+  "minimum_event_bearing_folds": 10,
+  "schema": "bsfm.public-data-exploratory-backtest.v1",
+  "scientific_validation": "BLOCKED_INSUFFICIENT_EVENT_FOLDS",
+  "status": "EXPLORATORY_COMPLETE"
+}
