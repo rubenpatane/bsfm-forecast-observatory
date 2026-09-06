@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #29 (`34023516302`) completed successfully on source SHA `fa530a6b3e30a9340155414f4598ab5b18fba1db`; it is the latest full operational/workflow-verified baseline.
-- The generated-state commit on `main` is `98f31f2` and uses privacy-safe Git metadata.
+- AGGIORNA #30 (`34030051366`) completed successfully on source SHA `515aed8a71e256530aa960cbc6e4765314df9584`; it is the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `4a7da24` and uses privacy-safe Git metadata.
 - No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
 - Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
@@ -87,16 +87,16 @@ The committed automatic-cycle 1.0 implementation added the first frozen machine-
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #29 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 in fail-closed mode, committed auditable state and deployed the GitHub Pages observatory. The corrected source-integrity gate now passes; the public cycle state remains blocked only on historical cases, G2 baseline, G3 PIT and leakage evidence. The live site serves cycle 1.1 and the detailed scientific methodology. F-002 remains byte-identical to the PR #2 integration blob. PR #2 is merged into `main`; the temporary research workflow remains absent.
+AGGIORNA #30 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 and the BSFM-PD 1.3 route/backtest audits in fail-closed mode, committed auditable state and deployed the GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; the separate BSFM-PD 1.3 validation is blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
 
-The automatic-cycle implementation and its correction are now workflow-verified. AGGIORNA #29 reports `source_integrity_ready=true`, cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
+The automatic-cycle implementation and its correction are workflow-verified. AGGIORNA #30 reports cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
 
-## Integrated public-data work pending AGGIORNA
+## Workflow-verified public-data result
 
 PR #3, branch `research/public-data-t100-20260906`, was squash-merged into
 `main` as `f36da9fa82f21f85debfc5a686a7fbf32301caec`. It is locally verified but
-has not yet passed a full AGGIORNA workflow run; #29 remains the latest
-workflow-verified baseline.
+has now also passed the full AGGIORNA #30 workflow and its public validation
+card/data are live.
 
 A separate T-100 aggregated-data adapter and draft public-data model decision
 have been added locally. They preserve performed-departure counts, require
@@ -156,4 +156,4 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Run AGGIORNA on merged `main` and record its run ID/source SHA; further predictive-validation work requires either genuinely new prospective outcomes or a separately preregistered model/version decision, while global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
+Proceed to the complete public pages using the workflow-verified research state without changing frozen scientific semantics; further predictive-validation work requires genuinely new prospective outcomes or a separately preregistered model/version decision, while global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
