@@ -1,12 +1,80 @@
 {
-  "absolute_probability_claim_allowed": false,
+  "additional_data_hypothesis": {
+    "hypothesis": "Additional global exposure and point-in-time precursor data may improve resolution or score, but improvement is not assumed.",
+    "prohibited_claim": "Unavailable data would improve the forecast",
+    "required_comparison": "paired candidate versus this public-data model on identical frozen future cutoffs and outcomes",
+    "status": "PREREGISTERED_NOT_EXECUTABLE_WITHOUT_EXTERNAL_DATA",
+    "success_rule": "lower mean proper score with uncertainty reported and no post-hoc target, predictor, cohort, cadence or scoring changes"
+  },
   "claim_level": "experimental_unvalidated",
-  "generated_new": false,
+  "cutoff": "2026-09-06",
+  "forecast_id": "PD14-20260907-7fa7c48bc555",
+  "forecast_key": "sha256:7fa7c48bc55566dfc9d05354c2b5bc2f02395acb9631b7be7a8ae1d2b051b019",
+  "generated_new": true,
+  "input_state": {
+    "annual_exposure_hash": "sha256:f0c7287282152b1892b67d7cf16107550b1d665d6fcca7aa1c1c7eaff901c797",
+    "cutoff": "2026-09-06",
+    "monthly_exposure_hash": "sha256:1acbab93a0135939e2d9b25bdbc4b9cdaf4bc88911bb22498c1c53505e6cb949",
+    "outcomes_hash": "sha256:f7f61c4dd49cc7438e02e84068a32890c511884771a0c0747da06259363261dc",
+    "spec_hash": "sha256:35868ea7b54ea60d6341a0cdcf0de70831ef113a6d0edf43e28de78dd9d0e2a5",
+    "start_date": "2026-09-07"
+  },
+  "integrity": "sha256:bd4f05c5b90f21001274a6a6fc67da34ff2773b076f1de477237519f9e8063cc",
+  "issued_at": "2026-09-06T13:51:19Z",
   "model_id": "BSFM-PD",
   "model_version": "1.4",
-  "notice": "BSFM-PD 1.4 is preregistered. No forecast exists yet; the first record may be issued only by a later AGGIORNA run from the committed contract.",
-  "reason": "awaiting_first_post_commit_aggiorna",
+  "notice": "Unvalidated prospective research forecast from public online data only. It is not an operational safety assessment, does not modify F-002, and does not establish predictive skill or an absolute accident probability.",
+  "prediction": {
+    "conditional_interval_80": {
+      "conditional_on_event_within_horizon": true,
+      "coverage": 0.8,
+      "lower": "2026-09-15",
+      "upper": "2026-11-26"
+    },
+    "family_distribution_conditional": {
+      "727": 0.0008391196792021786,
+      "737-Classic+NG": 0.20028658998131932,
+      "737-MAX": 0.2833538048265033,
+      "737-Original": 7.637137954264914e-05,
+      "747": 0.036185595647976944,
+      "757": 0.03875525438618384,
+      "767": 0.1928209061880319,
+      "777": 0.1772246478853856,
+      "787": 0.0704577100258542
+    },
+    "horizon_days": 90,
+    "horizon_end": "2026-12-05",
+    "modal_date": "2026-09-07",
+    "start_date": "2026-09-07"
+  },
+  "reason": "new_prospective_forecast_issued",
+  "record_path": "forecasts/public-data/PD14-20260907-7fa7c48bc555.json",
   "schema": "bsfm.public-data-forecast-state.v1",
-  "status": "PREREGISTERED_NO_FORECAST_YET",
-  "validated_claim_allowed": false
+  "scope": "us_linked_commercial",
+  "status": "frozen_candidate_unvalidated",
+  "target": "next_fatal_safety_accident_involving_boeing_commercial_jet_on_operated_segment_with_us_endpoint",
+  "training": {
+    "annual_exposure_cells": 135,
+    "future_source_periods": [
+      "2024-09",
+      "2024-10",
+      "2024-11",
+      "2024-12"
+    ],
+    "latest_exposure_period": "2024",
+    "outcome_count": 3,
+    "outcome_ids": [
+      "G1-2013-AAR214",
+      "G1-2018-SWA1380",
+      "G1-2019-ATLAS3591"
+    ]
+  },
+  "validation_reference": {
+    "event_bearing_folds": 3,
+    "may_be_rewritten": false,
+    "mean_log_score_improvement": -0.0022921287322228423,
+    "minimum_event_bearing_folds": 10,
+    "result": "BLOCKED_INSUFFICIENT_EVENT_FOLDS_AND_NO_CANDIDATE_SUPERIORITY",
+    "source_version": "BSFM-PD 1.3"
+  }
 }

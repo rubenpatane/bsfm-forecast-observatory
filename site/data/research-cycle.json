@@ -3,7 +3,7 @@
   "candidate_estimator": "minimal_shrunk_hazard_v1",
   "cycle_spec_hash": "sha256:f3fbd4a281e7035194dba7c3a6f72d449b671a2c45992350040f8b189e91a199",
   "cycle_version": "1.1",
-  "evaluated_at": "2026-09-06T11:52:59Z",
+  "evaluated_at": "2026-09-06T13:51:19Z",
   "fit_gate": {
     "checks": {
       "baseline_present": false,
@@ -25,7 +25,7 @@
   "model_contract_version": "1.2",
   "promoted": false,
   "reason": "scientific_fit_gate_closed",
-  "result_hash": "sha256:0661a988ce7dfc3a4259370195303d51df80a60e576746046e856d6f84418f4b",
+  "result_hash": "sha256:556edd8e9eb2b70d04938e2c1e0937b520dbcba5fd11f81b550a36d9fdf17ead",
   "schema": "bsfm.research-cycle-result.v1",
   "training_snapshot_hash": "sha256:6439dd040baf5dcb688e935e4c566268fdf158e598e76aadbce70c6098de8105"
 }
