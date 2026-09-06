@@ -36,6 +36,8 @@ The latest successful read-only Research CI run is `34000038429`, verified at re
 
 The temporary research workflow was subsequently removed, restoring the single-workflow repository invariant. The verified final audit still reports historical G1 incomplete, `baseline_present=false`, `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false. This is software/audit verification, not scientific validation.
 
+The public validation surface has now been completed on the research branch. `site/data/research-state.json` exposes the fail-closed annual G1 state, and AGGIORNA is wired to regenerate it before publication. The bilingual validation page displays 14/16 historical G1 reconciliation, the separate 35/35 outcome-publication ledger, the fixed G2 no-proxy rule, the model 1.2 `faa_sdr_precursors` obligation and the distinction from the minimal shrinkage estimator. Desktop/mobile browser checks passed, including language switching, generated-data loading, responsive navigation and absence of horizontal overflow. The full local suite passed with 188 tests plus registry verification and both scientific audits; this page batch has not been run through AGGIORNA and does not change any scientific gate.
+
 ## G1 — BLOCKED, 14/16 annual cells reconciled
 `data/census/year-ledger.json` is the canonical 2010-2025 annual ledger. A cell passes only if all six controls are true: annual source scope demonstrated; all fatal jets mapped; Boeing target membership mapped; competent authority per candidate; independent reconciliation; target taxonomies resolved.
 

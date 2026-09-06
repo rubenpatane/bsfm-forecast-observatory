@@ -6,6 +6,7 @@ PAGES=('index.html','validation.html','methodology.html','provenance.html')
 def test_observatory_pages_and_shared_assets_exist():
  for name in (*PAGES,'styles.css','i18n.js','comparables.js'):
   assert (ROOT/'site'/name).is_file()
+ assert (ROOT/'site/data/research-state.json').is_file()
 
 def test_public_readiness_seed_is_fail_closed():
  state=json.loads((ROOT/'site/data/final-readiness.json').read_text())
@@ -87,6 +88,7 @@ def test_single_workflow_generates_real_data_evidence_refinements_comparables_an
  assert 'write_evidence_state' in text
  assert 'write_public_refinements' in text
  assert 'write_public_comparables' in text
+ assert 'write_public_research_state' in text
  assert "site/data/real-data.json" in text
  assert "'ntsb_snapshot'" in text
  assert 'git add site/data data/manifests forecasts evaluations' in text
@@ -98,3 +100,10 @@ def test_public_copy_does_not_claim_scientific_validation():
  assert 'fino a quando le evidenze richieste non sono complete' in index
  assert 'resta esplicitamente bloccato' in index
  assert 'un’esecuzione software verde non può trasformare' in validation
+
+def test_validation_page_exposes_current_evidence_boundaries():
+ text=(ROOT/'site/validation.html').read_text()
+ assert '35/35' in text and '14/16' in text
+ assert 'faa_sdr_precursors' in text
+ assert 'minimal shrinkage estimator' in text
+ assert './data/research-state.json' in text

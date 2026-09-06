@@ -1,0 +1,1201 @@
+{
+  "forecast": {
+    "claim_level": "experimental_unvalidated",
+    "id": "F-002",
+    "status": "FROZEN"
+  },
+  "gates": {
+    "G1": {
+      "status": "BLOCKED",
+      "years": [
+        {
+          "candidate_count": 4,
+          "events": [
+            {
+              "date": "2010-01-25",
+              "decision": "include",
+              "event_id": "G1-2010-ET409",
+              "flight_number": "ET409",
+              "geography": null,
+              "model": "737-800",
+              "msn": null,
+              "operator": "Ethiopian Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.caa.gov.lb/index.php/en/reports-en/229-articles-et409-en-002",
+                  "publisher": "Lebanese Directorate General of Civil Aviation",
+                  "record": "Ethiopian ET409 accident report",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "ET-ANB"
+            },
+            {
+              "date": "2010-05-22",
+              "decision": "include",
+              "event_id": "G1-2010-IX812",
+              "flight_number": "IX812",
+              "geography": null,
+              "model": "737-800",
+              "msn": null,
+              "operator": "Air India Express",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": null,
+                  "publisher": "Directorate General of Civil Aviation, India",
+                  "record": "Air India Express IX812 accident investigation",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "VT-AXV"
+            },
+            {
+              "date": "2010-08-16",
+              "decision": "include",
+              "event_id": "G1-2010-ARE8250",
+              "flight_number": "8250",
+              "geography": null,
+              "model": "737-700",
+              "msn": null,
+              "operator": "AIRES",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": null,
+                  "publisher": "Aeronautica Civil de Colombia",
+                  "record": "AIRES 8250 / HK-4682 accident report",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "HK-4682"
+            },
+            {
+              "date": "2010-09-03",
+              "decision": "include",
+              "event_id": "G1-2010-UPS6",
+              "flight_number": "UPS6",
+              "geography": null,
+              "model": "747-400F",
+              "msn": null,
+              "operator": "UPS Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": null,
+                  "publisher": "General Civil Aviation Authority, United Arab Emirates",
+                  "record": "Final Air Accident Investigation Report 13/2010",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "N571UP"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2010
+        },
+        {
+          "candidate_count": 4,
+          "events": [
+            {
+              "date": "2011-01-09",
+              "decision": "include",
+              "event_id": "G1-2011-IR277",
+              "flight_number": "277",
+              "geography": null,
+              "model": "727-286",
+              "msn": null,
+              "operator": "Iran Air",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": null,
+                  "publisher": "Civil Aviation Organization of Iran, Aircraft Accident Investigation Office",
+                  "record": "Iran Air B727-286 EP-IRP final accident report",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "EP-IRP"
+            },
+            {
+              "date": "2011-07-08",
+              "decision": "include",
+              "event_id": "G1-2011-HB952",
+              "flight_number": "952",
+              "geography": null,
+              "model": "727-100",
+              "msn": null,
+              "operator": "Hewa Bora Airways",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.leganet.cd/Legislation/JO/2012/JO.15.01.2012.pdf",
+                  "publisher": "Journal Officiel de la Republique Democratique du Congo",
+                  "record": "Journal Officiel 15 January 2012 / Hewa Bora crash",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "9Q-COP"
+            },
+            {
+              "date": "2011-07-28",
+              "decision": "include",
+              "event_id": "G1-2011-OZ991",
+              "flight_number": "991",
+              "geography": null,
+              "model": "747-400F",
+              "msn": null,
+              "operator": "Asiana Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=153",
+                  "publisher": "Republic of Korea Aviation and Railway Accident Investigation Board",
+                  "record": "Asiana Airlines flight 991 accident report",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "HL7604"
+            },
+            {
+              "date": "2011-08-20",
+              "decision": "include",
+              "event_id": "G1-2011-FA6560",
+              "flight_number": "6560",
+              "geography": null,
+              "model": "737-210C",
+              "msn": null,
+              "operator": "First Air",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.tsb.gc.ca/eng/rapports-reports/aviation/2011/a11h0002/a11h0002.html",
+                  "publisher": "Transportation Safety Board of Canada",
+                  "record": "A11H0002 First Air flight 6560",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "C-GNWN"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2011
+        },
+        {
+          "candidate_count": 2,
+          "events": [
+            {
+              "date": "2012-04-20",
+              "decision": "include",
+              "event_id": "G1-2012-BHO213",
+              "flight_number": "213",
+              "geography": null,
+              "model": "737-236A",
+              "msn": null,
+              "operator": "Bhoja Air",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": null,
+                  "publisher": "Aircraft Accident Investigation Board, Pakistan",
+                  "record": "Bhoja Air B737-236A AP-BKC accident investigation",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "AP-BKC"
+            },
+            {
+              "date": "2012-06-02",
+              "decision": "include",
+              "event_id": "G1-2012-DHV111",
+              "flight_number": "DHV111",
+              "geography": null,
+              "model": "727-221",
+              "msn": null,
+              "operator": "Allied Air",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://aibghana.gov.gh/wp-content/uploads/2021/06/ALLIED-AIR-ACCIDENT-REPORT-2013.pdf",
+                  "publisher": "Aircraft Accident and Incident Investigation and Prevention Bureau, Ghana",
+                  "record": "Allied Air DHV111 final report",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "5N-BJN"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2012
+        },
+        {
+          "candidate_count": 3,
+          "events": [
+            {
+              "date": "2013-04-29",
+              "decision": "include",
+              "event_id": "G1-2013-NCR102",
+              "flight_number": null,
+              "geography": "Bagram Air Base, Afghanistan",
+              "model": "747-428 BCF / 747-400 BCF",
+              "msn": "25630",
+              "operator": "National Air Cargo, dba National Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.ntsb.gov/investigations/Pages/DCA13MA081.aspx",
+                  "publisher": "National Transportation Safety Board (NTSB), United States",
+                  "record": "DCA13MA081 / NTSB/AAR-15/01",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2013.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2013 / National Airlines 2013-04-29",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://skybrary.aero/sites/default/files/bookshelf/2990.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2013 Statistical Summary / National Air Cargo Group 747-400",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "N949CA"
+            },
+            {
+              "date": "2013-07-06",
+              "decision": "include",
+              "event_id": "G1-2013-AAR214",
+              "flight_number": null,
+              "geography": "San Francisco International Airport, California, United States",
+              "model": "777-200ER",
+              "msn": "29171",
+              "operator": "Asiana Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.ntsb.gov/investigations/pages/DCA13MA120.aspx",
+                  "publisher": "National Transportation Safety Board (NTSB), United States",
+                  "record": "DCA13MA120 / NTSB/AAR-14/01",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2013.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2013 / Asiana Airlines 2013-07-06",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://skybrary.aero/sites/default/files/bookshelf/2990.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2013 Statistical Summary / Asiana 777-200",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "HL7742"
+            },
+            {
+              "date": "2013-11-17",
+              "decision": "include",
+              "event_id": "G1-2013-TAK363",
+              "flight_number": null,
+              "geography": "Kazan International Airport, Russian Federation",
+              "model": "737-500",
+              "msn": null,
+              "operator": "Tatarstan Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://mak-iac.org/en/rassledovaniya/boing-737-500-vq-bbn-17-11-2013/",
+                  "publisher": "Interstate Aviation Committee (IAC/MAK), Air Accident Investigation Commission",
+                  "record": "Boeing 737-500 VQ-BBN 17.11.2013",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2013.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2013 / Tatarstan Air 2013-11-17",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://studylib.net/doc/10231239/top-3---flight-safety-foundation",
+                  "publisher": "Flight Safety Foundation / Ascend",
+                  "record": "2013 Year in Review / Commercial Jets Major Accidents",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "VQ-BBN"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2013
+        },
+        {
+          "candidate_count": 3,
+          "events": [
+            {
+              "date": "2014-03-08",
+              "decision": "unresolved",
+              "event_id": "G1-2014-MH370",
+              "flight_number": null,
+              "geography": "missing; southern Indian Ocean search area",
+              "model": "777-2H6ER",
+              "msn": "28420",
+              "operator": "Malaysia Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.mot.gov.my/en/AAIB%20Statistic%20%20Accident%20Report%20Document/A%200514%209M-MRO%20MH370.pdf",
+                  "publisher": "Malaysia Ministry of Transport, MH370 Safety Investigation Team",
+                  "record": "Safety Investigation Report MH370 (9M-MRO)",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2014.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2014",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://skybrary.aero/sites/default/files/bookshelf/3198.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2014 Statistical Summary",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "9M-MRO"
+            },
+            {
+              "date": "2014-07-17",
+              "decision": "include",
+              "event_id": "G1-2014-DN055",
+              "flight_number": null,
+              "geography": "Libreville, Gabon",
+              "model": "737-33A / 737-300",
+              "msn": "25119",
+              "operator": "Eastern SkyJets, operated for Senegal Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.gabonreview.com/humain-fauche-avion/",
+                  "publisher": "Gabon Ministry of Transport / national aviation investigation as reported contemporaneously; Boeing worldwide table for accident record",
+                  "record": "DN055 / A6-ESR / Libreville 2014-07-17",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://skybrary.aero/sites/default/files/bookshelf/3198.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2014 Statistical Summary / Eastern SkyJets 737-300 Libreville",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "A6-ESR"
+            },
+            {
+              "date": "2014-07-17",
+              "decision": "unresolved",
+              "event_id": "G1-2014-MH17",
+              "flight_number": null,
+              "geography": "eastern Ukraine",
+              "model": "777-2H6ER / 777-200",
+              "msn": "28411",
+              "operator": "Malaysia Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://onderzoeksraad.nl/onderzoek/mh17-crash-17-juli-2014/",
+                  "publisher": "Dutch Safety Board (Onderzoeksraad voor Veiligheid)",
+                  "record": "MH17 Crash final report",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2014.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2014",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://skybrary.aero/sites/default/files/bookshelf/3198.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2014 Statistical Summary definitions/exclusions",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "9M-MRD"
+            }
+          ],
+          "evidence_progress": "4/6",
+          "reconciled": false,
+          "status": "UNRESOLVED",
+          "year": 2014
+        },
+        {
+          "candidate_count": 1,
+          "events": [
+            {
+              "date": "2015-09-05",
+              "decision": "include",
+              "event_id": "G1-2015-CEL071",
+              "flight_number": null,
+              "geography": "en route over Senegal; 737 continued to Malabo",
+              "model": "737-8FB / 737-800",
+              "msn": "41157",
+              "operator": "CEIBA Intercontinental",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://asn.flightsafety.org/reports/2015/20150905_B738_3C-LLY--H25B_6V-AIM.pdf",
+                  "publisher": "Bureau d'Enqu\u00eate et d'Analyse pour la s\u00e9curit\u00e9 de l'aviation civile du S\u00e9n\u00e9gal (BEA S\u00e9n\u00e9gal) / Minist\u00e8re du Tourisme et des Transports A\u00e9riens",
+                  "record": "Rapport final \u2014 accident du 05/09/2015 entre B737-800 3C-LLY et HS125-700A 6V-AIM",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://skybrary.aero/bookshelf/books/3811.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2015 Statistical Summary / 2015 Airplane Accidents / CEIBA Intercontinental 737-800",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2015.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2015",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "3C-LLY"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2015
+        },
+        {
+          "candidate_count": 3,
+          "events": [
+            {
+              "date": "2016-03-19",
+              "decision": "include",
+              "event_id": "G1-2016-FZ981",
+              "flight_number": null,
+              "geography": "Rostov-on-Don Airport, Russian Federation",
+              "model": "737-8KN / 737-800",
+              "msn": null,
+              "operator": "flydubai",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://mak-iac.org/en/rassledovaniya/boeing-737-800-a6-fdn-19-03-2016/",
+                  "publisher": "Interstate Aviation Committee (IAC/MAK)",
+                  "record": "Boeing 737-800 A6-FDN 19.03.2016 / final investigation",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2016.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2016",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://www.easa.europa.eu/sites/default/files/dfu/EASA-Preliminary-Safety-Review-2017.pdf",
+                  "publisher": "European Union Aviation Safety Agency (EASA)",
+                  "record": "Preliminary Safety Review 2017 / worldwide 2016 CAT aeroplane fatal accidents",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "A6-FDN"
+            },
+            {
+              "date": "2016-08-03",
+              "decision": "include",
+              "event_id": "G1-2016-EK521",
+              "flight_number": null,
+              "geography": "Dubai International Airport, United Arab Emirates",
+              "model": "777-31H",
+              "msn": "32700",
+              "operator": "Emirates",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.icao.int/sites/default/files/sp-files/safety/airnavigation/AIG/Documents/Safety%20Recommendations%20to%20ICAO/Final%20Reports/UAE_B777_A6-EMW_3Aug2016.pdf",
+                  "publisher": "Air Accident Investigation Sector, General Civil Aviation Authority (GCAA), United Arab Emirates",
+                  "record": "AIFN/0008/2016",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.easa.europa.eu/sites/default/files/dfu/EASA-Preliminary-Safety-Review-2017.pdf",
+                  "publisher": "European Union Aviation Safety Agency (EASA)",
+                  "record": "Preliminary Safety Review 2017 / worldwide 2016 CAT aeroplane fatal accidents",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "A6-EMW"
+            },
+            {
+              "date": "2016-12-20",
+              "decision": "include",
+              "event_id": "G1-2016-AS157",
+              "flight_number": null,
+              "geography": "Puerto Carreno, Colombia",
+              "model": "727-2J0",
+              "msn": null,
+              "operator": "Aerosucre",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.aerocivil.gov.co/info/aeronautica_civil/media/1740581430_COL-16-40-GIA%20Final%20Acc%20HK4544%20Puerto%20Carre%C3%B1o%2020-dic-16.pdf",
+                  "publisher": "Aeronautica Civil de Colombia / GRIAA",
+                  "record": "COL-16-40-GIA / HK4544",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2016.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2016",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "HK4544"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2016
+        },
+        {
+          "candidate_count": 1,
+          "events": [
+            {
+              "date": "2017-01-16",
+              "decision": "include",
+              "event_id": "G1-2017-TK6491",
+              "flight_number": null,
+              "geography": "near Manas International Airport, Bishkek, Kyrgyz Republic",
+              "model": "747-412F",
+              "msn": "32897",
+              "operator": "ACT Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://mak-iac.org/en/rassledovaniya/boeing-747-412f-tc-mcl-16-01-2017/",
+                  "publisher": "Interstate Aviation Committee (IAC/MAK), Air Accident Investigation Commission",
+                  "record": "Boeing 747-412F TC-MCL / final report completed 2020-02-17",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2017.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2017",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://flightsafety.org/asw-article/loc-i-accidents-led-other-categories-data-show/",
+                  "publisher": "Boeing Commercial Airplanes, reported by Flight Safety Foundation",
+                  "record": "2017 worldwide commercial-jet accident statistics / ACT Airlines 747-400",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "TC-MCL"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2017
+        },
+        {
+          "candidate_count": 5,
+          "events": [
+            {
+              "date": "2018-04-17",
+              "decision": "include",
+              "event_id": "G1-2018-SWA1380",
+              "flight_number": null,
+              "geography": "en route; diverted to Philadelphia, Pennsylvania, United States",
+              "model": "737-7H4",
+              "msn": null,
+              "operator": "Southwest Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1903.pdf",
+                  "publisher": "National Transportation Safety Board (NTSB), United States",
+                  "record": "NTSB/AAR-19/03 / DCA18MA142",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2018 / Southwest Airlines 2018-04-17",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "N772SW"
+            },
+            {
+              "date": "2018-05-18",
+              "decision": "include",
+              "event_id": "G1-2018-DMJ0972",
+              "flight_number": null,
+              "geography": "near Jos\u00e9 Mart\u00ed International Airport, Havana, Cuba",
+              "model": "737-201 Adv",
+              "msn": null,
+              "operator": "Aerol\u00edneas Damojh / Global Air for Cubana de Aviaci\u00f3n",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://api.eltoque.com/uploads/INFORME_FINAL_Accidente_B737_DMJ_0972_18052018_HAV_CUBA_128ed2220f.pdf",
+                  "publisher": "Instituto de Aeron\u00e1utica Civil de Cuba (IACC) / state investigation commission",
+                  "record": "DMJ 0972 final investigation report",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2018 / Global Air 2018-05-18",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://www.granma.cu/file/pdf/2019/05/17/G_2019051709.pdf",
+                  "publisher": "Granma reporting official IACC findings",
+                  "record": "Dan a conocer causas del accidente a\u00e9reo del Boeing 737-200 / 2019-05-17",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "XA-UHZ"
+            },
+            {
+              "date": "2018-09-28",
+              "decision": "include",
+              "event_id": "G1-2018-PX073",
+              "flight_number": null,
+              "geography": "Chuuk Lagoon, Federated States of Micronesia",
+              "model": "737-8BK",
+              "msn": null,
+              "operator": "Air Niugini Limited",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.aic.gov.pg/sites/default/files/2020-08/FINAL%20REPORT%2C%20issued%2015.07.2019.pdf",
+                  "publisher": "Papua New Guinea Accident Investigation Commission (AIC), under FSM delegation",
+                  "record": "AIC 18-1004 / P2-PXE",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2018 / Air Niugini 2018-09-28",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "P2-PXE"
+            },
+            {
+              "date": "2018-10-29",
+              "decision": "include",
+              "event_id": "G1-2018-JT610",
+              "flight_number": null,
+              "geography": "Java Sea north of Jakarta, Indonesia",
+              "model": "737-8 (MAX)",
+              "msn": null,
+              "operator": "PT Lion Mentari Airlines (Lion Air)",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.35.04-Final-Report.pdf",
+                  "publisher": "Komite Nasional Keselamatan Transportasi (KNKT), Republic of Indonesia",
+                  "record": "KNKT.18.10.35.04 / LNI610",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.atsb.gov.au/investigations/ae-2018-074",
+                  "publisher": "Australian Transport Safety Bureau (ATSB)",
+                  "record": "AE-2018-074",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2018 / Lion Air 2018-10-29",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "PK-LQP"
+            },
+            {
+              "date": "2018-11-09",
+              "decision": "include",
+              "event_id": "G1-2018-FJA256",
+              "flight_number": null,
+              "geography": "Cheddi Jagan International Airport, Guyana",
+              "model": "757-200",
+              "msn": null,
+              "operator": "Fly Jamaica Airways",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.jcaa.gov.jm/wp-content/uploads/2024/08/2018-Nov-9-N524AT-Final-Report.pdf",
+                  "publisher": "Guyana Aircraft Accident & Incident Investigation Unit (GAAIIU); final report hosted by Jamaica Civil Aviation Authority",
+                  "record": "AAIIU 3.1.22 / N524AT",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2018.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2018 / Fly Jamaica 2018-11-09",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "N524AT"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2018
+        },
+        {
+          "candidate_count": 2,
+          "events": [
+            {
+              "date": "2019-02-23",
+              "decision": "include",
+              "event_id": "G1-2019-ATLAS3591",
+              "flight_number": "3591",
+              "geography": "Trinity Bay, Texas, United States",
+              "model": "767-375BCF",
+              "msn": null,
+              "operator": "Atlas Air",
+              "phase": "descent",
+              "provenance": [
+                {
+                  "locator": "https://www.ntsb.gov/investigations/Pages/DCA19MA086.aspx",
+                  "publisher": "National Transportation Safety Board",
+                  "record": "DCA19MA086 / NTSB-AAR-20-02",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "N1217A"
+            },
+            {
+              "date": "2019-03-10",
+              "decision": "include",
+              "event_id": "G1-2019-ET302",
+              "flight_number": null,
+              "geography": "near Bishoftu, Ethiopia",
+              "model": "737 MAX 8",
+              "msn": null,
+              "operator": "Ethiopian Airlines",
+              "phase": "takeoff/climb",
+              "provenance": [],
+              "registration": "ET-AVJ"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2019
+        },
+        {
+          "candidate_count": 3,
+          "events": [
+            {
+              "date": "2020-01-08",
+              "decision": "unresolved",
+              "event_id": "G1-2020-PS752",
+              "flight_number": null,
+              "geography": "near Tehran Imam Khomeini International Airport, Iran",
+              "model": "737-800",
+              "msn": null,
+              "operator": "Ukraine International Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.icao.int/sites/default/files/safety/airnavigation/AIG/Documents/Safety-Recommendations-to-ICAO/Final-Reports/PS752Finrep.pdf",
+                  "publisher": "Aircraft Accident Investigation Board of the Islamic Republic of Iran; copy hosted by ICAO",
+                  "record": "PS752 Accident Investigation Final Report",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2020.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2020 / Executive Summary",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "UR-PSR"
+            },
+            {
+              "date": "2020-02-05",
+              "decision": "include",
+              "event_id": "G1-2020-PC2193",
+              "flight_number": null,
+              "geography": "Istanbul Sabiha Gokcen Airport, Turkey",
+              "model": "737-800",
+              "msn": null,
+              "operator": "Pegasus Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.ntsb.gov/about/reports/Documents/2022%20Annual%20Report%20to%20Congress.pdf",
+                  "publisher": "National Transportation Safety Board (NTSB), United States",
+                  "record": "2022 Annual Report to Congress / PC2193",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/accident_update_2020_mid-year_interactive.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "Accident Update 2020 Mid-Year / Pegasus 2020-02-05",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "TC-IZK"
+            },
+            {
+              "date": "2020-08-07",
+              "decision": "include",
+              "event_id": "G1-2020-IX1344",
+              "flight_number": null,
+              "geography": "Kozhikode Airport, India",
+              "model": "737-800",
+              "msn": null,
+              "operator": "Air India Express",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://aaib.gov.in/Reports/2020/accident/Final%20Report%20AXH.pdf",
+                  "publisher": "Aircraft Accident Investigation Bureau (AAIB), India",
+                  "record": "Final Report VT-AXH / 2020-08-07",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/iata-safety-report-2020.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "IATA Safety Report 2020 / Air India Express B737-800",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "VT-AXH"
+            }
+          ],
+          "evidence_progress": "4/6",
+          "reconciled": false,
+          "status": "UNRESOLVED",
+          "year": 2020
+        },
+        {
+          "candidate_count": 1,
+          "events": [
+            {
+              "date": "2021-01-09",
+              "decision": "include",
+              "event_id": "G1-2021-SJY182",
+              "flight_number": null,
+              "geography": "Kepulauan Seribu area, DKI Jakarta, Indonesia",
+              "model": "737-500",
+              "msn": null,
+              "operator": "Sriwijaya Air",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2021/KNKT.21.01.01.04-Final-Report.pdf",
+                  "publisher": "Komite Nasional Keselamatan Transportasi (KNKT), Republic of Indonesia",
+                  "record": "KNKT.21.01.01.04",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/4d18cb077c5e419b8a888d387a50c638/accident_update_2021_mid-year_interactive.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "Accidents Update: as of 30 June 2021 / Sriwijaya Air",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "PK-CLC"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2021
+        },
+        {
+          "candidate_count": 1,
+          "events": [
+            {
+              "date": "2022-03-21",
+              "decision": "include",
+              "event_id": "G1-2022-MU5735",
+              "flight_number": null,
+              "geography": "near Molang Village, Teng County, Wuzhou, Guangxi, China",
+              "model": "737-800",
+              "msn": null,
+              "operator": "China Eastern Airlines Yunnan",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.caac.gov.cn/XXGK/XXGK/TZTG/202204/t20220420_212895.html",
+                  "publisher": "Civil Aviation Administration of China (CAAC)",
+                  "record": "MU5735 preliminary investigation notice / 2022-04-20",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.iata.org/contentassets/ea688b007b9047be86c8fd7a8bd17877/accident_report_update-2022_mid_year_interactive.pdf",
+                  "publisher": "International Air Transport Association (IATA)",
+                  "record": "Accident Report Update 2022 Mid-Year / 2022-03-21 China Eastern Airlines",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "B-1791"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2022
+        },
+        {
+          "candidate_count": 0,
+          "events": [],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2023
+        },
+        {
+          "candidate_count": 3,
+          "events": [
+            {
+              "date": "2024-05-21",
+              "decision": "include",
+              "event_id": "G1-2024-SQ321",
+              "flight_number": null,
+              "geography": "south of Myanmar; diverted to Bangkok, Thailand",
+              "model": "777-300ER",
+              "msn": null,
+              "operator": "Singapore Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.mot.gov.sg/docs/default-source/about-mot/b773er-%289v-swm%29-turbulence-encounter-20-may-2024-interim-statement.pdf?sfvrsn=c701d0dc_1",
+                  "publisher": "Singapore Ministry of Transport / Transport Safety Investigation Bureau",
+                  "record": "SQ321 turbulence event / B777-300ER 9V-SWM",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2024 Statistical Summary / 2024 Airplane Accidents / Singapore Airlines 777-300ER",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "9V-SWM"
+            },
+            {
+              "date": "2024-11-25",
+              "decision": "include",
+              "event_id": "G1-2024-BCS18D",
+              "flight_number": null,
+              "geography": "near Vilnius International Airport, Lithuania",
+              "model": "737-476 / 737-400SF",
+              "msn": null,
+              "operator": "Swiftair",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://tm.lrv.lt/lt/naujienos-2/teisingumo-ministras-rimantas-mockus-tiriant-dhl-lektuvo-katastrofa-galimo-terorizmo-ar-neteiseto-isikisimo-pozymiu-nenustatyta/",
+                  "publisher": "Ministry of Justice of the Republic of Lithuania, Transport Accident and Incident Investigation Division",
+                  "record": "BCS18D / EC-MFE / 2024-11-25",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2024 Statistical Summary / 2024 Airplane Accidents / Swiftair 737-400",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "EC-MFE"
+            },
+            {
+              "date": "2024-12-29",
+              "decision": "include",
+              "event_id": "G1-2024-JJA2216",
+              "flight_number": null,
+              "geography": "Muan International Airport, South Korea",
+              "model": "737-800",
+              "msn": null,
+              "operator": "Jeju Air",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=344",
+                  "publisher": "Republic of Korea Aviation and Railway Accident Investigation Board (ARAIB)",
+                  "record": "AAR2404 / HL8088 / 7C2216",
+                  "role": "primary/adjudication"
+                },
+                {
+                  "locator": "https://www.boeing.com/resources/boeingdotcom/company/about_bca/pdf/statsum.pdf",
+                  "publisher": "The Boeing Company",
+                  "record": "2024 Statistical Summary / 2024 Airplane Accidents / Jeju Air 737-800",
+                  "role": "reconciliation"
+                },
+                {
+                  "locator": "https://bea.aero/en/investigation-reports/notified-events/detail/accident-to-the-boeing-737-800-registered-hl8088-operated-by-jeju-air-on-29-12-2024-at-ad-muan/",
+                  "publisher": "Bureau d'Enqu\u00eates et d'Analyses pour la s\u00e9curit\u00e9 de l'aviation civile (BEA)",
+                  "record": "BEA2025-0005",
+                  "role": "reconciliation"
+                }
+              ],
+              "registration": "HL8088"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2024
+        },
+        {
+          "candidate_count": 2,
+          "events": [
+            {
+              "date": "2025-06-12",
+              "decision": "include",
+              "event_id": "G1-2025-AI171",
+              "flight_number": "AI171",
+              "geography": "Ahmedabad, India",
+              "model": "787-8",
+              "msn": "36279",
+              "operator": "Air India",
+              "phase": "initial climb",
+              "provenance": [
+                {
+                  "locator": "https://aaib.gov.in/Reports/2025/Accident/Preliminary%20Report%20VT-ANB.pdf",
+                  "publisher": "Aircraft Accident Investigation Bureau, India",
+                  "record": "Preliminary Report VT-ANB",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "VT-ANB"
+            },
+            {
+              "date": "2025-10-20",
+              "decision": "include",
+              "event_id": "G1-2025-ACT747",
+              "flight_number": null,
+              "geography": "Hong Kong International Airport, Hong Kong",
+              "model": "747-481 BDSF",
+              "msn": "25645",
+              "operator": "ACT Airlines",
+              "phase": null,
+              "provenance": [
+                {
+                  "locator": "https://www.tlb.gov.hk/aaia/doc/PLR-2025-04_Eng.pdf",
+                  "publisher": "Hong Kong Air Accident Investigation Authority",
+                  "record": "PLR-2025-04",
+                  "role": "primary/adjudication"
+                }
+              ],
+              "registration": "TC-ACF"
+            }
+          ],
+          "evidence_progress": "6/6",
+          "reconciled": true,
+          "status": "RECONCILED",
+          "year": 2025
+        }
+      ]
+    },
+    "G2": {
+      "baseline_present": false,
+      "coverage": "The remaining G2 problem is now primarily lawful data access plus product-scope validation, not public-source discovery. Obtain a representative licensed extract/data dictionary from OAG, Cirium or WATS and run the fixed acceptance contract. If no such access is available, retain G2 BLOCKED or prospectively version a different cohort/baseline design; do not proxy-split the current cohorts.",
+      "status": "BLOCKED"
+    },
+    "G3": {
+      "availability": "not yet field/source/cutoff complete",
+      "status": "BLOCKED"
+    },
+    "G4": {
+      "reason": "downstream of G1-G3",
+      "status": "BLOCKED"
+    }
+  },
+  "notice": "Research observatory, not an operational safety tool.",
+  "prohibited_public_claims": [
+    "individual-aircraft live risk ranking",
+    "absolute accident probability while gates are blocked"
+  ],
+  "refinement_notice": "Later refinement \u2014 not part of the original F-002 forecast and not counted in its original score.",
+  "refinements": [],
+  "resolution": {
+    "flight_number": {
+      "checks": {
+        "estimator_supported": false,
+        "flight_exposure_supported": false,
+        "operational_source_access_supported": false,
+        "pit_supported": false,
+        "provenance_supported": false,
+        "uncertainty_supported": false
+      },
+      "dimension": "flight_number",
+      "missing": [
+        "estimator_supported",
+        "operational_source_access_supported",
+        "flight_exposure_supported",
+        "pit_supported",
+        "provenance_supported",
+        "uncertainty_supported"
+      ],
+      "status": "BLOCKED"
+    },
+    "geography": {
+      "checks": {
+        "estimator_supported": false,
+        "exposure_denominator_supported": false,
+        "pit_supported": false,
+        "provenance_supported": false,
+        "uncertainty_supported": false
+      },
+      "dimension": "geography",
+      "missing": [
+        "estimator_supported",
+        "exposure_denominator_supported",
+        "pit_supported",
+        "provenance_supported",
+        "uncertainty_supported"
+      ],
+      "status": "BLOCKED"
+    },
+    "msn": {
+      "checks": {
+        "airframe_exposure_supported": false,
+        "estimator_supported": false,
+        "identity_history_supported": false,
+        "pit_supported": false,
+        "provenance_supported": false,
+        "uncertainty_supported": false
+      },
+      "dimension": "msn",
+      "missing": [
+        "estimator_supported",
+        "airframe_exposure_supported",
+        "identity_history_supported",
+        "pit_supported",
+        "provenance_supported",
+        "uncertainty_supported"
+      ],
+      "status": "BLOCKED"
+    }
+  },
+  "schema": "bsfm.public-research-state.v1"
+}
