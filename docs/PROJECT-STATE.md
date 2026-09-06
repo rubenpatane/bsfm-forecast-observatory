@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #26 (`34001064332`) completed successfully on source SHA `de9d7101c1d16624ed21ef480ec2eaa14235293d`; it is the latest full operational/workflow-verified baseline.
-- The generated-state commit on `main` is `c9b909c132d54090a5ddd4fca84c7855f212cf9b` and uses privacy-safe Git metadata.
+- AGGIORNA #27 (`34001974951`) completed successfully on source SHA `843dd6abc1a30f8e318fcee9d34d4ec9bff3e43a`; it is the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `a6c3602` and uses privacy-safe Git metadata.
 - No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
 - Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
@@ -81,13 +81,15 @@ The AGGIORNA #25 `ntsb-derived` artifact was recovered and audited. For Boeing-c
 ## G4 — BLOCKED
 G4 remains downstream of G1-G3. No candidate-vs-baseline model-skill claim is allowed while upstream gates are blocked. The latest verified final audit keeps `scientific_fit_ready=false`, `scientific_promotion_ready=false`, absolute accident probabilities disabled and validated-prediction claims disallowed.
 
+The committed-but-not-yet-workflow-verified automatic-cycle implementation now adds a frozen machine-readable cycle contract, content-addressed training snapshots, fail-closed parameter fitting, a 90-day discrete first-event distribution, probability of no event in the horizon, modal date, conditional 80% interval and an exposure-only temporal baseline on the identical future exposure path. Paired temporal evaluation rejects unverified outcomes, non-future outcomes and unequal horizons, and uses full-horizon logarithmic score including right censoring. This completes the internal executable architecture, not real G4 evidence. The executable `minimal_shrunk_hazard_v1` remains explicitly a candidate estimator and is not relabelled as the complete model 1.2 contract.
+
 ## Public/privacy/licensing state
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #26 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, regenerated the public research data, committed auditable state and deployed the GitHub Pages observatory. The live home page reports registry integrity OK, and the live validation page loads all 16 G1 years, the 35/35 outcome ledger and four explicitly BLOCKED scientific gates without browser errors. PR #2 is merged into `main`; the temporary research workflow remains absent.
+AGGIORNA #27 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, generated eight post-cutoff FAA SDR similarity signals, committed auditable state and deployed the GitHub Pages observatory. The live page was verified to render all eight signals without browser errors. PR #2 is merged into `main`; the temporary research workflow remains absent.
 
-The next public-page batch exposes F-002 geography as descriptive/not scored and operator/MSN as unsupported, without modifying the frozen forecast. The FAA current-year summarizer now selects post-cutoff 737-800/737-NG service-difficulty signals using a fixed model/phase/gear-structural/propulsion similarity rule and publishes their component tags and score beside the separate NTSB nonfatal comparables. The page explicitly labels SDR rows as reports rather than accident classifications or forecast hits. Local verification passed with 189 tests plus registry and both audits; an AGGIORNA run is required to populate and deploy this new automatic surface.
+The current local batch extends AGGIORNA with the versioned automatic research-cycle state and extends the methodology page with its live status and scientific boundary. `docs/AUTOMATED-RESEARCH-CYCLE-v1.md` is the detailed publication contract. Local verification passed with 199 tests, registry verification and both audits; workflow verification is still required before this batch can become the new operational baseline.
 
 ## Exact next step / external dependencies
-Run AGGIORNA once from `main` to generate and publish the post-cutoff FAA similarity surface, then verify the live labels and generated records without interpreting SDR rows as accidents or forecast hits.
+Obtain and acceptance-audit a lawful OAG/Cirium/IATA WATS global Boeing cohort×year operated-flight extract for G2; without it the real automatic fit, temporal backtest and forecast remain correctly blocked even though their execution path is implemented.

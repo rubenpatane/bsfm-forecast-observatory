@@ -125,6 +125,7 @@ jobs:
           from bsfm.evidence_automation import write_evidence_state
           from bsfm.refinements import write_public_refinements
           from bsfm.public_research import write_public_research_state
+          from bsfm.research_cycle import execute_repository_cycle
           root=Path('.')
           source=validate_sources()
           report=build_foundation_report(root,availability_audit(source))
@@ -135,7 +136,8 @@ jobs:
           parent=json.loads(Path('forecasts/F-002.json').read_text(encoding='utf-8'))
           refinements=write_public_refinements(root,parent)
           research=write_public_research_state(root)
-          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public,'evidence_gaps':evidence['gaps'],'published_refinements':len(refinements),'public_research_years':len(research['gates']['G1']['years'])},indent=2))
+          cycle=execute_repository_cycle(root,source,report)
+          print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public,'evidence_gaps':evidence['gaps'],'published_refinements':len(refinements),'public_research_years':len(research['gates']['G1']['years']),'research_cycle':cycle},indent=2))
           PY
       - name: Record successful scheduled refresh cadence
         if: github.event_name == 'schedule'

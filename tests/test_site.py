@@ -73,6 +73,14 @@ def test_home_loads_generated_nonfatal_comparables():
  assert 'non modifica il suo punteggio' in js
  assert 'const CASES=' not in js
 
+def test_methodology_exposes_versioned_automatic_research_cycle():
+ html=(ROOT/'site/methodology.html').read_text()
+ js=(ROOT/'site/research-cycle.js').read_text()
+ assert 'research-cycle.js' in html
+ assert 'Riaffinamento parametri' in html and 'Distribuzione temporale' in html
+ assert './data/research-cycle.json' in js
+ assert 'minimal shrinkage estimator' in html
+
 def test_translation_dictionary_covers_all_public_page_keys():
  base=(ROOT/'site/i18n.js').read_text()
  extension=(ROOT/'site/comparables.js').read_text()

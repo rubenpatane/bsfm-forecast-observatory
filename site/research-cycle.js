@@ -1,0 +1,5 @@
+(()=>{
+const labels={it:{ready:'ESEGUITO',blocked:'BLOCCATO',scientific_fit_gate_closed:'Gate scientifici chiusi',declared_input_artifacts_missing:'Input dichiarati mancanti'},en:{ready:'EXECUTED',blocked:'BLOCKED',scientific_fit_gate_closed:'Scientific gates closed',declared_input_artifacts_missing:'Declared inputs missing'}};
+function render(data){const l=window.BSFM_I18N?.lang?.()||'it',c=labels[l]||labels.it;document.getElementById('cycleStatus').textContent=data.forecast_generated?c.ready:c.blocked;document.getElementById('cycleVersion').textContent=data.cycle_version||'—';document.getElementById('cycleEstimator').textContent=data.candidate_estimator||'—';document.getElementById('cycleReason').textContent=c[data.reason]||data.reason||'—'}
+let state=null;fetch('./data/research-cycle.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(x=>{state=x;render(x)}).catch(()=>render({reason:'scientific_fit_gate_closed'}));window.addEventListener('bsfm-language',()=>state&&render(state));
+})();

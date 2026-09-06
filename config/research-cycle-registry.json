@@ -1,0 +1,11 @@
+{
+  "schema": "bsfm.research-cycle-registry.v1",
+  "specifications": [
+    {
+      "cycle_version": "1.0",
+      "path": "config/research-cycle-v1.json",
+      "spec_hash": "sha256:a858859dbba137b1f5aaf8211c7c389df511e36e76a4c2db5dbfac585b21d808",
+      "status": "frozen"
+    }
+  ]
+}
