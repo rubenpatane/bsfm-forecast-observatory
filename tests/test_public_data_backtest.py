@@ -27,3 +27,5 @@ def test_checked_in_backtest_executes_but_fails_frozen_power_rule():
     assert report['event_bearing_fold_count'] == 3
     assert report['scientific_validation'] == 'BLOCKED_INSUFFICIENT_EVENT_FOLDS'
     assert report['minimum_event_bearing_folds'] == 10
+    assert report['candidate_better_descriptive'] is False
+    assert report['mean_log_score_improvement'] < 0

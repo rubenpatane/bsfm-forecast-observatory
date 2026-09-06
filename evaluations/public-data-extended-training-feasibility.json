@@ -1,0 +1,2720 @@
+{
+  "availability_mode": "late_snapshot",
+  "decision": {
+    "promote_or_replace_active_1_4": false,
+    "reason": "The candidate advantage reverses under equal total prior mass, while historical route/census evidence is incomplete. A prior change would require a separately preregistered model version and new prospective evidence."
+  },
+  "frozen_prior_backtest": {
+    "baseline_mean_log_score": 0.9502761217531199,
+    "candidate_better_descriptive": true,
+    "candidate_mean_log_score": 0.8371895391434722,
+    "claim_limit": "Descriptive execution does not establish predictive validity when the frozen minimum event-fold rule is unmet.",
+    "event_bearing_fold_count": 15,
+    "fold_count": 137,
+    "folds": [
+      {
+        "baseline_log_score": 0.09597953787597951,
+        "candidate_log_score": 0.24156959306148357,
+        "case_id": "PD13-1992-01-01",
+        "cutoff": "1991-12-31",
+        "horizon_end": "1992-03-30",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.09815039236577143,
+        "candidate_log_score": 0.24800488559555012,
+        "case_id": "PD13-1992-03-31",
+        "cutoff": "1992-03-30",
+        "horizon_end": "1992-06-28",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 6.853262016390686,
+        "candidate_log_score": 6.017052549781873,
+        "case_id": "PD13-1992-06-29",
+        "cutoff": "1992-06-28",
+        "horizon_end": "1992-09-26",
+        "observed_date": "1992-08-23",
+        "observed_event_id": "NTSB-CHI92LA250"
+      },
+      {
+        "baseline_log_score": 6.925700084213585,
+        "candidate_log_score": 6.108006892544774,
+        "case_id": "PD13-1992-09-27",
+        "cutoff": "1992-09-26",
+        "horizon_end": "1992-12-25",
+        "observed_date": "1992-12-08",
+        "observed_event_id": "NTSB-NYC93LA040"
+      },
+      {
+        "baseline_log_score": 0.09413555275881916,
+        "candidate_log_score": 0.2412061324877611,
+        "case_id": "PD13-1992-12-26",
+        "cutoff": "1992-12-25",
+        "horizon_end": "1993-03-25",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.05377688223141946,
+        "candidate_log_score": 0.17469116600605036,
+        "case_id": "PD13-1993-03-26",
+        "cutoff": "1993-03-25",
+        "horizon_end": "1993-06-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.054585622256216236,
+        "candidate_log_score": 0.178660148392965,
+        "case_id": "PD13-1993-06-24",
+        "cutoff": "1993-06-23",
+        "horizon_end": "1993-09-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.052545951936601616,
+        "candidate_log_score": 0.17277492138928674,
+        "case_id": "PD13-1993-09-22",
+        "cutoff": "1993-09-21",
+        "horizon_end": "1993-12-20",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.052441446034195954,
+        "candidate_log_score": 0.1737562922246753,
+        "case_id": "PD13-1993-12-21",
+        "cutoff": "1993-12-20",
+        "horizon_end": "1994-03-20",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.037006071250939306,
+        "candidate_log_score": 0.13925720090310392,
+        "case_id": "PD13-1994-03-21",
+        "cutoff": "1994-03-20",
+        "horizon_end": "1994-06-18",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 7.821631261643674,
+        "candidate_log_score": 6.582814590388233,
+        "case_id": "PD13-1994-06-19",
+        "cutoff": "1994-06-18",
+        "horizon_end": "1994-09-16",
+        "observed_date": "1994-09-08",
+        "observed_event_id": "NTSB-DCA94MA076"
+      },
+      {
+        "baseline_log_score": 0.0368701678843314,
+        "candidate_log_score": 0.1407585094383057,
+        "case_id": "PD13-1994-09-17",
+        "cutoff": "1994-09-16",
+        "horizon_end": "1994-12-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.036519643628200996,
+        "candidate_log_score": 0.14068411785828036,
+        "case_id": "PD13-1994-12-16",
+        "cutoff": "1994-12-15",
+        "horizon_end": "1995-03-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.028689937593750273,
+        "candidate_log_score": 0.11931257551015245,
+        "case_id": "PD13-1995-03-16",
+        "cutoff": "1995-03-15",
+        "horizon_end": "1995-06-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0299769471254861,
+        "candidate_log_score": 0.12523967105764172,
+        "case_id": "PD13-1995-06-14",
+        "cutoff": "1995-06-13",
+        "horizon_end": "1995-09-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02893004647376846,
+        "candidate_log_score": 0.12188231362527477,
+        "case_id": "PD13-1995-09-12",
+        "cutoff": "1995-09-11",
+        "horizon_end": "1995-12-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.042635736560534,
+        "candidate_log_score": 6.613519822432816,
+        "case_id": "PD13-1995-12-11",
+        "cutoff": "1995-12-10",
+        "horizon_end": "1996-03-09",
+        "observed_date": "1995-12-21",
+        "observed_event_id": "NTSB-DCA96RA020"
+      },
+      {
+        "baseline_log_score": 0.02372130903274077,
+        "candidate_log_score": 0.1053364885057744,
+        "case_id": "PD13-1996-03-10",
+        "cutoff": "1996-03-09",
+        "horizon_end": "1996-06-07",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.22434757710415,
+        "candidate_log_score": 6.769965023047208,
+        "case_id": "PD13-1996-06-08",
+        "cutoff": "1996-06-07",
+        "horizon_end": "1996-09-05",
+        "observed_date": "1996-07-18",
+        "observed_event_id": "NTSB-DCA96MA070"
+      },
+      {
+        "baseline_log_score": 0.024353995846332032,
+        "candidate_log_score": 0.10779593257484799,
+        "case_id": "PD13-1996-09-06",
+        "cutoff": "1996-09-05",
+        "horizon_end": "1996-12-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.024515438490627338,
+        "candidate_log_score": 0.10831637721376725,
+        "case_id": "PD13-1996-12-05",
+        "cutoff": "1996-12-04",
+        "horizon_end": "1997-03-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.020396215662892545,
+        "candidate_log_score": 0.0935956624822675,
+        "case_id": "PD13-1997-03-05",
+        "cutoff": "1997-03-04",
+        "horizon_end": "1997-06-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.392689825810832,
+        "candidate_log_score": 6.907845093094633,
+        "case_id": "PD13-1997-06-03",
+        "cutoff": "1997-06-02",
+        "horizon_end": "1997-08-31",
+        "observed_date": "1997-08-03",
+        "observed_event_id": "NTSB-MIA97WA226"
+      },
+      {
+        "baseline_log_score": 0.020098832111367888,
+        "candidate_log_score": 0.09333012972960211,
+        "case_id": "PD13-1997-09-01",
+        "cutoff": "1997-08-31",
+        "horizon_end": "1997-11-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.423427730210133,
+        "candidate_log_score": 6.906327001221781,
+        "case_id": "PD13-1997-11-30",
+        "cutoff": "1997-11-29",
+        "horizon_end": "1998-02-27",
+        "observed_date": "1997-12-28",
+        "observed_event_id": "NTSB-DCA98MA015"
+      },
+      {
+        "baseline_log_score": 0.017567081332186346,
+        "candidate_log_score": 0.08431352141961408,
+        "case_id": "PD13-1998-02-28",
+        "cutoff": "1998-02-27",
+        "horizon_end": "1998-05-28",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.017936126882069647,
+        "candidate_log_score": 0.08693821726566321,
+        "case_id": "PD13-1998-05-29",
+        "cutoff": "1998-05-28",
+        "horizon_end": "1998-08-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.017587162856296995,
+        "candidate_log_score": 0.08555718670978459,
+        "case_id": "PD13-1998-08-27",
+        "cutoff": "1998-08-26",
+        "horizon_end": "1998-11-24",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01762967741827493,
+        "candidate_log_score": 0.08592016661179233,
+        "case_id": "PD13-1998-11-25",
+        "cutoff": "1998-11-24",
+        "horizon_end": "1999-02-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.015736775165875762,
+        "candidate_log_score": 0.07844850297535348,
+        "case_id": "PD13-1999-02-23",
+        "cutoff": "1999-02-22",
+        "horizon_end": "1999-05-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.016108445115131542,
+        "candidate_log_score": 0.08107274715273986,
+        "case_id": "PD13-1999-05-24",
+        "cutoff": "1999-05-23",
+        "horizon_end": "1999-08-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.656653051644957,
+        "candidate_log_score": 7.08682978769697,
+        "case_id": "PD13-1999-08-22",
+        "cutoff": "1999-08-21",
+        "horizon_end": "1999-11-19",
+        "observed_date": "1999-10-31",
+        "observed_event_id": "NTSB-DCA00MA006"
+      },
+      {
+        "baseline_log_score": 0.015526571446541503,
+        "candidate_log_score": 0.07908083202981825,
+        "case_id": "PD13-1999-11-20",
+        "cutoff": "1999-11-19",
+        "horizon_end": "2000-02-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013965132239511104,
+        "candidate_log_score": 0.07273502557639641,
+        "case_id": "PD13-2000-02-18",
+        "cutoff": "2000-02-17",
+        "horizon_end": "2000-05-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.014191077486782997,
+        "candidate_log_score": 0.07437956699340595,
+        "case_id": "PD13-2000-05-18",
+        "cutoff": "2000-05-17",
+        "horizon_end": "2000-08-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0140136104889866,
+        "candidate_log_score": 0.07386151442906663,
+        "case_id": "PD13-2000-08-16",
+        "cutoff": "2000-08-15",
+        "horizon_end": "2000-11-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01381543313985736,
+        "candidate_log_score": 0.07322531764618877,
+        "case_id": "PD13-2000-11-14",
+        "cutoff": "2000-11-13",
+        "horizon_end": "2001-02-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012766869703182259,
+        "candidate_log_score": 0.0687319657089335,
+        "case_id": "PD13-2001-02-12",
+        "cutoff": "2001-02-11",
+        "horizon_end": "2001-05-12",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013163093729200798,
+        "candidate_log_score": 0.07254867792757659,
+        "case_id": "PD13-2001-05-13",
+        "cutoff": "2001-05-12",
+        "horizon_end": "2001-08-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.848900020461285,
+        "candidate_log_score": 7.153597239210961,
+        "case_id": "PD13-2001-08-11",
+        "cutoff": "2001-08-10",
+        "horizon_end": "2001-11-08",
+        "observed_date": "2001-09-05",
+        "observed_event_id": "NTSB-DEN01FA157"
+      },
+      {
+        "baseline_log_score": 0.012966098963078704,
+        "candidate_log_score": 0.07159742393740992,
+        "case_id": "PD13-2001-11-09",
+        "cutoff": "2001-11-08",
+        "horizon_end": "2002-02-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01201431449940533,
+        "candidate_log_score": 0.0676202971928577,
+        "case_id": "PD13-2002-02-07",
+        "cutoff": "2002-02-06",
+        "horizon_end": "2002-05-07",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012127726346648512,
+        "candidate_log_score": 0.06893727108052662,
+        "case_id": "PD13-2002-05-08",
+        "cutoff": "2002-05-07",
+        "horizon_end": "2002-08-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012079019808910196,
+        "candidate_log_score": 0.0689696513763878,
+        "case_id": "PD13-2002-08-06",
+        "cutoff": "2002-08-05",
+        "horizon_end": "2002-11-03",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.011851782010770485,
+        "candidate_log_score": 0.06764409194458369,
+        "case_id": "PD13-2002-11-04",
+        "cutoff": "2002-11-03",
+        "horizon_end": "2003-02-01",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.011197766711506916,
+        "candidate_log_score": 0.06464682730868439,
+        "case_id": "PD13-2003-02-02",
+        "cutoff": "2003-02-01",
+        "horizon_end": "2003-05-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.011311183007299608,
+        "candidate_log_score": 0.06550289312202648,
+        "case_id": "PD13-2003-05-03",
+        "cutoff": "2003-05-02",
+        "horizon_end": "2003-07-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.010052138425073036,
+        "candidate_log_score": 0.05932986506746027,
+        "case_id": "PD13-2003-08-01",
+        "cutoff": "2003-07-31",
+        "horizon_end": "2003-10-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009371224089914365,
+        "candidate_log_score": 0.055642006464495686,
+        "case_id": "PD13-2003-10-30",
+        "cutoff": "2003-10-29",
+        "horizon_end": "2004-01-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009002650184212521,
+        "candidate_log_score": 0.053381727769250834,
+        "case_id": "PD13-2004-01-28",
+        "cutoff": "2004-01-27",
+        "horizon_end": "2004-04-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009252580753906732,
+        "candidate_log_score": 0.05576136185828606,
+        "case_id": "PD13-2004-04-27",
+        "cutoff": "2004-04-26",
+        "horizon_end": "2004-07-25",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009222534904489928,
+        "candidate_log_score": 0.05599025898087675,
+        "case_id": "PD13-2004-07-26",
+        "cutoff": "2004-07-25",
+        "horizon_end": "2004-10-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008993543445470396,
+        "candidate_log_score": 0.05515408413568354,
+        "case_id": "PD13-2004-10-24",
+        "cutoff": "2004-10-23",
+        "horizon_end": "2005-01-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008217233982904408,
+        "candidate_log_score": 0.04939331944493141,
+        "case_id": "PD13-2005-01-22",
+        "cutoff": "2005-01-21",
+        "horizon_end": "2005-04-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008160518296274224,
+        "candidate_log_score": 0.04889163657598397,
+        "case_id": "PD13-2005-04-22",
+        "cutoff": "2005-04-21",
+        "horizon_end": "2005-07-20",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008273565148171496,
+        "candidate_log_score": 0.050263452657388845,
+        "case_id": "PD13-2005-07-21",
+        "cutoff": "2005-07-20",
+        "horizon_end": "2005-10-18",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.307173739876564,
+        "candidate_log_score": 7.543432759707347,
+        "case_id": "PD13-2005-10-19",
+        "cutoff": "2005-10-18",
+        "horizon_end": "2006-01-16",
+        "observed_date": "2005-12-09",
+        "observed_event_id": "NTSB-DCA06MA009"
+      },
+      {
+        "baseline_log_score": 0.007817220352317616,
+        "candidate_log_score": 0.046562632262629286,
+        "case_id": "PD13-2006-01-17",
+        "cutoff": "2006-01-16",
+        "horizon_end": "2006-04-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00794306982422091,
+        "candidate_log_score": 0.04751281039754731,
+        "case_id": "PD13-2006-04-17",
+        "cutoff": "2006-04-16",
+        "horizon_end": "2006-07-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.007951440959916622,
+        "candidate_log_score": 0.04753160471653245,
+        "case_id": "PD13-2006-07-16",
+        "cutoff": "2006-07-15",
+        "horizon_end": "2006-10-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00780344650136813,
+        "candidate_log_score": 0.04639321421039338,
+        "case_id": "PD13-2006-10-14",
+        "cutoff": "2006-10-13",
+        "horizon_end": "2007-01-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.007380352713951796,
+        "candidate_log_score": 0.04363988758023655,
+        "case_id": "PD13-2007-01-12",
+        "cutoff": "2007-01-11",
+        "horizon_end": "2007-04-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.402639993856306,
+        "candidate_log_score": 7.654744441006374,
+        "case_id": "PD13-2007-04-12",
+        "cutoff": "2007-04-11",
+        "horizon_end": "2007-07-10",
+        "observed_date": "2007-07-10",
+        "observed_event_id": "NTSB-DFW07LA155"
+      },
+      {
+        "baseline_log_score": 0.0072454629031857105,
+        "candidate_log_score": 0.043191465498937875,
+        "case_id": "PD13-2007-07-11",
+        "cutoff": "2007-07-10",
+        "horizon_end": "2007-10-08",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006908028955336576,
+        "candidate_log_score": 0.04073737847154317,
+        "case_id": "PD13-2007-10-09",
+        "cutoff": "2007-10-08",
+        "horizon_end": "2008-01-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006554316685383124,
+        "candidate_log_score": 0.0381196139315389,
+        "case_id": "PD13-2008-01-07",
+        "cutoff": "2008-01-06",
+        "horizon_end": "2008-04-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00665707773361289,
+        "candidate_log_score": 0.03880114052535172,
+        "case_id": "PD13-2008-04-06",
+        "cutoff": "2008-04-05",
+        "horizon_end": "2008-07-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.498588332538139,
+        "candidate_log_score": 7.732583297582127,
+        "case_id": "PD13-2008-07-05",
+        "cutoff": "2008-07-04",
+        "horizon_end": "2008-10-02",
+        "observed_date": "2008-07-07",
+        "observed_event_id": "NTSB-DCA08RA078"
+      },
+      {
+        "baseline_log_score": 0.006661060591795621,
+        "candidate_log_score": 0.0386353757865716,
+        "case_id": "PD13-2008-10-03",
+        "cutoff": "2008-10-02",
+        "horizon_end": "2008-12-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00636211774789324,
+        "candidate_log_score": 0.03641306296247571,
+        "case_id": "PD13-2009-01-01",
+        "cutoff": "2008-12-31",
+        "horizon_end": "2009-03-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006513170421178665,
+        "candidate_log_score": 0.03713664033961594,
+        "case_id": "PD13-2009-04-01",
+        "cutoff": "2009-03-31",
+        "horizon_end": "2009-06-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006534354547938173,
+        "candidate_log_score": 0.03740546767448218,
+        "case_id": "PD13-2009-06-30",
+        "cutoff": "2009-06-29",
+        "horizon_end": "2009-09-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00636620999970073,
+        "candidate_log_score": 0.03626350112261004,
+        "case_id": "PD13-2009-09-28",
+        "cutoff": "2009-09-27",
+        "horizon_end": "2009-12-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006281626558903865,
+        "candidate_log_score": 0.03536908366440449,
+        "case_id": "PD13-2009-12-27",
+        "cutoff": "2009-12-26",
+        "horizon_end": "2010-03-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005987967937840107,
+        "candidate_log_score": 0.033411654561415115,
+        "case_id": "PD13-2010-03-27",
+        "cutoff": "2010-03-26",
+        "horizon_end": "2010-06-24",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0058761256134460425,
+        "candidate_log_score": 0.03325319834100817,
+        "case_id": "PD13-2010-06-25",
+        "cutoff": "2010-06-24",
+        "horizon_end": "2010-09-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005452236263747776,
+        "candidate_log_score": 0.031182615975277238,
+        "case_id": "PD13-2010-09-23",
+        "cutoff": "2010-09-22",
+        "horizon_end": "2010-12-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005288791311455731,
+        "candidate_log_score": 0.0300176467440899,
+        "case_id": "PD13-2010-12-22",
+        "cutoff": "2010-12-21",
+        "horizon_end": "2011-03-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005128254135338269,
+        "candidate_log_score": 0.02924174977843104,
+        "case_id": "PD13-2011-03-22",
+        "cutoff": "2011-03-21",
+        "horizon_end": "2011-06-19",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005092757137568205,
+        "candidate_log_score": 0.029696126750781017,
+        "case_id": "PD13-2011-06-20",
+        "cutoff": "2011-06-19",
+        "horizon_end": "2011-09-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004784351333729471,
+        "candidate_log_score": 0.02814260296816677,
+        "case_id": "PD13-2011-09-18",
+        "cutoff": "2011-09-17",
+        "horizon_end": "2011-12-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004774465592561599,
+        "candidate_log_score": 0.028204832543542786,
+        "case_id": "PD13-2011-12-17",
+        "cutoff": "2011-12-16",
+        "horizon_end": "2012-03-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004837046505115095,
+        "candidate_log_score": 0.02804339884557895,
+        "case_id": "PD13-2012-03-16",
+        "cutoff": "2012-03-15",
+        "horizon_end": "2012-06-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004964357734007908,
+        "candidate_log_score": 0.02929665458286273,
+        "case_id": "PD13-2012-06-14",
+        "cutoff": "2012-06-13",
+        "horizon_end": "2012-09-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004815372609325289,
+        "candidate_log_score": 0.028515078325226574,
+        "case_id": "PD13-2012-09-12",
+        "cutoff": "2012-09-11",
+        "horizon_end": "2012-12-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004814078126753874,
+        "candidate_log_score": 0.02817108790273626,
+        "case_id": "PD13-2012-12-11",
+        "cutoff": "2012-12-10",
+        "horizon_end": "2013-03-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004847082921832514,
+        "candidate_log_score": 0.027876583818041055,
+        "case_id": "PD13-2013-03-11",
+        "cutoff": "2013-03-10",
+        "horizon_end": "2013-06-08",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.800881437575255,
+        "candidate_log_score": 8.048482132160498,
+        "case_id": "PD13-2013-06-09",
+        "cutoff": "2013-06-08",
+        "horizon_end": "2013-09-06",
+        "observed_date": "2013-07-06",
+        "observed_event_id": "G1-2013-AAR214"
+      },
+      {
+        "baseline_log_score": 0.004620749992277706,
+        "candidate_log_score": 0.026914628721124687,
+        "case_id": "PD13-2013-09-07",
+        "cutoff": "2013-09-06",
+        "horizon_end": "2013-12-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004551029982696685,
+        "candidate_log_score": 0.026489468220963045,
+        "case_id": "PD13-2013-12-06",
+        "cutoff": "2013-12-05",
+        "horizon_end": "2014-03-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004588778030488469,
+        "candidate_log_score": 0.02653358334236314,
+        "case_id": "PD13-2014-03-06",
+        "cutoff": "2014-03-05",
+        "horizon_end": "2014-06-03",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004682525001521425,
+        "candidate_log_score": 0.027284351194966205,
+        "case_id": "PD13-2014-06-04",
+        "cutoff": "2014-06-03",
+        "horizon_end": "2014-09-01",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013003806942070434,
+        "candidate_log_score": 0.04021588562482066,
+        "case_id": "PD13-2014-09-02",
+        "cutoff": "2014-09-01",
+        "horizon_end": "2014-11-30",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012828837700922694,
+        "candidate_log_score": 0.03968543647385227,
+        "case_id": "PD13-2014-12-01",
+        "cutoff": "2014-11-30",
+        "horizon_end": "2015-02-28",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013174216125386086,
+        "candidate_log_score": 0.03953915238466766,
+        "case_id": "PD13-2015-03-01",
+        "cutoff": "2015-02-28",
+        "horizon_end": "2015-05-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0134067269657905,
+        "candidate_log_score": 0.042619144458299715,
+        "case_id": "PD13-2015-05-30",
+        "cutoff": "2015-05-29",
+        "horizon_end": "2015-08-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012596442324577429,
+        "candidate_log_score": 0.04103615110584927,
+        "case_id": "PD13-2015-08-28",
+        "cutoff": "2015-08-27",
+        "horizon_end": "2015-11-25",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012414833815697439,
+        "candidate_log_score": 0.0403627536407651,
+        "case_id": "PD13-2015-11-26",
+        "cutoff": "2015-11-25",
+        "horizon_end": "2016-02-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01278737881275128,
+        "candidate_log_score": 0.040280703467763315,
+        "case_id": "PD13-2016-02-24",
+        "cutoff": "2016-02-23",
+        "horizon_end": "2016-05-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013241047397031703,
+        "candidate_log_score": 0.043460486266966074,
+        "case_id": "PD13-2016-05-24",
+        "cutoff": "2016-05-23",
+        "horizon_end": "2016-08-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012438479332952111,
+        "candidate_log_score": 0.04190142705055638,
+        "case_id": "PD13-2016-08-22",
+        "cutoff": "2016-08-21",
+        "horizon_end": "2016-11-19",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012461455478162792,
+        "candidate_log_score": 0.041410704673703995,
+        "case_id": "PD13-2016-11-20",
+        "cutoff": "2016-11-19",
+        "horizon_end": "2017-02-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012783742520230602,
+        "candidate_log_score": 0.041026789932630536,
+        "case_id": "PD13-2017-02-18",
+        "cutoff": "2017-02-17",
+        "horizon_end": "2017-05-18",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013431911701603244,
+        "candidate_log_score": 0.04454351497173687,
+        "case_id": "PD13-2017-05-19",
+        "cutoff": "2017-05-18",
+        "horizon_end": "2017-08-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012716057745699385,
+        "candidate_log_score": 0.04384544299611749,
+        "case_id": "PD13-2017-08-17",
+        "cutoff": "2017-08-16",
+        "horizon_end": "2017-11-14",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012604313304127649,
+        "candidate_log_score": 0.042728557687231314,
+        "case_id": "PD13-2017-11-15",
+        "cutoff": "2017-11-14",
+        "horizon_end": "2018-02-12",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.862771476989556,
+        "candidate_log_score": 7.657261620693202,
+        "case_id": "PD13-2018-02-13",
+        "cutoff": "2018-02-12",
+        "horizon_end": "2018-05-13",
+        "observed_date": "2018-04-17",
+        "observed_event_id": "G1-2018-SWA1380"
+      },
+      {
+        "baseline_log_score": 0.0133034301988691,
+        "candidate_log_score": 0.04700617439662378,
+        "case_id": "PD13-2018-05-14",
+        "cutoff": "2018-05-13",
+        "horizon_end": "2018-08-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012839454684318614,
+        "candidate_log_score": 0.046172646744402274,
+        "case_id": "PD13-2018-08-12",
+        "cutoff": "2018-08-11",
+        "horizon_end": "2018-11-09",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012731227391806838,
+        "candidate_log_score": 0.0449067957240625,
+        "case_id": "PD13-2018-11-10",
+        "cutoff": "2018-11-09",
+        "horizon_end": "2019-02-07",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.919934122965154,
+        "candidate_log_score": 7.678195431047967,
+        "case_id": "PD13-2019-02-08",
+        "cutoff": "2019-02-07",
+        "horizon_end": "2019-05-08",
+        "observed_date": "2019-02-23",
+        "observed_event_id": "G1-2019-ATLAS3591"
+      },
+      {
+        "baseline_log_score": 0.01345950390214992,
+        "candidate_log_score": 0.048212924056495327,
+        "case_id": "PD13-2019-05-09",
+        "cutoff": "2019-05-08",
+        "horizon_end": "2019-08-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01286495589535356,
+        "candidate_log_score": 0.04752488676639246,
+        "case_id": "PD13-2019-08-07",
+        "cutoff": "2019-08-06",
+        "horizon_end": "2019-11-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012840242283916255,
+        "candidate_log_score": 0.04628496735486553,
+        "case_id": "PD13-2019-11-05",
+        "cutoff": "2019-11-04",
+        "horizon_end": "2020-02-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.021233445827832674,
+        "candidate_log_score": 0.056968137054799584,
+        "case_id": "PD13-2020-02-03",
+        "cutoff": "2020-02-02",
+        "horizon_end": "2020-05-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.022413322897629227,
+        "candidate_log_score": 0.06358596110971372,
+        "case_id": "PD13-2020-05-03",
+        "cutoff": "2020-05-02",
+        "horizon_end": "2020-07-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.030434045766739932,
+        "candidate_log_score": 0.0748882467998161,
+        "case_id": "PD13-2020-08-01",
+        "cutoff": "2020-07-31",
+        "horizon_end": "2020-10-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.030044316694506707,
+        "candidate_log_score": 0.07561026752231553,
+        "case_id": "PD13-2020-10-30",
+        "cutoff": "2020-10-29",
+        "horizon_end": "2021-01-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029319434524044764,
+        "candidate_log_score": 0.06958513438116996,
+        "case_id": "PD13-2021-01-28",
+        "cutoff": "2021-01-27",
+        "horizon_end": "2021-04-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.030560740405669206,
+        "candidate_log_score": 0.06863676731923257,
+        "case_id": "PD13-2021-04-28",
+        "cutoff": "2021-04-27",
+        "horizon_end": "2021-07-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.03003278757257607,
+        "candidate_log_score": 0.06827520983521651,
+        "case_id": "PD13-2021-07-27",
+        "cutoff": "2021-07-26",
+        "horizon_end": "2021-10-24",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029675230014225996,
+        "candidate_log_score": 0.0659375256563878,
+        "case_id": "PD13-2021-10-25",
+        "cutoff": "2021-10-24",
+        "horizon_end": "2022-01-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02234365743580243,
+        "candidate_log_score": 0.048518450129974515,
+        "case_id": "PD13-2022-01-23",
+        "cutoff": "2022-01-22",
+        "horizon_end": "2022-04-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013721010132290158,
+        "candidate_log_score": 0.030930411841053784,
+        "case_id": "PD13-2022-04-23",
+        "cutoff": "2022-04-22",
+        "horizon_end": "2022-07-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.017033314798511247,
+        "candidate_log_score": 0.03802307779323793,
+        "case_id": "PD13-2022-07-22",
+        "cutoff": "2022-07-21",
+        "horizon_end": "2022-10-19",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01797278108966233,
+        "candidate_log_score": 0.04316103342219394,
+        "case_id": "PD13-2022-10-20",
+        "cutoff": "2022-10-19",
+        "horizon_end": "2023-01-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01845883831365379,
+        "candidate_log_score": 0.04696098631542091,
+        "case_id": "PD13-2023-01-18",
+        "cutoff": "2023-01-17",
+        "horizon_end": "2023-04-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0235318385072959,
+        "candidate_log_score": 0.06608241952336516,
+        "case_id": "PD13-2023-04-18",
+        "cutoff": "2023-04-17",
+        "horizon_end": "2023-07-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.025603404134747806,
+        "candidate_log_score": 0.07550556171532848,
+        "case_id": "PD13-2023-07-17",
+        "cutoff": "2023-07-16",
+        "horizon_end": "2023-10-14",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02592051888630312,
+        "candidate_log_score": 0.07906457142499422,
+        "case_id": "PD13-2023-10-15",
+        "cutoff": "2023-10-14",
+        "horizon_end": "2024-01-12",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02488154733696481,
+        "candidate_log_score": 0.07061971329008945,
+        "case_id": "PD13-2024-01-13",
+        "cutoff": "2024-01-12",
+        "horizon_end": "2024-04-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.026835573739880776,
+        "candidate_log_score": 0.07746821249101578,
+        "case_id": "PD13-2024-04-12",
+        "cutoff": "2024-04-11",
+        "horizon_end": "2024-07-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.027784472557244713,
+        "candidate_log_score": 0.08392786812685453,
+        "case_id": "PD13-2024-07-11",
+        "cutoff": "2024-07-10",
+        "horizon_end": "2024-10-08",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.027440394189394736,
+        "candidate_log_score": 0.08832030683227562,
+        "case_id": "PD13-2024-10-09",
+        "cutoff": "2024-10-08",
+        "horizon_end": "2025-01-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02741472449611474,
+        "candidate_log_score": 0.08287719751400496,
+        "case_id": "PD13-2025-01-07",
+        "cutoff": "2025-01-06",
+        "horizon_end": "2025-04-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029175445992923484,
+        "candidate_log_score": 0.09119868652150867,
+        "case_id": "PD13-2025-04-07",
+        "cutoff": "2025-04-06",
+        "horizon_end": "2025-07-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029953507631369447,
+        "candidate_log_score": 0.09769921745971445,
+        "case_id": "PD13-2025-07-06",
+        "cutoff": "2025-07-05",
+        "horizon_end": "2025-10-03",
+        "observed_date": null,
+        "observed_event_id": null
+      }
+    ],
+    "mean_log_score_improvement": 0.11308658260964777,
+    "minimum_event_bearing_folds": 10,
+    "paired_uncertainty": {
+      "improvement_lower_90": 0.04753682335613317,
+      "improvement_upper_90": 0.18247730104660684,
+      "method": "deterministic_paired_nonparametric_bootstrap",
+      "samples": 5000,
+      "seed": 1402
+    },
+    "schema": "bsfm.public-data-exploratory-backtest.v1",
+    "scientific_validation": "PASS",
+    "status": "EXPLORATORY_COMPLETE"
+  },
+  "hard_limit": "Conservative exact-byte public snapshot bounds provide no historical training signal before those bounds; route and target census adjudication remains incomplete.",
+  "inputs": {
+    "exposure_audit_sha256": "sha256:48d85cb06ff7288f456d306d1179f1b35b9bd49bc1a8cc06eee06f4333697ea7",
+    "legacy_discovery_sha256": "sha256:6277c0e2bad68224661329b1541977888adb1252df72ec8beeacde0a55d571d2",
+    "modern_discovery_sha256": "sha256:fc1833d95a05faf3d547568443588dbfa23b8b1e530a60d2f25898c85dd9b323"
+  },
+  "matched_total_prior_sensitivity": {
+    "baseline_mean_log_score": 0.9502761217531199,
+    "candidate_better_descriptive": false,
+    "candidate_mean_log_score": 0.9666579547939806,
+    "claim_limit": "Descriptive execution does not establish predictive validity when the frozen minimum event-fold rule is unmet.",
+    "event_bearing_fold_count": 15,
+    "fold_count": 137,
+    "folds": [
+      {
+        "baseline_log_score": 0.09597953787597951,
+        "candidate_log_score": 0.06043320281329588,
+        "case_id": "PD13-1992-01-01",
+        "cutoff": "1991-12-31",
+        "horizon_end": "1992-03-30",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.09815039236577143,
+        "candidate_log_score": 0.06223859930097603,
+        "case_id": "PD13-1992-03-31",
+        "cutoff": "1992-03-30",
+        "horizon_end": "1992-06-28",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 6.853262016390686,
+        "candidate_log_score": 7.275564149359911,
+        "case_id": "PD13-1992-06-29",
+        "cutoff": "1992-06-28",
+        "horizon_end": "1992-09-26",
+        "observed_date": "1992-08-23",
+        "observed_event_id": "NTSB-CHI92LA250"
+      },
+      {
+        "baseline_log_score": 6.925700084213585,
+        "candidate_log_score": 7.327080467132489,
+        "case_id": "PD13-1992-09-27",
+        "cutoff": "1992-09-26",
+        "horizon_end": "1992-12-25",
+        "observed_date": "1992-12-08",
+        "observed_event_id": "NTSB-NYC93LA040"
+      },
+      {
+        "baseline_log_score": 0.09413555275881916,
+        "candidate_log_score": 0.06105654278506424,
+        "case_id": "PD13-1992-12-26",
+        "cutoff": "1992-12-25",
+        "horizon_end": "1993-03-25",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.05377688223141946,
+        "candidate_log_score": 0.03520291573987744,
+        "case_id": "PD13-1993-03-26",
+        "cutoff": "1993-03-25",
+        "horizon_end": "1993-06-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.054585622256216236,
+        "candidate_log_score": 0.036354237009206716,
+        "case_id": "PD13-1993-06-24",
+        "cutoff": "1993-06-23",
+        "horizon_end": "1993-09-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.052545951936601616,
+        "candidate_log_score": 0.035217753249920714,
+        "case_id": "PD13-1993-09-22",
+        "cutoff": "1993-09-21",
+        "horizon_end": "1993-12-20",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.052441446034195954,
+        "candidate_log_score": 0.035572304841028426,
+        "case_id": "PD13-1993-12-21",
+        "cutoff": "1993-12-20",
+        "horizon_end": "1994-03-20",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.037006071250939306,
+        "candidate_log_score": 0.0250566291489136,
+        "case_id": "PD13-1994-03-21",
+        "cutoff": "1994-03-20",
+        "horizon_end": "1994-06-18",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 7.821631261643674,
+        "candidate_log_score": 8.183937233206855,
+        "case_id": "PD13-1994-06-19",
+        "cutoff": "1994-06-18",
+        "horizon_end": "1994-09-16",
+        "observed_date": "1994-09-08",
+        "observed_event_id": "NTSB-DCA94MA076"
+      },
+      {
+        "baseline_log_score": 0.0368701678843314,
+        "candidate_log_score": 0.025540038052683168,
+        "case_id": "PD13-1994-09-17",
+        "cutoff": "1994-09-16",
+        "horizon_end": "1994-12-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.036519643628200996,
+        "candidate_log_score": 0.025639577199194036,
+        "case_id": "PD13-1994-12-16",
+        "cutoff": "1994-12-15",
+        "horizon_end": "1995-03-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.028689937593750273,
+        "candidate_log_score": 0.019827629186124296,
+        "case_id": "PD13-1995-03-16",
+        "cutoff": "1995-03-15",
+        "horizon_end": "1995-06-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0299769471254861,
+        "candidate_log_score": 0.02089023224373047,
+        "case_id": "PD13-1995-06-14",
+        "cutoff": "1995-06-13",
+        "horizon_end": "1995-09-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02893004647376846,
+        "candidate_log_score": 0.020363267657481865,
+        "case_id": "PD13-1995-09-12",
+        "cutoff": "1995-09-11",
+        "horizon_end": "1995-12-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.042635736560534,
+        "candidate_log_score": 8.390813533995065,
+        "case_id": "PD13-1995-12-11",
+        "cutoff": "1995-12-10",
+        "horizon_end": "1996-03-09",
+        "observed_date": "1995-12-21",
+        "observed_event_id": "NTSB-DCA96RA020"
+      },
+      {
+        "baseline_log_score": 0.02372130903274077,
+        "candidate_log_score": 0.016515761972765265,
+        "case_id": "PD13-1996-03-10",
+        "cutoff": "1996-03-09",
+        "horizon_end": "1996-06-07",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.22434757710415,
+        "candidate_log_score": 8.581338666063127,
+        "case_id": "PD13-1996-06-08",
+        "cutoff": "1996-06-07",
+        "horizon_end": "1996-09-05",
+        "observed_date": "1996-07-18",
+        "observed_event_id": "NTSB-DCA96MA070"
+      },
+      {
+        "baseline_log_score": 0.024353995846332032,
+        "candidate_log_score": 0.01686419322963154,
+        "case_id": "PD13-1996-09-06",
+        "cutoff": "1996-09-05",
+        "horizon_end": "1996-12-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.024515438490627338,
+        "candidate_log_score": 0.016924399001657302,
+        "case_id": "PD13-1996-12-05",
+        "cutoff": "1996-12-04",
+        "horizon_end": "1997-03-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.020396215662892545,
+        "candidate_log_score": 0.013975233536623013,
+        "case_id": "PD13-1997-03-05",
+        "cutoff": "1997-03-04",
+        "horizon_end": "1997-06-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.392689825810832,
+        "candidate_log_score": 8.71595076524864,
+        "case_id": "PD13-1997-06-03",
+        "cutoff": "1997-06-02",
+        "horizon_end": "1997-08-31",
+        "observed_date": "1997-08-03",
+        "observed_event_id": "NTSB-MIA97WA226"
+      },
+      {
+        "baseline_log_score": 0.020098832111367888,
+        "candidate_log_score": 0.014503032090160505,
+        "case_id": "PD13-1997-09-01",
+        "cutoff": "1997-08-31",
+        "horizon_end": "1997-11-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.423427730210133,
+        "candidate_log_score": 8.734841677405239,
+        "case_id": "PD13-1997-11-30",
+        "cutoff": "1997-11-29",
+        "horizon_end": "1998-02-27",
+        "observed_date": "1997-12-28",
+        "observed_event_id": "NTSB-DCA98MA015"
+      },
+      {
+        "baseline_log_score": 0.017567081332186346,
+        "candidate_log_score": 0.012992307737979216,
+        "case_id": "PD13-1998-02-28",
+        "cutoff": "1998-02-27",
+        "horizon_end": "1998-05-28",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.017936126882069647,
+        "candidate_log_score": 0.01358099364688964,
+        "case_id": "PD13-1998-05-29",
+        "cutoff": "1998-05-28",
+        "horizon_end": "1998-08-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.017587162856296995,
+        "candidate_log_score": 0.013605855325788462,
+        "case_id": "PD13-1998-08-27",
+        "cutoff": "1998-08-26",
+        "horizon_end": "1998-11-24",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01762967741827493,
+        "candidate_log_score": 0.013736933958144003,
+        "case_id": "PD13-1998-11-25",
+        "cutoff": "1998-11-24",
+        "horizon_end": "1999-02-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.015736775165875762,
+        "candidate_log_score": 0.012263805635879593,
+        "case_id": "PD13-1999-02-23",
+        "cutoff": "1999-02-22",
+        "horizon_end": "1999-05-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.016108445115131542,
+        "candidate_log_score": 0.013001349158785256,
+        "case_id": "PD13-1999-05-24",
+        "cutoff": "1999-05-23",
+        "horizon_end": "1999-08-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.656653051644957,
+        "candidate_log_score": 8.84162652458575,
+        "case_id": "PD13-1999-08-22",
+        "cutoff": "1999-08-21",
+        "horizon_end": "1999-11-19",
+        "observed_date": "1999-10-31",
+        "observed_event_id": "NTSB-DCA00MA006"
+      },
+      {
+        "baseline_log_score": 0.015526571446541503,
+        "candidate_log_score": 0.01321547526990262,
+        "case_id": "PD13-1999-11-20",
+        "cutoff": "1999-11-19",
+        "horizon_end": "2000-02-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013965132239511104,
+        "candidate_log_score": 0.011857177074488948,
+        "case_id": "PD13-2000-02-18",
+        "cutoff": "2000-02-17",
+        "horizon_end": "2000-05-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.014191077486782997,
+        "candidate_log_score": 0.012174338823040518,
+        "case_id": "PD13-2000-05-18",
+        "cutoff": "2000-05-17",
+        "horizon_end": "2000-08-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0140136104889866,
+        "candidate_log_score": 0.012346908357710316,
+        "case_id": "PD13-2000-08-16",
+        "cutoff": "2000-08-15",
+        "horizon_end": "2000-11-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01381543313985736,
+        "candidate_log_score": 0.012394219822761763,
+        "case_id": "PD13-2000-11-14",
+        "cutoff": "2000-11-13",
+        "horizon_end": "2001-02-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012766869703182259,
+        "candidate_log_score": 0.011144731012754865,
+        "case_id": "PD13-2001-02-12",
+        "cutoff": "2001-02-11",
+        "horizon_end": "2001-05-12",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013163093729200798,
+        "candidate_log_score": 0.012208444566117381,
+        "case_id": "PD13-2001-05-13",
+        "cutoff": "2001-05-12",
+        "horizon_end": "2001-08-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.848900020461285,
+        "candidate_log_score": 8.909234324214648,
+        "case_id": "PD13-2001-08-11",
+        "cutoff": "2001-08-10",
+        "horizon_end": "2001-11-08",
+        "observed_date": "2001-09-05",
+        "observed_event_id": "NTSB-DEN01FA157"
+      },
+      {
+        "baseline_log_score": 0.012966098963078704,
+        "candidate_log_score": 0.012301147434478823,
+        "case_id": "PD13-2001-11-09",
+        "cutoff": "2001-11-08",
+        "horizon_end": "2002-02-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01201431449940533,
+        "candidate_log_score": 0.01108978765161714,
+        "case_id": "PD13-2002-02-07",
+        "cutoff": "2002-02-06",
+        "horizon_end": "2002-05-07",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012127726346648512,
+        "candidate_log_score": 0.01146011191829691,
+        "case_id": "PD13-2002-05-08",
+        "cutoff": "2002-05-07",
+        "horizon_end": "2002-08-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012079019808910196,
+        "candidate_log_score": 0.011633896156867631,
+        "case_id": "PD13-2002-08-06",
+        "cutoff": "2002-08-05",
+        "horizon_end": "2002-11-03",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.011851782010770485,
+        "candidate_log_score": 0.011411352838334459,
+        "case_id": "PD13-2002-11-04",
+        "cutoff": "2002-11-03",
+        "horizon_end": "2003-02-01",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.011197766711506916,
+        "candidate_log_score": 0.010320031876745406,
+        "case_id": "PD13-2003-02-02",
+        "cutoff": "2003-02-01",
+        "horizon_end": "2003-05-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.011311183007299608,
+        "candidate_log_score": 0.010577011201358288,
+        "case_id": "PD13-2003-05-03",
+        "cutoff": "2003-05-02",
+        "horizon_end": "2003-07-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.010052138425073036,
+        "candidate_log_score": 0.00979181450687284,
+        "case_id": "PD13-2003-08-01",
+        "cutoff": "2003-07-31",
+        "horizon_end": "2003-10-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009371224089914365,
+        "candidate_log_score": 0.009274691186735861,
+        "case_id": "PD13-2003-10-30",
+        "cutoff": "2003-10-29",
+        "horizon_end": "2004-01-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009002650184212521,
+        "candidate_log_score": 0.008495226246414614,
+        "case_id": "PD13-2004-01-28",
+        "cutoff": "2004-01-27",
+        "horizon_end": "2004-04-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009252580753906732,
+        "candidate_log_score": 0.009000763290077646,
+        "case_id": "PD13-2004-04-27",
+        "cutoff": "2004-04-26",
+        "horizon_end": "2004-07-25",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.009222534904489928,
+        "candidate_log_score": 0.009068207917178996,
+        "case_id": "PD13-2004-07-26",
+        "cutoff": "2004-07-25",
+        "horizon_end": "2004-10-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008993543445470396,
+        "candidate_log_score": 0.008940549957931424,
+        "case_id": "PD13-2004-10-24",
+        "cutoff": "2004-10-23",
+        "horizon_end": "2005-01-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008217233982904408,
+        "candidate_log_score": 0.0076215393099961365,
+        "case_id": "PD13-2005-01-22",
+        "cutoff": "2005-01-21",
+        "horizon_end": "2005-04-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008160518296274224,
+        "candidate_log_score": 0.007586468932263186,
+        "case_id": "PD13-2005-04-22",
+        "cutoff": "2005-04-21",
+        "horizon_end": "2005-07-20",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.008273565148171496,
+        "candidate_log_score": 0.007844311710809385,
+        "case_id": "PD13-2005-07-21",
+        "cutoff": "2005-07-20",
+        "horizon_end": "2005-10-18",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.307173739876564,
+        "candidate_log_score": 9.394280652399356,
+        "case_id": "PD13-2005-10-19",
+        "cutoff": "2005-10-18",
+        "horizon_end": "2006-01-16",
+        "observed_date": "2005-12-09",
+        "observed_event_id": "NTSB-DCA06MA009"
+      },
+      {
+        "baseline_log_score": 0.007817220352317616,
+        "candidate_log_score": 0.006934444804171284,
+        "case_id": "PD13-2006-01-17",
+        "cutoff": "2006-01-16",
+        "horizon_end": "2006-04-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00794306982422091,
+        "candidate_log_score": 0.007099276666782179,
+        "case_id": "PD13-2006-04-17",
+        "cutoff": "2006-04-16",
+        "horizon_end": "2006-07-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.007951440959916622,
+        "candidate_log_score": 0.007116310563263492,
+        "case_id": "PD13-2006-07-16",
+        "cutoff": "2006-07-15",
+        "horizon_end": "2006-10-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00780344650136813,
+        "candidate_log_score": 0.006925571419947038,
+        "case_id": "PD13-2006-10-14",
+        "cutoff": "2006-10-13",
+        "horizon_end": "2007-01-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.007380352713951796,
+        "candidate_log_score": 0.006353938359748399,
+        "case_id": "PD13-2007-01-12",
+        "cutoff": "2007-01-11",
+        "horizon_end": "2007-04-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.402639993856306,
+        "candidate_log_score": 9.538107574539435,
+        "case_id": "PD13-2007-04-12",
+        "cutoff": "2007-04-11",
+        "horizon_end": "2007-07-10",
+        "observed_date": "2007-07-10",
+        "observed_event_id": "NTSB-DFW07LA155"
+      },
+      {
+        "baseline_log_score": 0.0072454629031857105,
+        "candidate_log_score": 0.006342099581332132,
+        "case_id": "PD13-2007-07-11",
+        "cutoff": "2007-07-10",
+        "horizon_end": "2007-10-08",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006908028955336576,
+        "candidate_log_score": 0.005981175708804018,
+        "case_id": "PD13-2007-10-09",
+        "cutoff": "2007-10-08",
+        "horizon_end": "2008-01-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006554316685383124,
+        "candidate_log_score": 0.005464919889652364,
+        "case_id": "PD13-2008-01-07",
+        "cutoff": "2008-01-06",
+        "horizon_end": "2008-04-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00665707773361289,
+        "candidate_log_score": 0.005568220116991117,
+        "case_id": "PD13-2008-04-06",
+        "cutoff": "2008-04-05",
+        "horizon_end": "2008-07-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.498588332538139,
+        "candidate_log_score": 9.67208111610291,
+        "case_id": "PD13-2008-07-05",
+        "cutoff": "2008-07-04",
+        "horizon_end": "2008-10-02",
+        "observed_date": "2008-07-07",
+        "observed_event_id": "NTSB-DCA08RA078"
+      },
+      {
+        "baseline_log_score": 0.006661060591795621,
+        "candidate_log_score": 0.0055361312615051705,
+        "case_id": "PD13-2008-10-03",
+        "cutoff": "2008-10-02",
+        "horizon_end": "2008-12-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00636211774789324,
+        "candidate_log_score": 0.0051201062877341596,
+        "case_id": "PD13-2009-01-01",
+        "cutoff": "2008-12-31",
+        "horizon_end": "2009-03-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006513170421178665,
+        "candidate_log_score": 0.005238621698348358,
+        "case_id": "PD13-2009-04-01",
+        "cutoff": "2009-03-31",
+        "horizon_end": "2009-06-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006534354547938173,
+        "candidate_log_score": 0.005287621066074266,
+        "case_id": "PD13-2009-06-30",
+        "cutoff": "2009-06-29",
+        "horizon_end": "2009-09-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.00636620999970073,
+        "candidate_log_score": 0.005129463994954756,
+        "case_id": "PD13-2009-09-28",
+        "cutoff": "2009-09-27",
+        "horizon_end": "2009-12-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.006281626558903865,
+        "candidate_log_score": 0.0050082225291874375,
+        "case_id": "PD13-2009-12-27",
+        "cutoff": "2009-12-26",
+        "horizon_end": "2010-03-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005987967937840107,
+        "candidate_log_score": 0.004654565246807907,
+        "case_id": "PD13-2010-03-27",
+        "cutoff": "2010-03-26",
+        "horizon_end": "2010-06-24",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0058761256134460425,
+        "candidate_log_score": 0.004666272747125967,
+        "case_id": "PD13-2010-06-25",
+        "cutoff": "2010-06-24",
+        "horizon_end": "2010-09-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005452236263747776,
+        "candidate_log_score": 0.0043865648130939575,
+        "case_id": "PD13-2010-09-23",
+        "cutoff": "2010-09-22",
+        "horizon_end": "2010-12-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005288791311455731,
+        "candidate_log_score": 0.004234875485684392,
+        "case_id": "PD13-2010-12-22",
+        "cutoff": "2010-12-21",
+        "horizon_end": "2011-03-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005128254135338269,
+        "candidate_log_score": 0.004074245887850871,
+        "case_id": "PD13-2011-03-22",
+        "cutoff": "2011-03-21",
+        "horizon_end": "2011-06-19",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.005092757137568205,
+        "candidate_log_score": 0.004158783152925999,
+        "case_id": "PD13-2011-06-20",
+        "cutoff": "2011-06-19",
+        "horizon_end": "2011-09-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004784351333729471,
+        "candidate_log_score": 0.0039750109272090805,
+        "case_id": "PD13-2011-09-18",
+        "cutoff": "2011-09-17",
+        "horizon_end": "2011-12-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004774465592561599,
+        "candidate_log_score": 0.004000275937245113,
+        "case_id": "PD13-2011-12-17",
+        "cutoff": "2011-12-16",
+        "horizon_end": "2012-03-15",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004837046505115095,
+        "candidate_log_score": 0.0038860909567848944,
+        "case_id": "PD13-2012-03-16",
+        "cutoff": "2012-03-15",
+        "horizon_end": "2012-06-13",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004964357734007908,
+        "candidate_log_score": 0.0040788476964072,
+        "case_id": "PD13-2012-06-14",
+        "cutoff": "2012-06-13",
+        "horizon_end": "2012-09-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004815372609325289,
+        "candidate_log_score": 0.0039824068985341654,
+        "case_id": "PD13-2012-09-12",
+        "cutoff": "2012-09-11",
+        "horizon_end": "2012-12-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004814078126753874,
+        "candidate_log_score": 0.003941053255344859,
+        "case_id": "PD13-2012-12-11",
+        "cutoff": "2012-12-10",
+        "horizon_end": "2013-03-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004847082921832514,
+        "candidate_log_score": 0.003828474162184594,
+        "case_id": "PD13-2013-03-11",
+        "cutoff": "2013-03-10",
+        "horizon_end": "2013-06-08",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 9.800881437575255,
+        "candidate_log_score": 10.023884694429508,
+        "case_id": "PD13-2013-06-09",
+        "cutoff": "2013-06-08",
+        "horizon_end": "2013-09-06",
+        "observed_date": "2013-07-06",
+        "observed_event_id": "G1-2013-AAR214"
+      },
+      {
+        "baseline_log_score": 0.004620749992277706,
+        "candidate_log_score": 0.00371610052437901,
+        "case_id": "PD13-2013-09-07",
+        "cutoff": "2013-09-06",
+        "horizon_end": "2013-12-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004551029982696685,
+        "candidate_log_score": 0.0036608334599733602,
+        "case_id": "PD13-2013-12-06",
+        "cutoff": "2013-12-05",
+        "horizon_end": "2014-03-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004588778030488469,
+        "candidate_log_score": 0.0036356628420150853,
+        "case_id": "PD13-2014-03-06",
+        "cutoff": "2014-03-05",
+        "horizon_end": "2014-06-03",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.004682525001521425,
+        "candidate_log_score": 0.0037968277834467576,
+        "case_id": "PD13-2014-06-04",
+        "cutoff": "2014-06-03",
+        "horizon_end": "2014-09-01",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013003806942070434,
+        "candidate_log_score": 0.026392498646590115,
+        "case_id": "PD13-2014-09-02",
+        "cutoff": "2014-09-01",
+        "horizon_end": "2014-11-30",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012828837700922694,
+        "candidate_log_score": 0.02633984211727838,
+        "case_id": "PD13-2014-12-01",
+        "cutoff": "2014-11-30",
+        "horizon_end": "2015-02-28",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013174216125386086,
+        "candidate_log_score": 0.025139038711352552,
+        "case_id": "PD13-2015-03-01",
+        "cutoff": "2015-02-28",
+        "horizon_end": "2015-05-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0134067269657905,
+        "candidate_log_score": 0.027966221294600246,
+        "case_id": "PD13-2015-05-30",
+        "cutoff": "2015-05-29",
+        "horizon_end": "2015-08-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012596442324577429,
+        "candidate_log_score": 0.02734427550916468,
+        "case_id": "PD13-2015-08-28",
+        "cutoff": "2015-08-27",
+        "horizon_end": "2015-11-25",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012414833815697439,
+        "candidate_log_score": 0.027084185269978578,
+        "case_id": "PD13-2015-11-26",
+        "cutoff": "2015-11-25",
+        "horizon_end": "2016-02-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01278737881275128,
+        "candidate_log_score": 0.025926037191778814,
+        "case_id": "PD13-2016-02-24",
+        "cutoff": "2016-02-23",
+        "horizon_end": "2016-05-23",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013241047397031703,
+        "candidate_log_score": 0.028537962555547677,
+        "case_id": "PD13-2016-05-24",
+        "cutoff": "2016-05-23",
+        "horizon_end": "2016-08-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012438479332952111,
+        "candidate_log_score": 0.028089751445670236,
+        "case_id": "PD13-2016-08-22",
+        "cutoff": "2016-08-21",
+        "horizon_end": "2016-11-19",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012461455478162792,
+        "candidate_log_score": 0.027766084346401133,
+        "case_id": "PD13-2016-11-20",
+        "cutoff": "2016-11-19",
+        "horizon_end": "2017-02-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012783742520230602,
+        "candidate_log_score": 0.026085049374280002,
+        "case_id": "PD13-2017-02-18",
+        "cutoff": "2017-02-17",
+        "horizon_end": "2017-05-18",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013431911701603244,
+        "candidate_log_score": 0.028682689158780385,
+        "case_id": "PD13-2017-05-19",
+        "cutoff": "2017-05-18",
+        "horizon_end": "2017-08-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012716057745699385,
+        "candidate_log_score": 0.028747632869496043,
+        "case_id": "PD13-2017-08-17",
+        "cutoff": "2017-08-16",
+        "horizon_end": "2017-11-14",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012604313304127649,
+        "candidate_log_score": 0.02782386575906566,
+        "case_id": "PD13-2017-11-15",
+        "cutoff": "2017-11-14",
+        "horizon_end": "2018-02-12",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.862771476989556,
+        "candidate_log_score": 8.123870400846819,
+        "case_id": "PD13-2018-02-13",
+        "cutoff": "2018-02-12",
+        "horizon_end": "2018-05-13",
+        "observed_date": "2018-04-17",
+        "observed_event_id": "G1-2018-SWA1380"
+      },
+      {
+        "baseline_log_score": 0.0133034301988691,
+        "candidate_log_score": 0.029488319582824458,
+        "case_id": "PD13-2018-05-14",
+        "cutoff": "2018-05-13",
+        "horizon_end": "2018-08-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012839454684318614,
+        "candidate_log_score": 0.02896472750255805,
+        "case_id": "PD13-2018-08-12",
+        "cutoff": "2018-08-11",
+        "horizon_end": "2018-11-09",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012731227391806838,
+        "candidate_log_score": 0.02796651639582825,
+        "case_id": "PD13-2018-11-10",
+        "cutoff": "2018-11-09",
+        "horizon_end": "2019-02-07",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 8.919934122965154,
+        "candidate_log_score": 8.194469159396208,
+        "case_id": "PD13-2019-02-08",
+        "cutoff": "2019-02-07",
+        "horizon_end": "2019-05-08",
+        "observed_date": "2019-02-23",
+        "observed_event_id": "G1-2019-ATLAS3591"
+      },
+      {
+        "baseline_log_score": 0.01345950390214992,
+        "candidate_log_score": 0.02880250183021606,
+        "case_id": "PD13-2019-05-09",
+        "cutoff": "2019-05-08",
+        "horizon_end": "2019-08-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01286495589535356,
+        "candidate_log_score": 0.028488246051946938,
+        "case_id": "PD13-2019-08-07",
+        "cutoff": "2019-08-06",
+        "horizon_end": "2019-11-04",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.012840242283916255,
+        "candidate_log_score": 0.02758526655386197,
+        "case_id": "PD13-2019-11-05",
+        "cutoff": "2019-11-04",
+        "horizon_end": "2020-02-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.021233445827832674,
+        "candidate_log_score": 0.037578007705264836,
+        "case_id": "PD13-2020-02-03",
+        "cutoff": "2020-02-02",
+        "horizon_end": "2020-05-02",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.022413322897629227,
+        "candidate_log_score": 0.04229222746890414,
+        "case_id": "PD13-2020-05-03",
+        "cutoff": "2020-05-02",
+        "horizon_end": "2020-07-31",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.030434045766739932,
+        "candidate_log_score": 0.05363004904817646,
+        "case_id": "PD13-2020-08-01",
+        "cutoff": "2020-07-31",
+        "horizon_end": "2020-10-29",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.030044316694506707,
+        "candidate_log_score": 0.0541572680666471,
+        "case_id": "PD13-2020-10-30",
+        "cutoff": "2020-10-29",
+        "horizon_end": "2021-01-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029319434524044764,
+        "candidate_log_score": 0.048232568473348086,
+        "case_id": "PD13-2021-01-28",
+        "cutoff": "2021-01-27",
+        "horizon_end": "2021-04-27",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.030560740405669206,
+        "candidate_log_score": 0.047317586739605455,
+        "case_id": "PD13-2021-04-28",
+        "cutoff": "2021-04-27",
+        "horizon_end": "2021-07-26",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.03003278757257607,
+        "candidate_log_score": 0.047316332399426314,
+        "case_id": "PD13-2021-07-27",
+        "cutoff": "2021-07-26",
+        "horizon_end": "2021-10-24",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029675230014225996,
+        "candidate_log_score": 0.045581122364871614,
+        "case_id": "PD13-2021-10-25",
+        "cutoff": "2021-10-24",
+        "horizon_end": "2022-01-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02234365743580243,
+        "candidate_log_score": 0.0332424471330754,
+        "case_id": "PD13-2022-01-23",
+        "cutoff": "2022-01-22",
+        "horizon_end": "2022-04-22",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.013721010132290158,
+        "candidate_log_score": 0.02097798712191043,
+        "case_id": "PD13-2022-04-23",
+        "cutoff": "2022-04-22",
+        "horizon_end": "2022-07-21",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.017033314798511247,
+        "candidate_log_score": 0.025435291798781432,
+        "case_id": "PD13-2022-07-22",
+        "cutoff": "2022-07-21",
+        "horizon_end": "2022-10-19",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01797278108966233,
+        "candidate_log_score": 0.028851104732847032,
+        "case_id": "PD13-2022-10-20",
+        "cutoff": "2022-10-19",
+        "horizon_end": "2023-01-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.01845883831365379,
+        "candidate_log_score": 0.02982961729714884,
+        "case_id": "PD13-2023-01-18",
+        "cutoff": "2023-01-17",
+        "horizon_end": "2023-04-17",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.0235318385072959,
+        "candidate_log_score": 0.03979915930767802,
+        "case_id": "PD13-2023-04-18",
+        "cutoff": "2023-04-17",
+        "horizon_end": "2023-07-16",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.025603404134747806,
+        "candidate_log_score": 0.045269095442337585,
+        "case_id": "PD13-2023-07-17",
+        "cutoff": "2023-07-16",
+        "horizon_end": "2023-10-14",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02592051888630312,
+        "candidate_log_score": 0.04712579647913683,
+        "case_id": "PD13-2023-10-15",
+        "cutoff": "2023-10-14",
+        "horizon_end": "2024-01-12",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02488154733696481,
+        "candidate_log_score": 0.039423731027646285,
+        "case_id": "PD13-2024-01-13",
+        "cutoff": "2024-01-12",
+        "horizon_end": "2024-04-11",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.026835573739880776,
+        "candidate_log_score": 0.04283498954508098,
+        "case_id": "PD13-2024-04-12",
+        "cutoff": "2024-04-11",
+        "horizon_end": "2024-07-10",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.027784472557244713,
+        "candidate_log_score": 0.045575141296516,
+        "case_id": "PD13-2024-07-11",
+        "cutoff": "2024-07-10",
+        "horizon_end": "2024-10-08",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.027440394189394736,
+        "candidate_log_score": 0.046132402976913275,
+        "case_id": "PD13-2024-10-09",
+        "cutoff": "2024-10-08",
+        "horizon_end": "2025-01-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.02741472449611474,
+        "candidate_log_score": 0.0411345920260395,
+        "case_id": "PD13-2025-01-07",
+        "cutoff": "2025-01-06",
+        "horizon_end": "2025-04-06",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029175445992923484,
+        "candidate_log_score": 0.043641044411704355,
+        "case_id": "PD13-2025-04-07",
+        "cutoff": "2025-04-06",
+        "horizon_end": "2025-07-05",
+        "observed_date": null,
+        "observed_event_id": null
+      },
+      {
+        "baseline_log_score": 0.029953507631369447,
+        "candidate_log_score": 0.045562575509042656,
+        "case_id": "PD13-2025-07-06",
+        "cutoff": "2025-07-05",
+        "horizon_end": "2025-10-03",
+        "observed_date": null,
+        "observed_event_id": null
+      }
+    ],
+    "mean_log_score_improvement": -0.016381833040860716,
+    "minimum_event_bearing_folds": 10,
+    "paired_uncertainty": {
+      "improvement_lower_90": -0.03303894836953752,
+      "improvement_upper_90": 0.0017098170988212712,
+      "method": "deterministic_paired_nonparametric_bootstrap",
+      "samples": 5000,
+      "seed": 1402
+    },
+    "schema": "bsfm.public-data-exploratory-backtest.v1",
+    "scientific_validation": "PASS",
+    "status": "EXPLORATORY_COMPLETE"
+  },
+  "outcome_count": 23,
+  "prior_mass_diagnostic": {
+    "baseline_total_pseudo_departures": 1000000.0,
+    "baseline_total_pseudo_events": 0.5,
+    "candidate_total_pseudo_departures": 9000000.0,
+    "candidate_total_pseudo_events": 4.5,
+    "interpretation": "The frozen candidate starts with nine times the baseline total prior mass; apparent superiority can therefore be prior-driven rather than learned from outcomes."
+  },
+  "purpose": "Reject-or-continue feasibility check before any separately preregistered model extension.",
+  "scenario_outcomes": [
+    {
+      "available_at": "2026-09-06",
+      "cohort": "727",
+      "event_date": "1990-01-19",
+      "event_id": "NTSB-DCA90MA017B",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "727",
+      "event_date": "1990-02-01",
+      "event_id": "NTSB-CHI90FA075",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "727",
+      "event_date": "1990-03-14",
+      "event_id": "NTSB-LAX90LA116",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "727",
+      "event_date": "1990-12-03",
+      "event_id": "NTSB-DCA91MA010B",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Classic+NG",
+      "event_date": "1991-02-02",
+      "event_id": "NTSB-DCA91MA018A",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Original",
+      "event_date": "1991-03-03",
+      "event_id": "NTSB-DCA91MA023",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "747",
+      "event_date": "1992-08-23",
+      "event_id": "NTSB-CHI92LA250",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Classic+NG",
+      "event_date": "1992-12-08",
+      "event_id": "NTSB-NYC93LA040",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Classic+NG",
+      "event_date": "1994-09-08",
+      "event_id": "NTSB-DCA94MA076",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "757",
+      "event_date": "1995-12-21",
+      "event_id": "NTSB-DCA96RA020",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "747",
+      "event_date": "1996-07-18",
+      "event_id": "NTSB-DCA96MA070",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "757",
+      "event_date": "1997-08-03",
+      "event_id": "NTSB-MIA97WA226",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "747",
+      "event_date": "1997-08-06",
+      "event_id": "NTSB-DCA97MA058",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "747",
+      "event_date": "1997-12-28",
+      "event_id": "NTSB-DCA98MA015",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "767",
+      "event_date": "1999-10-31",
+      "event_id": "NTSB-DCA00MA006",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "777",
+      "event_date": "2001-09-05",
+      "event_id": "NTSB-DEN01FA157",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Classic+NG",
+      "event_date": "2005-12-09",
+      "event_id": "NTSB-DCA06MA009",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Classic+NG",
+      "event_date": "2006-01-16",
+      "event_id": "NTSB-DFW06FA056",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "737-Original",
+      "event_date": "2007-07-10",
+      "event_id": "NTSB-DFW07LA155",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2026-09-06",
+      "cohort": "747",
+      "event_date": "2008-07-07",
+      "event_id": "NTSB-DCA08RA078",
+      "pit_status": "verified_late_public_snapshot_bound",
+      "route_evidence_status": "SCENARIO_ONLY"
+    },
+    {
+      "available_at": "2014-06-24",
+      "cohort": "777",
+      "event_date": "2013-07-06",
+      "event_id": "G1-2013-AAR214",
+      "pit_status": "verified",
+      "route_evidence_status": "VERIFIED_AUTHORITY"
+    },
+    {
+      "available_at": "2019-11-19",
+      "cohort": "737-Classic+NG",
+      "event_date": "2018-04-17",
+      "event_id": "G1-2018-SWA1380",
+      "pit_status": "verified",
+      "route_evidence_status": "VERIFIED_AUTHORITY"
+    },
+    {
+      "available_at": "2020-07-14",
+      "cohort": "767",
+      "event_date": "2019-02-23",
+      "event_id": "G1-2019-ATLAS3591",
+      "pit_status": "verified",
+      "route_evidence_status": "VERIFIED_AUTHORITY"
+    }
+  ],
+  "schema": "bsfm.extended-training-feasibility.v1",
+  "status": "DO_NOT_PROMOTE"
+}

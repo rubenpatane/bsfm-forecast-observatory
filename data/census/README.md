@@ -25,3 +25,9 @@ Important scope warning: annual totals from ICAO, EASA, Boeing and other publish
 `year-evidence-YYYY.json` files are fail-closed research artifacts. They record partial annual reconciliation, source-scope conflicts and candidate links without changing the canonical year status. `reconciled=false` inside these artifacts is deliberate. A partial evidence file must never be interpreted as a zero-event attestation.
 
 The machine-readable ledger is `year-ledger.json`. `reconciled=false` is deliberate until case-by-case evidence is complete. These placeholders MUST NOT satisfy the `historical_cases` scientific gate.
+
+The two `ntsb-*-boeing-fatal-candidates*.json` files are privacy-minimal,
+hash-bound discovery outputs from the official NTSB downloadable databases.
+They are broad candidate sets, not an adjudicated target census. In particular,
+their current-snapshot presence and administrative approval dates do not prove
+historical public availability at a simulated forecast cutoff.
