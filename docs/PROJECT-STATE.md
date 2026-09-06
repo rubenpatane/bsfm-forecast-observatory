@@ -89,7 +89,7 @@ Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remai
 ## Operational state
 AGGIORNA #27 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, generated eight post-cutoff FAA SDR similarity signals, committed auditable state and deployed the GitHub Pages observatory. The live page was verified to render all eight signals without browser errors. PR #2 is merged into `main`; the temporary research workflow remains absent.
 
-The current local batch extends AGGIORNA with the versioned automatic research-cycle state and extends the methodology page with its live status and scientific boundary. `docs/AUTOMATED-RESEARCH-CYCLE-v1.md` is the detailed publication contract. Local verification passed with 204 tests, registry verification and both audits; workflow verification is still required before this batch can become the new operational baseline.
+The current local batch extends AGGIORNA with the versioned automatic research-cycle state and extends the methodology page with its live status, Gamma–Poisson estimator boundary, first-event equation, rolling-origin refit, posterior uncertainty and all-gates promotion rule. `docs/AUTOMATED-RESEARCH-CYCLE-v1.md` is the detailed publication contract. Local verification passed with 204 tests, registry verification and both audits; workflow verification is still required before this batch can become the new operational baseline.
 
 ## Exact next step / external dependencies
 Obtain and acceptance-audit a lawful OAG/Cirium/IATA WATS global Boeing cohort×year operated-flight extract for G2; without it the real automatic fit, temporal backtest and forecast remain correctly blocked even though their execution path is implemented.

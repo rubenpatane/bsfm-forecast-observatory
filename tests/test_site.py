@@ -80,6 +80,9 @@ def test_methodology_exposes_versioned_automatic_research_cycle():
  assert 'Riaffinamento parametri' in html and 'Distribuzione temporale' in html
  assert './data/research-cycle.json' in js
  assert 'minimal shrinkage estimator' in html
+ assert 'Gamma–Poisson shrinkage' in js
+ assert 'P(T=d) = S(d−1)' in js
+ assert 'Rolling-origin refit at every cutoff' in js
 
 def test_translation_dictionary_covers_all_public_page_keys():
  base=(ROOT/'site/i18n.js').read_text()
