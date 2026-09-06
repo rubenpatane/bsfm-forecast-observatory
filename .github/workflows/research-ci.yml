@@ -1,6 +1,9 @@
 name: Temporary Research CI
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - research/public-online-prospective-20260906
 permissions:
   contents: read
 jobs:
