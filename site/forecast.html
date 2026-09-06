@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="F-002 frozen experimental forecast dossier, declared dimensions and scientific boundaries">
+  <title>F-002 · BSFM Forecast Observatory</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./i18n.js"></script>
+  <script defer src="./page-copy.js"></script>
+  <script defer src="./forecast.js"></script>
+  <script defer src="./comparables.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content" data-i18n="skip_content">Vai al contenuto</a>
+<header class="top"><nav class="wrap" aria-label="Main navigation"><div class="brand"><span class="brand-mark">BSFM</span> / OBSERVATORY</div><button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" data-i18n="menu">Menu</button><div class="nav-menu" id="site-menu"><a class="navlink" href="./" data-i18n="overview">Panoramica</a><a class="navlink active" href="./forecast.html" data-i18n="forecast">Previsione</a><a class="navlink" href="./validation.html" data-i18n="validation">Validazione</a><a class="navlink" href="./methodology.html" data-i18n="methodology">Metodologia</a><a class="navlink" href="./provenance.html" data-i18n="provenance">Provenienza</a><span class="lang"><button type="button" data-lang="it">ITA</button><span>|</span><button type="button" data-lang="en">EN</button></span></div></nav></header>
+
+<main class="wrap" id="content">
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow" data-i18n="forecast_eyebrow">Dossier della previsione · record congelato</div>
+      <h1 data-i18n="forecast_title">F-002: ciò che è stato previsto, e ciò che non lo è stato.</h1>
+      <p class="lead" data-i18n="forecast_lead">Questa pagina rende leggibile il record sperimentale senza ampliare retrospettivamente le sue affermazioni.</p>
+    </div>
+    <aside class="hero-panel" aria-label="Forecast status">
+      <div class="label" data-i18n="forecast_state">Stato del record</div>
+      <div class="metric yes" data-i18n="forecast_state_value">CONGELATA</div>
+      <div class="gate"><span data-i18n="forecast_claim">Livello di affermazione</span><b class="no" data-i18n="forecast_claim_value">Sperimentale · non validata</b></div>
+      <div class="gate"><span data-i18n="forecast_model">Versione modello</span><b id="forecastModel">1.2</b></div>
+    </aside>
+  </div>
+
+  <div class="notice info"><strong data-i18n="forecast_notice_title">F-002 è immutabile.</strong><div class="muted" data-i18n="forecast_notice_body">La previsione, il cutoff e le modalità dichiarate non vengono corretti dopo gli esiti. Nuove fonti, casi simili e affinamenti sono record separati e non modificano il punteggio originale.</div></div>
+
+  <section class="section grid">
+    <article class="card s8">
+      <div class="label" data-i18n="prediction_label">Previsione congelata</div>
+      <h2 data-i18n="prediction_title">Dimensioni dichiarate</h2>
+      <div class="facts">
+        <div class="fact"><span class="muted" data-i18n="declared_cutoff">Cutoff dichiarato</span><strong id="forecastCutoff">19 ago 2026</strong></div>
+        <div class="fact"><span class="muted" data-i18n="modal_window">Finestra modale</span><strong id="forecastWindow">5–11 ott 2026</strong></div>
+        <div class="fact"><span class="muted" data-i18n="modal_day">Giorno modale</span><strong id="forecastDay">8 ott 2026</strong></div>
+        <div class="fact"><span class="muted" data-i18n="aircraft_hypothesis">Ipotesi aeromobile</span><strong id="forecastPrimary">Boeing 737-800 / 737 NG</strong></div>
+        <div class="fact"><span class="muted" data-i18n="secondary_aircraft">Ipotesi secondaria</span><strong id="forecastSecondary">Boeing 737 MAX 8</strong></div>
+        <div class="fact"><span class="muted" data-i18n="phase">Fase</span><strong id="forecastPhase">final approach / landing</strong></div>
+        <div class="fact wide"><span class="muted" data-i18n="event_cluster">Cluster evento</span><strong id="forecastCluster">SCF-NP / landing-gear-structural-operational cluster</strong></div>
+        <div class="fact"><span class="muted" data-i18n="alternative_event">Classe alternativa</span><strong id="forecastAlternative">propulsion</strong></div>
+      </div>
+    </article>
+    <article class="card s4">
+      <div class="label" data-i18n="target_definition">Target</div>
+      <h2 data-i18n="target_value">Prossimo incidente fatale che coinvolge un jet commerciale Boeing</h2>
+      <p class="muted" data-i18n="supported_body">Tempo, famiglia, fase e classe evento saranno valutati separatamente secondo la preregistrazione. F-002 non contiene una distribuzione probabilistica completa: non le verranno attribuite probabilità retrospettive.</p>
+    </article>
+  </section>
+
+  <section class="section grid">
+    <article class="card s6">
+      <div class="label" data-i18n="supported_label">Come sarà valutata</div>
+      <h2 data-i18n="supported_title">Valutazione per dimensione, senza probabilità inventate</h2>
+      <p class="muted" data-i18n="supported_body">Tempo, famiglia, fase e classe evento saranno valutati separatamente secondo la preregistrazione. F-002 non contiene una distribuzione probabilistica completa: non le verranno attribuite probabilità retrospettive.</p>
+    </article>
+    <article class="card s6">
+      <div class="label" data-i18n="descriptive_label">Dimensioni solo descrittive</div>
+      <h2 data-i18n="descriptive_title">Geografia, operatore e MSN restano visibili ma non sono successi valutabili</h2>
+      <p class="muted" data-i18n="descriptive_body">La geografia elenca regioni ampie e non discriminanti. Operatore e MSN non erano supportati. Questi campi documentano i limiti del record; non possono diventare hit dopo l’evento.</p>
+      <div class="facts">
+        <div class="fact"><span class="muted" data-i18n="descriptive_geography">Geografia descrittiva</span><strong id="forecastGeography">Europe / North America / APAC</strong><small data-i18n="not_scored">Non valutata</small></div>
+        <div class="fact"><span class="muted" data-i18n="operator">Operatore</span><strong id="forecastOperator">—</strong><small data-i18n="not_predicted">Non previsto</small></div>
+        <div class="fact"><span class="muted">MSN</span><strong id="forecastMsn">—</strong><small data-i18n="not_predicted">Non previsto</small></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section section-rule">
+    <div class="section-title"><div class="label" data-i18n="timing_label">Linea temporale</div><h2 data-i18n="timing_title">Dal cutoff alla valutazione futura</h2></div>
+    <article class="card"><div class="timeline-list">
+      <div class="timeline-item"><div class="timeline-date">19 AGO 2026</div><div class="timeline-copy"><strong data-i18n="timeline_cutoff_title">Cutoff dichiarato</strong><p data-i18n="timeline_cutoff_body">Tutte le evidenze ammesse devono essere conoscibili entro questa data.</p></div></div>
+      <div class="timeline-item"><div class="timeline-date">APPEND-ONLY</div><div class="timeline-copy"><strong data-i18n="timeline_now_title">Monitoraggio append-only</strong><p data-i18n="timeline_now_body">Segnalazioni e casi comparabili vengono aggiunti come contesto, senza alterare F-002.</p></div></div>
+      <div class="timeline-item"><div class="timeline-date">5–11 OTT 2026</div><div class="timeline-copy"><strong data-i18n="timeline_modal_title">Finestra modale</strong><p data-i18n="timeline_modal_body">Il giorno modale è l’8 ottobre 2026. Se il target non avviene in questa finestra, la previsione temporale è un miss.</p></div></div>
+      <div class="timeline-item"><div class="timeline-date">FUTURO</div><div class="timeline-copy"><strong data-i18n="timeline_outcome_title">Primo esito qualificante</strong><p data-i18n="timeline_outcome_body">Sarà adjudicato con fonti autoritative e pubblicato con il vettore completo dei risultati.</p></div></div>
+    </div></article>
+  </section>
+
+  <section class="section grid">
+    <article class="card s7">
+      <div class="label" data-i18n="boundary_label">Confini scientifici</div>
+      <h2 data-i18n="boundary_title">Cosa può e non può dimostrare F-002</h2>
+      <div class="gates"><div class="gate"><span data-i18n="boundary_can">Può essere valutata prospetticamente sulle dimensioni già congelate.</span><b class="yes">SÌ</b></div><div class="gate"><span data-i18n="boundary_cannot">Non può validare il modello con un singolo evento, né dimostrare rischio per uno specifico volo o aeromobile.</span><b class="no">NO</b></div><div class="gate"><span data-i18n="boundary_unknown">La data esatta di creazione originale non è stabilita; il commit successivo non prova una pubblicazione il 19 agosto.</span><b class="no">LIMITE</b></div></div>
+    </article>
+    <article class="card s5">
+      <div class="label" data-i18n="forecast_integrity">Integrità del record</div>
+      <p class="code-value" id="forecastIntegrity">sha256:7c34f318d7df9d942698e01783e86794a46509ca33c8fae9b156a50f8def4f48</p>
+      <div class="button-row"><a class="button primary" href="https://github.com/rubenpatane/bsfm-forecast-observatory/blob/main/docs/F-002-PREREGISTRATION-v1.md" target="_blank" rel="noopener noreferrer" data-i18n="preregistration_link">Leggi la preregistrazione completa</a><a class="button" href="https://github.com/rubenpatane/bsfm-forecast-observatory/blob/main/forecasts/F-002.json" target="_blank" rel="noopener noreferrer" data-i18n="record_link">Apri il record sorgente</a></div>
+    </article>
+  </section>
+
+  <section id="comparable-cases" class="section"><div class="empty" data-i18n="loading">Caricamento…</div></section>
+</main>
+<footer><div class="wrap footer-grid"><span data-i18n="footer_tagline">Ricerca prospettica · preregistrata · fail-closed</span><span data-i18n="footer_safety">Non è uno strumento operativo di sicurezza.</span></div></footer>
+</body>
+</html>

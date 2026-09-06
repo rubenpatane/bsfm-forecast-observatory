@@ -86,6 +86,27 @@ The committed automatic-cycle 1.0 implementation added the first frozen machine-
 ## Public/privacy/licensing state
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
+## Complete public pages — locally verified, pending AGGIORNA
+
+Branch `site/complete-observatory-pages-20260906` completes the bilingual public
+observatory without changing scientific semantics. It adds a dedicated F-002
+dossier generated from the canonical frozen record, exposes descriptive
+geography plus explicitly unsupported operator/MSN, and retains automatically
+refreshed NTSB/FAA similarities as non-scoring context. Validation now displays
+the separate BSFM-PD 1.3 candidate-vs-baseline scores and the frozen 3/10
+event-bearing-fold shortfall. Methodology documents the automatic refit,
+time-distribution, uncertainty and version-control contract while keeping BSFM
+1.2, `minimal_shrunk_hazard_v1` and BSFM-PD 1.3 distinct. Provenance exposes the
+source boundaries and core machine-readable public artifacts.
+
+Local verification completed with **232 tests**, forecast-registry verification,
+foundation audit and final audit passing. HTML references and JavaScript syntax
+also passed local checks. Scientific gates remain unchanged: historical G1 v1 is
+14/16 BLOCKED, global G2/G3/G4 are BLOCKED, the public-data result remains
+negative/underpowered, and absolute probabilities remain disabled. F-002 is not
+in the diff. This page batch is not workflow-verified or deployed until the next
+AGGIORNA run.
+
 ## Operational state
 AGGIORNA #30 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 and the BSFM-PD 1.3 route/backtest audits in fail-closed mode, committed auditable state and deployed the GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; the separate BSFM-PD 1.3 validation is blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
 
@@ -156,4 +177,4 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Proceed to the complete public pages using the workflow-verified research state without changing frozen scientific semantics; further predictive-validation work requires genuinely new prospective outcomes or a separately preregistered model/version decision, while global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
+Run AGGIORNA after integrating the complete-page batch, verify the deployed five-page observatory and generated F-002 projection, then leave scientific gates closed pending genuinely new prospective outcomes or a separately preregistered model/version decision; global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.

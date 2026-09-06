@@ -1,10 +1,10 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=('index.html','validation.html','methodology.html','provenance.html')
+PAGES=('index.html','forecast.html','validation.html','methodology.html','provenance.html')
 
 def test_observatory_pages_and_shared_assets_exist():
- for name in (*PAGES,'styles.css','i18n.js','comparables.js'):
+ for name in (*PAGES,'styles.css','i18n.js','page-copy.js','comparables.js','forecast.js','validation-results.js'):
   assert (ROOT/'site'/name).is_file()
  assert (ROOT/'site/data/research-state.json').is_file()
 
@@ -23,6 +23,7 @@ def test_all_pages_have_complete_bilingual_controls_and_mobile_menu():
   assert './i18n.js' in text
   assert 'data-lang="it"' in text and 'data-lang="en"' in text
   assert 'data-i18n="overview"' in text
+  assert 'data-i18n="forecast"' in text
   assert 'class="menu-toggle"' in text
   assert 'class="nav-menu"' in text
   assert 'aria-expanded="false"' in text
@@ -86,8 +87,9 @@ def test_methodology_exposes_versioned_automatic_research_cycle():
 
 def test_translation_dictionary_covers_all_public_page_keys():
  base=(ROOT/'site/i18n.js').read_text()
+ page_copy=(ROOT/'site/page-copy.js').read_text()
  extension=(ROOT/'site/comparables.js').read_text()
- dictionaries=base+'\n'+extension
+ dictionaries=base+'\n'+page_copy+'\n'+extension
  for name in PAGES:
   text=(ROOT/'site'/name).read_text()
   import re
@@ -103,6 +105,7 @@ def test_single_workflow_generates_real_data_evidence_refinements_comparables_an
  assert 'write_public_refinements' in text
  assert 'write_public_comparables' in text
  assert 'write_public_research_state' in text
+ assert 'write_public_forecast' in text
  assert "site/data/real-data.json" in text
  assert "'ntsb_snapshot'" in text
  assert 'git add site/data data/manifests forecasts evaluations' in text
@@ -121,3 +124,37 @@ def test_validation_page_exposes_current_evidence_boundaries():
  assert 'faa_sdr_precursors' in text
  assert 'minimal shrinkage estimator' in text
  assert './data/research-state.json' in text
+
+def test_forecast_page_exposes_frozen_record_and_descriptive_boundaries():
+ text=(ROOT/'site/forecast.html').read_text()
+ assert './data/forecast.json' in (ROOT/'site/forecast.js').read_text()
+ assert 'Geografia descrittiva' in text and 'Operatore' in text and 'MSN' in text
+ assert 'Non previsto' in text and 'non sono successi valutabili' in text
+ assert 'F-002 è immutabile' in text
+ assert '7c34f318d7df9d942698e01783e86794a46509ca33c8fae9b156a50f8def4f48' in text
+ assert './comparables.js' in text
+
+def test_validation_page_renders_machine_readable_negative_result():
+ text=(ROOT/'site/validation.html').read_text()
+ js=(ROOT/'site/validation-results.js').read_text()
+ assert './data/public-data-validation.json' in js
+ assert 'Il candidato non supera la baseline' in text
+ assert 'candidateScore' in text and 'baselineScore' in text
+ assert 'Campione insufficiente: 3 su 10' in text
+
+def test_complete_pages_explain_model_lineage_and_machine_readable_artifacts():
+ method=(ROOT/'site/methodology.html').read_text()
+ provenance=(ROOT/'site/provenance.html').read_text()
+ assert 'BSFM 1.2' in method and 'minimal_shrunk_hazard_v1' in method and 'BSFM-PD 1.3' in method
+ assert 'Le regole non cambiano da sole' in method
+ for artifact in ('forecast.json','research-state.json','public-data-validation.json','research-cycle.json','final-readiness.json','evidence-state.json'):
+  assert artifact in provenance
+
+def test_pages_have_accessible_landmarks_and_reduced_motion_support():
+ for name in PAGES:
+  text=(ROOT/'site'/name).read_text()
+  assert 'class="skip-link"' in text
+  assert 'id="content"' in text
+  assert '<main' in text and '<footer' in text
+ css=(ROOT/'site/styles.css').read_text()
+ assert 'prefers-reduced-motion:reduce' in css

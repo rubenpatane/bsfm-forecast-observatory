@@ -170,6 +170,7 @@ AGGIORNA may discover new evidence, but it cannot manufacture a scientific PASS,
 The GitHub Pages interface is bilingual (**Italiano / English**) and includes:
 
 - Overview;
+- a dedicated F-002 forecast dossier, including descriptive geography and the explicitly unsupported operator/MSN fields;
 - Validation;
 - Methodology;
 - Provenance;
@@ -180,6 +181,11 @@ The GitHub Pages interface is bilingual (**Italiano / English**) and includes:
 - automatically refreshed nonfatal comparable cases;
 - latest data-refresh timestamp;
 - direct link back to this source repository.
+
+The validation page publishes the separate BSFM-PD 1.3 exploratory result even
+though it is negative and underpowered. The methodology page keeps the BSFM 1.2
+contract distinct from the executable minimal shrinkage estimator. Each core
+public state is also available as a machine-readable JSON artifact.
 
 Open it here:
 
