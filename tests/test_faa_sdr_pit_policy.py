@@ -32,3 +32,6 @@ def test_faa_sdr_release_inventory_stays_blocked():
     assert inventory['g3_status'] == 'BLOCKED'
     assert 'SubmissionDate must not populate available_at.' in inventory['pit_implications']
     assert 'DifficultyDate must not populate available_at.' in inventory['pit_implications']
+    nara = next(row for row in inventory['official_public_evidence'] if row['artifact'].startswith('NARA'))
+    assert 'permanent digital records' in nara['establishes']
+    assert 'does_not_establish' in nara

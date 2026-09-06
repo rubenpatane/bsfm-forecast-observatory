@@ -25,6 +25,14 @@
       "observed": "2026-09-06",
       "establishes": "FAA currently publishes annual CSV downloads for SDR records by calendar year.",
       "does_not_establish": "that the current CSV contents or later corrections were publicly present at historical simulated cutoffs"
+    },
+    {
+      "artifact": "NARA records schedule DAA-0237-2023-0006",
+      "locator": "https://www.archives.gov/files/records-mgmt/rcs/schedules/departments/department-of-transportation/rg-0237/daa-0237-2023-0006_sf115.pdf",
+      "approved": "2024-12-20",
+      "observed": "2026-09-06",
+      "establishes": "FAA Service Difficulty Reports are permanent digital records, are cut off upon processing, cover records from 1999 onward, and transfer to the National Archives 20 years after cutoff.",
+      "does_not_establish": "the processing/public-release timestamp of an individual report or an online historical snapshot for a simulated 2010-2025 cutoff"
     }
   ],
   "release_semantics": {
@@ -39,6 +47,6 @@
     "A record may be admitted to a strict historical backtest only when an approval/publication timestamp, archived public result, immutable dated release, or equivalent evidence establishes public availability no later than the simulated cutoff.",
     "Supplemental/corrected values must not be back-projected to the original submission or difficulty date without version evidence."
   ],
-  "coverage_gap": "The current FAA public surfaces establish the approval/QC-before-publication rule and current annual downloads, but the project has not demonstrated a retained version history or record-level public-release timestamp for the 2010-2025 SDR population.",
+  "coverage_gap": "The current FAA public surfaces establish the approval/QC-before-publication rule and current annual downloads. NARA confirms that mandatory SDR records are permanent and cut off upon processing, but transfer occurs 20 years later and the public export lacks that processing/public-release timestamp. The project still has no online historical version sequence or record-level public-release timestamp for the 2010-2025 SDR population.",
   "g3_status": "BLOCKED"
 }

@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #30 (`34030051366`) completed successfully on source SHA `515aed8a71e256530aa960cbc6e4765314df9584`; it is the latest full operational/workflow-verified baseline.
-- The generated-state commit on `main` is `4a7da24` and uses privacy-safe Git metadata.
+- AGGIORNA #31 (`34031399051`) completed successfully on source SHA `ce855665744c4d0219a45cfed408728c6d7fd430`; it is the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `29518545c62d087843c2e6b6b097ab121f36001b` and uses privacy-safe Git metadata.
 - No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
 - Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
@@ -36,7 +36,7 @@ The latest successful read-only Research CI run is `34000757503`, verified at re
 
 The temporary research workflow was subsequently removed, restoring the single-workflow repository invariant. The verified final audit still reports historical G1 incomplete, `baseline_present=false`, `point_in_time_availability_verified=false`, `leakage_free=false`, scientific fit readiness false and scientific promotion false. This is software/audit verification, not scientific validation.
 
-The public validation surface has now been completed on the research branch. `site/data/research-state.json` exposes the fail-closed annual G1 state, and AGGIORNA is wired to regenerate it before publication. The bilingual validation page displays 14/16 historical G1 reconciliation, the separate 35/35 outcome-publication ledger, the fixed G2 no-proxy rule, the model 1.2 `faa_sdr_precursors` obligation and the distinction from the minimal shrinkage estimator. Desktop/mobile browser checks passed, including language switching, generated-data loading, responsive navigation and absence of horizontal overflow. The full local suite passed with 188 tests plus registry verification and both scientific audits; this page batch has not been run through AGGIORNA and does not change any scientific gate.
+The public validation surface exposes the fail-closed annual G1 state, the separate 35/35 outcome-publication ledger, the fixed G2 no-proxy rule, the model 1.2 `faa_sdr_precursors` obligation and the distinction from the minimal shrinkage estimator. It is workflow-verified and deployed; it does not change any scientific gate.
 
 ## G1 — BLOCKED, 14/16 annual cells reconciled
 `data/census/year-ledger.json` is the canonical 2010-2025 annual ledger. A cell passes only if all six controls are true: annual source scope demonstrated; all fatal jets mapped; Boeing target membership mapped; competent authority per candidate; independent reconciliation; target taxonomies resolved.
@@ -71,6 +71,8 @@ NTSB evidence now includes a strong later snapshot anchor: ICPSR/DataLumos V1 pr
 
 FAA SDR remains the harder PIT blocker. FAA states reports must complete Quality Control before becoming publicly searchable, so `SubmissionDate` is not public `available_at`; current annual CSVs contain later submissions and are reconstructed current-state files, not historical snapshots. Public research has not located a byte-preserved official historical CSV sequence sufficient for broad record-level PIT verification.
 
+NARA records schedule DAA-0237-2023-0006 now adds an official retention path: mandatory FAA SDR records are permanent digital records, cut off upon processing and transferred to the National Archives 20 years after cutoff. It does not expose the processing/public-release timestamp of individual 2010-2025 records or provide the needed online historical snapshots; therefore G3 remains BLOCKED. A targeted FAA records/FOIA request for processing timestamps or retained historical exports is now the only identified non-model-redesign acquisition path.
+
 The separate G1 outcome publication ledger is now **35/35 verified and complete**. Reviewed annual overlays provide conservative competent-authority, official-government or stable public-snapshot bounds for every included outcome. When an artifact establishes only a month or year, `available_at` is normalized to the last calendar day of that period; later stable bounds are preferred over unproven earliest dates. This does not change the historical G1 census or resolve its 2014/2020 target-taxonomy boundaries. Outcome publication timing also remains distinct from predictor PIT: ledger completion does not open G3 while the model 1.2 predictor obligations remain unmet.
 
 The canonical `config/model.json` model 1.2 explicitly includes `faa_sdr_precursors`. Therefore simply dropping FAA SDR from G3 to manufacture a PASS would be a **model redesign**, not a harmless narrowing of the predictor universe. Any model that removes/replaces that component must be separately versioned prospectively before skill interpretation.
@@ -86,7 +88,7 @@ The committed automatic-cycle 1.0 implementation added the first frozen machine-
 ## Public/privacy/licensing state
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
-## Complete public pages — locally verified, pending AGGIORNA
+## Complete public pages — workflow-verified and deployed
 
 Branch `site/complete-observatory-pages-20260906` completes the bilingual public
 observatory without changing scientific semantics. It adds a dedicated F-002
@@ -100,17 +102,17 @@ time-distribution, uncertainty and version-control contract while keeping BSFM
 source boundaries and core machine-readable public artifacts.
 
 Local verification completed with **232 tests**, forecast-registry verification,
-foundation audit and final audit passing. HTML references and JavaScript syntax
-also passed local checks. Scientific gates remain unchanged: historical G1 v1 is
-14/16 BLOCKED, global G2/G3/G4 are BLOCKED, the public-data result remains
-negative/underpowered, and absolute probabilities remain disabled. F-002 is not
-in the diff. This page batch is not workflow-verified or deployed until the next
-AGGIORNA run.
+foundation audit and final audit passing. AGGIORNA #31 repeated the integrated
+checks successfully and deployed the five-page observatory plus generated F-002
+projection. Scientific gates remain unchanged: historical G1 v1 is 14/16
+BLOCKED, global G2/G3/G4 are BLOCKED, the public-data result remains
+negative/underpowered, and absolute probabilities remain disabled. F-002 stayed
+byte-identical.
 
 ## Operational state
-AGGIORNA #30 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 and the BSFM-PD 1.3 route/backtest audits in fail-closed mode, committed auditable state and deployed the GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; the separate BSFM-PD 1.3 validation is blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
+AGGIORNA #31 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, executed cycle 1.1 and the BSFM-PD 1.3 route/backtest audits in fail-closed mode, committed auditable state and deployed the complete GitHub Pages observatory. Every workflow step succeeded, including both test/audit phases, artifact upload and Pages deployment. The public cycle remains blocked on the global BSFM 1.2 scientific gates; the separate BSFM-PD 1.3 validation is blocked for insufficient event-bearing folds and lack of candidate superiority. F-002 remains byte-identical to the PR #2 integration blob. The temporary research workflow remains absent.
 
-The automatic-cycle implementation and its correction are workflow-verified. AGGIORNA #30 reports cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
+The automatic-cycle implementation and its correction are workflow-verified. AGGIORNA #31 reports cycle 1.1, no generated forecast and `scientific_fit_gate_closed`; this is the intended fail-closed result until the external evidence gates open.
 
 ## Workflow-verified public-data result
 
@@ -177,4 +179,4 @@ scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
 ## Exact next step / external dependencies
-Run AGGIORNA after integrating the complete-page batch, verify the deployed five-page observatory and generated F-002 projection, then leave scientific gates closed pending genuinely new prospective outcomes or a separately preregistered model/version decision; global BSFM 1.2 remains blocked pending a lawful OAG/Cirium/IATA WATS extract.
+Obtain external evidence: a lawful OAG/Cirium/IATA WATS global exposure extract for G2 and FAA processing/public-release timestamps or retained historical SDR exports for G3. Without those, keep BSFM 1.2 blocked; do not redesign BSFM-PD 1.3 after its negative/underpowered result, and accumulate genuinely new prospective outcomes under the frozen version.
