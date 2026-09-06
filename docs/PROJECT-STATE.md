@@ -8,8 +8,8 @@ This is the live public checkpoint, not a full specification. Start with `AGENTS
 ## Last workflow-verified baseline
 - F-002 remains frozen and experimental/unvalidated.
 - `AGGIORNA` is the single operational workflow.
-- AGGIORNA #25 (`33978802087`) completed successfully on source SHA `971cdd6a1ec0576208191e2d18fe76fce2742c86`; it remains the latest full operational/workflow-verified baseline.
-- The generated-state commit on `main` is `ce33ea54b36613cf122e3201c2825a329700f656` and uses privacy-safe Git metadata.
+- AGGIORNA #26 (`34001064332`) completed successfully on source SHA `de9d7101c1d16624ed21ef480ec2eaa14235293d`; it is the latest full operational/workflow-verified baseline.
+- The generated-state commit on `main` is `c9b909c132d54090a5ddd4fca84c7855f212cf9b` and uses privacy-safe Git metadata.
 - No new ICAO API retrieval is permitted. Frozen historical ICAO evidence is cross-check material only.
 - Workflow/software success verifies only executed checks; it does not establish predictive validity or open a scientific gate.
 
@@ -85,7 +85,7 @@ G4 remains downstream of G1-G3. No candidate-vs-baseline model-skill claim is al
 Public UI must keep experimental/status boundaries. NTSB AVALL and FAA SDR remain supporting/descriptive sources with scope limits. The public repository contains no private user data or credentials. No new ICAO API retrieval is permitted. PR #1 remains closed without merge.
 
 ## Operational state
-AGGIORNA #25 remains the latest successful full operational workflow. PR #2 is merged into `main`. G1-G4 remain BLOCKED. The integrated research batch was software-verified through Research CI `34000757503` with 188 tests passed, and the temporary workflow was removed before merge.
+AGGIORNA #26 is the latest successful full operational workflow. It refreshed FAA SDR and NTSB AVALL state, regenerated the public research data, committed auditable state and deployed the GitHub Pages observatory. The live home page reports registry integrity OK, and the live validation page loads all 16 G1 years, the 35/35 outcome ledger and four explicitly BLOCKED scientific gates without browser errors. PR #2 is merged into `main`; the temporary research workflow remains absent.
 
 ## Exact next step / external dependencies
-Run one manual AGGIORNA from `main`, then verify its source SHA, tests, registry, audits, generated-state commit and Pages deployment before treating the integrated public observatory as operationally published.
+Obtain a lawful representative extract and data dictionary from OAG, Cirium or IATA WATS for the fixed G2 flight-leg acceptance audit; preserve F-002/historical G1 v1 and keep model 1.2/G3 fail-closed unless genuine FAA SDR snapshots or an explicitly versioned prospective model decision arrives.
