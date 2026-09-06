@@ -47,7 +47,18 @@ def seasonal_naive_daily_path(monthly_rows, cohorts, start_date, horizon_days, c
     return rows
 
 
-def run_exploratory_backtest(events, annual_rows, monthly_rows, cohorts, spec):
+def run_exploratory_backtest(
+    events,
+    annual_rows,
+    monthly_rows,
+    cohorts,
+    spec,
+    *,
+    candidate_alpha=0.5,
+    candidate_prior_departures=1_000_000.0,
+    baseline_alpha=0.5,
+    baseline_prior_departures=1_000_000.0,
+):
     """Run fixed non-overlapping folds and report, but never overclaim, power."""
     cadence = int(spec['validation_protocol']['fold_step_days'])
     horizon = int(spec['forecast_horizon_days'])
@@ -69,9 +80,19 @@ def run_exploratory_backtest(events, annual_rows, monthly_rows, cohorts, spec):
                 training_exposure.append(row)
         if training_exposure:
             future = seasonal_naive_daily_path(monthly_rows, cohorts, cursor, horizon, cutoff, lag)
-            candidate = fit_shrunk_hazard(training_events, training_exposure, cohorts)
+            candidate = fit_shrunk_hazard(
+                training_events,
+                training_exposure,
+                cohorts,
+                alpha=candidate_alpha,
+                prior_departures=candidate_prior_departures,
+            )
             baseline = exposure_only_baseline(
-                len(training_events), sum(float(r['departures']) for r in training_exposure), cohorts,
+                len(training_events),
+                sum(float(r['departures']) for r in training_exposure),
+                cohorts,
+                alpha=baseline_alpha,
+                prior_departures=baseline_prior_departures,
             )
             cdist = time_to_event_distribution(candidate, future, cursor, horizon)
             bdist = time_to_event_distribution(baseline, future, cursor, horizon)

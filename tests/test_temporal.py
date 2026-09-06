@@ -33,6 +33,15 @@ def test_log_score_includes_no_event_and_baseline_is_pooled():
     assert baseline['rates_per_departure']['737-NG']==baseline['rates_per_departure']['777']
 
 
+def test_exposure_only_baseline_accepts_explicit_versioned_prior():
+    baseline=exposure_only_baseline(
+        0, 9_000_000, ['737-NG','777'], alpha=4.5, prior_departures=9_000_000,
+    )
+    assert baseline['alpha']==4.5
+    assert baseline['prior_departures']==9_000_000
+    assert baseline['rates_per_departure']['737-NG']==4.5/18_000_000
+
+
 def test_paired_temporal_evaluation_requires_verified_future_outcomes():
     dist=time_to_event_distribution(model(),path(),'2026-10-01')
     case={'case_id':'x','cutoff':'2026-09-30','outcome_available_at':'2026-10-05','historical_public_availability':'verified','observed_date':'2026-10-02','candidate_distribution':dist,'baseline_distribution':dist}

@@ -72,13 +72,30 @@ def temporal_log_score(distribution, observed_date=None):
     return -log(max(probability,1e-15))
 
 
-def exposure_only_baseline(training_events, training_departures, cohorts):
+def exposure_only_baseline(
+    training_events,
+    training_departures,
+    cohorts,
+    alpha=0.5,
+    prior_departures=1_000_000.0,
+):
     """Pooled exposure-only comparator with no precursor differentiation."""
     cohorts=tuple(str(c) for c in cohorts); departures=float(training_departures)
-    if not cohorts or departures <= 0 or int(training_events) < 0:
+    alpha=float(alpha); prior_departures=float(prior_departures)
+    if not cohorts or departures <= 0 or int(training_events) < 0 or alpha <= 0 or prior_departures <= 0:
         raise ValueError('valid pooled training totals and cohorts required')
-    rate=(int(training_events)+0.5)/(departures+1_000_000.0)
-    return {'schema':'bsfm.exposure-only-temporal-baseline.v1','cohorts':list(cohorts),'rates_per_departure':{c:rate for c in cohorts},'training_events':int(training_events),'training_departures':departures}
+    rate=(int(training_events)+alpha)/(departures+prior_departures)
+    model = {
+        'schema':'bsfm.exposure-only-temporal-baseline.v1',
+        'cohorts':list(cohorts),
+        'rates_per_departure':{c:rate for c in cohorts},
+        'training_events':int(training_events),
+        'training_departures':departures,
+    }
+    if alpha != 0.5 or prior_departures != 1_000_000.0:
+        model['alpha'] = alpha
+        model['prior_departures'] = prior_departures
+    return model
 
 
 def paired_temporal_evaluation(cases):

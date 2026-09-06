@@ -238,11 +238,44 @@ No methodology may be changed post hoc to reverse this result. This is a
 scientific negative/underpowered result, not a software failure and not evidence
 about BSFM 1.2.
 
+## Public-data extended-training feasibility — completed, not promoted
+
+The official online-only acquisition path was extended backward through 1990.
+The hash-bound BTS audit covers 36 annual archives, 324 annual and 3,888 monthly
+nine-cohort cells, 133,799,417 mapped performed departures and zero invalid
+rows. It remains a U.S.-linked denominator and cannot open global G2. The
+official NTSB Pre-2008 and current AVALL downloads produced privacy-minimal
+discovery sets of 99 and 53 broad candidates; 20 pre-2010 rows were selected
+only as an incomplete target/route scenario and combined with the three already
+reviewed BSFM-PD outcomes.
+
+The exact older NTSB bytes have a conservative public snapshot bound of
+2026-09-06, so their present-day fields are not admitted into historical
+training cutoffs. The resulting 1990–2025 audit contains 137 non-overlapping
+folds and 15 event-bearing folds, but it diagnoses priors rather than learning
+from those older outcomes. Under the frozen BSFM-PD prior the apparent mean
+log-score improvement is +0.1130865826 (paired 90% bootstrap interval
++0.0475368234 to +0.1824773010). This is not skill evidence: assigning the
+same prior separately to nine cohorts gives the candidate nine times the total
+pseudo-events and pseudo-exposure of the pooled baseline.
+
+When total prior mass is matched, the improvement reverses to −0.0163818330
+(90% interval −0.0330389484 to +0.0017098171). An explicitly invalid
+administrative-approval-date counterfactual suggests that verified historical
+publication evidence could have value, but administrative dates do not prove
+public availability and the exercise is now post-hoc. The machine-readable
+decision is therefore `DO_NOT_PROMOTE`: BSFM-PD 1.4 and its active forecast are
+unchanged, and any balanced-prior or enlarged-history successor requires a new
+preregistered model version plus genuinely future evidence. Full method and
+claim limits are recorded in
+`docs/PUBLIC-DATA-EXTENDED-TRAINING-FEASIBILITY.md`.
+
 ## Exact next step / external dependencies
 Keep the active `PD14-20260907-7fa7c48bc555` record immutable and accumulate
 genuinely new competent-authority outcome coverage. AGGIORNA must retain this
 forecast until its horizon ends; score it only when coverage is verified through
 the first target event or 2026-12-05, then issue the next non-overlapping record.
-Keep global BSFM 1.2 blocked pending lawful OAG/Cirium/IATA WATS exposure and FAA
-PIT-release evidence. The post-#33 seed-state test correction is locally verified
-and must be repeated by the next AGGIORNA run.
+Do not run repeated updates as a substitute for new evidence. Keep global BSFM
+1.2 blocked pending lawful OAG/Cirium/IATA WATS exposure and FAA PIT-release
+evidence. The post-#33 seed-state correction and extended-training audit must be
+repeated by the next AGGIORNA verification run after integration.

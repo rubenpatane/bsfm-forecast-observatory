@@ -20,3 +20,8 @@ requires the separately versioned prospective decision described in
 `docs/PUBLIC-DATA-VARIANT-DECISION-v1.md`. BSFM-PD 1.4 reuses the accepted
 nine-cohort regional matrix under the frozen online-only prospective protocol
 in `docs/PUBLIC-DATA-PROSPECTIVE-v1.4.md`; it does not promote global G2.
+
+`bts-t100-1990-2025-feasibility-audit.json` extends the same official download
+and mapping audit backward to T-100's 1990 start solely for the separately
+labelled extended-training feasibility study. Its complete U.S.-linked matrix
+does not become a global denominator and does not alter BSFM-PD 1.3/1.4.
