@@ -15,9 +15,11 @@ def build_foundation_report(root, availability_audit=None, cohorts=DEFAULT_COHOR
     walk_rows=census.pop('rows_for_walk_forward',[])
     exposure_audit=audit_exposure(exposure,[str(y) for y in range(start_year,end_year+1)],cohorts)
     foundation=audit_historical_foundation(census,exposure_audit,availability_audit)
-    cases=build_walk_forward_cases(walk_rows,start_year,end_year) if census['complete'] else []
+    cases=build_walk_forward_cases(
+        walk_rows,start_year,end_year,censored_years=census.get('censored_years')
+    ) if census.get('gate_acceptable') is True else []
     return {
-        'schema':'bsfm.historical-foundation-report.v3',
+        'schema':'bsfm.historical-foundation-report.v4',
         'evaluation_interval':{'start_year':start_year,'end_year':end_year},
         'cohorts':list(cohorts),
         'census':census,
@@ -27,5 +29,5 @@ def build_foundation_report(root, availability_audit=None, cohorts=DEFAULT_COHOR
         'calibration_evaluated':False,
         'paired_baseline_comparison':False,
         'candidate_better_than_baseline':False,
-        'note':'Post-fit promotion evidence remains false until the integrated G1 census, compatible G2 exposure and strict G3 PIT evidence pass and real leakage-free probabilistic historical predictions are paired against the exposure-only baseline.'
+        'note':'Historical G1 may be accepted as CLOSED_WITH_LIMITATION only with its declared annual censoring enforced. Post-fit promotion evidence remains false until compatible G2 exposure and strict G3 PIT evidence pass and real leakage-free probabilistic historical predictions are paired against the exposure-only baseline.'
     }
