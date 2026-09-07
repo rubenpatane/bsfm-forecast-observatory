@@ -1,0 +1,19 @@
+{
+  "schema": "bsfm.g2-exposure-observations.v1",
+  "publisher": "IATA",
+  "unit": "sectors",
+  "scope": "worldwide commercial jet fleet; public Annex 4 report tables",
+  "vintage_policy": "report publication vintage; overlapping values are not silently reconciled",
+  "rows": [
+    {"year":2013,"model":"727","sectors":59819,"source":"IATA Safety Report 2017"},{"year":2014,"model":"727","sectors":42357,"source":"IATA Safety Report 2017"},{"year":2015,"model":"727","sectors":37502,"source":"IATA Safety Report 2017"},{"year":2016,"model":"727","sectors":35626,"source":"IATA Safety Report 2017"},{"year":2017,"model":"727","sectors":28359,"source":"IATA Safety Report 2017"},
+    {"year":2013,"model":"737-all-variants","sectors":8711945,"source":"IATA Safety Report 2017"},{"year":2014,"model":"737-all-variants","sectors":9120978,"source":"IATA Safety Report 2017"},{"year":2015,"model":"737-all-variants","sectors":9557600,"source":"IATA Safety Report 2017"},{"year":2016,"model":"737-all-variants","sectors":10250149,"source":"IATA Safety Report 2017"},{"year":2017,"model":"737-all-variants","sectors":10953200,"source":"IATA Safety Report 2017"},
+    {"year":2015,"model":"737-all-variants","sectors":9425968,"source":"IATA Safety Report 2019"},{"year":2016,"model":"737-all-variants","sectors":10045969,"source":"IATA Safety Report 2019"},{"year":2017,"model":"737-all-variants","sectors":10821381,"source":"IATA Safety Report 2019"},{"year":2018,"model":"737-all-variants","sectors":12085135,"source":"IATA Safety Report 2019"},{"year":2019,"model":"737-all-variants","sectors":12689392,"source":"IATA Safety Report 2019"},
+    {"year":2015,"model":"747","sectors":324932,"source":"IATA Safety Report 2019"},{"year":2016,"model":"747","sectors":306252,"source":"IATA Safety Report 2019"},{"year":2017,"model":"747","sectors":320886,"source":"IATA Safety Report 2019"},{"year":2018,"model":"747","sectors":299743,"source":"IATA Safety Report 2019"},{"year":2019,"model":"747","sectors":277262,"source":"IATA Safety Report 2019"},
+    {"year":2015,"model":"757","sectors":594873,"source":"IATA Safety Report 2019"},{"year":2016,"model":"757","sectors":554719,"source":"IATA Safety Report 2019"},{"year":2017,"model":"757","sectors":561654,"source":"IATA Safety Report 2019"},{"year":2018,"model":"757","sectors":620969,"source":"IATA Safety Report 2019"},{"year":2019,"model":"757","sectors":652017,"source":"IATA Safety Report 2019"},
+    {"year":2015,"model":"767","sectors":663517,"source":"IATA Safety Report 2019"},{"year":2016,"model":"767","sectors":707923,"source":"IATA Safety Report 2019"},{"year":2017,"model":"767","sectors":887704,"source":"IATA Safety Report 2019"},{"year":2018,"model":"767","sectors":808834,"source":"IATA Safety Report 2019"},{"year":2019,"model":"767","sectors":748171,"source":"IATA Safety Report 2019"},
+    {"year":2015,"model":"777","sectors":929188,"source":"IATA Safety Report 2019"},{"year":2016,"model":"777","sectors":1004147,"source":"IATA Safety Report 2019"},{"year":2017,"model":"777","sectors":1076998,"source":"IATA Safety Report 2019"},{"year":2018,"model":"777","sectors":1063132,"source":"IATA Safety Report 2019"},{"year":2019,"model":"777","sectors":983397,"source":"IATA Safety Report 2019"},
+    {"year":2015,"model":"787","sectors":207211,"source":"IATA Safety Report 2019"},{"year":2016,"model":"787","sectors":293411,"source":"IATA Safety Report 2019"},{"year":2017,"model":"787","sectors":387184,"source":"IATA Safety Report 2019"},{"year":2018,"model":"787","sectors":474344,"source":"IATA Safety Report 2019"},{"year":2019,"model":"787","sectors":498061,"source":"IATA Safety Report 2019"}
+  ],
+  "limitations": ["737 row is all variants", "rows are model-level and not canonical cohort cells", "2010-2012 and 2020-2025 are not covered here", "report vintages may differ"],
+  "gate_effect": "reconciliation-only; G2 remains BLOCKED"
+}

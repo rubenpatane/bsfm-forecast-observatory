@@ -1,9 +1,63 @@
 {
   "schema": "bsfm.g2-source-inventory.v3",
   "status": "research-inventory",
-  "updated": "2026-09-06",
+  "updated": "2026-09-08",
   "required_denominator": "annual Boeing family/cohort departures or sectors for 2010-2025 under a compatible global commercial-jet scope, with source-vintage/revision semantics sufficient for reproducible historical baseline construction",
   "sources": [
+    {
+      "publisher": "EUROCONTROL",
+      "source_title": "Aviation Data Repository for Research / Data API",
+      "source_locator": "https://www.eurocontrol.int/dashboard/aviation-data-research",
+      "observed_granularity": "research-access flight records and trajectories with aircraft type, operator, route and market segment; primarily European network",
+      "useful_fields": ["flight date", "aircraft type", "operator", "departure/arrival", "market segment"],
+      "coverage_result": "regional_reconciliation_candidate",
+      "reason": "Potentially useful for an independently observed European sensitivity series (2015-2024), but registration/access is required and coverage is not global. It cannot replace the global denominator."
+    },
+    {
+      "publisher": "Eurostat",
+      "source_title": "Air transport flight-stage dataset (avia_pa)",
+      "source_locator": "https://ec.europa.eu/eurostat/web/transport/information-data/air-transport",
+      "observed_granularity": "periodic airport-to-airport flight stages by departures, service type, airline and aircraft type for reporting European countries",
+      "useful_fields": ["period", "aircraft type", "departures", "scheduled/non-scheduled", "passenger/freight", "airline"],
+      "coverage_result": "regional_reconciliation_candidate",
+      "reason": "Official downloadable aircraft-type flight-stage data can strengthen a European cross-check. Coverage is limited to reporting countries/airports and cannot represent global exposure."
+    },
+    {
+      "publisher": "Statistics Canada",
+      "source_title": "Aircraft Movement Statistics",
+      "source_locator": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2310029701",
+      "observed_granularity": "monthly Canadian airport movements with aircraft type/designator and movement details",
+      "useful_fields": ["month", "airport", "aircraft type", "arrivals/departures", "civil/military"],
+      "coverage_result": "regional_reconciliation_candidate",
+      "reason": "Official open data can provide a long Canadian cross-check by type, but does not cover global operations and airport coverage varies by reporting facility."
+    },
+    {
+      "publisher": "Australian Government BITRE / Airservices Australia",
+      "source_title": "Australian Aircraft Activity and Flight Summary Data",
+      "source_locator": "https://www.bitre.gov.au/resource/aviation/australian-aircraft-activity-0",
+      "observed_granularity": "annual Australian activity and bulk flight movements with ICAO aircraft type, operator and movement type",
+      "useful_fields": ["year", "aircraft type", "landings/departures", "operator", "flight type"],
+      "coverage_result": "regional_reconciliation_candidate",
+      "reason": "Public Australian time series and flight-summary products can validate type-level activity, but geographic scope is Australia and historical bulk-flight completeness must be checked."
+    },
+    {
+      "publisher": "Open aviation research community",
+      "source_title": "Open-source traffic and CO2 emission dataset",
+      "source_locator": "https://zenodo.org/records/10143773",
+      "observed_granularity": "2019 origin-destination-operator-aircraft tuples with route capacity and aircraft type where available",
+      "useful_fields": ["year", "aircraft type", "operator", "origin/destination", "route capacity"],
+      "coverage_result": "context_only",
+      "reason": "Useful for a 2019 route/type context check, but assembled from limited-coverage open sources and does not provide complete performed departures or a versioned global denominator."
+    },
+    {
+      "publisher": "OpenSky Network",
+      "source_title": "Historical ADS-B data",
+      "source_locator": "https://opensky-network.org/",
+      "observed_granularity": "observed aircraft states/trajectories with incomplete global and historical coverage",
+      "useful_fields": ["timestamp", "aircraft identifier", "aircraft type where available", "position"],
+      "coverage_result": "observational_sensitivity_only",
+      "reason": "Useful for spot checks and fleet activity sensitivity, but ADS-B reception, transponder use and historical retention are non-uniform. Observed tracks are not a complete global exposure denominator."
+    },
     {
       "publisher": "International Air Transport Association (IATA)",
       "source_title": "Annual Safety Report sector data + World Air Transport Statistics (WATS)",

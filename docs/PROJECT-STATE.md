@@ -1,6 +1,6 @@
 # BSFM Project State
 
-Updated: 2026-09-06
+Updated: 2026-09-08
 
 ## Continuity
 This is the live public checkpoint, not a full specification. Start with `AGENTS.md` and `docs/NEW-CHAT.md`. No personal/private/sensitive information or secret values may be recorded here.
@@ -61,6 +61,9 @@ The highest-priority lawful commercial candidates are now OAG Historical Flight 
 `bsfm/exposure_import.py` now provides a vendor-neutral ingestion/acceptance surface for a future lawful extract. It requires one standardized row per flight leg with `flight_date`, `equipment_code`, `leg_id`, `operated`, `scope` and `vintage_id`; counts only explicitly operated `global_commercial` rows; maps only deterministic allowlisted equipment; rejects invalid/conflicting duplicates and unknown equipment; and runs the canonical full cohort-year matrix audit. No convenience allocation or fleet-share split is permitted.
 
 Therefore the remaining G2 blocker is primarily **lawful source access plus product-scope validation**, not missing importer code. `baseline_present=false` remains mandatory until a full accepted matrix exists.
+
+### Public IATA reconciliation checkpoint (2026-09-08)
+`data/exposure/iata-public-coverage-v1.json` records the maximum IATA evidence recoverable from public reports: model-level sectors for overlapping 2013–2019 windows and aggregate all-737 observations for 2024–2025. The canonical 2010–2025 matrix remains incomplete; 737-Original/Classic/NG/MAX cannot be separated, 2020–2023 lack a demonstrated continuous public table, and detailed WATS records require authorized access. No proxy split is applied; G2 remains `BLOCKED` and `baseline_present=false`.
 
 ## G3 — BLOCKED; predictor-universe gate is explicit
 `data/pit/predictor-universe-v1.json` now defines the G3 predictor-universe registry. It is intentionally `DRAFT_UNFROZEN`, `frozen=false`, with no admitted predictors. Candidate NTSB/FAA fields are not automatically admissible.

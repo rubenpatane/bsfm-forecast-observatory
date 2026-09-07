@@ -1,0 +1,8 @@
+{
+  "schema":"bsfm.g2-coverage-matrix.v1",
+  "years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  "cohorts":["727","737-Original","737-Classic","737-NG","737-MAX","747","757","767","777","787"],
+  "status_rules":{"PUBLIC_MODEL_LEVEL":"IATA model row exists but is not canonical cohort evidence","UNRESOLVED_VARIANT_SPLIT":"aggregate 737 cannot be allocated","MISSING_PUBLIC_EXPOSURE":"no demonstrated compatible public annual denominator","REGIONAL_ONLY":"regional source; not global denominator"},
+  "summary":{"public_model_level_years":"2013-2019","canonical_complete_cells":0,"g2_status":"BLOCKED"},
+  "notes":["See iata-annex4-public-sectors-v1.json for numeric observations.","Boeing 737 variants remain unresolved in every year.","Regional BTS/Eurostat/Canada/Australia series are kept as sensitivity controls and do not fill global cells."]
+}

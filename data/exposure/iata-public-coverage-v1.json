@@ -1,0 +1,14 @@
+{
+  "schema": "bsfm.g2-public-coverage.v1",
+  "source": "IATA public Safety Report Annex 4 and WATS releases",
+  "retrieved": "2026-09-08",
+  "status": "IATA_PUBLIC_RECONCILIATION_PARTIAL",
+  "rule": "No proxy split of aggregate Boeing 737 exposure is permitted.",
+  "coverage": {
+    "model_level_sectors": {"years": [2013, 2014, 2015, 2016, 2017, 2018, 2019], "models": ["727", "737-all-variants", "747", "757", "767", "777", "787"]},
+    "public_aggregate_737": {"years": [2024, 2025], "value_semantics": "global flights, all 737 variants"},
+    "canonical_cohort_matrix": {"years": "2010-2025", "status": "incomplete"}
+  },
+  "unresolved": ["737 variant split", "continuous 2020-2023 public table", "vintage revisions", "authorized WATS access"],
+  "gate_effect": "G2 remains BLOCKED; baseline_present remains false"
+}
