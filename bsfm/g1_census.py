@@ -150,6 +150,7 @@ def audit_integrated_g1_census(root, start_year=2010, end_year=2025):
     """Audit the canonical annual ledger against event-level candidate evidence."""
     root = Path(root)
     ledger = _load_json(root / 'data/census/year-ledger.json', {}) or {}
+    closure = _load_json(root / 'data/census/g1-closure-v1.json', {}) or {}
     candidates = load_integrated_candidates(root)
     by_id = candidates['by_id']
     ledger_rows = {int(r['year']): r for r in (ledger.get('years') or []) if r.get('year') is not None}
@@ -202,6 +203,7 @@ def audit_integrated_g1_census(root, start_year=2010, end_year=2025):
     )
     extra_candidate_ids.extend({'year': _candidate_year(by_id[eid]), 'event_id': eid} for eid in unreferenced)
     unreconciled_years = [row['year'] for row in annual if not row['reconciled']]
+    reconciled_years = [row['year'] for row in annual if row['reconciled']]
     qualifying_rows = [
         row for row in candidates['rows']
         if str(row.get('decision') or '').lower() == 'include'
@@ -211,16 +213,40 @@ def audit_integrated_g1_census(root, start_year=2010, end_year=2025):
         candidates['duplicates'] or missing_candidate_ids or extra_candidate_ids
         or evidence_errors or unreconciled_years
     )
+
+    closure_years = sorted(int(y) for y in (closure.get('non_identifiable_years') or []))
+    closure_identifiable = sorted(int(y) for y in (closure.get('identifiable_years') or []))
+    closure_valid = bool(
+        closure.get('schema') == 'bsfm.g1-closure.v1'
+        and closure.get('status') == 'CLOSED_WITH_LIMITATION'
+        and closure.get('strict_complete') is False
+        and closure_years == unreconciled_years
+        and closure_identifiable == reconciled_years
+        and not candidates['duplicates']
+        and not missing_candidate_ids
+        and not extra_candidate_ids
+        and not evidence_errors
+    )
+    gate_status = 'PASS' if complete else ('CLOSED_WITH_LIMITATION' if closure_valid else 'BLOCKED')
+    gate_acceptable = gate_status in {'PASS', 'CLOSED_WITH_LIMITATION'}
+    censored_years = closure_years if gate_status == 'CLOSED_WITH_LIMITATION' else []
+    usable_rows = [row for row in qualifying_rows if _candidate_year(row) not in set(censored_years)]
+
     return {
         'complete': complete,
+        'gate_status': gate_status,
+        'gate_acceptable': gate_acceptable,
+        'closed_with_limitation': gate_status == 'CLOSED_WITH_LIMITATION',
+        'censored_years': censored_years,
         'annual': annual,
-        'reconciled_years': [row['year'] for row in annual if row['reconciled']],
+        'reconciled_years': reconciled_years,
         'unreconciled_years': unreconciled_years,
         'candidate_rows': len(candidates['rows']),
         'qualifying_rows': len(qualifying_rows),
+        'usable_qualifying_rows': len(usable_rows),
         'missing_candidate_ids': missing_candidate_ids,
         'extra_candidate_ids': extra_candidate_ids,
         'duplicate_candidate_ids': candidates['duplicates'],
         'evidence_errors': evidence_errors,
-        'rows_for_walk_forward': qualifying_rows,
+        'rows_for_walk_forward': usable_rows,
     }
