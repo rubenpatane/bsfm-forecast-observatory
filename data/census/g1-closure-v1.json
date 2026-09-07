@@ -1,0 +1,50 @@
+{
+  "schema": "bsfm.g1-closure.v1",
+  "status": "CLOSED_WITH_LIMITATION",
+  "decision_date": "2026-09-07",
+  "historical_target_version": "v1",
+  "interval": {
+    "start_year": 2010,
+    "end_year": 2025
+  },
+  "strict_complete": false,
+  "identifiable_years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "non_identifiable_years": [2014, 2020],
+  "non_identifiable_reason": "The frozen historical v1 target did not preregister missing-aircraft and hostile/unlawful-action boundaries. Public evidence cannot resolve those semantics without retrospective target redefinition.",
+  "censoring_policy": {
+    "annual_cells": "entire_year",
+    "binary_target_label_permitted": false,
+    "treat_as_zero": false,
+    "imputation_permitted": false,
+    "walk_forward_rule": "Exclude targets in a non-identifiable year and exclude any forecast interval whose open-after-cutoff through target-event interval intersects a non-identifiable year."
+  },
+  "event_semantics": {
+    "MH370": "UNRESOLVED_UNDER_FROZEN_V1",
+    "MH17": "UNRESOLVED_UNDER_FROZEN_V1",
+    "PS752": "UNRESOLVED_UNDER_FROZEN_V1"
+  },
+  "prospective_taxonomy_v2_effect": "NONE_RETROACTIVE",
+  "gate_effect": "G1 research is closed as a structural limitation rather than an active evidence blocker. Downstream historical evaluation may accept G1 only with the censoring policy enforced; this does not open G2, G3 or G4.",
+  "prohibited_interpretations": [
+    "2014 is a zero-event year",
+    "2020 is a zero-event year",
+    "MH370, MH17 or PS752 has been retrospectively included or excluded from frozen historical v1",
+    "prospective Target Taxonomy v2 resolves historical v1",
+    "CLOSED_WITH_LIMITATION is equivalent to strict 16/16 reconciliation"
+  ]
+}
