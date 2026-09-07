@@ -82,12 +82,23 @@ def build_public_research_state_from_root(root):
     exposure_inventory=_load(root/'data/exposure/source-inventory.json',{}) or {}
     resolution_evidence=_load(root/'data/resolution/evidence.json',{}) or {}
     resolution=audit_resolution(resolution_evidence)
+    closure=_load(root/'data/census/g1-closure-v1.json',{}) or {}
+    closure_status=str(closure.get('status') or 'BLOCKED')
+    g1_public={
+        'status':closure_status,
+        'strict_complete':False,
+        'gate_acceptable':closure_status in {'PASS','CLOSED_WITH_LIMITATION'},
+        'identifiable_years':closure.get('identifiable_years') or [],
+        'non_identifiable_years':closure.get('non_identifiable_years') or [],
+        'limitation':closure.get('limitation'),
+    }
     return build_research_state(
         annual,
         {'coverage':exposure_inventory.get('conclusion',{}).get('next_research_direction'),'baseline_present':False},
         {'availability':'not yet field/source/cutoff complete'},
         resolution,
         _load(root/'site/data/refinements.json',[]) or [],
+        g1=g1_public,
     )
 
 
