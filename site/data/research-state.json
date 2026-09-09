@@ -6,7 +6,30 @@
   },
   "gates": {
     "G1": {
-      "status": "BLOCKED",
+      "gate_acceptable": true,
+      "identifiable_years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "limitation": null,
+      "non_identifiable_years": [
+        2014,
+        2020
+      ],
+      "status": "CLOSED_WITH_LIMITATION",
+      "strict_complete": false,
       "years": [
         {
           "candidate_count": 4,
@@ -1126,7 +1149,7 @@
       "status": "BLOCKED"
     },
     "G4": {
-      "reason": "downstream of G1-G3",
+      "reason": "downstream of G2-G3; G1 is acceptable only under its declared closure limitation",
       "status": "BLOCKED"
     }
   },
