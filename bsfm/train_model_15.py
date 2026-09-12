@@ -40,10 +40,17 @@ def train(root=Path("."), cutoff="2026-09-06"):
             fam = cohort_from_icao_equipment(typ)
             if fam: agg["737-all-variants" if fam.startswith("737-") else fam] += n
         daily.append({"date": d, **agg})
-    tte = predict_time_to_event(hazard, daily, daily[0]["date"], len(daily))
+    # Never let a historical exposure path produce a future forecast date.
+    future_daily = [r for r in daily if str(r.get("date", ""))[:10] > cutoff]
+    if future_daily:
+        tte = predict_time_to_event(hazard, future_daily, future_daily[0]["date"], len(future_daily))
+    else:
+        tte = {"start_date": None, "horizon_days": 365, "horizon_end": None,
+               "modal_date": None, "event_probability": None, "no_event_probability": None,
+               "status": "unavailable", "reason": "no point-in-time exposure days after training cutoff"}
     out = {"schema":"bsfm.model-1.5-trained-development.v2", "model_version":"1.5-scoped",
            "training_cutoff":cutoff, "training_rows":len(snapshot), "status":"development_trained",
-           "family_prediction":family, "time_to_event":{k:tte[k] for k in ("start_date","horizon_days","horizon_end","modal_date","event_probability","no_event_probability")},
+           "family_prediction":family, "time_to_event":tte,
            "feature_distributions":fit_feature_distributions(snapshot), "daily_exposure_source":"EuroNOVA 2022 regional sensitivity", "global_denominator":False,
            "development_sources":{"opdi_daily_rows": bundle.get("sources", {}).get("opdi_daily", {}).get("rows", 0),
                                   "opdi_global_denominator": bundle.get("sources", {}).get("opdi_daily", {}).get("global_denominator", False),

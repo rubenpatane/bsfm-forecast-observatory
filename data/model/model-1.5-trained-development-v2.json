@@ -115,12 +115,14 @@
   "schema": "bsfm.model-1.5-trained-development.v2",
   "status": "development_trained",
   "time_to_event": {
-    "event_probability": 0.01177545890626782,
+    "event_probability": null,
     "horizon_days": 365,
-    "horizon_end": "2022-12-31",
-    "modal_date": "2022-08-20",
-    "no_event_probability": 0.9882245410937323,
-    "start_date": "2022-01-01"
+    "horizon_end": null,
+    "modal_date": null,
+    "no_event_probability": null,
+    "reason": "no point-in-time exposure days after training cutoff",
+    "start_date": null,
+    "status": "unavailable"
   },
   "training_cutoff": "2026-09-06",
   "training_rows": 13
