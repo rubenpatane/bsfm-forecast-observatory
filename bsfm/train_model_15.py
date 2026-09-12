@@ -8,6 +8,7 @@ from .estimator import fit_shrunk_hazard, predict_cohort
 from .feature_model import fit_feature_distributions
 from .g1_census import load_integrated_candidates
 from .model_features import build_snapshot, build_unified_feature_table
+from .label_enrichment import enrich
 from .time_to_event import predict_time_to_event
 
 
@@ -21,7 +22,7 @@ def train(root=Path("."), cutoff="2026-09-06"):
     snapshot = build_snapshot(raw, cutoff)
     unified = build_unified_feature_table(root, cutoff)
     if unified:
-        snapshot = unified
+        snapshot = enrich(unified)
     cohorts = ["727", "737-all-variants", "747", "757", "767", "777", "787"]
     exposure = json.loads((root / "data/exposure/g2-scoped-baseline-candidate-v1.json").read_text())
     exp = [{"cohort": r["cohort"], "departures": r["sectors"]} for r in exposure["rows"]]
