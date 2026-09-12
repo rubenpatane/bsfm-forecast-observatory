@@ -32,6 +32,14 @@ def build_unified_feature_table(root, cutoff=None):
     if not p.exists(): return []
     data=json.loads(p.read_text())
     rows=data.get('features', data.get('rows', []))
+    # Reconcile richer public census fields (MSN, location, operation type, etc.)
+    census={}
+    for cp in sorted((root/'data/census').glob('candidates-*.jsonl')):
+        for line in cp.read_text().splitlines():
+            try:
+                z=json.loads(line); census[z.get('event_id')]=z
+            except json.JSONDecodeError: pass
+    rows=[{**census.get(r.get('event_id'),{}), **{k:v for k,v in r.items() if v is not None}} for r in rows]
     sigp=root/'data/model/pit-signal-features-35-v1.json'
     signals={}
     if sigp.exists():
@@ -40,7 +48,7 @@ def build_unified_feature_table(root, cutoff=None):
     c=_date(cutoff) if cutoff else None
     for r in rows:
         if c and (_date(r.get('event_date')) or date.max)>c: continue
-        x=dict(r); s=signals.get(r.get('event_id'),{})
+        x=dict(r); x['geography']=x.get('geography') or x.get('location'); x['serial_or_registration']=x.get('serial_or_registration') or x.get('registration'); x['operator']=x.get('operator'); s=signals.get(r.get('event_id'),{})
         x['signal_windows']=s.get('windows',{})
         x['signal_admitted_rows']=s.get('admitted_rows',0)
         x['signal_status']=s.get('status','unknown')
