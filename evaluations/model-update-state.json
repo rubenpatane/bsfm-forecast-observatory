@@ -2,21 +2,19 @@
   "candidate_fit_attempted": false,
   "candidate_promoted": false,
   "estimator_available": true,
-  "evaluated_at": "2026-09-05T16:47:31Z",
+  "evaluated_at": "2026-09-09T13:51:29Z",
   "fit_gate": {
     "checks": {
       "baseline_present": false,
-      "historical_cases": false,
+      "historical_cases": true,
       "leakage_free": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": false
+      "source_integrity_ready": true
     },
     "missing": [
-      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
-      "baseline_present",
-      "historical_cases"
+      "baseline_present"
     ],
     "pass": false
   },
@@ -25,18 +23,16 @@
       "baseline_present": false,
       "calibration_evaluated": false,
       "candidate_better_than_baseline": false,
-      "historical_cases": false,
+      "historical_cases": true,
       "leakage_free": false,
       "paired_baseline_comparison": false,
       "point_in_time_availability_verified": false,
-      "source_integrity_ready": false
+      "source_integrity_ready": true
     },
     "missing": [
-      "source_integrity_ready",
       "point_in_time_availability_verified",
       "leakage_free",
       "baseline_present",
-      "historical_cases",
       "calibration_evaluated",
       "paired_baseline_comparison",
       "candidate_better_than_baseline"
@@ -46,5 +42,5 @@
   "incumbent_retained": true,
   "reason": "model_update_blocked_scientific_gate",
   "schema": "bsfm.model-lifecycle.v3",
-  "state_hash": "sha256:df3333a90771c734774dcedc044b1aab71a642309b7a866e8161fcb6de91df64"
+  "state_hash": "sha256:3711b1033659adf1de5fe734acb65d18259f82abbc40ad09542726cd60869fc8"
 }

@@ -55,7 +55,7 @@ against the uniform baseline only after its input denominator and PIT status
 are explicitly recorded.
 
 ## Continuity
-This is the live public checkpoint, not a full specification. Start with `AGENTS.md` and `docs/NEW-CHAT.md`. No personal/private/sensitive information or secret values may be recorded here.
+This is the live public checkpoint, not a full specification. Start with `AGENTS.md`, `docs/NEW-CHAT.md`, `docs/MODEL-SPEC.md` and `docs/LABORATORY-PROTOCOL.md`. No personal/private/sensitive information or secret values may be recorded here.
 
 ### Readable Model 1.5 test output — 2026-09-09
 

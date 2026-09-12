@@ -1,0 +1,29 @@
+{
+  "candidate_estimator": "minimal_shrunk_hazard_v1",
+  "cohorts": [
+    "727",
+    "737-Original",
+    "737-Classic",
+    "737-NG",
+    "737-MAX",
+    "747",
+    "757",
+    "767",
+    "777",
+    "787"
+  ],
+  "cycle_version": "1.0",
+  "forecast_horizon_days": 90,
+  "immutability_policy": "new_version_for_method_change",
+  "model_contract_version": "1.2",
+  "publication": {
+    "blocked_runs_are_published": true,
+    "content_addressed_inputs": true,
+    "forecast_records_are_append_only": true
+  },
+  "scoring": {
+    "candidate_baseline_pairing": "identical_cutoff_and_outcome",
+    "primary_temporal_score": "log_score_full_horizon_with_right_censoring"
+  },
+  "target_taxonomy": "prospective-v2"
+}

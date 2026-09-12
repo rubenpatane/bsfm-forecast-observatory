@@ -5,18 +5,40 @@ from datetime import date, timedelta
 HORIZONS = (365, 90, 30, 7)
 
 
-def build_walk_forward_cases(targets, start_year=2010, end_year=2025):
+def _interval_intersects_censored_year(cutoff: date, event: date, censored_years) -> bool:
+    censored = {int(year) for year in (censored_years or [])}
+    if not censored:
+        return False
+    first = cutoff + timedelta(days=1)
+    current_year = first.year
+    while current_year <= event.year:
+        if current_year in censored:
+            year_start = date(current_year, 1, 1)
+            year_end = date(current_year, 12, 31)
+            if max(first, year_start) <= min(event, year_end):
+                return True
+        current_year += 1
+    return False
+
+
+def build_walk_forward_cases(targets, start_year=2010, end_year=2025, censored_years=None):
     """Build immutable cutoff descriptors with strict next-event semantics.
 
     A target/horizon pair is admissible only if that target is the first
     qualifying event after the cutoff. This matters for T-365/T-90 windows:
     blindly creating four cases per accident can label a later accident as the
     target even when another qualifying fatal accident occurred first.
+
+    When historical target semantics make an annual cell non-identifiable, the
+    whole cell is censored. Targets inside that year are excluded and any case
+    whose post-cutoff interval intersects that year is excluded as well. This
+    prevents an unresolved event from being silently treated as a non-event.
     """
+    censored = {int(year) for year in (censored_years or [])}
     parsed=[]
     for row in targets:
         event=date.fromisoformat(str(row['event_date'])[:10])
-        if start_year <= event.year <= end_year:
+        if start_year <= event.year <= end_year and event.year not in censored:
             parsed.append((event,row))
     parsed.sort(key=lambda x:x[0])
     cases=[]
@@ -25,6 +47,8 @@ def build_walk_forward_cases(targets, start_year=2010, end_year=2025):
         for horizon in HORIZONS:
             cutoff=event-timedelta(days=horizon)
             if previous_event is not None and previous_event > cutoff:
+                continue
+            if _interval_intersects_censored_year(cutoff, event, censored):
                 continue
             case_id=f"{event.isoformat()}-T{horizon}"
             cases.append({
@@ -41,13 +65,16 @@ def build_walk_forward_cases(targets, start_year=2010, end_year=2025):
 def audit_historical_foundation(census_audit, exposure_audit, availability_audit=None):
     """Single fail-closed readiness report for historical model evaluation."""
     availability_audit=availability_audit or {}
-    historical_cases=census_audit.get('complete') is True
+    historical_cases=census_audit.get('gate_acceptable') is True
     baseline_present=exposure_audit.get('complete') is True
     point_in_time=availability_audit.get('point_in_time_availability_verified') is True
     leakage_free=availability_audit.get('leakage_free') is True
     ready=historical_cases and baseline_present and point_in_time and leakage_free
     return {
         'historical_cases':historical_cases,
+        'g1_gate_status':census_audit.get('gate_status','BLOCKED'),
+        'g1_strict_complete':census_audit.get('complete') is True,
+        'g1_censored_years':list(census_audit.get('censored_years') or []),
         'baseline_present':baseline_present,
         'point_in_time_availability_verified':point_in_time,
         'leakage_free':leakage_free,

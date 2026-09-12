@@ -1,10 +1,10 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=('index.html','validation.html','methodology.html','provenance.html')
+PAGES=('index.html','forecast.html','validation.html','methodology.html','provenance.html')
 
 def test_observatory_pages_and_shared_assets_exist():
- for name in (*PAGES,'styles.css','i18n.js','comparables.js'):
+ for name in (*PAGES,'styles.css','i18n.js','page-copy.js','comparables.js','forecast.js','public-data-forecast.js','editorial-board.js','validation-results.js','prospective-evaluation.js'):
   assert (ROOT/'site'/name).is_file()
  assert (ROOT/'site/data/research-state.json').is_file()
 
@@ -23,6 +23,7 @@ def test_all_pages_have_complete_bilingual_controls_and_mobile_menu():
   assert './i18n.js' in text
   assert 'data-lang="it"' in text and 'data-lang="en"' in text
   assert 'data-i18n="overview"' in text
+  assert 'data-i18n="forecast"' in text
   assert 'class="menu-toggle"' in text
   assert 'class="nav-menu"' in text
   assert 'aria-expanded="false"' in text
@@ -60,20 +61,35 @@ def test_home_explains_observatory_and_exposes_real_acquired_data():
  assert 'FAA SDR' in index and 'NTSB AVALL' in index
  assert 'non è necessariamente un incidente' in index
  assert 'latestReports' in index and 'topModels' in index and 'ntsbStats' in index
+ assert 'Geografia descrittiva' in index and 'Operatore' in index and 'MSN' in index
 
 def test_home_loads_generated_nonfatal_comparables():
  index=(ROOT/'site/index.html').read_text()
  js=(ROOT/'site/comparables.js').read_text()
  assert './comparables.js' in index
  assert './data/comparable-cases.json' in js
+ assert './data/real-data.json' in js
+ assert 'similar_boeing_reports' in js
  assert 'Confronto descrittivo ≠ validazione' in js
  assert 'non modifica il suo punteggio' in js
  assert 'const CASES=' not in js
 
+def test_methodology_exposes_versioned_automatic_research_cycle():
+ html=(ROOT/'site/methodology.html').read_text()
+ js=(ROOT/'site/research-cycle.js').read_text()
+ assert 'research-cycle.js' in html
+ assert 'Riaffinamento parametri' in html and 'Distribuzione temporale' in html
+ assert './data/research-cycle.json' in js
+ assert 'minimal shrinkage estimator' in html
+ assert 'Gamma–Poisson shrinkage' in js
+ assert 'P(T=d) = S(d−1)' in js
+ assert 'Rolling-origin refit at every cutoff' in js
+
 def test_translation_dictionary_covers_all_public_page_keys():
  base=(ROOT/'site/i18n.js').read_text()
+ page_copy=(ROOT/'site/page-copy.js').read_text()
  extension=(ROOT/'site/comparables.js').read_text()
- dictionaries=base+'\n'+extension
+ dictionaries=base+'\n'+page_copy+'\n'+extension
  for name in PAGES:
   text=(ROOT/'site'/name).read_text()
   import re

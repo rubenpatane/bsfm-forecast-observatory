@@ -26,3 +26,12 @@ def test_only_explicit_verified_availability_passes(tmp_path,monkeypatch):
  s=pipeline.validate_sources()
  assert s['point_in_time_availability_verified'] is True
  assert s['ready_for_model'] is True
+
+def test_operational_manifest_does_not_close_source_integrity(tmp_path,monkeypatch):
+ root=tmp_path; d=root/'data'/'manifests'; d.mkdir(parents=True)
+ (d/'source.json').write_text(json.dumps({'source':'Example','status':'validated','historical_public_availability':'unverified'}))
+ (d/'auto-cadence.json').write_text(json.dumps({'schema':'bsfm.auto-cadence.v1','interval_days':4}))
+ monkeypatch.setattr(pipeline,'ROOT',root)
+ s=pipeline.validate_sources()
+ assert s['source_integrity_ready'] is True
+ assert [x['manifest'] for x in s['manifests']]==['source.json']

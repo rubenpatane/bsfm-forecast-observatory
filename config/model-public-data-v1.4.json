@@ -1,0 +1,128 @@
+{
+  "schema": "bsfm.model-contract.v1",
+  "model_id": "BSFM-PD",
+  "model_version": "1.4",
+  "name": "Public-Data U.S.-Linked Prospective Observatory",
+  "status": "PREREGISTERED_FOR_PROSPECTIVE_UNVALIDATED_FORECASTS",
+  "adopted": "2026-09-06",
+  "parent_version": "1.3",
+  "non_retroactive": true,
+  "purpose": "Issue reproducible prospective research forecasts using only publicly downloadable online evidence, so genuinely prospective evaluation can accumulate without claiming present validation.",
+  "does_not_modify": [
+    "BSFM 1.2",
+    "F-002",
+    "historical G1 v1",
+    "BSFM-PD 1.3 backtest result"
+  ],
+  "target": "next_fatal_safety_accident_involving_boeing_commercial_jet_on_operated_segment_with_us_endpoint",
+  "target_taxonomy": "prospective-v2",
+  "scope": "us_linked_commercial",
+  "scope_rule": "The qualifying operated flight segment has at least one origin or destination in the United States or its territories and is represented by the compatible T-100 reporting scope.",
+  "cohorts": [
+    "727",
+    "737-Original",
+    "737-Classic+NG",
+    "737-MAX",
+    "747",
+    "757",
+    "767",
+    "777",
+    "787"
+  ],
+  "online_sources": {
+    "exposure": "BTS T-100 Segment (All Carriers)",
+    "outcome_discovery": "NTSB AVALL and public authority records",
+    "outcome_adjudication": "competent accident-investigation or civil-aviation authority",
+    "credentials_required": false,
+    "commercial_data_required": false
+  },
+  "exposure": {
+    "measure": "DEPARTURES_PERFORMED",
+    "training_start_year": 2010,
+    "training_end_year": 2025,
+    "vintage_policy": "fixed_versioned_modern_reconstruction",
+    "raw_query_and_hash_required": true,
+    "no_proxy_splitting": true,
+    "publication_lag_days": 365
+  },
+  "candidate_estimator": "minimal_shrunk_hazard_v1",
+  "candidate_components": [
+    "performed_departure_exposure",
+    "lagged_qualifying_outcomes",
+    "cohort_hazard",
+    "hierarchical_shrinkage",
+    "survival_time_to_event"
+  ],
+  "excluded_model_1_2_contractual_components": [
+    "faa_sdr_precursors",
+    "ad_mitigation",
+    "failure_hazard",
+    "escalation",
+    "phase_of_flight",
+    "geography"
+  ],
+  "forecast_horizon_days": 90,
+  "forecast_cadence": {
+    "method": "non_overlapping_horizons",
+    "first_eligible_start": "2026-09-07",
+    "start_rule": "maximum_of_next_utc_day_after_run_first_eligible_start_and_day_after_previous_horizon",
+    "overlap_allowed": false,
+    "duplicate_scientific_inputs": "deduplicate_by_forecast_key"
+  },
+  "temporal_exposure_rule": {
+    "method": "same_calendar_month_seasonal_naive",
+    "source_resolution": "monthly_t100_departures",
+    "daily_allocation": "uniform_within_source_calendar_month",
+    "reference": "latest_same_calendar_month_eligible_at_cutoff",
+    "publication_lag_days": 365,
+    "revision_vintage": "fixed_versioned_modern_reconstruction",
+    "interpretation": "The 365-day lag is a conservative admissibility rule, not a claim about earliest BTS publication. Daily allocation is a model assumption, not observed daily traffic."
+  },
+  "training_rule": {
+    "outcomes": "only qualifying outcomes with verified available_at no later than cutoff",
+    "annual_exposure": "only calendar years whose year end plus 365 days is no later than cutoff",
+    "cohort_mapping": "frozen nine-cohort BSFM-PD mapping"
+  },
+  "baseline": "pooled_exposure_only_hazard_on_identical_future_exposure_path",
+  "uncertainty": {
+    "method": "deterministic_gamma_posterior_monte_carlo",
+    "samples": 1000,
+    "seed": 1401,
+    "interval": 0.8
+  },
+  "validation_inheritance": {
+    "source_version": "BSFM-PD 1.3",
+    "result": "BLOCKED_INSUFFICIENT_EVENT_FOLDS_AND_NO_CANDIDATE_SUPERIORITY",
+    "event_bearing_folds": 3,
+    "minimum_event_bearing_folds": 10,
+    "mean_log_score_improvement": -0.0022921287322228423,
+    "may_be_rewritten": false
+  },
+  "prospective_evaluation": {
+    "primary_score": "log_score_full_horizon_with_right_censoring",
+    "paired_candidate_baseline": true,
+    "minimum_event_bearing_forecasts": 10,
+    "candidate_superiority_required": true,
+    "superiority_rule": "paired_bootstrap_improvement_lower_90_bound_above_zero",
+    "paired_bootstrap_samples": 5000,
+    "paired_bootstrap_seed": 1402,
+    "outcome_coverage_required_through_observed_event_or_horizon_end": true,
+    "zero_rows_do_not_prove_no_event": true
+  },
+  "publication": {
+    "append_only_forecasts": true,
+    "content_addressed_inputs": true,
+    "blocked_runs_published": true,
+    "claim_level": "experimental_unvalidated",
+    "validated_claim_allowed": false,
+    "absolute_probability_claim_allowed": false,
+    "purpose": "prospective evidence accumulation"
+  },
+  "additional_data_value_test": {
+    "status": "PREREGISTERED_NOT_EXECUTABLE_WITHOUT_EXTERNAL_DATA",
+    "hypothesis": "Additional global exposure and point-in-time precursor data may improve resolution or score, but improvement is not assumed.",
+    "required_comparison": "paired candidate versus this public-data model on identical frozen future cutoffs and outcomes",
+    "success_rule": "lower mean proper score with uncertainty reported and no post-hoc target, predictor, cohort, cadence or scoring changes",
+    "prohibited_claim": "Unavailable data would improve the forecast"
+  }
+}

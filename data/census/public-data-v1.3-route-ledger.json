@@ -1,0 +1,280 @@
+{
+  "schema": "bsfm.public-data-route-ledger.v1",
+  "model_id": "BSFM-PD",
+  "model_version": "1.3",
+  "scope": "us_linked_commercial",
+  "retrieved_at": "2026-09-06",
+  "status": "READY_38_OF_38",
+  "rule": "An outcome is geographically eligible only when an authority record verifies that the operated segment had at least one United States or United States-territory endpoint. Accident location, operator, registration and routing inference do not substitute for endpoint evidence.",
+  "records": [
+    {
+      "event_id": "G1-2013-AAR214",
+      "origin": {"name": "Incheon International Airport", "code": "ICN", "jurisdiction": "Republic of Korea", "us_endpoint": false},
+      "destination": {"name": "San Francisco International Airport", "code": "SFO", "jurisdiction": "United States", "us_endpoint": true},
+      "route_status": "VERIFIED_AUTHORITY",
+      "geographic_decision": "INCLUDE_US_ENDPOINT",
+      "evidence": {"publisher": "National Transportation Safety Board", "record": "DCA13MA120", "locator": "https://www.ntsb.gov/investigations/pages/DCA13MA120.aspx", "observation": "NTSB states that flight 214 was a scheduled passenger flight from Incheon to San Francisco."}
+    },
+    {
+      "event_id": "G1-2018-SWA1380",
+      "origin": {"name": "LaGuardia Airport", "code": "LGA", "jurisdiction": "United States", "us_endpoint": true},
+      "destination": {"name": "Dallas Love Field", "code": "DAL", "jurisdiction": "United States", "us_endpoint": true},
+      "route_status": "VERIFIED_AUTHORITY",
+      "geographic_decision": "INCLUDE_US_ENDPOINT",
+      "evidence": {"publisher": "National Transportation Safety Board", "record": "DCA18MA142 / AAR-19-03", "locator": "https://www.ntsb.gov/investigations/Pages/DCA18MA142.aspx", "observation": "NTSB states that the scheduled domestic flight departed LaGuardia and was destined for Dallas Love Field."}
+    },
+    {
+      "event_id": "G1-2019-ATLAS3591",
+      "origin": {"name": "Miami International Airport", "code": "MIA", "jurisdiction": "United States", "us_endpoint": true},
+      "destination": {"name": "George Bush Intercontinental Airport", "code": "IAH", "jurisdiction": "United States", "us_endpoint": true},
+      "route_status": "VERIFIED_AUTHORITY",
+      "geographic_decision": "INCLUDE_US_ENDPOINT",
+      "evidence": {"publisher": "National Transportation Safety Board", "record": "DCA19MA086 / AAR-20-02", "locator": "https://www.ntsb.gov/investigations/Pages/DCA19MA086.aspx", "observation": "NTSB states that flight 3591 departed Miami and was destined for Houston IAH."}
+    },
+    {
+      "event_id": "G1-2010-ET409",
+      "origin": {"name": "Beirut Rafic Hariri International Airport", "code": "BEY", "jurisdiction": "Lebanon", "us_endpoint": false},
+      "destination": {"name": "Addis Ababa Bole International Airport", "code": "ADD", "jurisdiction": "Ethiopia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Lebanese Directorate General of Civil Aviation", "record": "ET409 final report", "locator": "https://www.icao.int/sites/default/files/sp-files/safety/airnavigation/AIG/Documents/Safety%20Recommendations%20to%20ICAO/Final%20Reports/10100060_final_report.pdf", "observation": "The final report identifies Beirut as departure and Addis Ababa as destination."}
+    },
+    {
+      "event_id": "G1-2010-IX812",
+      "origin": {"name": "Dubai International Airport", "code": "DXB", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "destination": {"name": "Mangalore Airport", "code": "IXE", "jurisdiction": "India", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Government of India Press Information Bureau", "record": "Court of Inquiry report announcement", "locator": "https://www.pib.gov.in/newsite/erelcontent.aspx?lang=2&reg=48&relid=64012", "observation": "The government record identifies the Air India Express flight from Dubai to Mangalore."}
+    },
+    {
+      "event_id": "G1-2010-ARE8250",
+      "origin": {"name": "El Dorado International Airport", "code": "BOG", "jurisdiction": "Colombia", "us_endpoint": false},
+      "destination": {"name": "Gustavo Rojas Pinilla International Airport", "code": "ADZ", "jurisdiction": "Colombia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Aeronautica Civil de Colombia", "record": "COL-10-18-GIA", "locator": "https://www.aerocivil.gov.co/autoridad-de-la-aviacion-civil/investigacion/Listado%20Accidentes%202020/COL-10-18-GIA.pdf", "observation": "The final report identifies the operated segment from Bogota to San Andres."}
+    },
+    {
+      "event_id": "G1-2010-UPS6",
+      "origin": {"name": "Dubai International Airport", "code": "DXB", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "destination": {"name": "Cologne Bonn Airport", "code": "CGN", "jurisdiction": "Germany", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Federal Aviation Administration", "record": "Lessons Learned N571UP", "locator": "https://www.faa.gov/lessons_learned/transport_airplane/accidents/N571UP", "observation": "FAA identifies the cargo flight route from Dubai to Cologne."}
+    },
+    {
+      "event_id": "G1-2020-PC2193",
+      "origin": {"name": "Izmir Adnan Menderes Airport", "code": "ADB", "jurisdiction": "Turkey", "us_endpoint": false},
+      "destination": {"name": "Istanbul Sabiha Gokcen Airport", "code": "SAW", "jurisdiction": "Turkey", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "National Transportation Safety Board", "record": "2022 Annual Report to Congress / PC2193", "locator": "https://www.ntsb.gov/about/reports/Documents/2022%20Annual%20Report%20to%20Congress.pdf", "observation": "The authority record identifies the domestic Izmir-Istanbul operated segment."}
+    },
+    {
+      "event_id": "G1-2020-IX1344",
+      "origin": {"name": "Dubai International Airport", "code": "DXB", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "destination": {"name": "Kozhikode International Airport", "code": "CCJ", "jurisdiction": "India", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Aircraft Accident Investigation Bureau India", "record": "Final Report VT-AXH", "locator": "https://aaib.gov.in/Reports/2020/accident/Final%20Report%20AXH.pdf", "observation": "The final report identifies Dubai as departure and Kozhikode as destination."}
+    },
+    {
+      "event_id": "G1-2020-PS752",
+      "origin": {"name": "Tehran Imam Khomeini International Airport", "code": "IKA", "jurisdiction": "Iran", "us_endpoint": false},
+      "destination": {"name": "Boryspil International Airport", "code": "KBP", "jurisdiction": "Ukraine", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Aircraft Accident Investigation Board of Iran", "record": "PS752 final report", "locator": "https://www.icao.int/sites/default/files/safety/airnavigation/AIG/Documents/Safety-Recommendations-to-ICAO/Final-Reports/PS752Finrep.pdf", "observation": "The final report identifies Tehran as departure and Kyiv Boryspil as destination."}
+    },
+    {
+      "event_id": "G1-2021-SJY182",
+      "origin": {"name": "Soekarno-Hatta International Airport", "code": "CGK", "jurisdiction": "Indonesia", "us_endpoint": false},
+      "destination": {"name": "Supadio International Airport", "code": "PNK", "jurisdiction": "Indonesia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Komite Nasional Keselamatan Transportasi", "record": "KNKT.21.01.01.04", "locator": "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2021/KNKT.21.01.01.04-Final-Report.pdf", "observation": "The final report identifies the Jakarta-Pontianak operated segment."}
+    },
+    {
+      "event_id": "G1-2022-MU5735",
+      "origin": {"name": "Kunming Changshui International Airport", "code": "KMG", "jurisdiction": "China", "us_endpoint": false},
+      "destination": {"name": "Guangzhou Baiyun International Airport", "code": "CAN", "jurisdiction": "China", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Civil Aviation Administration of China", "record": "MU5735 preliminary report notice", "locator": "https://www.caac.gov.cn/XXGK/XXGK/TZTG/202204/t20220420_212895.html", "observation": "CAAC identifies Kunming as departure and Guangzhou as destination."}
+    },
+    {
+      "event_id": "G1-2024-SQ321",
+      "origin": {"name": "London Heathrow Airport", "code": "LHR", "jurisdiction": "United Kingdom", "us_endpoint": false},
+      "destination": {"name": "Singapore Changi Airport", "code": "SIN", "jurisdiction": "Singapore", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Singapore Transport Safety Investigation Bureau", "record": "9V-SWM interim statement", "locator": "https://www.mot.gov.sg/docs/default-source/about-mot/b773er-%289v-swm%29-turbulence-encounter-20-may-2024-interim-statement.pdf?sfvrsn=c701d0dc_1", "observation": "The interim statement identifies London Heathrow to Singapore."}
+    },
+    {
+      "event_id": "G1-2024-BCS18D",
+      "origin": {"name": "Leipzig/Halle Airport", "code": "LEJ", "jurisdiction": "Germany", "us_endpoint": false},
+      "destination": {"name": "Vilnius Airport", "code": "VNO", "jurisdiction": "Lithuania", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Lithuanian Transport Accident and Incident Investigation Division", "record": "BCS18D investigation", "locator": "https://tm.lrv.lt/lt/naujienos-2/teisingumo-ministras-rimantas-mockus-tiriant-dhl-lektuvo-katastrofa-galimo-terorizmo-ar-neteiseto-isikisimo-pozymiu-nenustatyta/", "observation": "The authority identifies the cargo service arriving at Vilnius from Leipzig."}
+    },
+    {
+      "event_id": "G1-2024-JJA2216",
+      "origin": {"name": "Suvarnabhumi Airport", "code": "BKK", "jurisdiction": "Thailand", "us_endpoint": false},
+      "destination": {"name": "Muan International Airport", "code": "MWX", "jurisdiction": "Republic of Korea", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Republic of Korea Aviation and Railway Accident Investigation Board", "record": "JJA2216 investigation", "locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=344", "observation": "ARAIB identifies Bangkok as departure and Muan as destination."}
+    },
+    {
+      "event_id": "G1-2025-AI171",
+      "origin": {"name": "Ahmedabad Airport", "code": "AMD", "jurisdiction": "India", "us_endpoint": false},
+      "destination": {"name": "London Gatwick Airport", "code": "LGW", "jurisdiction": "United Kingdom", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Aircraft Accident Investigation Bureau India", "record": "Preliminary Report VT-ANB", "locator": "https://aaib.gov.in/Reports/2025/Accident/Preliminary%20Report%20VT-ANB.pdf", "observation": "The preliminary report identifies Ahmedabad as departure and London Gatwick as destination."}
+    },
+    {
+      "event_id": "G1-2025-ACT747",
+      "origin": {"name": "Al Maktoum International Airport", "code": "DWC", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "destination": {"name": "Hong Kong International Airport", "code": "HKG", "jurisdiction": "Hong Kong SAR", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Hong Kong Air Accident Investigation Authority", "record": "PLR-2025-04", "locator": "https://www.tlb.gov.hk/aaia/doc/PLR-2025-04_Eng.pdf", "observation": "The preliminary report identifies the operated flight from Dubai Al Maktoum to Hong Kong."}
+    },
+    {
+      "event_id": "G1-2011-HB952",
+      "origin": {"name": "N'djili Airport", "code": "FIH", "jurisdiction": "Democratic Republic of the Congo", "us_endpoint": false},
+      "destination": {"name": "Bangoka International Airport", "code": "FKI", "jurisdiction": "Democratic Republic of the Congo", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Journal Officiel de la Republique Democratique du Congo", "record": "HB952 investigation publication", "locator": "https://www.leganet.cd/Legislation/JO/2012/JO.15.01.2012.pdf", "observation": "The official publication identifies Kinshasa as departure and Kisangani as destination."}
+    },
+    {
+      "event_id": "G1-2011-OZ991",
+      "origin": {"name": "Incheon International Airport", "code": "ICN", "jurisdiction": "Republic of Korea", "us_endpoint": false},
+      "destination": {"name": "Shanghai Pudong International Airport", "code": "PVG", "jurisdiction": "China", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Republic of Korea Aviation and Railway Accident Investigation Board", "record": "OZ991 investigation", "locator": "https://araib.molit.go.kr/USR/airboard0201/m_34497/dtl.jsp?r_id=153", "observation": "ARAIB identifies Incheon as departure and Shanghai Pudong as destination."}
+    },
+    {
+      "event_id": "G1-2011-FA6560",
+      "origin": {"name": "Yellowknife Airport", "code": "YZF", "jurisdiction": "Canada", "us_endpoint": false},
+      "destination": {"name": "Resolute Bay Airport", "code": "YRB", "jurisdiction": "Canada", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Transportation Safety Board of Canada", "record": "A11H0002", "locator": "https://www.tsb.gc.ca/eng/rapports-reports/aviation/2011/a11h0002/a11h0002.html", "observation": "TSB identifies the domestic segment from Yellowknife to Resolute Bay."}
+    },
+    {
+      "event_id": "G1-2012-DHV111",
+      "origin": {"name": "Murtala Muhammed International Airport", "code": "LOS", "jurisdiction": "Nigeria", "us_endpoint": false},
+      "destination": {"name": "Kotoka International Airport", "code": "ACC", "jurisdiction": "Ghana", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Aircraft Accident and Incident Investigation and Prevention Bureau Ghana", "record": "Allied Air accident report", "locator": "https://aibghana.gov.gh/wp-content/uploads/2021/06/ALLIED-AIR-ACCIDENT-REPORT-2013.pdf", "observation": "The final report identifies Lagos as departure and Accra as destination."}
+    },
+    {
+      "event_id": "G1-2013-NCR102",
+      "origin": {"name": "Bagram Airfield", "code": "OAI", "jurisdiction": "Afghanistan", "us_endpoint": false},
+      "destination": {"name": "Al Maktoum International Airport", "code": "DWC", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "National Transportation Safety Board", "record": "DCA13MA081 / AAR-15-01", "locator": "https://www.ntsb.gov/investigations/Pages/DCA13MA081.aspx", "observation": "NTSB identifies the accident segment from Bagram to Dubai Al Maktoum."}
+    },
+    {
+      "event_id": "G1-2013-TAK363",
+      "origin": {"name": "Moscow Domodedovo Airport", "code": "DME", "jurisdiction": "Russia", "us_endpoint": false},
+      "destination": {"name": "Kazan International Airport", "code": "KZN", "jurisdiction": "Russia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Interstate Aviation Committee", "record": "VQ-BBN 2013-11-17", "locator": "https://mak-iac.org/en/rassledovaniya/boing-737-500-vq-bbn-17-11-2013/", "observation": "The investigation identifies Moscow Domodedovo as departure and Kazan as destination."}
+    },
+    {
+      "event_id": "G1-2014-DN055",
+      "origin": {"name": "Cotonou Cadjehoun Airport", "code": "COO", "jurisdiction": "Benin", "us_endpoint": false},
+      "destination": {"name": "Libreville Leon M'ba International Airport", "code": "LBV", "jurisdiction": "Gabon", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Gabon Ministry of Transport communique reproduced by Gabon Review", "record": "DN055 ministry communique", "locator": "https://www.gabonreview.com/humain-fauche-avion/", "observation": "The ministry communique identifies Dakar-Libreville via Cotonou; the accident occurred on the Cotonou-Libreville segment."}
+    },
+    {
+      "event_id": "G1-2014-MH370",
+      "origin": {"name": "Kuala Lumpur International Airport", "code": "KUL", "jurisdiction": "Malaysia", "us_endpoint": false},
+      "destination": {"name": "Beijing Capital International Airport", "code": "PEK", "jurisdiction": "China", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Malaysia Ministry of Transport", "record": "MH370 Safety Investigation Report", "locator": "https://www.mot.gov.my/en/AAIB%20Statistic%20%20Accident%20Report%20Document/A%200514%209M-MRO%20MH370.pdf", "observation": "The report identifies Kuala Lumpur as departure and Beijing as destination."}
+    },
+    {
+      "event_id": "G1-2014-MH17",
+      "origin": {"name": "Amsterdam Airport Schiphol", "code": "AMS", "jurisdiction": "Netherlands", "us_endpoint": false},
+      "destination": {"name": "Kuala Lumpur International Airport", "code": "KUL", "jurisdiction": "Malaysia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Dutch Safety Board", "record": "MH17 crash investigation", "locator": "https://onderzoeksraad.nl/onderzoek/mh17-crash-17-juli-2014/", "observation": "The investigation identifies Amsterdam as departure and Kuala Lumpur as destination."}
+    },
+    {
+      "event_id": "G1-2015-CEL071",
+      "origin": {"name": "Blaise Diagne/Dakar Airport", "code": "DKR", "jurisdiction": "Senegal", "us_endpoint": false},
+      "destination": {"name": "Cotonou Cadjehoun Airport", "code": "COO", "jurisdiction": "Benin", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "BEA France event record for delegated Senegal investigation", "record": "BEA2015-0554", "locator": "https://bea.aero/les-enquetes/evenements-notifies/detail/collision-entre-deux-avions-en-croisière-collision-du-hs125-avec-la-surface-de-leau-déroutement-du-b737/", "observation": "BEA identifies Dakar-Cotonou as the operated segment, with Malabo beyond the planned intermediate stop."}
+    },
+    {
+      "event_id": "G1-2016-FZ981",
+      "origin": {"name": "Dubai International Airport", "code": "DXB", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "destination": {"name": "Rostov-on-Don Airport", "code": "ROV", "jurisdiction": "Russia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Interstate Aviation Committee", "record": "A6-FDN 2016-03-19", "locator": "https://mak-iac.org/en/rassledovaniya/boeing-737-800-a6-fdn-19-03-2016/", "observation": "The investigation identifies Dubai as departure and Rostov-on-Don as destination."}
+    },
+    {
+      "event_id": "G1-2016-EK521",
+      "origin": {"name": "Trivandrum International Airport", "code": "TRV", "jurisdiction": "India", "us_endpoint": false},
+      "destination": {"name": "Dubai International Airport", "code": "DXB", "jurisdiction": "United Arab Emirates", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "UAE Air Accident Investigation Sector", "record": "A6-EMW final report", "locator": "https://www.icao.int/sites/default/files/sp-files/safety/airnavigation/AIG/Documents/Safety%20Recommendations%20to%20ICAO/Final%20Reports/UAE_B777_A6-EMW_3Aug2016.pdf", "observation": "The final report identifies Trivandrum as departure and Dubai as destination."}
+    },
+    {
+      "event_id": "G1-2016-AS157",
+      "origin": {"name": "German Olano Airport", "code": "PCR", "jurisdiction": "Colombia", "us_endpoint": false},
+      "destination": {"name": "El Dorado International Airport", "code": "BOG", "jurisdiction": "Colombia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Aeronautica Civil de Colombia", "record": "COL-16-40-GIA", "locator": "https://www.aerocivil.gov.co/info/aeronautica_civil/media/1740581430_COL-16-40-GIA%20Final%20Acc%20HK4544%20Puerto%20Carre%C3%B1o%2020-dic-16.pdf", "observation": "The final report identifies Puerto Carreno as departure and Bogota as destination."}
+    },
+    {
+      "event_id": "G1-2017-TK6491",
+      "origin": {"name": "Hong Kong International Airport", "code": "HKG", "jurisdiction": "Hong Kong SAR", "us_endpoint": false},
+      "destination": {"name": "Manas International Airport", "code": "FRU", "jurisdiction": "Kyrgyzstan", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Interstate Aviation Committee", "record": "TC-MCL 2017-01-16", "locator": "https://mak-iac.org/en/rassledovaniya/boeing-747-412f-tc-mcl-16-01-2017/", "observation": "The investigation identifies Hong Kong to Bishkek/Manas as the operated segment."}
+    },
+    {
+      "event_id": "G1-2018-DMJ0972",
+      "origin": {"name": "Jose Marti International Airport", "code": "HAV", "jurisdiction": "Cuba", "us_endpoint": false},
+      "destination": {"name": "Frank Pais Airport", "code": "HOG", "jurisdiction": "Cuba", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Instituto de Aeronautica Civil de Cuba", "record": "DMJ0972 final report", "locator": "https://api.eltoque.com/uploads/INFORME_FINAL_Accidente_B737_DMJ_0972_18052018_HAV_CUBA_128ed2220f.pdf", "observation": "The final report identifies Havana as departure and Holguin as destination."}
+    },
+    {
+      "event_id": "G1-2018-PX073",
+      "origin": {"name": "Pohnpei International Airport", "code": "PNI", "jurisdiction": "Federated States of Micronesia", "us_endpoint": false},
+      "destination": {"name": "Chuuk International Airport", "code": "TKK", "jurisdiction": "Federated States of Micronesia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Papua New Guinea Accident Investigation Commission under FSM delegation", "record": "PX073 final report", "locator": "https://www.aic.gov.pg/sites/default/files/2020-08/FINAL%20REPORT%2C%20issued%2015.07.2019.pdf", "observation": "The final report identifies Pohnpei-Chuuk as the accident segment; FSM is a sovereign state and not a US territory."}
+    },
+    {
+      "event_id": "G1-2018-JT610",
+      "origin": {"name": "Soekarno-Hatta International Airport", "code": "CGK", "jurisdiction": "Indonesia", "us_endpoint": false},
+      "destination": {"name": "Depati Amir Airport", "code": "PGK", "jurisdiction": "Indonesia", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Komite Nasional Keselamatan Transportasi", "record": "KNKT.18.10.35.04", "locator": "https://knkt.go.id/Repo/Files/Laporan/Penerbangan/2018/KNKT.18.10.35.04-Final-Report.pdf", "observation": "The final report identifies Jakarta to Pangkal Pinang as the operated segment."}
+    },
+    {
+      "event_id": "G1-2018-FJA256",
+      "origin": {"name": "Cheddi Jagan International Airport", "code": "GEO", "jurisdiction": "Guyana", "us_endpoint": false},
+      "destination": {"name": "Toronto Pearson International Airport", "code": "YYZ", "jurisdiction": "Canada", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Guyana Aircraft Accident and Incident Investigation Unit", "record": "N524AT final report", "locator": "https://www.jcaa.gov.jm/wp-content/uploads/2024/08/2018-Nov-9-N524AT-Final-Report.pdf", "observation": "The final report identifies Georgetown as departure and Toronto as destination."}
+    },
+    {
+      "event_id": "G1-2011-IR277",
+      "origin": {"name": "Mehrabad International Airport", "code": "THR", "jurisdiction": "Iran", "us_endpoint": false},
+      "destination": {"name": "Urmia Airport", "code": "OMH", "jurisdiction": "Iran", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Civil Aviation Organization of Iran, public report snapshot", "record": "EP-IRP / IR277 final report", "locator": "https://asn.flightsafety.org/reports/2011/20110109_B722_EP-IRP.pdf", "observation": "The preserved authority report identifies Tehran Mehrabad as departure and Urmia as destination."}
+    },
+    {
+      "event_id": "G1-2012-BHO213",
+      "origin": {"name": "Jinnah International Airport", "code": "KHI", "jurisdiction": "Pakistan", "us_endpoint": false},
+      "destination": {"name": "Benazir Bhutto International Airport", "code": "ISB", "jurisdiction": "Pakistan", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Pakistan Aircraft Accident Investigation Board", "record": "21SIB-350 / BHO213 final report", "locator": "https://aviation.gov.pk/SiteImage/Misc/files/reports%202024%2C2022/2012/21SIB-350.pdf", "observation": "The final report identifies Karachi as departure and Islamabad as destination."}
+    },
+    {
+      "event_id": "G1-2019-ET302",
+      "origin": {"name": "Addis Ababa Bole International Airport", "code": "ADD", "jurisdiction": "Ethiopia", "us_endpoint": false},
+      "destination": {"name": "Jomo Kenyatta International Airport", "code": "NBO", "jurisdiction": "Kenya", "us_endpoint": false},
+      "route_status": "VERIFIED_AUTHORITY", "geographic_decision": "EXCLUDE_NO_US_ENDPOINT",
+      "evidence": {"publisher": "Ethiopian Aircraft Accident Investigation Bureau, hosted by BEA France", "record": "ET-AVJ final report", "locator": "https://bea.aero/fileadmin/user_upload/ET_302__B737-8MAX_ACCIDENT_FINAL_REPORT.pdf", "observation": "The final report identifies Addis Ababa as departure and Nairobi as destination."}
+    }
+  ]
+}

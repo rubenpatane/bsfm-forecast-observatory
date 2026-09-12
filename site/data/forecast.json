@@ -1,0 +1,33 @@
+{
+  "claim_level": "experimental_unvalidated",
+  "cutoff": "2026-08-19",
+  "declared_date": "2026-08-19",
+  "evaluation_spec": "docs/F-002-PREREGISTRATION-v1.md",
+  "forecast_id": "F-002",
+  "integrity": "sha256:7c34f318d7df9d942698e01783e86794a46509ca33c8fae9b156a50f8def4f48",
+  "model_version": "1.2",
+  "prediction": {
+    "alternative_event_class": "propulsion",
+    "geography": [
+      "Europe",
+      "North America",
+      "APAC"
+    ],
+    "modal_day": "2026-10-08",
+    "modal_week": {
+      "end": "2026-10-11",
+      "start": "2026-10-05"
+    },
+    "msn": null,
+    "operator": null,
+    "phase": "final approach / landing",
+    "primary_event_class": "SCF-NP / landing-gear-structural-operational cluster",
+    "primary_family_variant": "Boeing 737-800 / 737 NG",
+    "secondary_family_variant": "Boeing 737 MAX 8"
+  },
+  "record_note": "Historical prospective forecast reconstructed from the declared frozen F-002 specification. Exact original creation time is not established; only the declared date/cutoff is retained. The repository commit is later and is not cryptographic proof of publication on 2026-08-19.",
+  "schema": "bsfm.public-forecast.v1",
+  "scoring_boundary": "Dimension-level evaluation only; no retrospective probability distribution may be assigned to F-002.",
+  "status": "frozen",
+  "target": "next_fatal_accident_involving_boeing_commercial_jet"
+}

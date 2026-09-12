@@ -67,6 +67,22 @@ Event cluster: **SCF-NP / gear-structural-operational**
 
 F-002 is not retrospectively edited. Repository publication occurred later than the declared cutoff and is not represented as proof that the forecast was publicly available on 19 August 2026.
 
+## Versioned automatic research cycle
+
+The repository implements the fail-closed execution path from new evidence to a future time-to-event distribution. `config/research-cycle-v1.json` freezes the candidate estimator, target taxonomy, 90-day horizon, scoring rule, cohort universe and versioning policy. Every run binds its inputs and specification with content hashes.
+
+When the scientific input gates pass, active cycle 1.1 can refit candidate and baseline independently at every historical cutoff, construct paired time distributions and publish a modal date, daily probabilities, probability of no event within the horizon, a conditional temporal interval and reproducible posterior parameter-uncertainty bands. A successful gated run freezes a content-addressed candidate forecast without modifying earlier records. When a gate or declared input is missing, it publishes the reason and does not fabricate a forecast.
+
+The implemented minimal shrinkage estimator is a candidate implementation, **not** a silent replacement for the complete BSFM 1.2 contract. Full details and equations are in [`docs/AUTOMATED-RESEARCH-CYCLE-v1.md`](docs/AUTOMATED-RESEARCH-CYCLE-v1.md).
+
+The separately registered **BSFM-PD 1.4** path makes prospective issuance
+operational with public online evidence only. It preserves the negative,
+underpowered BSFM-PD 1.3 result, then emits non-overlapping 90-day records with
+frozen hashes, automatic parameter refitting, a paired baseline and cumulative
+prospective evaluation. Its public summary shows conditional timing and family
+outputs without presenting an absolute accident probability. Full protocol:
+[`docs/PUBLIC-DATA-PROSPECTIVE-v1.4.md`](docs/PUBLIC-DATA-PROSPECTIVE-v1.4.md).
+
 Any later `R-F002-*` refinement is append-only, separately timestamped and excluded from the original F-002 score.
 
 ---
@@ -146,6 +162,8 @@ post-update tests and scientific audits
         ↓
 readiness / evidence / refinements generation
         ↓
+BSFM-PD 1.4 issue-or-retain + prospective scoring
+        ↓
 auditable generated-state commit
         ↓
 GitHub Pages deployment
@@ -162,6 +180,8 @@ AGGIORNA may discover new evidence, but it cannot manufacture a scientific PASS,
 The GitHub Pages interface is bilingual (**Italiano / English**) and includes:
 
 - Overview;
+- a dedicated F-002 forecast dossier, including descriptive geography and the explicitly unsupported operator/MSN fields;
+- the separate BSFM-PD 1.4 public-online prospective forecast state;
 - Validation;
 - Methodology;
 - Provenance;
@@ -172,6 +192,19 @@ The GitHub Pages interface is bilingual (**Italiano / English**) and includes:
 - automatically refreshed nonfatal comparable cases;
 - latest data-refresh timestamp;
 - direct link back to this source repository.
+
+The validation page publishes the separate BSFM-PD 1.3 exploratory result even
+though it is negative and underpowered. The methodology page keeps the BSFM 1.2
+contract distinct from the executable minimal shrinkage estimator. Each core
+public state is also available as a machine-readable JSON artifact.
+
+The public-data path is operational but explicitly unvalidated. Expired
+forecasts are not scored as “no event” merely because no row was found:
+competent-authority coverage must be demonstrated through the event date or
+horizon end. Additional global exposure or historical PIT precursor data are a
+preregistered value-of-information hypothesis; their availability would make a
+richer comparison possible, but improvement may be claimed only if a future
+paired score actually improves.
 
 Open it here:
 

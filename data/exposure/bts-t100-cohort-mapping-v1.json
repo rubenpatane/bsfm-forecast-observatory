@@ -1,0 +1,75 @@
+{
+  "schema": "bsfm.bts-t100-cohort-mapping.v1",
+  "status": "REVIEWED_CANDIDATE",
+  "study_interval": [2010, 2025],
+  "source": {
+    "publisher": "U.S. Department of Transportation / Bureau of Transportation Statistics",
+    "aircraft_lookup_url": "https://www.transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_NVePeNSg_glcR",
+    "aircraft_lookup_sha256": "812c2d24a9b3b2ed4e25427687dd16e4387a3b4daa05e7f1728526b4e65c12ef",
+    "service_class_lookup_url": "https://www.transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_fReiVPR_PYNff",
+    "service_class_lookup_sha256": "4408e0f43144d0aa490d0e00f5b8e95b45551c87de4a34aee6b2c7dd69b411ff",
+    "archived_support_table_doi": "https://doi.org/10.21949/1524181",
+    "archived_support_zip_sha256": "53abdae02a9b3ea9be9cf8518a5b2ff322c63bbdda004087ad7ffc566af67235"
+  },
+  "admitted_service_classes": ["A", "C", "E", "F", "G", "K", "L", "P", "Q", "V", "Z"],
+  "excluded_service_classes": {
+    "H": "humane reason unscheduled, non-revenue-generating",
+    "N": "non-scheduled military passenger/cargo",
+    "R": "non-scheduled military all cargo"
+  },
+  "reviewed_target_aircraft_types": [
+    "612", "614", "615", "616", "617", "618", "619", "620", "621",
+    "622", "623", "624", "625", "626", "627", "633", "634", "637",
+    "683", "710", "711", "715", "737", "816", "817", "818", "819",
+    "820", "821", "822", "823", "837", "838", "839", "885", "887",
+    "888", "889", "893", "894"
+  ],
+  "aircraft_type_to_cohort": {
+    "612": "737-NG",
+    "614": "737-NG",
+    "616": "737-Classic",
+    "617": "737-Classic",
+    "618": "737-Classic",
+    "619": "737-Classic",
+    "620": "737-Original",
+    "621": "737-Original",
+    "622": "757",
+    "623": "757",
+    "624": "767",
+    "625": "767",
+    "626": "767",
+    "627": "777",
+    "633": "737-NG",
+    "634": "737-NG",
+    "637": "777",
+    "683": "777",
+    "710": "727",
+    "711": "727",
+    "715": "727",
+    "737": "737-MAX",
+    "816": "747",
+    "817": "747",
+    "818": "747",
+    "819": "747",
+    "820": "747",
+    "821": "747",
+    "822": "747",
+    "823": "747",
+    "837": "787",
+    "838": "737-MAX",
+    "839": "737-MAX",
+    "885": "737-MAX",
+    "887": "787",
+    "888": "737-NG",
+    "889": "787",
+    "893": "737-MAX",
+    "894": "737-MAX"
+  },
+  "time_bounded_decisions": {
+    "612": "The current label combines 737-700/700LR/MAX 7. It is admitted as 737-NG only for the closed 2010-2025 study interval; future intervals must re-review the code before use."
+  },
+  "unmapped_ambiguous_codes": {
+    "615": "Boeing 737-5/600LR crosses the 737-Classic and 737-NG cohorts and cannot be proxy-split."
+  },
+  "global_g2_eligible": false
+}

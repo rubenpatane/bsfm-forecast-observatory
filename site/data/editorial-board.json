@@ -1,0 +1,157 @@
+{
+  "schema": "bsfm.manual-editorial-board.v1",
+  "board_id": "EDITORIAL-PD14-MIA-20260907",
+  "manual_update": true,
+  "updated_on": "2026-09-07",
+  "status": "PENDING_OFFICIAL_ADJUDICATION",
+  "scientific_effect": "NONE",
+  "forecast_id": "PD14-20260907-7fa7c48bc555",
+  "entry": {
+    "title": {
+      "it": "Miami, 6 settembre: perché il caso è vicino a PD14",
+      "en": "Miami, 6 September: why the case is close to PD14"
+    },
+    "intro": {
+      "it": "Nota editoriale aggiornata manualmente. Il caso è emerso dopo che PD14 era stata congelata. Mostriamo sia le vicinanze sia i limiti, mentre attendiamo un record ufficiale sufficiente per la valutazione.",
+      "en": "Manually maintained editorial note. The case emerged after PD14 had been frozen. Both similarities and hard limits are shown while a sufficient official record is pending for adjudication."
+    },
+    "event": {
+      "date": "2026-09-06",
+      "time": {
+        "it": "circa 14:00 EDT / 18:00 UTC",
+        "en": "about 14:00 EDT / 18:00 UTC"
+      },
+      "flight": "21 Air / Prime Air 7598",
+      "aircraft": "Boeing 767-300 cargo",
+      "route": {
+        "it": "San Juan → Miami",
+        "en": "San Juan → Miami"
+      },
+      "provisional_summary": {
+        "it": "Uscita di pista dopo l’atterraggio, collisione con veicoli e incendio. Le prime notizie che citano autorità locali riferiscono almeno cinque vittime; distribuzione tra bordo e terra e classificazione finale restano da confermare.",
+        "en": "Runway overrun after landing, collision with vehicles and fire. Initial reports citing local authorities state at least five deaths; onboard/ground allocation and final classification remain to be confirmed."
+      }
+    },
+    "timeline": [
+      {
+        "kind": "issued",
+        "date": "2026-09-06T13:51:19Z",
+        "label": {
+          "it": "PD14 congelata",
+          "en": "PD14 frozen"
+        },
+        "display": "6 SEP · 13:51 UTC"
+      },
+      {
+        "kind": "event",
+        "date": "2026-09-06T18:00:00Z",
+        "label": {
+          "it": "Evento segnalato",
+          "en": "Reported event"
+        },
+        "display": "6 SEP · ~18:00 UTC"
+      },
+      {
+        "kind": "forecast",
+        "date": "2026-09-07",
+        "label": {
+          "it": "Inizio e giorno modale PD14",
+          "en": "PD14 start and modal day"
+        },
+        "display": "7 SEP"
+      }
+    ],
+    "signals": [
+      {
+        "value": "< 1 giorno",
+        "value_en": "< 1 day",
+        "label": {
+          "it": "dalla data modale",
+          "en": "from the modal date"
+        }
+      },
+      {
+        "value": "19,3%",
+        "value_en": "19.3%",
+        "label": {
+          "it": "quota del 767 se un evento avviene nel periodo",
+          "en": "PD14 conditional share for the 767"
+        }
+      },
+      {
+        "value": "U.S.-linked",
+        "value_en": "U.S.-linked",
+        "label": {
+          "it": "destinazione Miami",
+          "en": "Miami destination"
+        }
+      },
+      {
+        "value": "Prima",
+        "value_en": "Before",
+        "label": {
+          "it": "previsione emessa prima dell’evento",
+          "en": "forecast issued before the event"
+        }
+      }
+    ],
+    "similarities": [
+      {
+        "it": "PD14 era già congelata alcune ore prima dell’orario dell’evento riportato.",
+        "en": "PD14 had already been frozen several hours before the reported event time."
+      },
+      {
+        "it": "Il profilo provvisorio è compatibile con il target: jet commerciale Boeing, operazione cargo e tratta con un estremo negli Stati Uniti.",
+        "en": "The provisional profile is compatible with the target: Boeing commercial jet, cargo operation and a segment with a U.S. endpoint."
+      },
+      {
+        "it": "L’evento è avvenuto il giorno precedente alla data modale del 7 settembre.",
+        "en": "The event occurred one day before the 7 September modal date."
+      },
+      {
+        "it": "Il 767 era già presente nella distribuzione per famiglia con una quota condizionale del 19,3%.",
+        "en": "The 767 was already represented in the family distribution with a 19.3% conditional share."
+      }
+    ],
+    "limits": [
+      {
+        "it": "L’evento è datato 6 settembre; l’orizzonte congelato di PD14 parte il 7 settembre. È quindi fuori finestra.",
+        "en": "The event is dated 6 September; PD14’s frozen horizon begins on 7 September. It is therefore outside the window."
+      },
+      {
+        "it": "Il 767 non era la famiglia modale: veniva dopo 737 MAX e 737 Classic+NG.",
+        "en": "The 767 was not the modal family: it ranked behind 737 MAX and 737 Classic+NG."
+      },
+      {
+        "it": "PD14 non prevede fase di volo, dinamica dell’incidente, operatore o MSN.",
+        "en": "PD14 does not forecast flight phase, accident dynamics, operator or MSN."
+      },
+      {
+        "it": "La qualificazione del target e le vittime attribuibili restano in attesa fino a evidenza ufficiale sufficiente.",
+        "en": "Target qualification and attributable fatalities remain PENDING until sufficient official evidence is available."
+      }
+    ],
+    "verdict": {
+      "code": "DESCRIPTIVE_NEAR_MISS_OUTSIDE_HORIZON",
+      "it": "Vicinanza descrittiva molto stretta, ma non un hit: il caso è avvenuto dopo l’emissione e a meno di un giorno dalla data modale, però resta fuori dall’orizzonte congelato e non entra nel punteggio di PD14.",
+      "en": "A very close descriptive near miss, but not a hit: the case occurred after issuance and less than one day from the modal date, yet it remains outside the frozen horizon and does not enter PD14 scoring."
+    },
+    "sources": [
+      {
+        "publisher": "Federal Aviation Administration statement reported by ABC News",
+        "url": "https://abcnews.com/amp/US/cargo-plane-overruns-runway-miami-international-airport-faa/story?id=136242081",
+        "role": "INITIAL_AIRCRAFT_ROUTE_OCCURRENCE_DESCRIPTION"
+      },
+      {
+        "publisher": "Associated Press",
+        "url": "https://apnews.com/article/amazon-cargo-plane-miami-airport-47411c751782887757922efa5f634aa5",
+        "role": "DISCOVERY_AND_LOCAL_AUTHORITY_FATALITY_REPORT"
+      },
+      {
+        "publisher": "CBS Miami",
+        "url": "https://www.cbsnews.com/miami/news/miami-airport-plane-disabled-9-6-2026/",
+        "role": "DISCOVERY_AND_NTSB_GO_TEAM_REPORT"
+      }
+    ]
+  }
+}

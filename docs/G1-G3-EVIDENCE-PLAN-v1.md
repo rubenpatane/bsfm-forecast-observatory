@@ -1,7 +1,7 @@
 # BSFM G1–G3 Evidence Acquisition Plan v1
 
 Status: ACTIVE RESEARCH PLAN — FAIL CLOSED
-Date: 2026-09-05
+Date: 2026-09-07
 Scope: scientific evidence required before G4 candidate-vs-baseline validation can be promoted.
 
 ## Purpose
@@ -46,7 +46,9 @@ A deduplicated, auditable event-level census for 2010–2025 of qualifying fatal
 5. Non-official aggregators may be used only for candidate discovery/reconciliation, never as sole evidence for G1 PASS.
 
 ### Acceptance gate
-G1 may PASS only if all years 2010–2025 are covered by a documented reconciled-global process, target inclusion semantics are fixed, duplicates are resolved, exclusions are auditable, and independent coverage reconciliation finds no unexplained qualifying gaps.
+Strict G1 PASS requires all years 2010–2025 to be covered by a documented reconciled-global process, fixed target semantics, duplicate resolution, auditable exclusions and no unexplained qualifying gaps.
+
+Historical G1 v1 may instead be accepted as `CLOSED_WITH_LIMITATION` when an independently documented structural ambiguity in the frozen target makes specific annual cells non-identifiable, all other annual cells satisfy the reconciliation controls, event/census consistency is clean, and a versioned censoring contract prevents the unresolved cells from being converted to binary labels or traversed by scored historical intervals. The adopted contract is `data/census/g1-closure-v1.json`: 14/16 annual cells are identifiable; 2014 and 2020 are non-identifiable because the frozen v1 target did not preregister missing-aircraft and hostile/unlawful-action boundaries. MH370, MH17 and PS752 remain unresolved under frozen historical v1. This is not a retrospective include/exclude decision and is not strict 16/16 completeness.
 
 Neither NTSB alone nor the frozen ICAO snapshot alone can satisfy G1.
 
@@ -110,15 +112,14 @@ G2 exposure is likewise independent: accident counts must never be treated as ex
 
 ## Execution order
 
-1. Build the 2010–2025 G1 candidate census from sustainable public/official sources, beginning with Boeing worldwide summaries and EASA fatal-accident material.
-2. Reconcile each candidate event against authoritative national/regional investigation records where available and use the frozen ICAO #21 evidence only as an additional historical cross-check.
-3. Resolve 2023–2025 entirely without ICAO API retrieval.
-4. Inventory G2 source tables at family/year granularity before implementing any denominator transformation.
-5. Build G3 source-specific publication-history manifests and strict admissibility tests.
-6. Freeze resulting evidence artifacts with hashes/provenance.
-7. Re-run the scientific gate audit.
-8. Only if G1, G2 and G3 PASS, construct G4 rolling-origin/walk-forward candidate-vs-exposure-baseline evaluation.
+1. Maintain the 2010–2025 G1 candidate census and closure contract without retroactive target redefinition.
+2. Enforce censoring of the declared non-identifiable G1 cells in every historical evaluation path.
+3. Inventory and acquire G2 source tables at family/year granularity without proxy splitting.
+4. Build G3 source-specific publication-history manifests and strict admissibility tests.
+5. Freeze resulting evidence artifacts with hashes/provenance.
+6. Re-run the scientific gate audit.
+7. Only when G1 is strict PASS or valid `CLOSED_WITH_LIMITATION` with censoring enforced, and G2 and G3 PASS, construct G4 rolling-origin/walk-forward candidate-vs-exposure-baseline evaluation.
 
 ## Current conclusion
 
-**G1 = BLOCKED, G2 = BLOCKED, G3 = BLOCKED.** ICAO API access is no longer an operational dependency. The project proceeds using the frozen historical ICAO evidence plus sustainable official/public sources; no gate status changes merely because alternative sources have been identified.
+**G1 = CLOSED_WITH_LIMITATION; G2 = BLOCKED; G3 = BLOCKED.** Historical G1 v1 has 14/16 identifiable annual cells; 2014 and 2020 remain non-identifiable under frozen target semantics and are censored rather than imputed. ICAO API access is no longer an operational dependency. This G1 closure removes an active research blocker but does not open G2, G3 or G4.

@@ -10,6 +10,15 @@ Current lineage: BSFM v1.2, Dynamic Airframe Hazard, extending airframe/family r
 
 F-002 is the current frozen prospective forecast. Authoritative values: `forecasts/F-002.json`; evaluation: `docs/F-002-PREREGISTRATION-v1.md`. Never reconstruct or modify it from this summary.
 
+BSFM-PD 1.3 is a separate U.S.-linked minimal public-data estimator whose
+historical result is negative and underpowered. BSFM-PD 1.4 preserves its
+target, scope, estimator, exposure rule, horizon and baseline, and adds only
+preregistered prospective issuance/evaluation governance. It may publish
+experimental unvalidated records from public online sources while global BSFM
+1.2 remains blocked. Its contract and protocol are
+`config/model-public-data-v1.4.json` and
+`docs/PUBLIC-DATA-PROSPECTIVE-v1.4.md`.
+
 ## Target/evidence semantics
 Historical validation requires an event universe with inclusion/exclusion semantics fixed before scoring. Event evidence must support target and commercial/Boeing eligibility; ambiguity remains unresolved. Potential evidence families include airframe/family/configuration, utilization/exposure, operational/route/airport/phase, service-difficulty/occurrence and temporal/seasonal information. Historical predictors are admissible only when their point-in-time public availability at the simulated cutoff is established under G3. Never back-project a current field merely because it exists today.
 

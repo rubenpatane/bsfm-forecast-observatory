@@ -1,7 +1,7 @@
 # BSFM Laboratory Protocol
 
 Status: canonical operating protocol
-Updated: 2026-09-05
+Updated: 2026-09-07
 
 ## Objective/evidence levels
 Run BSFM as an auditable prospective forecasting laboratory. Reproducibility/falsifiability take precedence over a positive result. Always distinguish software verification, acquisition verification, structural/data-quality verification, evidence completeness/reconciliation and predictive validation. Earlier success never implies later success.
@@ -10,7 +10,9 @@ Run BSFM as an auditable prospective forecasting laboratory. Reproducibility/fal
 Freeze target, forecast fields, evaluation/scoring and admissibility before outcomes can influence choices. Frozen forecasts cannot be edited retrospectively; later corrections/evidence/improvements are append-only and dated. F-002 is governed by `docs/F-002-PREREGISTRATION-v1.md`.
 
 ## G1
-Construct a deduplicated auditable 2010-2025 event-level census of qualifying fatal accidents involving Boeing commercial jets, with identity/date, model/family, target/eligibility evidence, source authority/record ID, provenance and inclusion/exclusion reasoning. Hierarchy: ICAO/official global accident data; national/regional authorities; Boeing global statistics as cross-check; nonofficial aggregators only discovery/reconciliation. PASS requires documented global/reconciled-global coverage, fixed semantics, duplicate resolution, auditable exclusions and no unexplained qualifying gaps. NTSB alone is US-only. ICAO acquisition/parsing alone cannot PASS. Zero rows do not prove zero events without coverage evidence. `data/census/year-ledger.json` is canonical; `reconciled=true` is an evidence attestation, never a placeholder.
+Construct a deduplicated auditable 2010-2025 event-level census of qualifying fatal accidents involving Boeing commercial jets, with identity/date, model/family, target/eligibility evidence, source authority/record ID, provenance and inclusion/exclusion reasoning. Hierarchy: ICAO/official global accident data; national/regional authorities; Boeing global statistics as cross-check; nonofficial aggregators only discovery/reconciliation. Strict PASS requires documented global/reconciled-global coverage, fixed semantics, duplicate resolution, auditable exclusions and no unexplained qualifying gaps. NTSB alone is US-only. ICAO acquisition/parsing alone cannot PASS. Zero rows do not prove zero events without coverage evidence. `data/census/year-ledger.json` is canonical; `reconciled=true` is an evidence attestation, never a placeholder.
+
+Historical G1 v1 is additionally permitted to close as `CLOSED_WITH_LIMITATION` only through the versioned contract `data/census/g1-closure-v1.json`. That status is not strict 16/16 reconciliation and is valid only when every structural/evidence consistency check outside the declared non-identifiable cells passes, the contract names exactly the unreconciled cells, and downstream evaluation enforces whole-cell censoring. For the adopted v1 closure, 2014 and 2020 remain non-identifiable under the frozen target semantics. They must not be assigned a binary target value, must not be treated as zero-event years, and targets or forecast intervals intersecting those cells are excluded from historical scoring. Prospective Target Taxonomy v2 has no retroactive effect on this closure.
 
 ## G2
 Obtain defensible annual/family operational exposure, preferably departures/cycles, then flight hours, or another directly measured measure justified before evaluation. Fleet counts, deliveries, capacity, market share/interpolation may be sensitivity analyses but cannot silently open G2.
@@ -19,7 +21,7 @@ Obtain defensible annual/family operational exposure, preferably departures/cycl
 For every historical predictor preserve source record, event/discovery date, publication/release timestamp or bounded interval, retrieval timestamp, stable locator/archive/release, fields known at release, PIT status and reason. Discovery is not publication; submission/approval/change is not automatically public; current presence is not historical availability. Unknown PIT evidence is excluded from strict PIT evaluation.
 
 ## G4
-Only after G1-G3 PASS execute paired rolling-origin/walk-forward candidate/baseline evaluation on identical cutoffs/universe. Report uncertainty/dimension-level outcomes and use calibration/sharpness/proper scores where ex-ante probabilities exist. Synthetic/unit tests validate implementation only.
+Only after G1 is either strict PASS or valid `CLOSED_WITH_LIMITATION` with the registered censoring policy enforced, and G2-G3 PASS, execute paired rolling-origin/walk-forward candidate/baseline evaluation on identical admissible cutoffs/universe. Report uncertainty/dimension-level outcomes and use calibration/sharpness/proper scores where ex-ante probabilities exist. Synthetic/unit tests validate implementation only.
 
 ## Provenance/licensing/privacy
 Prefer primary/official sources; preserve locator, retrieval time, record ID/hash where lawful. Keep raw data only when redistribution/storage terms permit. If protected data cannot be public, retain only permissible metadata/derived evidence and reproducible acquisition instructions; never expose credentials.

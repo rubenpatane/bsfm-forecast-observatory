@@ -25,19 +25,40 @@ def test_walk_forward_excludes_targets_outside_evaluation_interval():
     assert build_walk_forward_cases([row],2010,2025)==[]
 
 
+def test_walk_forward_excludes_censored_target_year_and_crossing_intervals():
+    censored={'event_date':'2020-06-01','manufacturer':'Boeing','model':'737-800'}
+    after={'event_date':'2021-01-15','manufacturer':'Boeing','model':'737-800'}
+    cases=build_walk_forward_cases([censored,after],2010,2025,censored_years=[2020])
+    assert all(c['target_event_date']!='2020-06-01' for c in cases)
+    assert all(c['cutoff']>='2021-01-01' for c in cases if c['target_event_date']=='2021-01-15')
+
+
 def test_foundation_fails_closed_when_any_gate_is_missing():
-    report=audit_historical_foundation({'complete':True},{'complete':True},{'point_in_time_availability_verified':False,'leakage_free':True})
+    census={'gate_acceptable':True,'gate_status':'PASS','complete':True,'censored_years':[]}
+    report=audit_historical_foundation(census,{'complete':True},{'point_in_time_availability_verified':False,'leakage_free':True})
     assert not report['ready_for_candidate_fit']
     assert report['blocked_reasons']==['point_in_time_availability_verified']
 
 
+def test_foundation_accepts_g1_closed_with_limitation_but_preserves_strict_status():
+    census={'gate_acceptable':True,'gate_status':'CLOSED_WITH_LIMITATION','complete':False,'censored_years':[2014,2020]}
+    report=audit_historical_foundation(census,{'complete':True},{'point_in_time_availability_verified':True,'leakage_free':True})
+    assert report['historical_cases'] is True
+    assert report['g1_gate_status']=='CLOSED_WITH_LIMITATION'
+    assert report['g1_strict_complete'] is False
+    assert report['g1_censored_years']==[2014,2020]
+    assert report['ready_for_candidate_fit'] is True
+
+
 def test_foundation_does_not_infer_availability_from_missing_metadata():
-    report=audit_historical_foundation({'complete':True},{'complete':True},{})
+    census={'gate_acceptable':True,'gate_status':'PASS','complete':True,'censored_years':[]}
+    report=audit_historical_foundation(census,{'complete':True},{})
     assert not report['point_in_time_availability_verified']
     assert not report['leakage_free']
     assert not report['ready_for_candidate_fit']
 
 
 def test_foundation_ready_only_when_every_independent_gate_passes():
-    report=audit_historical_foundation({'complete':True},{'complete':True},{'point_in_time_availability_verified':True,'leakage_free':True})
+    census={'gate_acceptable':True,'gate_status':'PASS','complete':True,'censored_years':[]}
+    report=audit_historical_foundation(census,{'complete':True},{'point_in_time_availability_verified':True,'leakage_free':True})
     assert report['ready_for_candidate_fit']

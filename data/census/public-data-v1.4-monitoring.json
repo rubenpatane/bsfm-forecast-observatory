@@ -1,0 +1,10 @@
+{
+  "schema": "bsfm.public-data-prospective-monitoring.v1",
+  "model_id": "BSFM-PD",
+  "model_version": "1.4",
+  "scope": "us_linked_commercial",
+  "status": "COVERAGE_NOT_YET_ATTESTED",
+  "complete_through": null,
+  "authority_evidence": [],
+  "rule": "A horizon may be scored only when authority evidence demonstrates target-outcome monitoring coverage through the observed first event or the horizon end. Zero discovered rows never prove no event."
+}

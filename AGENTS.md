@@ -20,7 +20,7 @@ Only project-relevant public, appropriately licensed information necessary for r
 - BSFM is experimental research, not a safety assessment of a specific flight, aircraft, airline, route or person.
 - Never present an experimental forecast as certain.
 - Separate software health, acquisition, evidence completeness and predictive validity. Green CI is not scientific validation.
-- Fail closed: missing/ambiguous/unverified evidence remains BLOCKED/unknown.
+- Fail closed: missing/ambiguous/unverified evidence remains BLOCKED/unknown unless a versioned scientific contract explicitly classifies an irreducible historical limitation and enforces conservative censoring.
 - Prefer official/primary sources; aggregators are discovery/reconciliation aids, not silent substitutes.
 - Preserve provenance/retrieval metadata/hashes where lawful.
 - Distinguish facts, hypotheses, proposals and unverified claims.
@@ -30,7 +30,7 @@ Only project-relevant public, appropriately licensed information necessary for r
 Frozen forecasts are append-only scientific records. Never rewrite their prediction/cutoff/target/declared date/modal fields. Later evidence/corrections are separate append-only records. F-002 is frozen and experimental/unvalidated. Never invent retroactive probabilities.
 
 ## G1-G4
-G1 requires an auditable global target census and reconciliation; acquisition/parsing alone cannot PASS. G2 requires a defensible predeclared exposure denominator; convenience proxies cannot silently open it. G3 requires point-in-time evidence for every admitted historical predictor; current presence/discovery/submission does not prove historical public availability. G4 is genuine rolling-origin/walk-forward candidate-vs-baseline validation only after G1-G3 PASS; unit/synthetic tests never establish predictive validity. Detailed canonical criteria live in the laboratory protocol, G1-G3 evidence plan and forecast preregistrations.
+G1 requires an auditable global target census and reconciliation; acquisition/parsing alone cannot PASS. Historical G1 v1 may also be `CLOSED_WITH_LIMITATION` only under the versioned `data/census/g1-closure-v1.json` contract: 2014 and 2020 remain non-identifiable, are never converted to zero, and every downstream historical evaluation must enforce the declared censoring policy. G2 requires a defensible predeclared exposure denominator; convenience proxies cannot silently open it. G3 requires point-in-time evidence for every admitted historical predictor; current presence/discovery/submission does not prove historical public availability. G4 is genuine rolling-origin/walk-forward candidate-vs-baseline validation only after G1 is either strict PASS or valid `CLOSED_WITH_LIMITATION` with censoring enforced, and G2-G3 PASS; unit/synthetic tests never establish predictive validity. Detailed canonical criteria live in the laboratory protocol, G1-G3 evidence plan and forecast preregistrations.
 
 ## Development/evidence rules
 Audit before changing architecture. Prefer small evidence-backed changes/reuse. Add tests for behavior changes. Never claim tests passed unless actually executed in a verifiable environment. `AGGIORNA` remains the single operational workflow unless explicitly changed. Automation cannot manufacture evidence/PASS. Never mark `reconciled=true` merely because an API returned rows, and never interpret zero API rows as zero qualifying events without coverage evidence.
