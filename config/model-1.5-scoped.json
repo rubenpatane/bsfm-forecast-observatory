@@ -1,0 +1,22 @@
+{
+  "model_id":"BSFM",
+  "model_version":"1.5-scoped",
+  "name":"Dynamic Airframe Hazard — scoped candidate",
+  "target":"fatal_accident_boeing_commercial_jet",
+  "scope":"global IATA family exposure 2010-2019; eligible historical cutoffs from 2020-04-30",
+  "forecast_horizon_days":90,
+  "diagnostic_default_exposure":"EuroNOVA",
+  "diagnostic_default_decay_days":{"min":90,"max":270},
+  "exposure_source":"data/exposure/g2-scoped-baseline-candidate-v1.json",
+  "predictor_registry":"data/pit/predictor-universe-v2-scoped.json",
+  "components":["exposure","prior_outcome_cohort_history","hierarchical_shrinkage","time_to_event","aircraft_variant","icao_type","serial_or_registration","aircraft_age","phase_of_flight","system","failure_mode","severity","geography","route","airport","operator","maintenance_signal","safety_report_signal"],
+  "excluded_components":["faa_sdr_precursors","ad_mitigation","failure_hazard","escalation","phase_of_flight","geography"],
+  "time_to_event_component":"bsfm.time_to_event.predict_time_to_event",
+  "feature_distribution_component":"bsfm.feature_model.fit_feature_distributions",
+  "evaluation":"rolling-origin only; compare with exposure-only baseline",
+  "promotion_allowed":false,
+  "status":"development_all_features_active",
+  "development_mode":true,
+  "missing_values":"preserve_as_missing",
+  "feature_registry":"data/model/model-1.5-feature-registry-v1.json"
+}

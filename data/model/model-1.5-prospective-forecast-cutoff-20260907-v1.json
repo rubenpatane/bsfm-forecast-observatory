@@ -1,0 +1,41 @@
+{
+  "schema": "bsfm.model-1.5-prospective-forecast-cutoff-20260907-v1",
+  "status": "diagnostic_test_unfrozen",
+  "model_version": "1.5-scoped",
+  "training_cutoff": "2026-09-07",
+  "operational_cutoff": "2026-09-07",
+  "horizon_start": "2026-09-08",
+  "horizon_end": "2027-09-07",
+  "default_configuration": {
+    "exposure": "EuroNOVA",
+    "decay_days_range": [
+      90,
+      270
+    ]
+  },
+  "modal_date": "2027-07-06",
+  "top_configuration": {
+    "decay_days": 90,
+    "modal_date": "2027-07-06",
+    "relative_score_percent": 1.8008532773769237
+  },
+  "sweep_summary": {
+    "n": 181,
+    "unique_modal_dates": [
+      "2027-07-06"
+    ]
+  },
+  "training_events": 11,
+  "known_last_event": {
+    "event_id": "MIAMI-2026-09-06",
+    "date": "2026-09-06",
+    "aircraft": "Boeing 767-300 cargo",
+    "status": "confirmed_occurrence_preliminary_cause"
+  },
+  "global_denominator": false,
+  "pit_admitted": false,
+  "promotion_allowed": false,
+  "frozen_until_next_confirmed_case": true,
+  "note": "Test forecast only; not official and not validated. Existing frozen forecasts unchanged.",
+  "test_only": true
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "bsfm.site-model-15-status.v1",
+  "model_version": "1.5-scoped-test",
+  "status": "diagnostic_test_unfrozen",
+  "cutoff": "2026-09-07",
+  "horizon_days": 365,
+  "modal_date": "2027-07-06",
+  "relative_score_percent": 1.8008532773769237,
+  "target_comparison_date": null,
+  "target_inside_horizon": null,
+  "absolute_event_probability_published": false,
+  "global_denominator": false,
+  "post_cutoff_information_used": false,
+  "promotion_allowed": false,
+  "note": "Test di sviluppo congelato al cutoff 7 settembre 2026; sensibilità regionale EuroNOVA, decadimento 90–270 giorni. Nessuna probabilità assoluta pubblicata; G1/G2/G3/G4 restano bloccati.",
+  "horizon_start": "2026-09-08",
+  "horizon_end": "2027-09-07"
+}

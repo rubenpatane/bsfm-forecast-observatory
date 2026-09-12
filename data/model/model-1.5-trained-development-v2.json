@@ -1,0 +1,124 @@
+{
+  "daily_exposure_source": "EuroNOVA 2022 regional sensitivity",
+  "development_sources": {
+    "iata_context_reports": 3,
+    "iata_event_level_join": false,
+    "opdi_daily_rows": 130233,
+    "opdi_global_denominator": false
+  },
+  "family_prediction": {
+    "727": 0.033583889226997544,
+    "737-all-variants": 0.590823564045733,
+    "747": 0.15198822912547721,
+    "757": 0.02905805884198063,
+    "767": 0.03139779884750266,
+    "777": 0.1042910403036394,
+    "787": 0.05885741960866956
+  },
+  "feature_distributions": {
+    "alpha": 0.5,
+    "features": {
+      "aircraft_age": {
+        "unknown": 1.0
+      },
+      "aircraft_family": {
+        "unknown": 1.0
+      },
+      "aircraft_variant": {
+        "727-100": 0.08108108108108109,
+        "727-221": 0.08108108108108109,
+        "727-286": 0.08108108108108109,
+        "737-210C": 0.08108108108108109,
+        "737-236A": 0.08108108108108109,
+        "737-500": 0.08108108108108109,
+        "737-700": 0.08108108108108109,
+        "737-800": 0.13513513513513514,
+        "747-400F": 0.13513513513513514,
+        "747-428 BCF / 747-400 BCF": 0.08108108108108109,
+        "777-200ER": 0.08108108108108109
+      },
+      "airport": {
+        "unknown": 1.0
+      },
+      "failure_mode": {
+        "unknown": 1.0
+      },
+      "geography": {
+        "Bagram Air Base, Afghanistan": 0.1,
+        "Kazan International Airport, Russian Federation": 0.1,
+        "San Francisco International Airport, California, United States": 0.1,
+        "unknown": 0.7
+      },
+      "icao_type": {
+        "unknown": 1.0
+      },
+      "maintenance_signal": {
+        "unknown": 1.0
+      },
+      "operator": {
+        "AIRES": 0.07894736842105263,
+        "Air India Express": 0.07894736842105263,
+        "Allied Air": 0.07894736842105263,
+        "Asiana Airlines": 0.13157894736842105,
+        "Bhoja Air": 0.07894736842105263,
+        "Ethiopian Airlines": 0.07894736842105263,
+        "First Air": 0.07894736842105263,
+        "Hewa Bora Airways": 0.07894736842105263,
+        "Iran Air": 0.07894736842105263,
+        "National Air Cargo, dba National Airlines": 0.07894736842105263,
+        "Tatarstan Airlines": 0.07894736842105263,
+        "UPS Airlines": 0.07894736842105263
+      },
+      "phase_of_flight": {
+        "unknown": 1.0
+      },
+      "route": {
+        "unknown": 1.0
+      },
+      "safety_report_signal": {
+        "unknown": 1.0
+      },
+      "serial_or_registration": {
+        "5N-BJN": 0.07692307692307693,
+        "9Q-COP": 0.07692307692307693,
+        "AP-BKC": 0.07692307692307693,
+        "C-GNWN": 0.07692307692307693,
+        "EP-IRP": 0.07692307692307693,
+        "ET-ANB": 0.07692307692307693,
+        "HK-4682": 0.07692307692307693,
+        "HL7604": 0.07692307692307693,
+        "HL7742": 0.07692307692307693,
+        "N571UP": 0.07692307692307693,
+        "N949CA": 0.07692307692307693,
+        "VQ-BBN": 0.07692307692307693,
+        "VT-AXV": 0.07692307692307693
+      },
+      "severity": {
+        "fatal accident": 0.25,
+        "unknown": 0.75
+      },
+      "system": {
+        "unknown": 1.0
+      }
+    },
+    "rows": 13,
+    "schema": "bsfm.model-1.5-feature-distributions.v1",
+    "status": "development"
+  },
+  "frozen_forecasts_unchanged": true,
+  "global_denominator": false,
+  "model_version": "1.5-scoped",
+  "promotion_allowed": false,
+  "schema": "bsfm.model-1.5-trained-development.v2",
+  "status": "development_trained",
+  "time_to_event": {
+    "event_probability": 0.01177545890626782,
+    "horizon_days": 365,
+    "horizon_end": "2022-12-31",
+    "modal_date": "2022-08-20",
+    "no_event_probability": 0.9882245410937323,
+    "start_date": "2022-01-01"
+  },
+  "training_cutoff": "2026-09-06",
+  "training_rows": 13
+}

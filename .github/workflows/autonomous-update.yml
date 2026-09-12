@@ -2,8 +2,6 @@ name: AGGIORNA
 run-name: AGGIORNA · ${{ github.event_name }}
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '47 13 * * *'
 permissions:
   contents: write
   pages: write
@@ -12,40 +10,7 @@ concurrency:
   group: bsfm-aggiorna
   cancel-in-progress: false
 jobs:
-  cadence:
-    runs-on: ubuntu-latest
-    outputs:
-      run: ${{ steps.check.outputs.run }}
-    steps:
-      - uses: actions/checkout@v4
-        with: {fetch-depth: 1}
-      - name: Check four-day automatic cadence
-        id: check
-        shell: bash
-        run: |
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "Manual AGGIORNA: full run allowed."
-            exit 0
-          fi
-          python - <<'PY' >> "$GITHUB_OUTPUT"
-          import json
-          from datetime import datetime, timezone
-          from pathlib import Path
-          p=Path('data/manifests/auto-cadence.json')
-          if not p.exists():
-              print('run=true')
-              raise SystemExit
-          state=json.loads(p.read_text(encoding='utf-8'))
-          last=datetime.fromisoformat(state['last_completed_refresh_at'].replace('Z','+00:00'))
-          interval=int(state.get('interval_days',4))
-          due=(datetime.now(timezone.utc)-last).total_seconds() >= interval*86400
-          print('run=' + ('true' if due else 'false'))
-          PY
-
   aggiorna:
-    needs: cadence
-    if: needs.cadence.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     environment:
@@ -112,6 +77,28 @@ jobs:
           python -m bsfm.cli run
           python -m bsfm.cli audit-foundation
           python -m bsfm.cli audit-final
+      - name: Monthly candidate training gate
+        run: python -m bsfm.monthly_candidate
+      - name: Model 1.5 diagnostic time evaluation
+        run: python -m bsfm.time_model_selection
+      - name: Preserve diagnostic forecast until next confirmed case
+        shell: bash
+        run: |
+          forecast='data/model/model-1.5-prospective-forecast-cutoff-20260907-v1.json'
+          if [ -f "$forecast" ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/model/model-1.5-prospective-forecast-cutoff-20260907-v1.json')
+          d=json.loads(p.read_text())
+          assert d.get('frozen_until_next_confirmed_case') is True
+          assert d.get('training_cutoff') == '2026-09-07'
+          assert d.get('status') == 'diagnostic_test_unfrozen'
+          print('Existing diagnostic forecast preserved; no recalculation permitted.')
+          PY
+          else
+            echo 'No frozen diagnostic forecast is present; generation requires an explicit new cutoff.'
+          fi
       - name: Generate readiness, evidence inventory and public refinements
         run: |
           python - <<'PY'
@@ -136,21 +123,6 @@ jobs:
           refinements=write_public_refinements(root,parent)
           research=write_public_research_state(root)
           print(json.dumps({'foundation':report,'lifecycle':state,'public_readiness':public,'evidence_gaps':evidence['gaps'],'published_refinements':len(refinements),'public_research_years':len(research['gates']['G1']['years'])},indent=2))
-          PY
-      - name: Record successful scheduled refresh cadence
-        if: github.event_name == 'schedule'
-        run: |
-          python - <<'PY'
-          import json
-          from datetime import datetime, timezone
-          from pathlib import Path
-          p=Path('data/manifests/auto-cadence.json')
-          state=json.loads(p.read_text(encoding='utf-8')) if p.exists() else {'schema':'bsfm.auto-cadence.v1','interval_days':4}
-          state['last_completed_refresh_at']=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
-          state['last_event']='schedule'
-          state['last_run_id']='${{ github.run_id }}'
-          p.parent.mkdir(parents=True,exist_ok=True)
-          p.write_text(json.dumps(state,indent=2,sort_keys=True)+'\n',encoding='utf-8')
           PY
       - name: Upload normalized NTSB research dataset
         uses: actions/upload-artifact@v4
