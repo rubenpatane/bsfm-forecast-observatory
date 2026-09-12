@@ -81,6 +81,7 @@ jobs:
         continue-on-error: true
         run: python -m bsfm.monthly_candidate
       - name: Model 1.5 diagnostic time evaluation
+        continue-on-error: true
         run: python -m bsfm.time_model_selection
       - name: Preserve diagnostic forecast until next confirmed case
         shell: bash
