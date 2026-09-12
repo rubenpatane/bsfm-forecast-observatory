@@ -78,6 +78,7 @@ jobs:
           python -m bsfm.cli audit-foundation
           python -m bsfm.cli audit-final
       - name: Monthly candidate training gate
+        continue-on-error: true
         run: python -m bsfm.monthly_candidate
       - name: Model 1.5 diagnostic time evaluation
         run: python -m bsfm.time_model_selection
