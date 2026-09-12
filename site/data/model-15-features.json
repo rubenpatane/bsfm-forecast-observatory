@@ -1,0 +1,95 @@
+{
+  "features": {
+    "aircraft_age": {
+      "unknown": 1.0
+    },
+    "aircraft_family": {
+      "unknown": 1.0
+    },
+    "aircraft_variant": {
+      "727-100": 0.08108108108108109,
+      "727-221": 0.08108108108108109,
+      "727-286": 0.08108108108108109,
+      "737-210C": 0.08108108108108109,
+      "737-236A": 0.08108108108108109,
+      "737-500": 0.08108108108108109,
+      "737-700": 0.08108108108108109,
+      "737-800": 0.13513513513513514,
+      "747-400F": 0.13513513513513514,
+      "747-428 BCF / 747-400 BCF": 0.08108108108108109,
+      "777-200ER": 0.08108108108108109
+    },
+    "airport": {
+      "unknown": 1.0
+    },
+    "failure_mode": {
+      "unknown": 1.0
+    },
+    "geography": {
+      "Bagram Air Base, Afghanistan": 0.1,
+      "Kazan International Airport, Russian Federation": 0.1,
+      "San Francisco International Airport, California, United States": 0.1,
+      "unknown": 0.7
+    },
+    "icao_type": {
+      "unknown": 1.0
+    },
+    "maintenance_signal": {
+      "unknown": 1.0
+    },
+    "operator": {
+      "AIRES": 0.07894736842105263,
+      "Air India Express": 0.07894736842105263,
+      "Allied Air": 0.07894736842105263,
+      "Asiana Airlines": 0.13157894736842105,
+      "Bhoja Air": 0.07894736842105263,
+      "Ethiopian Airlines": 0.07894736842105263,
+      "First Air": 0.07894736842105263,
+      "Hewa Bora Airways": 0.07894736842105263,
+      "Iran Air": 0.07894736842105263,
+      "National Air Cargo, dba National Airlines": 0.07894736842105263,
+      "Tatarstan Airlines": 0.07894736842105263,
+      "UPS Airlines": 0.07894736842105263
+    },
+    "phase_of_flight": {
+      "unknown": 1.0
+    },
+    "route": {
+      "unknown": 1.0
+    },
+    "safety_report_signal": {
+      "unknown": 1.0
+    },
+    "serial_or_registration": {
+      "5N-BJN": 0.07692307692307693,
+      "9Q-COP": 0.07692307692307693,
+      "AP-BKC": 0.07692307692307693,
+      "C-GNWN": 0.07692307692307693,
+      "EP-IRP": 0.07692307692307693,
+      "ET-ANB": 0.07692307692307693,
+      "HK-4682": 0.07692307692307693,
+      "HL7604": 0.07692307692307693,
+      "HL7742": 0.07692307692307693,
+      "N571UP": 0.07692307692307693,
+      "N949CA": 0.07692307692307693,
+      "VQ-BBN": 0.07692307692307693,
+      "VT-AXV": 0.07692307692307693
+    },
+    "severity": {
+      "fatal accident": 0.25,
+      "unknown": 0.75
+    },
+    "system": {
+      "unknown": 1.0
+    }
+  },
+  "model_version": "1.5-scoped",
+  "schema": "bsfm.site-model-15-feature-summary.v1",
+  "signal_windows": [
+    "7d",
+    "30d",
+    "90d"
+  ],
+  "status": "development_only",
+  "training_rows": 13
+}
