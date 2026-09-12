@@ -1,118 +1,118 @@
 {
-  "boeing_rows": 20947,
-  "generated_at": "2026-09-09T13:51:05Z",
+  "boeing_rows": 21359,
+  "generated_at": "2026-09-12T20:44:47Z",
   "interpretation_warning": "An SDR is a service-difficulty report, not necessarily an accident, a verified causal finding, or a BSFM prediction.",
   "latest_boeing_reports": [
     {
-      "component": "WARNING MESSAGE",
+      "component": "SEAL",
+      "condition_code": "O",
+      "date": "2026-09-11",
+      "discrepancy": "THE SUBJECT SEAL-ROTATING CDP HPT DISPLAYS CRACKING TO ALL SEAL TEETH 360\u2019. THE CONDITION IDENTIFIED HAS BEEN EVALUATED AND A RECOMMENDATION TO RETURN TO SERVICE CANNOT BE PROVIDED. FMD HAS BEEN SUBMITTED. TO BE REPORTED",
+      "jasc_code": "7230",
+      "model": "777",
+      "stage_code": "IN"
+    },
+    {
+      "component": "DISK",
+      "condition_code": "O",
+      "date": "2026-09-11",
+      "discrepancy": "THE CONDITION IDENTIFIED HAS BEEN EVALUATED AND A RECOMMENDATION TO RETURN TO SERVICE CANNOT BE PROVIDED. TO BE REPORTED I.A.W AMC-20 8A (J) ANY DEFECT IN A LIFE-CONTROLLED CRITICAL PART THAT CAUSES ITS RETIREMENT BEFORE",
+      "jasc_code": "7250",
+      "model": "777",
+      "stage_code": "IN"
+    },
+    {
+      "component": "ENGINE",
       "condition_code": "J",
-      "date": "2026-09-07",
-      "discrepancy": "PRE-DEPARTURE FOUND CARGO DET AIR MESSAGE SHOWING (FWD DET FAN ON ECS MSG) , MTX DEFERRED FOR DEPARTURE IAW ABX MEL 26-16-1-3-1 MX ACTION C/W PLACARD INSTALLED A/C REMAINS ETOPS 180 . AND RETURNED A/C TO SERVICE.",
-      "jasc_code": "3150",
-      "model": "767375",
+      "date": "2026-09-11",
+      "discrepancy": "DURING ENG START NO - LIGHTOFF. ABORTED ENG START PROCEDURE ACCOMPLISHED. \"L\" IGNITOR 2 & 1 STATUS MESSAGE. CREW RETURNED TO THE GATE (BTB). MTC C/W WITH IGN SYS CK IAW 80-11-00 AND ENG RUN IAW AMM 71-00-00 AND ABX ERH. ",
+      "jasc_code": "8011",
+      "model": "767300",
       "stage_code": "TX"
     },
     {
-      "component": "LIGHT",
+      "component": "FLOOR PANEL",
       "condition_code": "O",
-      "date": "2026-09-07",
-      "discrepancy": "22DEF AND 23 DEF SIDEWALL LIGHT WILL NOT TURN ON ( CABIN INTERIOR ILLUMINATION - WITH GUIDES U PHOTOLUMINESCENT EMERGENCY ESCAPE PATH MARKING SYSTEM INSTALLED.",
-      "jasc_code": "3350",
-      "model": "737900",
+      "date": "2026-09-11",
+      "discrepancy": "PUNCTURE ON FLOOR PANEL 241FFF AT MDCC. FLOOR PANEL 241FFF AT MDCC WAS REPAIRED IAW B767 SRM 53-00-50-2R PAR 4.B FIG 201 SHEET 2 REV 94 DEC 15/2025",
+      "jasc_code": "5321",
+      "model": "767300",
       "stage_code": "IN"
     },
     {
-      "component": "LIGHT",
+      "component": "FLOOR PANEL",
       "condition_code": "O",
-      "date": "2026-09-07",
-      "discrepancy": "AFT GALLEY LIGHT SECTION OF EMERGENCY LIGHTS INOPERATIVE. R & R CHARGER ASSY AFT LEFT IAW AMM 33-51-06-960-806. R & R AFT LEFT BATTERY PACK IAW AMM 33-51-06-960-805. OPS CHKD GOOD.",
-      "jasc_code": "3350",
-      "model": "7378Q8",
+      "date": "2026-09-11",
+      "discrepancy": "PUNCTURE ON FLOOR PANEL 242UFF AT MDCC FLOOR PANEL 242UFF AT MDCC WAS REPAIRED IAW B767 SRM 53-00-50-2R PAR 4.B FIG 201 SHEET2 REV94 DEC 15/2025",
+      "jasc_code": "5321",
+      "model": "767300",
       "stage_code": "IN"
     },
     {
-      "component": "WARNING MESSAGE",
-      "condition_code": "N",
-      "date": "2026-09-06",
-      "discrepancy": "DURING APPROACH MESSAGE \"FIRE/ OVHT SYS\" ILLUMINATED , MTX PERFORMED AFOLTS TEST IAW B767 AMM 26-10-00. OPS CHECK GOOD. NFF RETURNED A/C TO SERVICE.",
-      "jasc_code": "2612",
-      "model": "76731K",
-      "stage_code": "AP"
-    },
-    {
-      "component": "BATTERY PACK",
-      "condition_code": "L",
-      "date": "2026-09-06",
-      "discrepancy": "ON SVC CHECK FOUND FWD LH GALLEY EMERGENCY EXIT LIGHTS NOT WORKING. REMOVED & REPLACED EMERGENCY EXIT BATTEY IAW AMM 33-51-06-960-805. OPS CHECK GOOD. AC OK FOR SERVICE. LOCATION M1674",
-      "jasc_code": "3350",
-      "model": "7378EH",
-      "stage_code": "IN"
-    },
-    {
-      "component": "PIN",
+      "component": "FLOOR PANEL",
       "condition_code": "O",
-      "date": "2026-09-06",
-      "discrepancy": "L2 DOOR SLIDE ASSY HAS BLOCKER, LATCH ASSY, BROKEN PIN. OPEN.",
-      "jasc_code": "2565",
-      "model": "7378BK",
+      "date": "2026-09-11",
+      "discrepancy": "PUNCTURE ON FLOOR PANEL 242EFF AT MDCC. FLOOR PANEL 242 EFF AT MDCC WAS REPAIRED IAW B767 SRM 53-00-50-2R PAR 4.B FIG. 201 SHEET 2 REV 94 DEC 15/2025",
+      "jasc_code": "5321",
+      "model": "767300",
       "stage_code": "IN"
     },
     {
-      "component": "WINDOW",
-      "condition_code": "B",
-      "date": "2026-09-06",
-      "discrepancy": "R1 WINDOW ELECTRICAL ARCING ON 2 CONTACT POINTS. ELECTRICALLY HEATED WINDSHIELDS, NR 1 WINDOW. REMOVED AND REPLACED R1 WINDSHIELD IAW AMM 56-11-11. R & R R1 WIPER BLADE IAW AMM 30-42-11, ALL OPS CHECK GOOD AND LEAK CHECK",
-      "jasc_code": "3040",
-      "model": "73786N",
+      "component": "FLAP SYSTEM",
+      "condition_code": "J",
+      "date": "2026-09-11",
+      "discrepancy": "WHEN FLAPS 20 SELECTED ON ARRIVAL TE FLAPS DISAGREE EICAS ALERT. TE FLAPS STOPPED AT APPROXIMATELY 18 DEGREES. DECLARED EMERGENCY, ACCOMPLISHED QRH PROCEDURE, LANDED FLAPS 20. ***EMERGENCY DECLARED***",
+      "jasc_code": "2750",
+      "model": "7572Q8",
       "stage_code": "NR"
     },
     {
-      "component": "LIGHT",
+      "component": "SLAT",
       "condition_code": "O",
-      "date": "2026-09-06",
-      "discrepancy": "LEFT SIDE EXIT PATH LIGHT ROW 10-12 LIGHTING STRIP LIFTING DA34012. SECURED FLOOR STRIPPING LIGHTING IAW CMM 33-51-07. OPS CHECKED GOOD.",
-      "jasc_code": "3350",
-      "model": "737800*",
+      "date": "2026-09-10",
+      "discrepancy": "NR# 0005: #4 SLAT LWR SURFACE IS GOUGED APPROXIMATELY 36 INCHES FROM INBD EDGE. REPAIRED L/H WING #4 SLAT T/E WEDGE TOP SKIN AT WS 546.2 IN REF. TO 767 SRM 57-43-02-2R AND 767 SRM 51-70-10-2R. THIS IS A MAJOR REPAIR. SEE",
+      "jasc_code": "5754",
+      "model": "7673S2F",
       "stage_code": "IN"
     },
     {
-      "component": "UNKNOWN",
-      "condition_code": "B",
-      "date": "2026-09-04",
-      "discrepancy": "AFTER TAKE OFF THERE WAS A BURNING ODOR DESCRIBED AS A RUBBER SMELL THAT WAS OBSERVED FROM DOOR 1 THROUGH TO DOOR 2. THE ODOR WAS PRESENT FOR APPROXIMATELY 8 MINUTES. AFTER 8 MINUTES THE ODOR HAD DISSIPATED AND WAS NO LO",
-      "jasc_code": "2120",
-      "model": "7879",
-      "stage_code": "CL"
-    },
-    {
-      "component": "LIGHT",
+      "component": "FLOOR PANEL",
       "condition_code": "O",
-      "date": "2026-09-04",
-      "discrepancy": "AIRCRAFT WAS NOT GROUNDED: ESCAPE PATH LIGHTING ON GALLEY G-3 ELECTRICAL WIRES ARE BROKEN. MAINTENANCE REPLACED FLOOR PROXIMITY LIGHTS BROKEN AT GALLEY G3 IAW AMM 33-51-05. OPS CKD OK.",
-      "jasc_code": "3350",
-      "model": "777223",
+      "date": "2026-09-10",
+      "discrepancy": "PUNCTURED FLOOR PANEL 242UFF IN THE MAIN DECK CARGO COMPARTMENT. (TWO LOCATIONS) FLOOR PANEL 242 UFF IN THE MAIN DECK CARGO COMPARTMENT WAS REPAIRED IAW SRM 53-00- 50-2RPAR. 4-B FIG. 201 SHEET 2 REV. 94. DEC 15/2025",
+      "jasc_code": "5321",
+      "model": "7673S2F",
       "stage_code": "IN"
     },
     {
-      "component": "LAMP",
-      "condition_code": "L",
-      "date": "2026-09-04",
-      "discrepancy": "EMERGENCY LIGHTS - OPERATIONAL TEST WITH THE TEST SWITCHES PROCEDURE - EMERGENCY AISLE ILLUMINATION LIGHT AT SEAT 47 LKJ INOP RELAMPED EMERGENCY AISLE ILLUMINATION LIGHT AT SEAT 47LKJ, REF AMM 33-51-03. OP CHECK GOOD PAR",
-      "jasc_code": "3350",
-      "model": "777222",
+      "component": "FLOOR PANEL",
+      "condition_code": "O",
+      "date": "2026-09-10",
+      "discrepancy": "BROKEN FIBERS ON FLOOR PANEL 241MFF IN THE MAIN DECK CARGO COMPARTMENT (ONE LOCATION) FLOOR PANEL 241MFF IN THE MAIN DECK CARGO COMPARTMENT WAS REPAIRED IAW SRM 53-00- 50-2R PAR 4-B FIG 201 SHEET2 REV 94 DEC. 15/2025",
+      "jasc_code": "5321",
+      "model": "7673S2F",
       "stage_code": "IN"
     },
     {
-      "component": "NONE",
-      "condition_code": "X",
-      "date": "2026-09-04",
-      "discrepancy": "DURING CRUISE, THE FLIGHT CREW EXPERIENCED A SHUTDOWN OF THE LEFT ENGINE AND SUBSEQUENTLY DIVERTED THE AIRCRAFT TO PUNTA CANA (PUJ). THE AIRCRAFT LANDED SAFELY IN PUJ AT APPROXIMATELY 1256Z. PRELIMINARY INFORMATION RECEI",
-      "jasc_code": "5100",
-      "model": "7673Y0",
-      "stage_code": "CR"
+      "component": "FLOOR PANEL",
+      "condition_code": "O",
+      "date": "2026-09-10",
+      "discrepancy": "BROKEN FIBERS ON THE OUTER SURFACE OF FLOOR PANEL 241FFF. (TWO LOCATIONS). FLOOR PANEL 241FFF, WAS REPAIRED IAW B767 SRM 53-00-50-2R PAR 4-B FIG 201 SHEET 2 REV 94 DEC 15/2025",
+      "jasc_code": "5321",
+      "model": "7673S2F",
+      "stage_code": "IN"
+    },
+    {
+      "component": "FLOOR PANEL",
+      "condition_code": "O",
+      "date": "2026-09-10",
+      "discrepancy": "PUNCTURE FLOOR PANEL 241WFF IN THE MAIN DECK CARGO COMPARTMENT. (ONE LOCATION) FLOOR PANEL 241WFF IN THE MAIN DECK CARGO COMPARTMENT WAS REPAIRED IAW B767 SRM 53-00-50-2R PAR 4-B FIG 201 SHEET 2 REV.94 DEC 15/2025",
+      "jasc_code": "5321",
+      "model": "7673S2F",
+      "stage_code": "IN"
     }
   ],
-  "latest_observation_date": "2026-09-07",
+  "latest_observation_date": "2026-09-11",
   "ntsb_snapshot": {
     "availability_known": 0,
     "boeing_rows": 1894,
@@ -128,9 +128,27 @@
     "scope": "Current official AVALL event-aircraft snapshot used as outcome evidence, not as a global census.",
     "source": "NTSB AVALL"
   },
-  "rows_total": 39625,
+  "rows_total": 40474,
   "schema": "bsfm.public-real-data.v1",
   "similar_boeing_reports": [
+    {
+      "component": "TIRE",
+      "condition_code": "E",
+      "date": "2026-09-05",
+      "discrepancy": "AIRCRAFT WAS GROUNDED: NR 2 MLG TIRE REPORTED BLOWN ON LANDING. AIRCRAFT TAXIED TO GATE. MAINTENANCE REPLACED NR 2 MLG TIRE IAW AMM 31-45-11 OPS CK GOOD.",
+      "jasc_code": "3244",
+      "model": "737823",
+      "record_type": "service_difficulty_report",
+      "similarity_score": 11,
+      "similarity_tags": [
+        "exact_model",
+        "family_737_ng",
+        "approach_landing",
+        "gear_structural_cluster"
+      ],
+      "source": "FAA SDR",
+      "stage_code": "LD"
+    },
     {
       "component": "TIRE",
       "condition_code": "O",
@@ -240,29 +258,12 @@
       "stage_code": "NR"
     },
     {
-      "component": "COFFEEMAKER",
-      "condition_code": "B",
-      "date": "2026-09-04",
-      "discrepancy": "AIRCRAFT WAS GROUNDED: REPEAT WRITE UP: ON FINAL APPROACH AND AFTER LANDING FLIGHT ATTENDANTS REPORTED A BURNING SMELL IN THE AFT AND FORWARD GALLEYS. THIS IS A REPEAT WRITE UP. MX FOUND FOUND FWD GALLEY OVEN NR 1 BURNIN",
-      "jasc_code": "2530",
-      "model": "7378",
-      "record_type": "service_difficulty_report",
-      "similarity_score": 9,
-      "similarity_tags": [
-        "exact_model",
-        "family_737_ng",
-        "approach_landing"
-      ],
-      "source": "FAA SDR",
-      "stage_code": "LD"
-    },
-    {
-      "component": "OVEN",
-      "condition_code": "B",
-      "date": "2026-09-03",
-      "discrepancy": "AIRCRAFT WAS NOT GROUNDED: ON FINAL APPROACH AND AFTER LANDING, FLIGHT ATTENDANTS REPORTED A BURNING SMELL IN THE AFT AND FORWARD GALLEYS. MX COULD NOT REPRPRODUCE. ON NEXT FLIGHT ODOR REAPIRED AND MX FOUND FOUND FWD GAL",
-      "jasc_code": "2530",
-      "model": "7378",
+      "component": "WARNING MESSAGE",
+      "condition_code": "N",
+      "date": "2026-09-07",
+      "discrepancy": "BOTH MAIN CARGO DOOR LIGHT ILLUMINATED ON LANDING, FO LIGHT WENT OUT, CAPT'S REMAINED ON, PRESSURE REMAINED NORMAL NO CONTROL ISSUES WERE NOTED, ALTITUDE WAS 10,000 FEET. PERFORMED OPS CHECK OF THE MAIN CARGO DOOR IAW IA",
+      "jasc_code": "5270",
+      "model": "737883",
       "record_type": "service_difficulty_report",
       "similarity_score": 9,
       "similarity_tags": [
@@ -279,99 +280,99 @@
   "source_scope": "Official current-year FAA SDR export; Boeing rows only for model-oriented summaries.",
   "top_condition_codes": [
     {
-      "count": 16141,
+      "count": 16466,
       "value": "O"
     },
     {
-      "count": 1930,
+      "count": 1965,
       "value": "L"
     },
     {
-      "count": 973,
+      "count": 992,
       "value": "J"
     },
     {
-      "count": 745,
+      "count": 755,
       "value": "B"
     },
     {
-      "count": 259,
+      "count": 264,
       "value": "N"
     },
     {
-      "count": 184,
+      "count": 185,
       "value": "K"
     },
     {
-      "count": 112,
+      "count": 115,
       "value": "W"
     },
     {
-      "count": 109,
+      "count": 110,
       "value": "F"
     }
   ],
   "top_models": [
     {
-      "count": 2451,
+      "count": 2501,
       "value": "7378H4"
     },
     {
-      "count": 2420,
+      "count": 2449,
       "value": "7377H4"
     },
     {
-      "count": 2155,
+      "count": 2169,
       "value": "737823"
     },
     {
-      "count": 1453,
+      "count": 1478,
       "value": "7378"
     },
     {
-      "count": 932,
+      "count": 946,
       "value": "737824"
     },
     {
-      "count": 857,
+      "count": 884,
       "value": "75724APF"
     },
     {
-      "count": 618,
+      "count": 625,
       "value": "76734AF"
     },
     {
-      "count": 525,
+      "count": 531,
       "value": "717200"
     }
   ],
   "top_stage_codes": [
     {
-      "count": 17081,
+      "count": 17428,
       "value": "IN"
     },
     {
-      "count": 1028,
+      "count": 1041,
       "value": "TX"
     },
     {
-      "count": 795,
+      "count": 812,
       "value": "NR"
     },
     {
-      "count": 729,
+      "count": 748,
       "value": "CL"
     },
     {
-      "count": 720,
+      "count": 726,
       "value": "CR"
     },
     {
-      "count": 169,
+      "count": 173,
       "value": "TO"
     },
     {
-      "count": 162,
+      "count": 163,
       "value": "AP"
     },
     {
