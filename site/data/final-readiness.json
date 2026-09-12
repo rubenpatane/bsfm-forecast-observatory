@@ -12,7 +12,7 @@
     "baseline_present": false,
     "calibration_evaluated": false,
     "candidate_better_than_baseline": false,
-    "historical_cases": true,
+    "historical_cases": false,
     "leakage_free": false,
     "paired_baseline_comparison": false,
     "point_in_time_availability_verified": false
