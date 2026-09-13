@@ -34,12 +34,21 @@ def train(root=Path("."), cutoff="2026-09-06"):
     family = predict_cohort(hazard, {r["cohort"]: r["departures"] for r in exp})
     bundle = build_development_bundle(root)
     daily = []
-    for d, values in bundle["euronova_daily_boeing"].items():
-        agg = {c: 0 for c in cohorts}
-        for typ, n in values.items():
-            fam = cohort_from_icao_equipment(typ)
-            if fam: agg["737-all-variants" if fam.startswith("737-") else fam] += n
-        daily.append({"date": d, **agg})
+    opdi_rows = (bundle.get("opdi_daily_exposure") or {}).get("rows", [])
+    if opdi_rows:
+        by_date = {}
+        for r in opdi_rows:
+            d = r.get("date"); fam = r.get("family")
+            if not d or fam not in cohorts: continue
+            by_date.setdefault(d, {"date": d, **{c: 0 for c in cohorts}})[fam] += float(r.get("flights", 0) or 0)
+        daily = [by_date[d] for d in sorted(by_date)]
+    else:
+        for d, values in bundle["euronova_daily_boeing"].items():
+            agg = {c: 0 for c in cohorts}
+            for typ, n in values.items():
+                fam = cohort_from_icao_equipment(typ)
+                if fam: agg["737-all-variants" if fam.startswith("737-") else fam] += n
+            daily.append({"date": d, **agg})
     # Never let a historical exposure path produce a future forecast date.
     future_daily = [r for r in daily if str(r.get("date", ""))[:10] > cutoff]
     if future_daily:
